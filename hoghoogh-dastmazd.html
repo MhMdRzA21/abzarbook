@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>حقوق و دستمزد ۱۴۰۵ | ابزاربوک</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap">
 <meta name="description" content="محاسبه آنلاین عیدی، سنوات/پاداش پایان خدمت و مالیات حقوق برای کارگر قانون کار، کارمند دولت و نیروی مسلح، بر اساس مصوبات ۱۴۰۵.">
 <meta property="og:title" content="حقوق و دستمزد ۱۴۰۵ | ابزاربوک">
 <meta property="og:description" content="محاسبه رایگان عیدی، سنوات و مالیات حقوق بر اساس مصوبات ۱۴۰۵.">
@@ -17,6 +16,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);
+ --dolphin:#b9cdd1;--dolphin-ink:#2c4a52;
  --bg:#f3ede0;--ink:#211d14;--mute:#7d7257;--rule:#d6c9a3;--card:#faf6ea;--stamp:#7a1f1f;--stamp-soft:#f1e2de;--accent:#a8681c;--accent-ink:#fff8ea;}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
  --bg:#15130e;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--card:#1d1a12;--stamp:#c23c3c;--stamp-soft:#2b1a18;--accent:#d9a648;--accent-ink:#241803;}}
@@ -26,7 +26,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.95}
 main{max-width:700px;margin:0 auto;padding:18px 16px 60px}
 
-.backlink{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--mute);text-decoration:none;margin-bottom:14px;font-family:'Lalezar',Vazirmatn,sans-serif}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--mute);text-decoration:none;margin-bottom:14px}
 .letterhead{display:flex;align-items:center;gap:14px;border-bottom:3px double var(--rule);padding-bottom:16px;margin-bottom:16px;flex-wrap:wrap}
 .lh-icn{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;background:linear-gradient(155deg,#a1333f,#7a1f1f)}
 .letterhead .lh-text{flex:1;min-width:0}
@@ -86,7 +86,7 @@ details{border-radius:10px;border:1px solid var(--rule);border-bottom:1px solid 
 .copyBtn{border-radius:8px}
 
 /* بافت ظریف کاغذ دفترداری */
-body{background-image:radial-gradient(color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 1px);background-size:24px 24px;background-position:-4px -4px}
+body{background-color:var(--dolphin);background-image:repeating-linear-gradient(45deg, color-mix(in srgb, var(--dolphin-ink) 10%, transparent) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dolphin-ink) 8%, transparent) 0 2px, transparent 2px 9px)}
 /* نشانه گرافیکی سؤال روی هر آکاردئون */
 details{position:relative}
 details>summary{padding-right:30px;list-style:none}
@@ -101,11 +101,9 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 </head>
 <body>
 <main>
-<a href="/" class="backlink">
-<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.6" stroke="currentColor" stroke-width="1.1"/><circle cx="7.5" cy="7.5" r="1.4" fill="currentColor"/></svg>
-ابزاربوک</a>
+<a href="/" class="backlink">ابزاربوک</a>
 <div class="letterhead">
-  <div class="lh-icn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M6 9v0M18 15v0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+  <div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M6 9v0M18 15v0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
   <div class="lh-text"><h1>ابزار حقوق و دستمزد</h1><p>عیدی، سنوات/پاداش پایان خدمت و مالیات — مصوبات ۱۴۰۵</p><p style="font-size:.74rem;margin-top:3px">به‌روزرسانی: مهر ۱۴۰۵</p></div>
   <div class="today" id="today"></div>
 </div>
@@ -190,7 +188,7 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);
 document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};
 </script>
-<p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/rahn-vam.html" style="color:var(--accent)">رهن، اجاره و وام ازدواج</a> · <a href="/text-tools.html" style="color:var(--accent)">ابزار متن فارسی</a> · <a href="/vahed.html" style="color:var(--accent)">مبدل واحد</a> · <a href="/salamat.html" style="color:var(--accent)">محاسبه‌گر سلامت</a> · <a href="/size-chart.html" style="color:var(--accent)">مبدل سایز</a> · <a href="/etebarsanji.html" style="color:var(--accent)">اعتبارسنجی شبا و کد ملی</a></p>
+<p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/rahn-vam.html" style="color:var(--accent)">رهن، اجاره و وام ازدواج</a> · <a href="/text-tools.html" style="color:var(--accent)">ابزار متن فارسی</a> · <a href="/vahed.html" style="color:var(--accent)">مبدل واحد</a> · <a href="/salamat.html" style="color:var(--accent)">محاسبه‌گر سلامت</a> · <a href="/size-chart.html" style="color:var(--accent)">مبدل سایز</a> · <a href="/etebarsanji.html" style="color:var(--accent)">اعتبارسنجی شبا و کد ملی</a> · <a href="/taghvim.html" style="color:var(--accent)">تبدیل تاریخ</a></p>
 </main>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
