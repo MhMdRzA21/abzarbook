@@ -55,6 +55,7 @@ details p{margin:8px 0 0;color:var(--mute);font-size:.92rem}
 
 /* بافت ظریف کاغذ دفترداری */
 body{background-color:var(--dolphin);background-image:repeating-linear-gradient(45deg, color-mix(in srgb, var(--dolphin-ink) 10%, transparent) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dolphin-ink) 8%, transparent) 0 2px, transparent 2px 9px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
 /* نشانه گرافیکی سؤال روی هر آکاردئون */
 details{position:relative}
 details>summary{padding-right:30px;list-style:none}
@@ -66,6 +67,12 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
   main{max-width:870px}
 }
 </style>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4f6b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
 </head>
 <body>
 <main>

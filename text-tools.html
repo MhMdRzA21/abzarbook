@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ابزار متن فارسی | ابزاربوک</title>
-<meta name="description" content="تبدیل کیبورد فارسی به انگلیسی و بالعکس، اصلاح نیم‌فاصله، تبدیل عدد به حروف فارسی و تبدیل تاریخ شمسی و میلادی.">
+<meta name="description" content="تبدیل کیبورد فارسی به انگلیسی و بالعکس، اصلاح نیم‌فاصله و تبدیل عدد به حروف فارسی — رایگان و آفلاین.">
 <meta property="og:title" content="ابزار متن فارسی | ابزاربوک">
-<meta property="og:description" content="تبدیل کیبورد، نیم‌فاصله، عدد به حروف و تاریخ — رایگان و آفلاین.">
+<meta property="og:description" content="تبدیل کیبورد، نیم‌فاصله و عدد به حروف — رایگان و آفلاین.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:url" content="https://abzarbook.com/text-tools.html">
@@ -34,7 +34,7 @@ main{max-width:720px;margin:0 auto;padding:18px 16px 56px}
 .today{font-size:.8rem;color:var(--mute);background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:5px 10px;white-space:nowrap;flex:none}
 h1{font-size:1.45rem;font-weight:800;margin:0 0 2px}
 .sub{color:var(--mute);margin:0 0 18px;font-size:.9rem}
-.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
 .tabs button{border:1px solid var(--rule);background:var(--card);color:var(--mute);font:inherit;font-size:.8rem;font-weight:700;padding:9px 2px;border-radius:9px;cursor:pointer}
 .tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px}
@@ -66,7 +66,7 @@ input,select{box-shadow:inset 0 1px 2px rgba(20,16,8,.04);transition:border-colo
 input:focus-visible,select:focus-visible{border-color:var(--accent)}
 .tabs{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:4px}
 .tabs button{border-radius:8px!important}
-.tabs button[aria-selected="true"]{background:color-mix(in srgb,var(--accent) 14%,transparent);border-bottom-color:transparent!important}
+.tabs button[aria-selected="true"]{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--ink);border-bottom-color:transparent!important}
 .typebar{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:4px}
 .typebar button{border:0!important;border-radius:8px!important}
 .subtabs button[aria-selected="true"]{box-shadow:0 4px 10px -5px color-mix(in srgb,var(--accent2) 60%,transparent)}
@@ -78,6 +78,7 @@ details{border-radius:10px;border:1px solid var(--rule);border-bottom:1px solid 
 
 /* بافت ظریف کاغذ دفترداری */
 body{background-color:var(--dolphin);background-image:repeating-linear-gradient(45deg, color-mix(in srgb, var(--dolphin-ink) 10%, transparent) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dolphin-ink) 8%, transparent) 0 2px, transparent 2px 9px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
 /* نشانه گرافیکی سؤال روی هر آکاردئون */
 details{position:relative}
 details>summary{padding-right:30px;list-style:none}
@@ -89,20 +90,25 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
   main{max-width:830px}
 }
 </style>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4f6b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
 </head>
 <body>
 <main>
 <a href="/" class="backlink">ابزاربوک</a>
 <div class="letterhead">
   <div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><path d="M4 20l1.2-4.2L16.6 4.4a1.6 1.6 0 0 1 2.3 0l0.7.7a1.6 1.6 0 0 1 0 2.3L8.2 18.8 4 20z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14.5 6.5l3 3" stroke="currentColor" stroke-width="1.5"/></svg></div>
-  <div class="lh-text"><h1>ابزار متن فارسی</h1><p>کیبورد، نیم‌فاصله، عدد به حروف و تبدیل تاریخ — همه آفلاین در مرورگر، بدون ارسال متن به هیچ سروری.</p><p style="font-size:.74rem;margin-top:3px">به‌روزرسانی: مهر ۱۴۰۵</p></div>
+  <div class="lh-text"><h1>ابزار متن فارسی</h1><p>کیبورد، نیم‌فاصله و عدد به حروف — همه آفلاین در مرورگر، بدون ارسال متن به هیچ سروری.</p><p style="font-size:.74rem;margin-top:3px">به‌روزرسانی: مهر ۱۴۰۵</p></div>
 </div>
 
 <div class="tabs" role="tablist">
   <button role="tab" id="t1" aria-selected="true">کیبورد</button>
   <button role="tab" id="t2" aria-selected="false">نیم‌فاصله</button>
   <button role="tab" id="t3" aria-selected="false">عدد به حروف</button>
-  <button role="tab" id="t4" aria-selected="false">تاریخ</button>
 </div>
 <!-- کیبورد -->
 <section class="card" id="p1">
@@ -135,19 +141,6 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
   <div class="res" id="numRes"></div>
 </section>
 
-<!-- تاریخ -->
-<section class="card" id="p4" hidden>
-  <label>تبدیل شمسی به میلادی</label>
-  <div class="grid3"><input id="jy" placeholder="سال" value="1405"><input id="jm" placeholder="ماه" value="7"><input id="jd" placeholder="روز" value="15"></div>
-  <div class="btnrow"><button class="go" id="j2gGo">تبدیل به میلادی</button></div>
-  <div class="res" id="j2gRes"></div>
-  <hr style="border-color:var(--rule);margin:20px 0">
-  <label>تبدیل میلادی به شمسی</label>
-  <div class="grid3"><input id="gy" placeholder="سال" value="2026"><input id="gm" placeholder="ماه" value="10"><input id="gd" placeholder="روز" value="7"></div>
-  <div class="btnrow"><button class="go" id="g2jGo">تبدیل به شمسی</button></div>
-  <div class="res" id="g2jRes"></div>
-  <p style="font-size:.82rem;margin-top:14px;color:var(--mute)">برای تبدیل تاریخ قمری، نمایش روز هفته و حالت «امروز»، از ابزار اختصاصی <a href="/taghvim.html" style="color:var(--accent)">تبدیل تاریخ</a> استفاده کنید.</p>
-</section>
 
 <h2>سؤالات متداول</h2>
 <details><summary>چرا متنم با کیبورد انگلیسی به‌هم‌ریخته شده؟</summary><p>وقتی کیبورد سیستم روی انگلیسی است ولی شما فارسی تایپ می‌کنید (یا برعکس)، هر حرف با حرفِ همان دکمه در زبان دیگر جایگزین می‌شود. این ابزار بر اساس چیدمان استاندارد ملی ایران (ISIRI 9147) آن را برمی‌گرداند.</p></details>
@@ -163,7 +156,7 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);
 document.getElementById("copyLink2").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};
 </script>
-<p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/hoghoogh-dastmazd.html" style="color:var(--accent)">حقوق و دستمزد</a> · <a href="/rahn-vam.html" style="color:var(--accent)">رهن، اجاره و وام ازدواج</a> · <a href="/vahed.html" style="color:var(--accent)">مبدل واحد</a> · <a href="/salamat.html" style="color:var(--accent)">محاسبه‌گر سلامت</a> · <a href="/size-chart.html" style="color:var(--accent)">مبدل سایز</a> · <a href="/etebarsanji.html" style="color:var(--accent)">اعتبارسنجی شبا و کد ملی</a></p>
+<p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/hoghoogh-dastmazd.html" style="color:var(--accent)">حقوق و دستمزد</a> · <a href="/rahn-vam.html" style="color:var(--accent)">رهن، اجاره و وام ازدواج</a> · <a href="/vahed.html" style="color:var(--accent)">مبدل واحد</a> · <a href="/salamat.html" style="color:var(--accent)">محاسبه‌گر سلامت</a> · <a href="/size-chart.html" style="color:var(--accent)">مبدل سایز</a> · <a href="/etebarsanji.html" style="color:var(--accent)">اعتبارسنجی شبا و کد ملی</a> · <a href="/ramz.html" style="color:var(--accent)">رمزساز</a></p>
 </main>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -173,8 +166,8 @@ document.getElementById("copyLink2").onclick=function(){navigator.clipboard.writ
 </script>
 
 <script>
-function show(n){ [1,2,3,4].forEach(i=>{document.getElementById("p"+i).hidden=i!==n; document.getElementById("t"+i).setAttribute("aria-selected", i===n);}); }
-[1,2,3,4].forEach(i=>document.getElementById("t"+i).onclick=()=>show(i));
+function show(n){ [1,2,3].forEach(i=>{document.getElementById("p"+i).hidden=i!==n; document.getElementById("t"+i).setAttribute("aria-selected", i===n);}); }
+[1,2,3].forEach(i=>document.getElementById("t"+i).onclick=()=>show(i));
 
 // ===== ۱) تبدیل کیبورد (بر اساس استاندارد ملی ISIRI 9147) =====
 const faToEn = {ض:'q',ص:'w',ث:'e',ق:'r',ف:'t',غ:'y',ع:'u',ه:'i',خ:'o',ح:'p',ج:']',چ:'[',
@@ -231,48 +224,6 @@ document.getElementById("numGo").onclick=()=>{
   r.innerHTML = `<div class="big">${numToWords(n)}</div>`;
 };
 
-// ===== ۴) تبدیل تاریخ =====
-function g2j(gy,gm,gd){
-  const gdm=[0,31,59,90,120,151,181,212,243,273,304,334];
-  let jy=(gy<=1600)?0:979; gy-=(gy<=1600)?621:1600;
-  const gy2=(gm>2)?gy+1:gy;
-  let days=365*gy+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)-80+gd+gdm[gm-1];
-  jy+=33*Math.floor(days/12053); days%=12053;
-  jy+=4*Math.floor(days/1461); days%=1461;
-  if(days>365){ jy+=Math.floor((days-1)/365); days=(days-1)%365; }
-  const jm=(days<186)?1+Math.floor(days/31):7+Math.floor((days-186)/30);
-  const jd=1+((days<186)?(days%31):((days-186)%30));
-  return [jy,jm,jd];
-}
-function j2g(jy,jm,jd){
-  jy=parseInt(jy)+1595;
-  let days=-355668+(365*jy)+(Math.floor(jy/33)*8)+Math.floor(((jy%33)+3)/4)+jd+((jm<7)?(jm-1)*31:((jm-7)*30)+186);
-  let gy=400*Math.floor(days/146097); days%=146097;
-  if(days>36524){ gy+=100*Math.floor(--days/36524); days%=36524; if(days>=365) days++; }
-  gy+=4*Math.floor(days/1461); days%=1461;
-  if(days>365){ gy+=Math.floor((days-1)/365); days=(days-1)%365; }
-  let gd=days+1;
-  const leap=(gy%4===0&&gy%100!==0)||(gy%400===0);
-  const sal=[0,31,leap?29:28,31,30,31,30,31,31,30,31,30,31];
-  let gm; for(gm=1;gm<13;gm++){ if(gd<=sal[gm]) break; gd-=sal[gm]; }
-  return [gy,gm,gd];
-}
-const monthsJ=["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
-const monthsG=["ژانویه","فوریه","مارس","آوریل","مه","ژوئن","ژوئیه","اوت","سپتامبر","اکتبر","نوامبر","دسامبر"];
-document.getElementById("j2gGo").onclick=()=>{
-  const jy=+document.getElementById("jy").value, jm=+document.getElementById("jm").value, jd=+document.getElementById("jd").value;
-  if(!jy||!jm||!jd){ document.getElementById("j2gRes").classList.remove("on"); return; }
-  const [gy,gm,gd]=j2g(jy,jm,jd);
-  const r=document.getElementById("j2gRes"); r.classList.add("on");
-  r.innerHTML=`<div class="big">${gd} ${monthsG[gm-1]} ${gy}</div><p style="color:var(--mute);margin:6px 0 0">${gy}/${String(gm).padStart(2,'0')}/${String(gd).padStart(2,'0')} میلادی</p>`;
-};
-document.getElementById("g2jGo").onclick=()=>{
-  const gy=+document.getElementById("gy").value, gm=+document.getElementById("gm").value, gd=+document.getElementById("gd").value;
-  if(!gy||!gm||!gd){ document.getElementById("g2jRes").classList.remove("on"); return; }
-  const [jy,jm,jd]=g2j(gy,gm,gd);
-  const r=document.getElementById("g2jRes"); r.classList.add("on");
-  r.innerHTML=`<div class="big">${jd} ${monthsJ[jm-1]} ${jy}</div><p style="color:var(--mute);margin:6px 0 0">${jy}/${String(jm).padStart(2,'0')}/${String(jd).padStart(2,'0')} شمسی</p>`;
-};
 </script>
 </body>
 </html>

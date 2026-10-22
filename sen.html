@@ -63,8 +63,15 @@ details[open]::before{background:var(--accent2);color:#fff}
 .share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
 .share-btn:hover{border-color:var(--accent2)}
 body{background-color:var(--dolphin);background-image:repeating-linear-gradient(45deg, color-mix(in srgb, var(--dolphin-ink) 10%, transparent) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dolphin-ink) 8%, transparent) 0 2px, transparent 2px 9px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
 @media (min-width:860px){ main{max-width:830px} .res-grid{grid-template-columns:1fr 1fr} }
 </style>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4f6b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
 </head>
 <body>
 <main>

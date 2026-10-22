@@ -90,6 +90,7 @@ a.row:hover .arrow{transform:translateX(-3px);border-color:var(--accent);color:v
 
 /* بافت ظریف کاغذ دفترداری */
 body{background-color:var(--dolphin);background-image:repeating-linear-gradient(45deg, color-mix(in srgb, var(--dolphin-ink) 10%, transparent) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dolphin-ink) 8%, transparent) 0 2px, transparent 2px 9px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
 /* نشانه گرافیکی سؤال روی هر آکاردئون (در صورت وجود در صفحات دیگر) */
 details{position:relative}
 details>summary{padding-right:30px;list-style:none}
@@ -106,6 +107,12 @@ details[open]::before{background:var(--accent2);color:#fff}
   .why{grid-template-columns:repeat(3,1fr)}
 }
 </style>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4f6b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
 </head>
 <body>
 <main>
@@ -122,12 +129,12 @@ details[open]::before{background:var(--accent2);color:#fff}
     <h1 class="brand-name">ابزاربوک</h1>
     <p class="free-tag">ابزارهای آنلاین کاملاً رایگان</p>
     <span class="domain">abzarbook.com</span>
-    <p class="subtag">عیدی و سنوات، رهن به اجاره و وام، مبدل واحد، محاسبه‌گر سلامت، سایز پوشاک، اعتبارسنجی شبا و کد ملی، ابزارهای متن فارسی، تبدیل تاریخ، محاسبه سن و ساخت کد QR — هر عدد همین‌جا در مرورگر شما محاسبه می‌شود.</p>
+    <p class="subtag">عیدی و سنوات، رهن به اجاره و وام، مبدل واحد، محاسبه‌گر سلامت، سایز پوشاک، اعتبارسنجی شبا و کد ملی، ابزارهای متن فارسی، تبدیل تاریخ، محاسبه سن، ساخت کد QR و رمزساز — هر عدد همین‌جا در مرورگر شما محاسبه می‌شود.</p>
 
     <div class="stats">
       <div class="stat">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <span><b>۱۰</b>ابزار رایگان</span>
+        <span><b>۱۱</b>ابزار رایگان</span>
       </div>
       <div class="stat">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -139,6 +146,11 @@ details[open]::before{background:var(--accent2);color:#fff}
       </div>
     </div>
   </section>
+
+  <div style="text-align:center;margin:18px 0 0">
+    <button id="installBtn" hidden style="font:inherit;font-weight:800;border:0;border-radius:999px;padding:11px 22px;background:linear-gradient(155deg,#2c4f6b,#1b3346);color:#fff;cursor:pointer;box-shadow:0 8px 18px -8px rgba(27,51,70,.6)">📲 نصب ابزاربوک روی گوشی</button>
+    <p style="font-size:.8rem;color:var(--ink);margin:8px 0 0;opacity:.75">بعد از نصب، همه ابزارها حتی بدون اینترنت کار می‌کنند.</p>
+  </div>
 
   <div class="section-label"><h2>ابزارها</h2><div class="ln"></div></div>
 
@@ -179,8 +191,8 @@ details[open]::before{background:var(--accent2);color:#fff}
       </span>
       <span class="rbody">
         <span class="rtitle">ابزار متن فارسی</span>
-        <span class="rdesc">تبدیل کیبورد فارسی⇄انگلیسی، اصلاح نیم‌فاصله، عدد به حروف، و تبدیل تاریخ شمسی⇄میلادی.</span>
-        <span class="chips"><span class="chip">کیبورد</span><span class="chip">نیم‌فاصله</span><span class="chip">تاریخ</span></span><br>
+        <span class="rdesc">تبدیل کیبورد فارسی⇄انگلیسی، اصلاح نیم‌فاصله، و عدد به حروف.</span>
+        <span class="chips"><span class="chip">کیبورد</span><span class="chip">نیم‌فاصله</span><span class="chip">عدد به حروف</span></span><br>
         <span class="preview">مثال: «sghl» ← «سلام»</span>
       </span>
       <span class="arrow">
@@ -292,6 +304,20 @@ details[open]::before{background:var(--accent2);color:#fff}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
     </a>
+    <a class="row" href="/ramz.html">
+      <span class="icn" style="background:linear-gradient(155deg,#7a1f1f,#4d1212)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="15" r="1.3" fill="currentColor"/></svg>
+      </span>
+      <span class="rbody">
+        <span class="rtitle">رمزساز و بررسی قدرت رمز</span>
+        <span class="rdesc">ساخت رمز عبور تصادفی و امن با تنظیم طول و نوع کاراکتر، و سنجش قدرت رمز فعلی شما.</span>
+        <span class="chips"><span class="chip">رمز تصادفی</span><span class="chip">قدرت رمز</span><span class="chip">بدون ذخیره</span></span><br>
+        <span class="preview">مثال: طول ۱۶ با نماد ← رمز بسیار قوی</span>
+      </span>
+      <span class="arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
   </div>
 
   <div class="section-label"><h2>چرا ابزاربوک؟</h2><div class="ln"></div></div>
@@ -323,6 +349,18 @@ details[open]::before{background:var(--accent2);color:#fff}
 </main>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"ابزاربوک","url":"https://abzarbook.com","description":"ابزارهای رایگان محاسبه عیدی، سنوات، مالیات حقوق، رهن به اجاره، وام، متن فارسی، مبدل واحد، محاسبه سلامت، مبدل سایز و اعتبارسنجی شبا و کد ملی.","inLanguage":"fa"}
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("installBtn"), deferred=null;
+  window.addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); deferred=e; btn.hidden=false; });
+  btn.addEventListener("click", function(){
+    if(!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.finally(function(){ deferred=null; btn.hidden=true; });
+  });
+  window.addEventListener("appinstalled", function(){ btn.hidden=true; });
+})();
 </script>
 </body>
 </html>
