@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0'; // روی همه اینترفیس‌ها گوش بده (لازم برای Wispbyte و هاست‌های ابری)
 const ROOT = __dirname;
 
 const MIME = {
@@ -53,6 +54,6 @@ http.createServer((req, res) => {
       });
     });
   });
-}).listen(PORT, () => {
-  console.log(`abzarbook running on port ${PORT}`);
+}).listen(PORT, HOST, () => {
+  console.log(`abzarbook running on ${HOST}:${PORT}`);
 });
