@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 16660; // پورت پیش‌فرض Wispbyte؛ روی Railway متغیر PORT خودش ست می‌شود
 const HOST = process.env.HOST || '0.0.0.0'; // روی همه اینترفیس‌ها گوش بده (لازم برای Wispbyte و هاست‌های ابری)
 const ROOT = __dirname;
 
