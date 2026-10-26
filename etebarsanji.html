@@ -47,19 +47,19 @@
 }
     </script>
     <style>
-        :root {{ --bg-color: #f8f9fa; --text-color: #333; --box-bg: #fff; --header-bg: #2c3e50; --border-color: #ddd; }}
-        [data-theme="dark"] {{ --bg-color: #121212; --text-color: #e0e0e0; --box-bg: #1e1e1e; --header-bg: #1a252f; --border-color: #333; }}
-        body {{ font-family: Tahoma, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; transition: all 0.3s; line-height: 1.6; }}
-        header, footer {{ background-color: var(--header-bg); color: #fff; padding: 15px; text-align: center; }}
-        a {{ color: #3498db; text-decoration: none; }}
-        .container {{ max-width: 800px; margin: 20px auto; padding: 20px; background: var(--box-bg); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
-        input, select, button {{ width: 100%; padding: 10px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-color); color: var(--text-color); box-sizing: border-box; font-family: inherit; }}
-        .result-box {{ padding: 15px; background-color: rgba(52, 152, 219, 0.1); border-right: 4px solid #3498db; margin-top: 15px; border-radius: 4px; font-weight: bold; min-height: 24px; }}
-        .theme-toggle {{ background: transparent; border: 1px solid #fff; color: #fff; padding: 5px 10px; cursor: pointer; border-radius: 4px; display: inline-block; width: auto; margin-top: 10px; }}
-        .telegram-link {{ display: inline-block; padding: 10px 20px; background-color: #0088cc; color: #fff; border-radius: 5px; font-weight: bold; margin-top: 20px; }}
-        .internal-links {{ margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }}
-        .internal-links a {{ background: var(--header-bg); color: #fff; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; }}
-        .seo-content {{ margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.95em; }}
+        :root { --bg-color: #f8f9fa; --text-color: #333; --box-bg: #fff; --header-bg: #2c3e50; --border-color: #ddd; }
+        [data-theme="dark"] { --bg-color: #121212; --text-color: #e0e0e0; --box-bg: #1e1e1e; --header-bg: #1a252f; --border-color: #333; }
+        body { font-family: Tahoma, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; transition: all 0.3s; line-height: 1.6; }
+        header, footer { background-color: var(--header-bg); color: #fff; padding: 15px; text-align: center; }
+        a { color: #3498db; text-decoration: none; }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; background: var(--box-bg); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        input, select, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-color); color: var(--text-color); box-sizing: border-box; font-family: inherit; }
+        .result-box { padding: 15px; background-color: rgba(52, 152, 219, 0.1); border-right: 4px solid #3498db; margin-top: 15px; border-radius: 4px; font-weight: bold; min-height: 24px; }
+        .theme-toggle { background: transparent; border: 1px solid #fff; color: #fff; padding: 5px 10px; cursor: pointer; border-radius: 4px; display: inline-block; width: auto; margin-top: 10px; }
+        .telegram-link { display: inline-block; padding: 10px 20px; background-color: #0088cc; color: #fff; border-radius: 5px; font-weight: bold; margin-top: 20px; text-decoration: none; }
+        .internal-links { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .internal-links a { background: var(--header-bg); color: #fff; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; text-decoration: none; }
+        .seo-content { margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.95em; }
     </style>
 </head>
 <body>
@@ -70,7 +70,6 @@
     <main class="container">
         <h2>سیستم پیشرفته اعتبارسنجی بانکی</h2>
         
-        <!-- UI مینیمال و پردازش در لحظه (نمونه) -->
         <div id="tool-ui">
             <label for="liveInput">داده خود را وارد کنید (پردازش آنی بدون رفرش):</label>
             <input type="text" id="liveInput" placeholder="تایپ کنید..." oninput="processData()">
@@ -83,7 +82,6 @@
             </a>
         </div>
 
-        <!-- لینک‌سازی داخلی قدرتمند برای کاهش Bounce Rate -->
         <div class="internal-links">
             <a href="rahn-vam.html">محاسبه رهن و وام</a>
             <a href="taghvim.html">تقویم آنلاین</a>
@@ -92,7 +90,6 @@
             <a href="salamat.html">ابزار سلامت (BMI)</a>
         </div>
 
-        <!-- محتوای کلاستربندی شده و طولانی برای سئو -->
         <section class="seo-content">
             <h3>راهنمای جامع و دقیق اعتبارسنجی بانکی</h3>
             <p>در دنیای امروز که سرعت دسترسی به اطلاعات حرف اول را می‌زند، سایت <strong>ابزاربوک (abzarbook.ir)</strong> با ارائه ابزار تخصصی اعتبارسنجی بانکی به صورت کاملا رایگان، نیاز شما را در کسری از ثانیه برطرف می‌کند. برخلاف سایت‌های مشابه که دارای تبلیغات آزاردهنده و کندی در پردازش هستند، ما تمام محاسبات را در مرورگر شما (Client-Side) انجام می‌دهیم.</p>
@@ -109,23 +106,21 @@
     </footer>
 
     <script>
-        // اسکریپت تغییر تم (Dark Mode)
-        function toggleTheme() {{
+        function toggleTheme() {
             const body = document.documentElement;
             const currentTheme = body.getAttribute('data-theme');
             body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-        }}
+        }
 
-        // اسکریپت پایه برای محاسبات در لحظه
-        function processData() {{
+        function processData() {
             const inputVal = document.getElementById('liveInput').value;
             const resultBox = document.getElementById('resultBox');
-            if(inputVal.trim() === '') {{
+            if(inputVal.trim() === '') {
                 resultBox.innerText = 'نتیجه در اینجا نمایش داده می‌شود...';
                 return;
-            }}
+            }
             resultBox.innerText = 'درحال پردازش: ' + inputVal + ' (تغییرات به صورت زنده اعمال می‌شوند)';
-        }}
+        }
     </script>
 </body>
 </html>
