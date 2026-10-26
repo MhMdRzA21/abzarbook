@@ -1,15 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://abzarbook.com/</loc></url>
-<url><loc>https://abzarbook.com/hoghoogh-dastmazd.html</loc></url>
-<url><loc>https://abzarbook.com/rahn-vam.html</loc></url>
-<url><loc>https://abzarbook.com/text-tools.html</loc></url>
-<url><loc>https://abzarbook.com/vahed.html</loc></url>
-<url><loc>https://abzarbook.com/salamat.html</loc></url>
-<url><loc>https://abzarbook.com/size-chart.html</loc></url>
-<url><loc>https://abzarbook.com/etebarsanji.html</loc></url>
-<url><loc>https://abzarbook.com/taghvim.html</loc></url>
-<url><loc>https://abzarbook.com/sen.html</loc></url>
-<url><loc>https://abzarbook.com/qrcode.html</loc></url>
-<url><loc>https://abzarbook.com/ramz.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://abzarbook.ir/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/hoghoogh-dastmazd.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/rahn-vam.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/text-tools.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/vahed.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/salamat.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/size-chart.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/etebarsanji.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/taghvim.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/sen.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/qrcode.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/ramz.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abzarbook.com/sitemap.xml
+# Sitemap
+Sitemap: https://abzarbook.ir/sitemap.xml
+
+# Crawl-delay for politeness (optional)
+Crawl-delay: 1
+
+# Block common bad bots if needed (commented)
+# User-agent: AhrefsBot
+# Disallow: /
