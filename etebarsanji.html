@@ -1,126 +1,228 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" data-theme="light">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اعتبارسنجی بانکی آنلاین در لحظه - ابزاربوک</title>
-    <meta name="description" content="استفاده از ابزار اعتبارسنجی بانکی با پردازش سریع، بدون نیاز به رفرش. مجهز به حالت تاریک و رابط کاربری مینیمال. ابزاربوک مرجع برتر نسبت به رقبا.">
-    <link rel="canonical" href="https://abzarbook.ir/etebarsanji.html">
-    <script type="application/ld+json">
-    {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "SoftwareApplication",
-      "name": "اعتبارسنجی بانکی - ابزاربوک",
-      "url": "https://abzarbook.ir/etebarsanji.html",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "IRR"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "چگونه از ابزار اعتبارسنجی بانکی استفاده کنم؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "کافیست اطلاعات خود را در فیلدهای مربوطه وارد کنید. پردازش در لحظه (Real-time) انجام شده و خروجی فورا نمایش داده می‌شود."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "آیا استفاده از این ابزار رایگان است؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "بله، استفاده از تمامی امکانات ابزاربوک کاملا رایگان و بدون محدودیت است."
-          }
-        }
-      ]
-    }
-  ]
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>اعتبارسنجی شماره شبا و کد ملی | ابزاربوک</title>
+<meta name="description" content="چک کردن آنلاین صحت شماره شبا (IBAN) ایران با تشخیص نام بانک، و اعتبارسنجی کد ملی با الگوریتم رسمی — رایگان و آفلاین در مرورگر.">
+<meta property="og:title" content="اعتبارسنجی شبا و کد ملی | ابزاربوک">
+<meta property="og:description" content="صحت شماره شبا و کد ملی را در چند ثانیه چک کنید، به‌همراه تشخیص نام بانک از روی شبا.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.com/etebarsanji.html">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.com/etebarsanji.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);
+ --dolphin:#b9cdd1;--dolphin-ink:#2c4a52;
+ --bg:#f3ede0;--card:#faf6ea;--ink:#211d14;--mute:#7d7257;--rule:#d6c9a3;--accent:#a8681c;--accent-ink:#fff8ea;--accent2:#2c4f6b;--stamp:#7a1f1f;--ok:#3a7a5a;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;--ok:#5ba57f;}}
+:root[data-theme="dark"]{--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;--ok:#5ba57f;}
+html{scroll-padding-top:env(safe-area-inset-top,0)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.95}
+main{max-width:720px;margin:0 auto;padding:18px 16px 56px}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--mute);text-decoration:none;margin-bottom:14px}
+.letterhead{display:flex;align-items:center;gap:14px;border-bottom:3px double var(--rule);padding-bottom:16px;margin-bottom:16px;flex-wrap:wrap}
+.lh-icn{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;background:linear-gradient(155deg,#2c4f6b,#1b3346)}
+.letterhead .lh-text{flex:1;min-width:0}
+.letterhead h1{font-size:1.4rem;font-weight:800;margin:0}
+.letterhead p{margin:2px 0 0;color:var(--mute);font-size:.86rem}
+.tabs{display:flex;gap:4px;margin-bottom:16px;background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:4px}
+.tabs button{flex:1;border:0;background:transparent;color:var(--mute);font:inherit;font-weight:700;font-size:.85rem;padding:9px 4px;border-radius:8px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--ink)}
+.card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px;box-shadow:0 1px 2px rgba(20,16,8,.05),0 14px 30px -20px rgba(20,16,8,.45);overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+label{font-weight:700;display:block;margin-bottom:4px}
+.hint{font-weight:400;color:var(--mute);font-size:.82rem}
+.iban-input{display:flex;align-items:center;gap:0;border:1px solid var(--rule);border-radius:9px;overflow:hidden;background:var(--bg);box-shadow:inset 0 1px 2px rgba(20,16,8,.04)}
+.iban-pre{padding:11px 10px;color:var(--mute);font-weight:800;border-left:1px solid var(--rule);background:color-mix(in srgb,var(--accent2) 8%,transparent)}
+.iban-input input{border:0;background:transparent;box-shadow:none}
+input{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink);direction:ltr;text-align:left;font-weight:700;box-shadow:inset 0 1px 2px rgba(20,16,8,.04)}
+input:focus-visible{outline:3px solid var(--accent2);outline-offset:1px}
+.go{margin-top:14px;width:100%;border:0;background:linear-gradient(155deg,var(--accent2),color-mix(in srgb,var(--accent2) 65%,#000));color:#fff;font:inherit;font-weight:800;padding:12px;border-radius:9px;cursor:pointer;box-shadow:0 8px 18px -8px color-mix(in srgb,var(--accent2) 65%,transparent)}
+.res{margin-top:16px;padding:16px;border-radius:12px;display:none;border:1px solid var(--rule)}
+.res.on{display:block}
+.res.ok{border-right:4px solid var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--bg))}
+.res.bad{border-right:4px solid var(--stamp);background:color-mix(in srgb,var(--stamp) 10%,var(--bg))}
+.big{font-size:1.25rem;font-weight:800}
+.big.ok{color:var(--ok)}
+.big.bad{color:var(--stamp)}
+.res p{margin:4px 0;color:var(--mute);font-size:.88rem}
+.err{color:var(--stamp);margin-top:10px;display:none;font-size:.9rem}
+h2{font-size:1.05rem;margin:28px 0 6px}
+details{border-radius:10px;border:1px solid var(--rule);padding:11px 14px;margin-bottom:8px;background:var(--card)}
+summary{cursor:pointer;font-weight:700}
+details p{margin:8px 0 0;color:var(--mute);font-size:.92rem}
+.note{font-size:.78rem;color:var(--mute);margin-top:22px;border-top:1px solid var(--rule);padding-top:10px}
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:var(--accent2)}
+[hidden]{display:none!important}
+
+/* بافت ظریف کاغذ دفترداری */
+body{background-color:var(--dolphin);background-image:repeating-linear-gradient(45deg, color-mix(in srgb, var(--dolphin-ink) 10%, transparent) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dolphin-ink) 8%, transparent) 0 2px, transparent 2px 9px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
+/* نشانه گرافیکی سؤال روی هر آکاردئون */
+details{position:relative}
+details>summary{padding-right:30px;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details::before{content:"؟";position:absolute;right:0;top:9px;width:20px;height:20px;border-radius:50%;background:color-mix(in srgb, var(--accent2, var(--accent)) 18%, transparent);color:var(--accent2, var(--accent));font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;line-height:1;pointer-events:none}
+details[open]::before{background:var(--accent2, var(--accent));color:#fff}
+h1,h2,.lh-text h1{letter-spacing:.2px}
+@media (min-width:860px){
+  main{max-width:830px}
 }
-    </script>
-    <style>
-        :root { --bg-color: #f8f9fa; --text-color: #333; --box-bg: #fff; --header-bg: #2c3e50; --border-color: #ddd; }
-        [data-theme="dark"] { --bg-color: #121212; --text-color: #e0e0e0; --box-bg: #1e1e1e; --header-bg: #1a252f; --border-color: #333; }
-        body { font-family: Tahoma, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; transition: all 0.3s; line-height: 1.6; }
-        header, footer { background-color: var(--header-bg); color: #fff; padding: 15px; text-align: center; }
-        a { color: #3498db; text-decoration: none; }
-        .container { max-width: 800px; margin: 20px auto; padding: 20px; background: var(--box-bg); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        input, select, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-color); color: var(--text-color); box-sizing: border-box; font-family: inherit; }
-        .result-box { padding: 15px; background-color: rgba(52, 152, 219, 0.1); border-right: 4px solid #3498db; margin-top: 15px; border-radius: 4px; font-weight: bold; min-height: 24px; }
-        .theme-toggle { background: transparent; border: 1px solid #fff; color: #fff; padding: 5px 10px; cursor: pointer; border-radius: 4px; display: inline-block; width: auto; margin-top: 10px; }
-        .telegram-link { display: inline-block; padding: 10px 20px; background-color: #0088cc; color: #fff; border-radius: 5px; font-weight: bold; margin-top: 20px; text-decoration: none; }
-        .internal-links { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-        .internal-links a { background: var(--header-bg); color: #fff; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; text-decoration: none; }
-        .seo-content { margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.95em; }
-    </style>
+</style>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4f6b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
 </head>
 <body>
-    <header>
-        <h1>ابزاربوک - اعتبارسنجی بانکی</h1>
-        <button class="theme-toggle" onclick="toggleTheme()">تغییر حالت شب/روز 🌓</button>
-    </header>
-    <main class="container">
-        <h2>سیستم پیشرفته اعتبارسنجی بانکی</h2>
-        
-        <div id="tool-ui">
-            <label for="liveInput">داده خود را وارد کنید (پردازش آنی بدون رفرش):</label>
-            <input type="text" id="liveInput" placeholder="تایپ کنید..." oninput="processData()">
-            <div id="resultBox" class="result-box">نتیجه در اینجا نمایش داده می‌شود...</div>
-        </div>
+<main>
+<a href="/" class="backlink">ابزاربوک</a>
+<div class="letterhead">
+  <div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+  <div class="lh-text"><h1>اعتبارسنجی شبا و کد ملی</h1><p>چک صحت شماره شبا با تشخیص بانک، و اعتبارسنجی کد ملی</p></div>
+</div>
 
-        <div style="text-align:center;">
-            <a href="https://t.me/abzarbook" target="_blank" rel="noopener noreferrer" class="telegram-link">
-                📣 عضویت در کانال تلگرام ابزاربوک
-            </a>
-        </div>
+<div class="tabs" role="tablist">
+  <button role="tab" id="t1" aria-selected="true">شماره شبا (IBAN)</button>
+  <button role="tab" id="t2" aria-selected="false">کد ملی</button>
+</div>
 
-        <div class="internal-links">
-            <a href="rahn-vam.html">محاسبه رهن و وام</a>
-            <a href="taghvim.html">تقویم آنلاین</a>
-            <a href="ramz.html">تولید رمز عبور</a>
-            <a href="sen.html">محاسبه سن</a>
-            <a href="salamat.html">ابزار سلامت (BMI)</a>
-        </div>
+<!-- Sheba -->
+<section class="card" id="p1">
+  <label for="sheba">شماره شبا</label>
+  <div class="iban-input">
+    <span class="iban-pre">IR</span>
+    <input id="sheba" inputmode="numeric" placeholder="فقط رقم‌ها، بدون IR — مثلاً 120170000000000000000000" maxlength="30">
+  </div>
+  <p class="hint" style="margin-top:6px">می‌توانید با یا بدون IR وارد کنید؛ فاصله هم اشکالی ندارد.</p>
+  <button class="go" id="g1">بررسی شبا</button>
+  <div class="err" id="e1"></div>
+  <div class="res" id="r1" aria-live="polite"></div>
+</section>
 
-        <section class="seo-content">
-            <h3>راهنمای جامع و دقیق اعتبارسنجی بانکی</h3>
-            <p>در دنیای امروز که سرعت دسترسی به اطلاعات حرف اول را می‌زند، سایت <strong>ابزاربوک (abzarbook.ir)</strong> با ارائه ابزار تخصصی اعتبارسنجی بانکی به صورت کاملا رایگان، نیاز شما را در کسری از ثانیه برطرف می‌کند. برخلاف سایت‌های مشابه که دارای تبلیغات آزاردهنده و کندی در پردازش هستند، ما تمام محاسبات را در مرورگر شما (Client-Side) انجام می‌دهیم.</p>
-            <h4>چرا ابزاربوک جایگزین بهتری است؟</h4>
-            <ul>
-                <li><strong>سرعت فوق‌العاده:</strong> استفاده از تکنولوژی پردازش بلادرنگ.</li>
-                <li><strong>رابط کاربری تاریک و روشن:</strong> محافظت از چشمان شما در استفاده‌های طولانی‌مدت.</li>
-                <li><strong>دقت بالا و بدون نیاز به نصب:</strong> کاملا تحت وب و سازگار با تمامی گوشی‌های هوشمند.</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 AbzarBook.ir - تمامی حقوق محفوظ است.</p>
-    </footer>
+<!-- National ID -->
+<section class="card" id="p2" hidden>
+  <label for="natid">کد ملی</label>
+  <input id="natid" inputmode="numeric" placeholder="مثلاً 0012345678" maxlength="10">
+  <button class="go" id="g2">بررسی کد ملی</button>
+  <div class="err" id="e2"></div>
+  <div class="res" id="r2" aria-live="polite"></div>
+</section>
 
-    <script>
-        function toggleTheme() {
-            const body = document.documentElement;
-            const currentTheme = body.getAttribute('data-theme');
-            body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-        }
+<h2>سؤالات متداول</h2>
+<details><summary>این ابزار شماره شبای کسی را «پیدا» می‌کند؟</summary><p>خیر، این ابزار فقط ساختار و رقم کنترلی شماره‌ای را که خودتان وارد می‌کنید بررسی می‌کند و نام بانک را از روی کد سه‌رقمی تشخیص می‌دهد. هیچ اطلاعاتی درباره صاحب حساب یا موجودی نشان نمی‌دهد و چیزی هم ذخیره یا ارسال نمی‌شود.</p></details>
+<details><summary>اعتبارسنجی کد ملی یعنی چه؟</summary><p>کد ملی ایران یک رقم کنترلی (آخرین رقم) دارد که با فرمول مشخصی از ۹ رقم اول محاسبه می‌شود. این ابزار فقط صحت ساختاری عدد را می‌سنجد، نه اینکه آیا این کد ملی واقعاً برای شخصی صادر شده یا نه.</p></details>
+<details><summary>چرا بعضی شبا‌ها «بانک شناسایی نشد» نشان می‌دهند؟</summary><p>چون کد سه‌رقمی بانک در جدول داخلی ابزار موجود نیست — ممکن است بانک یا مؤسسه کمتر رایجی باشد. در این حالت فقط نتیجه معتبر/نامعتبر بودن شبا نمایش داده می‌شود.</p></details>
 
-        function processData() {
-            const inputVal = document.getElementById('liveInput').value;
-            const resultBox = document.getElementById('resultBox');
-            if(inputVal.trim() === '') {
-                resultBox.innerText = 'نتیجه در اینجا نمایش داده می‌شود...';
-                return;
-            }
-            resultBox.innerText = 'درحال پردازش: ' + inputVal + ' (تغییرات به صورت زنده اعمال می‌شوند)';
-        }
-    </script>
+<p class="note">این ابزار صرفاً صحت ساختاری و ریاضی عدد وارد شده را می‌سنجد و هیچ داده‌ای را ذخیره، جمع‌آوری یا به سروری ارسال نمی‌کند؛ محاسبات کاملاً در مرورگر شما انجام می‌شود. ابزاربوک وابستگی رسمی به هیچ بانک یا نهادی ندارد.</p>
+<div class="share-row">
+  <a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a>
+  <button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button>
+</div>
+<script>
+document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);
+document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};
+</script>
+<p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/vahed.html" style="color:var(--accent)">مبدل واحد</a> · <a href="/salamat.html" style="color:var(--accent)">محاسبه‌گر سلامت</a> · <a href="/size-chart.html" style="color:var(--accent)">مبدل سایز پوشاک</a> · <a href="/taghvim.html" style="color:var(--accent)">تبدیل تاریخ</a> · <a href="/qrcode.html" style="color:var(--accent)">ساخت کد QR</a></p>
+</main>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"آیا این ابزار شماره شبا پیدا می‌کند؟","acceptedAnswer":{"@type":"Answer","text":"خیر، فقط صحت ساختاری شماره‌ای که وارد می‌کنید را بررسی و نام بانک را از روی کد آن تشخیص می‌دهد."}},
+{"@type":"Question","name":"اعتبارسنجی کد ملی چیست؟","acceptedAnswer":{"@type":"Answer","text":"بررسی صحت ریاضی رقم کنترلی کد ملی بر اساس الگوریتم رسمی، نه تأیید هویت واقعی."}}
+]}
+</script>
+
+<script>
+function show(n){ [1,2].forEach(i=>{document.getElementById("p"+i).hidden=i!==n; document.getElementById("t"+i).setAttribute("aria-selected", i===n);}); }
+document.getElementById("t1").onclick=()=>show(1);
+document.getElementById("t2").onclick=()=>show(2);
+
+const faDigits="۰۱۲۳۴۵۶۷۸۹";
+const toEn=s=>String(s).replace(/[۰-۹]/g,d=>faDigits.indexOf(d)).replace(/[^\dA-Za-z]/g,"");
+
+function out(n,html,ok,err){
+  const r=document.getElementById("r"+n), e=document.getElementById("e"+n);
+  e.style.display=err?"block":"none"; e.textContent=err||"";
+  r.classList.toggle("on",!err);
+  r.classList.toggle("ok", ok===true);
+  r.classList.toggle("bad", ok===false);
+  if(!err) r.innerHTML=html;
+}
+
+const BANKS = {
+  "010":"بانک مرکزی","011":"بانک صنعت و معدن","012":"بانک ملت","013":"بانک رفاه کارگران","014":"بانک مسکن",
+  "015":"بانک سپه","016":"بانک کشاورزی","017":"بانک ملی ایران","018":"بانک تجارت","019":"بانک صادرات ایران",
+  "020":"بانک توسعه صادرات","021":"پست بانک ایران","022":"بانک توسعه تعاون","051":"موسسه اعتباری توسعه",
+  "053":"بانک کارآفرین","054":"بانک پارسیان","055":"بانک اقتصاد نوین","056":"بانک سامان","057":"بانک پاسارگاد",
+  "058":"بانک سرمایه","059":"بانک سینا","060":"بانک قرض‌الحسنه مهر ایران","061":"بانک شهر","062":"بانک آینده",
+  "063":"بانک انصار","064":"بانک گردشگری","065":"بانک حکمت ایرانیان","066":"بانک دی","067":"بانک ایران‌ونزوئلا",
+  "069":"بانک ایران زمین","070":"موسسه اعتباری ملل (عسکریه)","073":"بانک قوامین / رسالت","078":"موسسه اعتباری کوثر",
+  "079":"بانک خاورمیانه"
+};
+
+function mod97(numStr){
+  let rem = numStr;
+  let result = "";
+  // process in chunks to avoid BigInt-less overflow, but BigInt is available in modern browsers
+  try{
+    return Number(BigInt(numStr) % 97n);
+  }catch(e){
+    // fallback manual chunking
+    let r = 0;
+    for(const ch of numStr){ r = (r*10 + parseInt(ch,10)) % 97; }
+    return r;
+  }
+}
+
+function letterToNum(ch){
+  if(/[0-9]/.test(ch)) return ch;
+  return (ch.toUpperCase().charCodeAt(0) - 55).toString();
+}
+
+document.getElementById("g1").onclick=()=>{
+  let raw = toEn(document.getElementById("sheba").value).toUpperCase();
+  raw = raw.replace(/^IR/,"");
+  if(!raw) return out(1,"",null,"شماره شبا را وارد کنید.");
+  if(!/^\d{24}$/.test(raw)) return out(1,"",null,`شماره شبا باید ۲۴ رقم باشد (الان ${raw.length} رقم است).`);
+  const bankCode = raw.slice(3,6);
+  const full = "IR" + raw;
+  // rearrange: move IR+checkdigits (first 4 of full) to the end
+  const rearranged = full.slice(4) + full.slice(0,4);
+  const numeric = rearranged.split("").map(letterToNum).join("");
+  const remainder = mod97(numeric);
+  const valid = remainder === 1;
+  const bankName = BANKS[bankCode] || "شناسایی نشد";
+  out(1, `<div class="big ${valid?'ok':'bad'}">${valid?'✓ شبا معتبر است':'✗ شبا نامعتبر است'}</div>
+    <p>شماره کامل: IR${raw}</p>
+    <p>کد بانک: ${bankCode} — ${bankName}</p>
+    <p>شماره حساب/شناسه: ${raw.slice(6)}</p>`, valid);
+};
+
+document.getElementById("g2").onclick=()=>{
+  let id = toEn(document.getElementById("natid").value);
+  if(!id) return out(2,"",null,"کد ملی را وارد کنید.");
+  id = id.padStart(10,"0");
+  if(!/^\d{10}$/.test(id) || /^(\d)\1{9}$/.test(id)) return out(2,"",null,"کد ملی باید ۱۰ رقم معتبر باشد (نه همه ارقام تکراری).");
+  const digits = id.split("").map(Number);
+  const check = digits[9];
+  let sum = 0;
+  for(let i=0;i<9;i++) sum += digits[i]*(10-i);
+  const r = sum % 11;
+  const expected = r < 2 ? r : 11 - r;
+  const valid = expected === check;
+  out(2, `<div class="big ${valid?'ok':'bad'}">${valid?'✓ کد ملی از نظر ساختاری معتبر است':'✗ کد ملی نامعتبر است'}</div>
+    <p>کد وارد شده: ${id}</p>
+    <p>${valid?'رقم کنترلی با فرمول محاسباتی مطابقت دارد.':'رقم کنترلی ('+check+') با مقدار محاسبه‌شده ('+expected+') مطابقت ندارد.'}</p>`, valid);
+};
+</script>
 </body>
 </html>

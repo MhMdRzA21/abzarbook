@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://abzarbook.ir/sitemap.xml
+
+Sitemap: https://abzarbook.com/sitemap.xml

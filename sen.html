@@ -1,126 +1,287 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" data-theme="light">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محاسبه سن آنلاین در لحظه - ابزاربوک</title>
-    <meta name="description" content="استفاده از ابزار محاسبه سن با پردازش سریع، بدون نیاز به رفرش. مجهز به حالت تاریک و رابط کاربری مینیمال. ابزاربوک مرجع برتر نسبت به رقبا.">
-    <link rel="canonical" href="https://abzarbook.ir/sen.html">
-    <script type="application/ld+json">
-    {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "SoftwareApplication",
-      "name": "محاسبه سن - ابزاربوک",
-      "url": "https://abzarbook.ir/sen.html",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "IRR"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "چگونه از ابزار محاسبه سن استفاده کنم؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "کافیست اطلاعات خود را در فیلدهای مربوطه وارد کنید. پردازش در لحظه (Real-time) انجام شده و خروجی فورا نمایش داده می‌شود."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "آیا استفاده از این ابزار رایگان است؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "بله، استفاده از تمامی امکانات ابزاربوک کاملا رایگان و بدون محدودیت است."
-          }
-        }
-      ]
-    }
-  ]
-}
-    </script>
-    <style>
-        :root { --bg-color: #f8f9fa; --text-color: #333; --box-bg: #fff; --header-bg: #2c3e50; --border-color: #ddd; }
-        [data-theme="dark"] { --bg-color: #121212; --text-color: #e0e0e0; --box-bg: #1e1e1e; --header-bg: #1a252f; --border-color: #333; }
-        body { font-family: Tahoma, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; transition: all 0.3s; line-height: 1.6; }
-        header, footer { background-color: var(--header-bg); color: #fff; padding: 15px; text-align: center; }
-        a { color: #3498db; text-decoration: none; }
-        .container { max-width: 800px; margin: 20px auto; padding: 20px; background: var(--box-bg); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        input, select, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-color); color: var(--text-color); box-sizing: border-box; font-family: inherit; }
-        .result-box { padding: 15px; background-color: rgba(52, 152, 219, 0.1); border-right: 4px solid #3498db; margin-top: 15px; border-radius: 4px; font-weight: bold; min-height: 24px; }
-        .theme-toggle { background: transparent; border: 1px solid #fff; color: #fff; padding: 5px 10px; cursor: pointer; border-radius: 4px; display: inline-block; width: auto; margin-top: 10px; }
-        .telegram-link { display: inline-block; padding: 10px 20px; background-color: #0088cc; color: #fff; border-radius: 5px; font-weight: bold; margin-top: 20px; text-decoration: none; }
-        .internal-links { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-        .internal-links a { background: var(--header-bg); color: #fff; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; text-decoration: none; }
-        .seo-content { margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.95em; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه سن دقیق (شمسی و میلادی) | ابزاربوک</title>
+<meta name="description" content="محاسبه آنلاین سن دقیق بر اساس تاریخ تولد شمسی یا میلادی — سال، ماه و روز، مجموع روزهای زندگی و روزهای مانده تا تولد بعدی، رایگان و در مرورگر شما.">
+<meta property="og:title" content="محاسبه سن دقیق | ابزاربوک">
+<meta property="og:description" content="تاریخ تولد را وارد کنید و سن دقیق‌تان را به سال، ماه و روز ببینید.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.com/sen.html">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.com/sen.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);
+ --dolphin:#b9cdd1;--dolphin-ink:#2c4a52;
+ --bg:#f3ede0;--card:#faf6ea;--ink:#211d14;--mute:#7d7257;--rule:#d6c9a3;--accent:#a8681c;--accent-ink:#fff8ea;--accent2:#2c4f6b;--stamp:#7a1f1f;--ok:#3a7a5a;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;--ok:#5ba57f;}}
+:root[data-theme="dark"]{--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;--ok:#5ba57f;}
+html{scroll-padding-top:env(safe-area-inset-top,0)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.95}
+main{max-width:720px;margin:0 auto;padding:18px 16px 56px}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--mute);text-decoration:none;margin-bottom:14px}
+.letterhead{display:flex;align-items:center;gap:14px;border-bottom:3px double var(--rule);padding-bottom:16px;margin-bottom:16px;flex-wrap:wrap}
+.lh-icn{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;background:linear-gradient(155deg,#2c4f6b,#1b3346)}
+.letterhead .lh-text{flex:1;min-width:0}
+.letterhead h1{font-size:1.4rem;font-weight:800;margin:0}
+.letterhead p{margin:2px 0 0;color:var(--mute);font-size:.86rem}
+.card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px;box-shadow:0 1px 2px rgba(20,16,8,.05),0 14px 30px -20px rgba(20,16,8,.45);overflow:hidden;margin-bottom:16px}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+.seg{display:flex;gap:4px;margin-bottom:14px;background:var(--bg);border:1px solid var(--rule);border-radius:11px;padding:4px}
+.seg button{flex:1;border:0;background:transparent;color:var(--mute);font:inherit;font-weight:700;font-size:.85rem;padding:9px 4px;border-radius:8px;cursor:pointer}
+.seg button[aria-selected="true"]{background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--ink)}
+label{font-weight:700;display:block;margin-bottom:4px;font-size:.88rem}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+input{width:100%;font:inherit;padding:11px 10px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink);direction:ltr;text-align:center;font-weight:700;box-shadow:inset 0 1px 2px rgba(20,16,8,.04)}
+input:focus-visible{outline:3px solid var(--accent2);outline-offset:1px}
+.go{margin-top:14px;width:100%;border:0;background:linear-gradient(155deg,var(--accent2),color-mix(in srgb,var(--accent2) 65%,#000));color:#fff;font:inherit;font-weight:800;padding:12px;border-radius:9px;cursor:pointer;box-shadow:0 8px 18px -8px color-mix(in srgb,var(--accent2) 65%,transparent)}
+.err{color:var(--stamp);margin-top:10px;display:none;font-size:.9rem}
+.hero-age{display:none;text-align:center;margin-top:16px;padding:18px 10px;border-radius:14px;background:color-mix(in srgb,var(--accent2) 10%,var(--card));border:1px solid var(--rule)}
+.hero-age.on{display:block}
+.hero-age .nums{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.hero-age .nums div{min-width:64px}
+.hero-age b{display:block;font-size:2rem;font-weight:800;color:var(--accent2);direction:ltr;unicode-bidi:isolate}
+.hero-age span{color:var(--mute);font-size:.82rem;font-weight:700}
+.res-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+.res-tile{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:13px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.res-tile b{font-size:1.05rem;direction:ltr;unicode-bidi:isolate}
+.res-tile span{color:var(--mute);font-size:.86rem;font-weight:700}
+h2{font-size:1.05rem;margin:28px 0 6px}
+details{position:relative;border-radius:10px;border:1px solid var(--rule);padding:11px 14px;margin-bottom:8px;background:var(--card)}
+summary{cursor:pointer;font-weight:700;padding-right:30px;list-style:none}
+summary::-webkit-details-marker{display:none}
+details p{margin:8px 0 0;color:var(--mute);font-size:.92rem}
+details::before{content:"؟";position:absolute;right:14px;top:11px;width:20px;height:20px;border-radius:50%;background:color-mix(in srgb,var(--accent2) 18%,transparent);color:var(--accent2);font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;line-height:1;pointer-events:none}
+details[open]::before{background:var(--accent2);color:#fff}
+.note{font-size:.78rem;color:var(--mute);margin-top:22px;border-top:1px solid var(--rule);padding-top:10px}
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:var(--accent2)}
+body{background-color:var(--dolphin);background-image:repeating-linear-gradient(45deg, color-mix(in srgb, var(--dolphin-ink) 10%, transparent) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dolphin-ink) 8%, transparent) 0 2px, transparent 2px 9px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
+@media (min-width:860px){ main{max-width:830px} .res-grid{grid-template-columns:1fr 1fr} }
+</style>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4f6b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
 </head>
 <body>
-    <header>
-        <h1>ابزاربوک - محاسبه سن</h1>
-        <button class="theme-toggle" onclick="toggleTheme()">تغییر حالت شب/روز 🌓</button>
-    </header>
-    <main class="container">
-        <h2>سیستم پیشرفته محاسبه سن</h2>
-        
-        <div id="tool-ui">
-            <label for="liveInput">داده خود را وارد کنید (پردازش آنی بدون رفرش):</label>
-            <input type="text" id="liveInput" placeholder="تایپ کنید..." oninput="processData()">
-            <div id="resultBox" class="result-box">نتیجه در اینجا نمایش داده می‌شود...</div>
-        </div>
+<main>
+<a href="/" class="backlink">ابزاربوک</a>
+<div class="letterhead">
+  <div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="lh-text"><h1>محاسبه سن دقیق</h1><p>بر اساس تاریخ تولد شمسی یا میلادی</p></div>
+</div>
 
-        <div style="text-align:center;">
-            <a href="https://t.me/abzarbook" target="_blank" rel="noopener noreferrer" class="telegram-link">
-                📣 عضویت در کانال تلگرام ابزاربوک
-            </a>
-        </div>
+<div class="card">
+  <div class="seg" role="tablist">
+    <button role="tab" id="s1" aria-selected="true">تاریخ تولد شمسی</button>
+    <button role="tab" id="s2" aria-selected="false">تاریخ تولد میلادی</button>
+  </div>
+  <label>سال / ماه / روز تولد</label>
+  <div class="row3">
+    <input id="by" inputmode="numeric" placeholder="سال" maxlength="4">
+    <input id="bm" inputmode="numeric" placeholder="ماه" maxlength="2">
+    <input id="bd" inputmode="numeric" placeholder="روز" maxlength="2">
+  </div>
+  <button class="go" id="go">محاسبه سن</button>
+  <div class="err" id="err"></div>
 
-        <div class="internal-links">
-            <a href="rahn-vam.html">محاسبه رهن و وام</a>
-            <a href="taghvim.html">تقویم آنلاین</a>
-            <a href="ramz.html">تولید رمز عبور</a>
-            <a href="sen.html">محاسبه سن</a>
-            <a href="salamat.html">ابزار سلامت (BMI)</a>
-        </div>
+  <div class="hero-age" id="hero">
+    <div class="nums">
+      <div><b id="hy">۰</b><span>سال</span></div>
+      <div><b id="hm">۰</b><span>ماه</span></div>
+      <div><b id="hd">۰</b><span>روز</span></div>
+    </div>
+  </div>
+  <div class="res-grid" id="results" hidden>
+    <div class="res-tile"><span>مجموع روزهای زندگی</span><b id="totalDays"></b></div>
+    <div class="res-tile"><span>مجموع ماه‌های زندگی</span><b id="totalMonths"></b></div>
+    <div class="res-tile"><span>مجموع هفته‌های زندگی</span><b id="totalWeeks"></b></div>
+    <div class="res-tile"><span>روز هفته تولد</span><b id="bWeekday"></b></div>
+    <div class="res-tile"><span>تا تولد بعدی</span><b id="nextBday"></b></div>
+    <div class="res-tile"><span>سن در ۳۱ شهریور سال جاری (کاربرد نظام‌وظیفه)</span><b id="sarbazi"></b></div>
+  </div>
+</div>
 
-        <section class="seo-content">
-            <h3>راهنمای جامع و دقیق محاسبه سن</h3>
-            <p>در دنیای امروز که سرعت دسترسی به اطلاعات حرف اول را می‌زند، سایت <strong>ابزاربوک (abzarbook.ir)</strong> با ارائه ابزار تخصصی محاسبه سن به صورت کاملا رایگان، نیاز شما را در کسری از ثانیه برطرف می‌کند. برخلاف سایت‌های مشابه که دارای تبلیغات آزاردهنده و کندی در پردازش هستند، ما تمام محاسبات را در مرورگر شما (Client-Side) انجام می‌دهیم.</p>
-            <h4>چرا ابزاربوک جایگزین بهتری است؟</h4>
-            <ul>
-                <li><strong>سرعت فوق‌العاده:</strong> استفاده از تکنولوژی پردازش بلادرنگ.</li>
-                <li><strong>رابط کاربری تاریک و روشن:</strong> محافظت از چشمان شما در استفاده‌های طولانی‌مدت.</li>
-                <li><strong>دقت بالا و بدون نیاز به نصب:</strong> کاملا تحت وب و سازگار با تمامی گوشی‌های هوشمند.</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 AbzarBook.ir - تمامی حقوق محفوظ است.</p>
-    </footer>
+<h2>سؤالات متداول</h2>
+<details><summary>سن چطور به‌صورت دقیق محاسبه می‌شود؟</summary><p>این ابزار سن را با تفریق تقویمی سال، ماه و روز تاریخ تولد از تاریخ امروز به‌دست می‌آورد (نه صرفاً تقسیم تعداد روزها بر ۳۶۵)، بنابراین طول واقعی هر ماه و سال کبیسه را هم در نظر می‌گیرد.</p></details>
+<details><summary>ردیف «سن در ۳۱ شهریور» برای چیست؟</summary><p>در بسیاری از فرم‌های اداری و نظام‌وظیفه در ایران، سن مبنای مقایسه معمولاً تا پایان شهریور همان سال محاسبه می‌شود؛ این عدد صرفاً یک راهنمای تقریبی است و برای مصارف رسمی حتماً از منبع رسمی مربوطه استعلام بگیرید.</p></details>
+<details><summary>آیا تاریخ تولدم جایی ذخیره می‌شود؟</summary><p>خیر، تاریخ وارد شده فقط در حافظه مرورگر شما و برای همان لحظه محاسبه استفاده می‌شود و به هیچ سروری ارسال نمی‌شود.</p></details>
 
-    <script>
-        function toggleTheme() {
-            const body = document.documentElement;
-            const currentTheme = body.getAttribute('data-theme');
-            body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-        }
+<p class="note">این ابزار صرفاً یک محاسبه‌گر عمومی سن بر پایه تقویم است و جایگزین مراجع رسمی (مانند ثبت احوال یا نظام‌وظیفه) برای مصارف قانونی نیست.</p>
+<div class="share-row">
+  <a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a>
+  <button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button>
+</div>
+<script>
+document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);
+document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};
+</script>
+<p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/taghvim.html" style="color:var(--accent)">تبدیل تاریخ</a> · <a href="/salamat.html" style="color:var(--accent)">محاسبه‌گر سلامت</a> · <a href="/vahed.html" style="color:var(--accent)">مبدل واحد</a></p>
+</main>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"سن چطور به‌صورت دقیق محاسبه می‌شود؟","acceptedAnswer":{"@type":"Answer","text":"با تفریق تقویمی سال، ماه و روز تاریخ تولد از امروز، با در نظر گرفتن طول واقعی ماه‌ها و سال‌های کبیسه."}}
+]}
+</script>
 
-        function processData() {
-            const inputVal = document.getElementById('liveInput').value;
-            const resultBox = document.getElementById('resultBox');
-            if(inputVal.trim() === '') {
-                resultBox.innerText = 'نتیجه در اینجا نمایش داده می‌شود...';
-                return;
-            }
-            resultBox.innerText = 'درحال پردازش: ' + inputVal + ' (تغییرات به صورت زنده اعمال می‌شوند)';
-        }
-    </script>
+<script>
+function div(a,b){return ~~(a/b);}
+function mod(a,b){return a-~~(a/b)*b;}
+function g2d(gy,gm,gd){
+  var d=div((gy+div(gm-8,6)+100100)*1461,4)+div(153*mod(gm+9,12)+2,5)+gd-34840408;
+  d=d-div(div(gy+100100+div(gm-8,6),100)*3,4)+752;
+  return d;
+}
+function d2g(jdn){
+  var j,i,gd,gm,gy;
+  j=4*jdn+139361631;
+  j=j+div(div(4*jdn+183187720,146097)*3,4)*4-3908;
+  i=div(mod(j,1461),4)*5+308;
+  gd=div(mod(i,153),5)+1;
+  gm=mod(div(i,153),12)+1;
+  gy=div(j,1461)-100100+div(8-gm,6);
+  return [gy,gm,gd];
+}
+function jalCal(jy){
+  var breaks=[-61,9,38,199,426,686,756,818,1111,1181,1210,1635,2060,2097,2192,2262,2324,2394,2456,3178];
+  var bl=breaks.length,gy=jy+621,leapJ=-14,jp=breaks[0],jm,jump=0,leap,n,i;
+  if(jy<jp||jy>=breaks[bl-1]) throw new Error('bad year');
+  for(i=1;i<bl;i+=1){
+    jm=breaks[i]; jump=jm-jp;
+    if(jy<jm) break;
+    leapJ=leapJ+div(jump,33)*8+div(mod(jump,33),4);
+    jp=jm;
+  }
+  n=jy-jp;
+  leapJ=leapJ+div(n,33)*8+div(mod(n,33)+3,4);
+  if(mod(jump,33)===4 && jump-n===4) leapJ+=1;
+  var leapG=div(gy,4)-div((div(gy,100)+1)*3,4)-150;
+  var march=20+leapJ-leapG;
+  if(jump-n<6) n=n-jump+div(jump,33)*33;
+  leap=mod(mod(n+1,33)-1,4);
+  if(leap===-1) leap=4;
+  return {leap:leap,gy:gy,march:march};
+}
+function j2d(jy,jm,jd){
+  var r=jalCal(jy);
+  return g2d(r.gy,3,r.march)+(jm-1)*31-div(jm,7)*(jm-7)+jd-1;
+}
+function d2j(jdn){
+  var gy=d2g(jdn)[0], jy=gy-621, r=jalCal(jy), jdn1f=g2d(r.gy,3,r.march);
+  var jd,jm,k;
+  k=jdn-jdn1f;
+  if(k>=0){
+    if(k<=185){ jm=1+div(k,31); jd=mod(k,31)+1; return [jy,jm,jd]; }
+    else k-=186;
+  } else {
+    jy-=1; k+=179;
+    if(r.leap===1) k+=1;
+  }
+  jm=7+div(k,30); jd=mod(k,30)+1;
+  return [jy,jm,jd];
+}
+function g2j(gy,gm,gd){ return d2j(g2d(gy,gm,gd)); }
+function j2g(jy,jm,jd){ return d2g(j2d(jy,jm,jd)); }
+function jMonthLen(jy,jm){
+  if(jm<=6) return 31;
+  if(jm<=11) return 30;
+  return jalCal(jy).leap===1 ? 30 : 29;
+}
+
+var WDAYS=["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"];
+var faDigits="۰۱۲۳۴۵۶۷۸۹";
+function fa(n){ return String(n).replace(/\d/g,d=>faDigits[d]); }
+function toEn(s){ return String(s).replace(/[۰-۹]/g,d=>faDigits.indexOf(d)).replace(/[^\d-]/g,""); }
+
+var mode=1;
+document.getElementById("s1").onclick=()=>{mode=1;document.getElementById("s1").setAttribute("aria-selected","true");document.getElementById("s2").setAttribute("aria-selected","false");};
+document.getElementById("s2").onclick=()=>{mode=2;document.getElementById("s2").setAttribute("aria-selected","true");document.getElementById("s1").setAttribute("aria-selected","false");};
+
+function compute(){
+  var err=document.getElementById("err");
+  err.style.display="none"; err.textContent="";
+  var y=parseInt(toEn(document.getElementById("by").value),10);
+  var m=parseInt(toEn(document.getElementById("bm").value),10);
+  var d=parseInt(toEn(document.getElementById("bd").value),10);
+  if(!y||!m||!d||m<1||m>12||d<1||d>31){
+    err.textContent="تاریخ تولد را درست وارد کنید.";
+    err.style.display="block";
+    document.getElementById("hero").classList.remove("on");
+    document.getElementById("results").hidden=true;
+    return;
+  }
+  var by,bm,bd;
+  try{
+    if(mode===1){ [by,bm,bd]=[y,m,d]; } else { [by,bm,bd]=g2j(y,m,d); }
+  }catch(e){
+    err.textContent="تاریخ تولد معتبر نیست.";
+    err.style.display="block";
+    return;
+  }
+  var now=new Date();
+  var [ty,tm,td]=g2j(now.getFullYear(),now.getMonth()+1,now.getDate());
+  var birthJdn=j2d(by,bm,bd), todayJdn=j2d(ty,tm,td);
+  if(birthJdn>todayJdn){
+    err.textContent="تاریخ تولد نمی‌تواند در آینده باشد.";
+    err.style.display="block";
+    document.getElementById("hero").classList.remove("on");
+    document.getElementById("results").hidden=true;
+    return;
+  }
+  var ay=ty-by, am=tm-bm, ad=td-bd;
+  if(ad<0){
+    am-=1;
+    var pm=bm-1<1?12:tm-1, py=tm-1<1?ty-1:ty;
+    // previous month relative to "today" month
+    pm = tm-1<1?12:tm-1; py = tm-1<1?ty-1:ty;
+    ad += jMonthLen(py,pm);
+  }
+  if(am<0){ ay-=1; am+=12; }
+
+  var totalDays = todayJdn-birthJdn;
+  document.getElementById("hy").textContent=fa(ay);
+  document.getElementById("hm").textContent=fa(am);
+  document.getElementById("hd").textContent=fa(ad);
+  document.getElementById("hero").classList.add("on");
+
+  document.getElementById("totalDays").textContent=fa(totalDays.toLocaleString("en-US"));
+  document.getElementById("totalMonths").textContent=fa((ay*12+am).toLocaleString("en-US"));
+  document.getElementById("totalWeeks").textContent=fa(Math.floor(totalDays/7).toLocaleString("en-US"));
+
+  var [bgy,bgm,bgd]=j2g(by,bm,bd);
+  document.getElementById("bWeekday").textContent=WDAYS[new Date(Date.UTC(bgy,bgm-1,bgd,12)).getUTCDay()];
+
+  var nextYear = (bm<tm || (bm===tm && bd<=td)) ? ty+1 : ty;
+  var nbd = bd, nbm = bm;
+  if(nbm===12 && nbd===30 && jalCal(nextYear).leap!==1) nbd=29;
+  var nextJdn=j2d(nextYear,nbm,nbd);
+  var daysLeft=nextJdn-todayJdn;
+  document.getElementById("nextBday").textContent = daysLeft===0 ? "امروز است! 🎉" : fa(daysLeft)+" روز";
+
+  var sarbaziYear = ty;
+  var sJdn = j2d(sarbaziYear,6,31);
+  var sAy = sarbaziYear-by, sAm=0;
+  if(sJdn<birthJdn){ document.getElementById("sarbazi").textContent="—"; }
+  else{
+    var diffY=sarbaziYear-by, diffM=6-bm, diffD=31-bd;
+    if(diffD<0){ diffM-=1; diffD+=jMonthLen(by, bm===12?1:bm+1); }
+    if(diffM<0){ diffY-=1; diffM+=12; }
+    document.getElementById("sarbazi").textContent = fa(diffY)+" سال و "+fa(diffM)+" ماه";
+  }
+
+  document.getElementById("results").hidden=false;
+}
+document.getElementById("go").onclick=compute;
+</script>
 </body>
 </html>
