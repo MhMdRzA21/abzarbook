@@ -1,12 +1,13 @@
 {
   "name": "abzarbook",
-  "version": "1.0.0",
-  "private": true,
-  "description": "ابزاربوک — ابزارهای رایگان محاسباتی و متنی فارسی",
+  "version": "2.0.0",
+  "description": "SEO optimized version of abzarbook.ir",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "engines": {
-    "node": ">=18"
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.18.2"
   }
 }

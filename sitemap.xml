@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://abzarbook.com/</loc></url>
-<url><loc>https://abzarbook.com/hoghoogh-dastmazd.html</loc></url>
-<url><loc>https://abzarbook.com/rahn-vam.html</loc></url>
-<url><loc>https://abzarbook.com/text-tools.html</loc></url>
-<url><loc>https://abzarbook.com/vahed.html</loc></url>
-<url><loc>https://abzarbook.com/salamat.html</loc></url>
-<url><loc>https://abzarbook.com/size-chart.html</loc></url>
-<url><loc>https://abzarbook.com/etebarsanji.html</loc></url>
-<url><loc>https://abzarbook.com/taghvim.html</loc></url>
-<url><loc>https://abzarbook.com/sen.html</loc></url>
-<url><loc>https://abzarbook.com/qrcode.html</loc></url>
-<url><loc>https://abzarbook.com/ramz.html</loc></url>
+  <url><loc>https://abzarbook.ir/index.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/rahn-vam.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/qrcode.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/ramz.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/taghvim.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/hoghoogh-dastmazd.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/text-tools.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/salamat.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/etebarsanji.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/size-chart.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/sen.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/vahed.html</loc><priority>0.8</priority></url>
+  <url><loc>https://abzarbook.ir/404.html</loc><priority>0.8</priority></url>
 </urlset>
