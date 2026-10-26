@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه اضافه‌کاری، شب‌کاری و جمعه‌کاری | قانون کار | ابزاربوک</title>
+<meta name="description" content="محاسبه آنلاین اضافه‌کاری، شب‌کاری، جمعه‌کاری و تعطیل‌کاری طبق قانون کار ایران. وارد کردن مزد ساعتی یا ماهانه. رایگان و دقیق.">
+<meta name="keywords" content="محاسبه اضافه‌کاری, شب کاری, جمعه کاری, فوق العاده شب کاری, قانون کار, محاسبه حقوق اضافه کار">
+<meta property="og:title" content="محاسبه اضافه‌کاری، شب‌کاری و جمعه‌کاری | ابزاربوک">
+<meta property="og:description" content="محاسبه آنلاین اضافه‌کاری، شب‌کاری و جمعه‌کاری طبق قانون کار ایران.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/ezafe-kari.html">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/ezafe-kari.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap">
+<style>
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--shadow:0 4px 24px -6px rgba(0,0,0,.45)}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8;min-height:100dvh}
+body{background-image:radial-gradient(ellipse 120% 80% at 50% -20%,color-mix(in srgb,var(--accent2) 8%,transparent),transparent 60%)}
+main{max-width:560px;margin:0 auto;padding:20px 16px 60px}
+a.back{display:inline-flex;align-items:center;gap:6px;color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:18px}
+a.back:hover{color:var(--accent2)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:16px}
+h1{font-size:1.3rem;font-weight:900;margin:0 0 6px}
+.sub{color:var(--mute);font-size:.9rem;margin:0 0 18px}
+label{font-weight:700;display:block;margin-bottom:5px;font-size:.88rem}
+input{width:100%;font:inherit;padding:12px;border:1px solid var(--rule);border-radius:10px;background:var(--bg);color:var(--ink);direction:ltr;text-align:center;font-weight:700;margin-bottom:12px}
+input:focus{outline:2px solid var(--accent2);outline-offset:1px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hint{font-size:.78rem;color:var(--mute);margin:-6px 0 12px}
+.go{width:100%;border:0;background:linear-gradient(145deg,var(--accent2),#1b3346);color:#fff;font:inherit;font-weight:800;padding:13px;border-radius:10px;cursor:pointer;margin-top:6px;box-shadow:0 8px 20px -8px rgba(42,77,110,.5)}
+.result{display:none;margin-top:18px;padding:16px;border-radius:14px;background:color-mix(in srgb,var(--accent) 10%,var(--card));border:1px solid var(--rule)}
+.result.on{display:block}
+.row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed var(--rule);font-size:.92rem}
+.row:last-child{border:0;font-weight:800}
+.row b{direction:ltr;unicode-bidi:isolate;color:var(--accent)}
+.note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← بازگشت به ابزاربوک</a>
+  <div class="card">
+    <h1>اضافه‌کاری، شب‌کاری و جمعه‌کاری</h1>
+    <p class="sub">محاسبه طبق قانون کار ایران (ماده ۵۹ و ۵۸)</p>
+
+    <label for="salary">حقوق پایه ماهانه (تومان)</label>
+    <input id="salary" type="number" inputmode="numeric" min="0" placeholder="مثلاً ۱۲۰۰۰۰۰۰" value="12000000">
+    <p class="hint">مزد ساعتی = حقوق ماهانه ÷ ۲۲۰ (ساعت کار ماهانه قانونی تقریبی)</p>
+
+    <div class="grid2">
+      <div>
+        <label for="ot">ساعات اضافه‌کاری</label>
+        <input id="ot" type="number" inputmode="decimal" min="0" step="0.5" value="20">
+      </div>
+      <div>
+        <label for="night">ساعات شب‌کاری (۲۲ تا ۶)</label>
+        <input id="night" type="number" inputmode="decimal" min="0" step="0.5" value="0">
+      </div>
+    </div>
+    <div class="grid2">
+      <div>
+        <label for="friday">ساعات جمعه‌کاری</label>
+        <input id="friday" type="number" inputmode="decimal" min="0" step="0.5" value="0">
+      </div>
+      <div>
+        <label for="holiday">ساعات تعطیل رسمی</label>
+        <input id="holiday" type="number" inputmode="decimal" min="0" step="0.5" value="0">
+      </div>
+    </div>
+
+    <button class="go" id="calc">محاسبه فوق‌العاده‌ها</button>
+
+    <div class="result" id="res">
+      <div class="row"><span>مزد یک ساعت عادی</span><b id="hourly">—</b></div>
+      <div class="row"><span>فوق‌العاده اضافه‌کاری (۴۰٪)</span><b id="otPay">—</b></div>
+      <div class="row"><span>فوق‌العاده شب‌کاری (۳۵٪)</span><b id="nightPay">—</b></div>
+      <div class="row"><span>فوق‌العاده جمعه / تعطیل</span><b id="friPay">—</b></div>
+      <div class="row"><span>جمع کل قابل پرداخت</span><b id="total">—</b></div>
+    </div>
+
+    <p class="note">
+      طبق قانون کار: اضافه‌کاری حداقل ۴۰٪ اضافه بر مزد ساعتی (ماده ۵۹). شب‌کاری ۳۵٪ (ماده ۵۸). کار در روز جمعه و تعطیلات رسمی معمولاً با فوق‌العاده ۴۰٪ محاسبه می‌شود (بسته به قرارداد و رویه کارگاه). این ابزار برآورد است و جایگزین مشاوره حقوقی نیست.
+    </p>
+  </div>
+</main>
+<script>
+(function(){
+  function fmt(n){return Math.round(n).toLocaleString('fa-IR')+' تومان'}
+  document.getElementById('calc').onclick=function(){
+    var salary=parseFloat(document.getElementById('salary').value)||0;
+    var hourly=salary/220;
+    var ot=parseFloat(document.getElementById('ot').value)||0;
+    var night=parseFloat(document.getElementById('night').value)||0;
+    var friday=parseFloat(document.getElementById('friday').value)||0;
+    var holiday=parseFloat(document.getElementById('holiday').value)||0;
+
+    var otPay=ot*hourly*1.4;
+    var nightPay=night*hourly*0.35; // only the premium (35%)
+    var friPay=(friday+holiday)*hourly*0.4; // 40% premium common practice
+    // Note: if friday hours are also overtime, user can put them in OT too. Here we show pure premiums + base for OT.
+
+    // For total we include base pay for overtime hours + premiums
+    var total=otPay + nightPay + friPay;
+
+    document.getElementById('hourly').textContent=fmt(hourly);
+    document.getElementById('otPay').textContent=fmt(otPay);
+    document.getElementById('nightPay').textContent=fmt(nightPay);
+    document.getElementById('friPay').textContent=fmt(friPay);
+    document.getElementById('total').textContent=fmt(total);
+    document.getElementById('res').classList.add('on');
+  };
+})();
+</script>
+</body>
+</html>

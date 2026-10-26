@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه مهریه به نرخ روز | سکه و طلا | ابزاربوک</title>
+<meta name="description" content="محاسبه آنلاین مهریه به نرخ روز بر اساس تعداد سکه یا گرم طلا. تبدیل مهریه قدیم به ارزش روز با نرخ قابل تنظیم. رایگان و بدون ثبت‌نام.">
+<meta name="keywords" content="محاسبه مهریه به نرخ روز, مهریه سکه, تبدیل مهریه, نرخ روز مهریه, محاسبه مهریه طلا">
+<meta property="og:title" content="محاسبه مهریه به نرخ روز | سکه و طلا | ابزاربوک">
+<meta property="og:description" content="محاسبه آنلاین مهریه به نرخ روز بر اساس تعداد سکه یا گرم طلا. رایگان و دقیق.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/mahriye.html">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/mahriye.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap">
+<style>
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--accent-ink:#fffaf0;--stamp:#9c2b2b;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px;--radius-sm:12px}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--stamp:#d44;--shadow:0 4px 24px -6px rgba(0,0,0,.45)}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8;min-height:100dvh}
+body{background-image:radial-gradient(ellipse 120% 80% at 50% -20%,color-mix(in srgb,var(--accent2) 8%,transparent),transparent 60%)}
+main{max-width:560px;margin:0 auto;padding:20px 16px 60px}
+a.back{display:inline-flex;align-items:center;gap:6px;color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:18px}
+a.back:hover{color:var(--accent2)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:16px}
+h1{font-size:1.35rem;font-weight:900;margin:0 0 6px}
+.sub{color:var(--mute);font-size:.9rem;margin:0 0 18px}
+.seg{display:flex;gap:4px;margin-bottom:16px;background:var(--bg);border:1px solid var(--rule);border-radius:11px;padding:4px}
+.seg button{flex:1;border:0;background:transparent;color:var(--mute);font:inherit;font-weight:700;font-size:.85rem;padding:10px 4px;border-radius:8px;cursor:pointer}
+.seg button[aria-selected="true"]{background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--ink)}
+label{font-weight:700;display:block;margin-bottom:5px;font-size:.88rem}
+input{width:100%;font:inherit;padding:12px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--bg);color:var(--ink);direction:ltr;text-align:center;font-weight:700;margin-bottom:14px}
+input:focus{outline:2px solid var(--accent2);outline-offset:1px}
+.hint{font-size:.8rem;color:var(--mute);margin:-8px 0 14px}
+.go{width:100%;border:0;background:linear-gradient(145deg,var(--accent2),#1b3346);color:#fff;font:inherit;font-weight:800;padding:13px;border-radius:10px;cursor:pointer;box-shadow:0 8px 20px -8px rgba(42,77,110,.5)}
+.go:hover{filter:brightness(1.05)}
+.result{display:none;margin-top:18px;padding:18px;border-radius:14px;background:color-mix(in srgb,var(--accent) 10%,var(--card));border:1px solid var(--rule);text-align:center}
+.result.on{display:block}
+.result .big{font-size:1.7rem;font-weight:900;color:var(--accent);direction:ltr;unicode-bidi:isolate;margin:6px 0}
+.result .lbl{font-size:.85rem;color:var(--mute);font-weight:600}
+.note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← بازگشت به ابزاربوک</a>
+  <div class="card">
+    <h1>محاسبه مهریه به نرخ روز</h1>
+    <p class="sub">تبدیل تعداد سکه یا گرم طلا به ارزش ریالی روز</p>
+
+    <div class="seg" role="tablist">
+      <button type="button" aria-selected="true" data-mode="coin">سکه</button>
+      <button type="button" aria-selected="false" data-mode="gold">طلا (گرم)</button>
+    </div>
+
+    <div id="coinBox">
+      <label for="coins">تعداد سکه تمام بهار آزادی</label>
+      <input id="coins" type="number" inputmode="decimal" min="0" step="0.5" placeholder="مثلاً ۱۱۰" value="110">
+      <label for="coinPrice">قیمت روز هر سکه (تومان)</label>
+      <input id="coinPrice" type="number" inputmode="numeric" min="0" placeholder="مثلاً ۴۵۰۰۰۰۰۰" value="45000000">
+      <p class="hint">قیمت سکه را از منابع معتبر روز وارد کنید.</p>
+    </div>
+
+    <div id="goldBox" style="display:none">
+      <label for="grams">مقدار طلا (گرم)</label>
+      <input id="grams" type="number" inputmode="decimal" min="0" step="0.01" placeholder="مثلاً ۲۵۰" value="250">
+      <label for="goldPrice">قیمت روز هر گرم طلای ۱۸ عیار (تومان)</label>
+      <input id="goldPrice" type="number" inputmode="numeric" min="0" placeholder="مثلاً ۳۵۰۰۰۰۰" value="3500000">
+      <p class="hint">قیمت گرم طلای ۱۸ عیار را از منابع معتبر وارد کنید.</p>
+    </div>
+
+    <button class="go" id="calc">محاسبه ارزش روز</button>
+
+    <div class="result" id="res">
+      <div class="lbl">ارزش تقریبی مهریه به نرخ روز</div>
+      <div class="big" id="out">—</div>
+      <div class="lbl" id="outWords"></div>
+    </div>
+
+    <p class="note">این ابزار صرفاً برای برآورد شخصی است و مرجع رسمی یا مشاوره حقوقی محسوب نمی‌شود. نرخ سکه و طلا را حتماً از منابع معتبر روز بررسی کنید. مهریه طبق قانون مدنی و توافق طرفین تعیین می‌شود.</p>
+  </div>
+</main>
+<script>
+(function(){
+  var mode='coin';
+  var btns=document.querySelectorAll('.seg button');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.setAttribute('aria-selected','false')});
+      b.setAttribute('aria-selected','true');
+      mode=b.getAttribute('data-mode');
+      document.getElementById('coinBox').style.display=mode==='coin'?'block':'none';
+      document.getElementById('goldBox').style.display=mode==='gold'?'block':'none';
+      document.getElementById('res').classList.remove('on');
+    });
+  });
+  function fmt(n){return n.toLocaleString('fa-IR')}
+  document.getElementById('calc').onclick=function(){
+    var val=0;
+    if(mode==='coin'){
+      var c=parseFloat(document.getElementById('coins').value)||0;
+      var p=parseFloat(document.getElementById('coinPrice').value)||0;
+      val=c*p;
+    }else{
+      var g=parseFloat(document.getElementById('grams').value)||0;
+      var gp=parseFloat(document.getElementById('goldPrice').value)||0;
+      val=g*gp;
+    }
+    document.getElementById('out').textContent=fmt(Math.round(val))+' تومان';
+    document.getElementById('outWords').textContent=val>=1e9?(fmt(Math.round(val/1e9*10)/10)+' میلیارد تومان'):(val>=1e6?(fmt(Math.round(val/1e6*10)/10)+' میلیون تومان'):'');
+    document.getElementById('res').classList.add('on');
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه کمیسیون مشاور املاک | خرید فروش رهن اجاره | ابزاربوک</title>
+<meta name="description" content="محاسبه آنلاین کمیسیون مشاور املاک برای خرید، فروش، رهن و اجاره. درصد عرف بازار قابل تنظیم. رایگان و سریع.">
+<meta name="keywords" content="کمیسیون املاک, محاسبه کمیسیون مشاور املاک, حق الزحمه مشاور املاک, کمیسیون رهن اجاره">
+<meta property="og:title" content="محاسبه کمیسیون مشاور املاک | ابزاربوک">
+<meta property="og:description" content="محاسبه آنلاین کمیسیون مشاور املاک برای خرید، فروش، رهن و اجاره.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/commission.html">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/commission.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap">
+<style>
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--shadow:0 4px 24px -6px rgba(0,0,0,.45)}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8;min-height:100dvh}
+body{background-image:radial-gradient(ellipse 120% 80% at 50% -20%,color-mix(in srgb,var(--accent2) 8%,transparent),transparent 60%)}
+main{max-width:560px;margin:0 auto;padding:20px 16px 60px}
+a.back{display:inline-flex;align-items:center;gap:6px;color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:18px}
+a.back:hover{color:var(--accent2)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:16px}
+h1{font-size:1.35rem;font-weight:900;margin:0 0 6px}
+.sub{color:var(--mute);font-size:.9rem;margin:0 0 18px}
+.seg{display:flex;gap:4px;margin-bottom:16px;background:var(--bg);border:1px solid var(--rule);border-radius:11px;padding:4px;flex-wrap:wrap}
+.seg button{flex:1;min-width:70px;border:0;background:transparent;color:var(--mute);font:inherit;font-weight:700;font-size:.82rem;padding:10px 4px;border-radius:8px;cursor:pointer}
+.seg button[aria-selected="true"]{background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--ink)}
+label{font-weight:700;display:block;margin-bottom:5px;font-size:.88rem}
+input{width:100%;font:inherit;padding:12px;border:1px solid var(--rule);border-radius:10px;background:var(--bg);color:var(--ink);direction:ltr;text-align:center;font-weight:700;margin-bottom:14px}
+input:focus{outline:2px solid var(--accent2);outline-offset:1px}
+.hint{font-size:.8rem;color:var(--mute);margin:-8px 0 14px}
+.go{width:100%;border:0;background:linear-gradient(145deg,var(--accent2),#1b3346);color:#fff;font:inherit;font-weight:800;padding:13px;border-radius:10px;cursor:pointer;box-shadow:0 8px 20px -8px rgba(42,77,110,.5)}
+.result{display:none;margin-top:18px;padding:18px;border-radius:14px;background:color-mix(in srgb,var(--accent) 10%,var(--card));border:1px solid var(--rule)}
+.result.on{display:block}
+.row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed var(--rule)}
+.row:last-child{border:0}
+.row b{font-size:1.15rem;color:var(--accent);direction:ltr;unicode-bidi:isolate}
+.note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← بازگشت به ابزاربوک</a>
+  <div class="card">
+    <h1>محاسبه کمیسیون مشاور املاک</h1>
+    <p class="sub">حق‌الزحمه عرفی برای خرید، فروش، رهن و اجاره</p>
+
+    <div class="seg" role="tablist">
+      <button type="button" aria-selected="true" data-mode="buy">خرید / فروش</button>
+      <button type="button" aria-selected="false" data-mode="rent">اجاره</button>
+      <button type="button" aria-selected="false" data-mode="rahn">رهن</button>
+    </div>
+
+    <label for="amount" id="amountLabel">مبلغ معامله (تومان)</label>
+    <input id="amount" type="number" inputmode="numeric" min="0" placeholder="مثلاً ۵۰۰۰۰۰۰۰۰۰" value="5000000000">
+
+    <label for="pct">درصد کمیسیون (قابل تنظیم)</label>
+    <input id="pct" type="number" inputmode="decimal" min="0" step="0.1" value="0.5">
+    <p class="hint" id="pctHint">عرف رایج خرید/فروش حدود ۰٫۵٪ از هر طرف (جمع ۱٪) است. قابل توافق.</p>
+
+    <button class="go" id="calc">محاسبه کمیسیون</button>
+
+    <div class="result" id="res">
+      <div class="row"><span>کمیسیون هر طرف</span><b id="each">—</b></div>
+      <div class="row"><span>جمع کمیسیون (دو طرف)</span><b id="total">—</b></div>
+    </div>
+
+    <p class="note">درصد کمیسیون در ایران مصوبه ثابت سراسری ندارد و معمولاً بین طرفین و مشاور توافق می‌شود. اعداد بالا بر اساس عرف رایج بازار است و صرفاً جنبه برآورد دارد.</p>
+  </div>
+</main>
+<script>
+(function(){
+  var mode='buy';
+  var defaults={buy:{pct:0.5,hint:'عرف رایج خرید/فروش حدود ۰٫۵٪ از هر طرف (جمع ۱٪) است. قابل توافق.'},
+                rent:{pct:50,hint:'عرف رایج اجاره: حدود نصف اجاره یک ماه از هر طرف (یا جمع یک ماه). درصد را روی مبلغ اجاره ماهانه بگذارید.'},
+                rahn:{pct:0.25,hint:'عرف رایج رهن کامل: حدود ۰٫۲۵٪ تا ۰٫۵٪ از مبلغ رهن از هر طرف.'}};
+  var btns=document.querySelectorAll('.seg button');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.setAttribute('aria-selected','false')});
+      b.setAttribute('aria-selected','true');
+      mode=b.getAttribute('data-mode');
+      document.getElementById('pct').value=defaults[mode].pct;
+      document.getElementById('pctHint').textContent=defaults[mode].hint;
+      document.getElementById('amountLabel').textContent=mode==='rent'?'مبلغ اجاره ماهانه (تومان)':(mode==='rahn'?'مبلغ رهن (تومان)':'مبلغ معامله (تومان)');
+      document.getElementById('res').classList.remove('on');
+    });
+  });
+  function fmt(n){return Math.round(n).toLocaleString('fa-IR')+' تومان'}
+  document.getElementById('calc').onclick=function(){
+    var amount=parseFloat(document.getElementById('amount').value)||0;
+    var pct=parseFloat(document.getElementById('pct').value)||0;
+    var each=0;
+    if(mode==='rent'){
+      // pct here means percent of one month rent (e.g. 50 = half month)
+      each=amount*(pct/100);
+    }else{
+      each=amount*(pct/100);
+    }
+    document.getElementById('each').textContent=fmt(each);
+    document.getElementById('total').textContent=fmt(each*2);
+    document.getElementById('res').classList.add('on');
+  };
+})();
+</script>
+</body>
+</html>
