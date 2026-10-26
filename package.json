@@ -2,7 +2,7 @@
   "name": "abzarbook",
   "version": "1.0.0",
   "private": true,
-  "description": "ابزاربوک — ابزارهای رایگان محاسباتی و متنی فارسی",
+  "description": "ابزاربوک — سریع‌ترین و دقیق‌ترین ابزارهای آنلاین فارسی برای محاسبه عیدی، سنوات، رهن به اجاره، وام و بیشتر. کاملاً client-side و privacy-first.",
   "scripts": {
     "start": "node server.js"
   },

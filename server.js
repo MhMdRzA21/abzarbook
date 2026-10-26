@@ -1,10 +1,11 @@
-// سرور استاتیک ساده، بدون هیچ وابستگی خارجی — برای دیپلوی روی Railway
+// سرور استاتیک فوق‌سبک و بهینه — بدون هیچ وابستگی خارجی
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
-const PORT = process.env.PORT || 16660; // پورت پیش‌فرض Wispbyte؛ روی Railway متغیر PORT خودش ست می‌شود
-const HOST = process.env.HOST || '0.0.0.0'; // روی همه اینترفیس‌ها گوش بده (لازم برای Wispbyte و هاست‌های ابری)
+const PORT = process.env.PORT || 16660;
+const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
 
 const MIME = {
@@ -20,40 +21,90 @@ const MIME = {
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.webp': 'image/webp',
+  '.woff2': 'font/woff2',
 };
 
-function send(res, status, body, type) {
-  res.writeHead(status, { 'Content-Type': type || 'text/plain; charset=utf-8' });
-  res.end(body);
+function cacheControl(ext) {
+  if (ext === '.html' || ext === '.xml' || ext === '.txt') return 'public, max-age=300, must-revalidate';
+  if (['.png', '.jpg', '.jpeg', '.webp', '.ico', '.svg', '.woff2'].includes(ext)) return 'public, max-age=31536000, immutable';
+  if (['.js', '.css', '.json'].includes(ext)) return 'public, max-age=86400';
+  return 'public, max-age=3600';
 }
 
+const SECURITY = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'X-XSS-Protection': '1; mode=block',
+};
+
 function safeJoin(root, urlPath) {
-  const decoded = decodeURIComponent(urlPath.split('?')[0]);
+  const decoded = decodeURIComponent((urlPath || '/').split('?')[0]);
   const resolved = path.normalize(path.join(root, decoded));
-  if (!resolved.startsWith(root)) return null; // path traversal guard
+  if (!resolved.startsWith(root)) return null;
   return resolved;
 }
 
 http.createServer((req, res) => {
+  if (req.url === '/health' || req.url === '/healthz') {
+    res.writeHead(200, { 'Content-Type': 'text/plain', ...SECURITY });
+    return res.end('ok');
+  }
+
   let urlPath = req.url === '/' ? '/index.html' : req.url;
   let filePath = safeJoin(ROOT, urlPath);
+  if (!filePath) {
+    res.writeHead(400, { 'Content-Type': 'text/plain', ...SECURITY });
+    return res.end('Bad request');
+  }
 
-  if (!filePath) return send(res, 400, 'Bad request');
+  const trySend = (fp, ext) => {
+    fs.readFile(fp, (err, data) => {
+      if (err) {
+        // try next
+        if (ext !== '.html' && !path.extname(filePath)) {
+          return trySend(filePath + '.html', '.html');
+        }
+        // 404
+        return fs.readFile(path.join(ROOT, '404.html'), (e2, d2) => {
+          res.writeHead(404, { 'Content-Type': MIME['.html'], 'Cache-Control': 'no-store', ...SECURITY });
+          res.end(e2 ? '۴۰۴ — صفحه پیدا نشد' : d2);
+        });
+      }
 
-  fs.readFile(filePath, (err, data) => {
-    if (!err) {
-      const ext = path.extname(filePath);
-      return send(res, 200, data, MIME[ext] || 'application/octet-stream');
-    }
-    // اگر فایل بدون پسوند خواسته شده بود، اول .html را امتحان کن
-    fs.readFile(filePath + '.html', (err2, data2) => {
-      if (!err2) return send(res, 200, data2, MIME['.html']);
-      fs.readFile(path.join(ROOT, '404.html'), (err3, data3) => {
-        if (!err3) return send(res, 404, data3, MIME['.html']);
-        send(res, 404, '404 — صفحه پیدا نشد');
-      });
+      const type = MIME[ext] || 'application/octet-stream';
+      const headers = {
+        'Content-Type': type,
+        'Cache-Control': cacheControl(ext),
+        ...SECURITY,
+      };
+
+      const accept = req.headers['accept-encoding'] || '';
+      if (accept.includes('gzip') && ['.html', '.css', '.js', '.json', '.xml', '.txt', '.svg'].includes(ext) && data.length > 1024) {
+        zlib.gzip(data, (zerr, compressed) => {
+          if (zerr) {
+            headers['Content-Length'] = data.length;
+            res.writeHead(200, headers);
+            return res.end(data);
+          }
+          headers['Content-Encoding'] = 'gzip';
+          headers['Content-Length'] = compressed.length;
+          headers['Vary'] = 'Accept-Encoding';
+          res.writeHead(200, headers);
+          res.end(compressed);
+        });
+        return;
+      }
+
+      headers['Content-Length'] = data.length;
+      res.writeHead(200, headers);
+      res.end(data);
     });
-  });
+  };
+
+  const ext = path.extname(filePath).toLowerCase() || '.html';
+  trySend(filePath, ext === '' ? '.html' : ext);
 }).listen(PORT, HOST, () => {
-  console.log(`abzarbook running on ${HOST}:${PORT}`);
+  console.log(`ابزاربوک آماده روی ${HOST}:${PORT}`);
 });

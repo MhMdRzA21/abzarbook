@@ -5,18 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>صفحه پیدا نشد | ابزاربوک</title>
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800;900&display=swap">
 <style>
-body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f3ede0;color:#211d14;font-family:Vazirmatn,Tahoma,sans-serif;text-align:center;padding:24px}
-h1{font-family:Vazirmatn,Tahoma,sans-serif;font-weight:800;font-size:2.4rem;margin:0 0 8px;color:#7a1f1f}
-p{color:#7d7257;margin:0 0 20px}
-a{color:#a8681c;font-weight:700;text-decoration:none;border:1px solid #d6c9a3;border-radius:8px;padding:10px 18px}
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;text-align:center;padding:24px;
+  background-image:radial-gradient(ellipse 120% 80% at 50% -20%, color-mix(in srgb,var(--accent2) 10%,transparent), transparent 60%)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:20px;padding:48px 36px;max-width:420px;width:100%;box-shadow:0 12px 40px -12px rgba(40,35,20,.15)}
+h1{font-weight:900;font-size:4.5rem;margin:0 0 8px;color:var(--accent);line-height:1;letter-spacing:-2px}
+p{color:var(--mute);margin:0 0 28px;font-size:1.05rem}
+a{display:inline-flex;align-items:center;gap:8px;color:#fff;background:linear-gradient(145deg,var(--accent),#a8681c);font-weight:800;text-decoration:none;border-radius:999px;padding:14px 28px;box-shadow:0 8px 24px -6px rgba(168,104,28,.4);transition:transform .2s,box-shadow .2s}
+a:hover{transform:translateY(-2px);box-shadow:0 12px 28px -6px rgba(168,104,28,.5)}
 </style>
 </head>
 <body>
-<div>
+<div class="card">
   <h1>۴۰۴</h1>
-  <p>این صفحه پیدا نشد.</p>
+  <p>این صفحه پیدا نشد یا جابه‌جا شده است.</p>
   <a href="/">بازگشت به ابزاربوک</a>
 </div>
 </body>

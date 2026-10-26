@@ -16,13 +16,43 @@
 <link rel="canonical" href="https://abzarbook.ir/rahn-vam.html">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0);
- --dolphin:#b9cdd1;--dolphin-ink:#2c4a52;
- --bg:#f3ede0;--card:#faf6ea;--ink:#211d14;--mute:#7d7257;--rule:#d6c9a3;--accent:#a8681c;--accent-ink:#fff8ea;--accent2:#2c4f6b;--stamp:#7a1f1f;}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;}}
+:root{
+  --bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;
+  --accent:#c47a1a;--accent2:#2a4d6e;--accent-ink:#fffaf0;--stamp:#9c2b2b;
+  --shadow:0 4px 20px -6px rgba(40,35,20,.12);
+  --shadow-lg:0 12px 40px -12px rgba(40,35,20,.18);
+  --radius:16px;--radius-sm:12px;--radius-full:999px;
+  --transition:all .22s cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;
+    --rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--accent-ink:#1f1600;--stamp:#d44;
+    --shadow:0 4px 24px -6px rgba(0,0,0,.45);--shadow-lg:0 14px 44px -12px rgba(0,0,0,.55);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;
+  --rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--accent-ink:#1f1600;--stamp:#d44;
+  --shadow:0 4px 24px -6px rgba(0,0,0,.45);--shadow-lg:0 14px 44px -12px rgba(0,0,0,.55);
+}
 :root[data-theme="dark"]{--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;}
 html{scroll-padding-top:env(safe-area-inset-top,0)}
 *{box-sizing:border-box}
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, color-mix(in srgb,var(--accent2) 8%,transparent), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, color-mix(in srgb,var(--accent) 6%,transparent), transparent 50%);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) body,
+  :root[data-theme="dark"] body{
+    background-image:
+      radial-gradient(ellipse 120% 80% at 50% -20%, rgba(106,154,187,.12), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 100% 100%, rgba(224,176,74,.07), transparent 50%);
+  }
+}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.95}
 main{max-width:720px;margin:0 auto;padding:18px 16px 56px}
 
@@ -82,7 +112,7 @@ details{border-radius:10px;border:1px solid var(--rule);border-bottom:1px solid 
 .copyBtn{border-radius:8px}
 
 /* بافت ظریف کاغذ دفترداری */
-body{background-color:var(--dolphin);background-image:repeating-linear-gradient(45deg, color-mix(in srgb, var(--dolphin-ink) 10%, transparent) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dolphin-ink) 8%, transparent) 0 2px, transparent 2px 9px)}
+
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
 /* نشانه گرافیکی سؤال روی هر آکاردئون */
 details{position:relative}
@@ -101,6 +131,21 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 <meta name="theme-color" content="#2c4f6b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "تبدیل رهن به اجاره و محاسبه وام ازدواج ۱۴۰۵",
+  "description": "راهنمای تبدیل رهن به اجاره با نرخ دلخواه و محاسبه قسط وام ازدواج و فرزندآوری",
+  "step": [
+    {"@type": "HowToStep", "name": "مبلغ رهن را وارد کنید", "text": "مبلغ رهن (ودیعه) را به تومان وارد کنید."},
+    {"@type": "HowToStep", "name": "نرخ تبدیل را تنظیم کنید", "text": "نرخ عرف محلی (معمولاً ۲٫۵ تا ۳ درصد) را وارد یا از پیش‌فرض استفاده کنید."},
+    {"@type": "HowToStep", "name": "نتیجه را ببینید", "text": "اجاره ماهانه معادل و در صورت نیاز قسط وام نمایش داده می‌شود."}
+  ]
+}
+</script>
+
 </head>
 <body>
 <main>
