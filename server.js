@@ -37,7 +37,14 @@ const SECURITY = {
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
   'X-XSS-Protection': '1; mode=block',
+  'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
+  'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'",
 };
+
+// تگ ETag ساده (mtime+size) برای کش شرطی — کاربرانی که دوباره سر می‌زنند ترافیک ۲۰۴ Not-Modified می‌گیرند نه کل فایل
+function makeETag(stat) {
+  return `"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}"`;
+}
 
 function safeJoin(root, urlPath) {
   const decoded = decodeURIComponent((urlPath || '/').split('?')[0]);
@@ -60,46 +67,83 @@ http.createServer((req, res) => {
   }
 
   const trySend = (fp, ext) => {
-    fs.readFile(fp, (err, data) => {
-      if (err) {
-        // try next
+    fs.stat(fp, (statErr, stat) => {
+      if (statErr || !stat.isFile()) {
         if (ext !== '.html' && !path.extname(filePath)) {
           return trySend(filePath + '.html', '.html');
         }
-        // 404
         return fs.readFile(path.join(ROOT, '404.html'), (e2, d2) => {
           res.writeHead(404, { 'Content-Type': MIME['.html'], 'Cache-Control': 'no-store', ...SECURITY });
           res.end(e2 ? '۴۰۴ — صفحه پیدا نشد' : d2);
         });
       }
 
-      const type = MIME[ext] || 'application/octet-stream';
-      const headers = {
-        'Content-Type': type,
-        'Cache-Control': cacheControl(ext),
-        ...SECURITY,
-      };
-
-      const accept = req.headers['accept-encoding'] || '';
-      if (accept.includes('gzip') && ['.html', '.css', '.js', '.json', '.xml', '.txt', '.svg'].includes(ext) && data.length > 1024) {
-        zlib.gzip(data, (zerr, compressed) => {
-          if (zerr) {
-            headers['Content-Length'] = data.length;
-            res.writeHead(200, headers);
-            return res.end(data);
-          }
-          headers['Content-Encoding'] = 'gzip';
-          headers['Content-Length'] = compressed.length;
-          headers['Vary'] = 'Accept-Encoding';
-          res.writeHead(200, headers);
-          res.end(compressed);
-        });
-        return;
+      const etag = makeETag(stat);
+      const lastModified = stat.mtime.toUTCString();
+      if (req.headers['if-none-match'] === etag) {
+        res.writeHead(304, { 'ETag': etag, 'Cache-Control': cacheControl(ext), ...SECURITY });
+        return res.end();
       }
 
-      headers['Content-Length'] = data.length;
-      res.writeHead(200, headers);
-      res.end(data);
+      fs.readFile(fp, (err, data) => {
+        if (err) {
+          return fs.readFile(path.join(ROOT, '404.html'), (e2, d2) => {
+            res.writeHead(404, { 'Content-Type': MIME['.html'], 'Cache-Control': 'no-store', ...SECURITY });
+            res.end(e2 ? '۴۰۴ — صفحه پیدا نشد' : d2);
+          });
+        }
+
+        const type = MIME[ext] || 'application/octet-stream';
+        const headers = {
+          'Content-Type': type,
+          'Cache-Control': cacheControl(ext),
+          'ETag': etag,
+          'Last-Modified': lastModified,
+          ...SECURITY,
+        };
+
+        const compressible = ['.html', '.css', '.js', '.json', '.xml', '.txt', '.svg'].includes(ext) && data.length > 1024;
+        const accept = req.headers['accept-encoding'] || '';
+
+        // برتلی اولویت دارد (فشرده‌سازی بهتر از gzip، مهم برای کاربران موبایل با پهنای‌باند محدود)
+        if (compressible && accept.includes('br') && typeof zlib.brotliCompress === 'function') {
+          zlib.brotliCompress(data, {
+            params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 5 },
+          }, (berr, compressed) => {
+            if (berr) return sendGzipOrRaw();
+            headers['Content-Encoding'] = 'br';
+            headers['Content-Length'] = compressed.length;
+            headers['Vary'] = 'Accept-Encoding';
+            res.writeHead(200, headers);
+            res.end(compressed);
+          });
+          return;
+        }
+
+        sendGzipOrRaw();
+
+        function sendGzipOrRaw() {
+          if (compressible && accept.includes('gzip')) {
+            zlib.gzip(data, (zerr, compressed) => {
+              if (zerr) {
+                headers['Content-Length'] = data.length;
+                res.writeHead(200, headers);
+                return res.end(data);
+              }
+              headers['Content-Encoding'] = 'gzip';
+              headers['Content-Length'] = compressed.length;
+              headers['Vary'] = 'Accept-Encoding';
+              res.writeHead(200, headers);
+              res.end(compressed);
+            });
+            return;
+          }
+
+          headers['Content-Length'] = data.length;
+          res.writeHead(200, headers);
+          res.end(data);
+        }
+      });
     });
   };
 

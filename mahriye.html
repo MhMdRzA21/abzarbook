@@ -13,7 +13,8 @@
 <meta property="og:url" content="https://abzarbook.ir/mahriye.html">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://abzarbook.ir/mahriye.html">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap">
+<link rel="preload" href="/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
 <style>
 :root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--accent-ink:#fffaf0;--stamp:#9c2b2b;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px;--radius-sm:12px}
 @media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--stamp:#d44;--shadow:0 4px 24px -6px rgba(0,0,0,.45)}}
@@ -40,6 +41,27 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 .result .lbl{font-size:.85rem;color:var(--mute);font-weight:600}
 .note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "محاسبه مهریه به نرخ روز",
+  "description": "راهنمای تبدیل تعداد سکه یا گرم طلای مهریه به ارزش ریالی روز",
+  "step": [
+    {"@type": "HowToStep", "name": "نوع مهریه را انتخاب کنید", "text": "سکه یا طلا (گرم) را انتخاب کنید."},
+    {"@type": "HowToStep", "name": "تعداد یا مقدار را وارد کنید", "text": "تعداد سکه تمام بهار آزادی یا گرم طلای ۱۸ عیار را وارد کنید."},
+    {"@type": "HowToStep", "name": "قیمت روز را وارد کنید", "text": "قیمت روز هر سکه یا هر گرم طلا را از یک منبع معتبر وارد کنید."}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"مهریه به نرخ روز چگونه محاسبه می‌شود؟","acceptedAnswer":{"@type":"Answer","text":"تعداد سکه یا گرم طلای مهریه در قیمت روز همان واحد ضرب می‌شود تا ارزش تقریبی ریالی مهریه به نرخ روز به دست آید."}},
+{"@type":"Question","name":"آیا این ابزار قیمت روز سکه و طلا را خودش نشان می‌دهد؟","acceptedAnswer":{"@type":"Answer","text":"خیر، برای دقت و اعتبار، قیمت روز باید از یک منبع معتبر بازار وارد شود؛ ابزار فقط محاسبه را انجام می‌دهد."}},
+{"@type":"Question","name":"آیا محاسبه مهریه به نرخ روز، مرجع رسمی و قانونی است؟","acceptedAnswer":{"@type":"Answer","text":"خیر، این ابزار صرفاً برای برآورد شخصی است و جایگزین مشاوره حقوقی یا مرجع رسمی قانون مدنی نیست."}}
+]}
+</script>
 </head>
 <body>
 <main>
@@ -79,6 +101,17 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 
     <p class="note">این ابزار صرفاً برای برآورد شخصی است و مرجع رسمی یا مشاوره حقوقی محسوب نمی‌شود. نرخ سکه و طلا را حتماً از منابع معتبر روز بررسی کنید. مهریه طبق قانون مدنی و توافق طرفین تعیین می‌شود.</p>
   </div>
+
+  <div class="card">
+  <h2>چرا مهریه باید به نرخ روز محاسبه شود؟</h2>
+  <p>در ایران مهریه معمولاً به تعداد سکه تمام بهار آزادی یا مقدار طلا تعیین می‌شود، نه مبلغ ثابت ریالی؛ دلیل این رسم، حفظ ارزش واقعی مهریه در برابر تورم است. مهریه‌ای که چند سال پیش تعیین شده، امروز با توجه به تغییر قیمت سکه و طلا، ارزش ریالی کاملاً متفاوتی دارد و محاسبه این ارزش روز، هم برای مطالبه حقوقی مهریه و هم برای برنامه‌ریزی مالی زوجین کاربرد دارد.</p>
+  <p>این ابزار با گرفتن تعداد سکه یا گرم طلا و قیمت روز آن (که باید از یک منبع معتبر بازار مثل اتحادیه طلا و جواهر وارد کنید)، ارزش تقریبی ریالی مهریه را به‌صورت آنی محاسبه می‌کند.</p>
+  <h2>سؤالات متداول</h2>
+  <details><summary>مهریه به نرخ روز چگونه محاسبه می‌شود؟</summary><p>تعداد سکه یا گرم طلای مهریه در قیمت روز همان واحد ضرب می‌شود تا ارزش تقریبی ریالی مهریه به نرخ روز به دست آید.</p></details>
+  <details><summary>آیا این ابزار قیمت روز سکه و طلا را خودش نشان می‌دهد؟</summary><p>خیر، برای دقت و اعتبار، قیمت روز باید از یک منبع معتبر بازار وارد شود؛ ابزار فقط محاسبه را انجام می‌دهد.</p></details>
+  <details><summary>آیا محاسبه مهریه به نرخ روز، مرجع رسمی و قانونی است؟</summary><p>خیر، این ابزار صرفاً برای برآورد شخصی است و جایگزین مشاوره حقوقی یا مرجع رسمی قانون مدنی نیست.</p></details>
+  </div>
+  <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/hoghoogh-dastmazd.html" style="color:var(--accent2)">عیدی و سنوات</a> · <a href="/rahn-vam.html" style="color:var(--accent2)">رهن، اجاره و وام</a> · <a href="/commission.html" style="color:var(--accent2)">کمیسیون مشاور املاک</a></p>
 </main>
 <script>
 (function(){

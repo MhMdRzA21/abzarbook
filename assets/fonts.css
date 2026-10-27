@@ -1,0 +1,12 @@
+/* فونت وزیرمتن - میزبانی محلی (self-hosted) به‌جای Google Fonts
+   دلیل: در ایران دسترسی به fonts.googleapis.com/fonts.gstatic.com گاهی کند یا ناپایدار است.
+   فونت وریبل (Variable Font) همه وزن‌ها را در یک فایل ۱۰۸ کیلوبایتی می‌دهد.
+   لایسنس: SIL Open Font License 1.1 — به فایل OFL.txt در پوشه fonts/ مراجعه کنید. */
+@font-face {
+  font-family: Vazirmatn;
+  src: url('/fonts/Vazirmatn-Variable.woff2') format('woff2-variations'),
+       url('/fonts/Vazirmatn-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
