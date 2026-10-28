@@ -85,10 +85,10 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
     </div>
 
     <label for="amount" id="amountLabel">مبلغ معامله (تومان)</label>
-    <input id="amount" type="text" inputmode="numeric" placeholder="مثلاً 5,000,000,000" value="5,000,000,000">
+    <input id="amount" type="text" inputmode="numeric" placeholder="مثلاً 5,000,000,000">
 
     <label for="pct">درصد کمیسیون (قابل تنظیم)</label>
-    <input id="pct" type="number" inputmode="decimal" min="0" step="0.1" value="0.5">
+    <input id="pct" type="number" inputmode="decimal" min="0" step="0.1" placeholder="مثلاً 0.5">
     <p class="hint" id="pctHint">عرف رایج خرید/فروش حدود ۰٫۵٪ از هر طرف (جمع ۱٪) است. قابل توافق.</p>
 
     <button class="go" id="calc">محاسبه کمیسیون</button>
@@ -120,6 +120,7 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
   var defaults={buy:{pct:0.5,hint:'عرف رایج خرید/فروش حدود ۰٫۵٪ از هر طرف (جمع ۱٪) است. قابل توافق.'},
                 rent:{pct:50,hint:'عرف رایج اجاره: حدود نصف اجاره یک ماه از هر طرف (یا جمع یک ماه). درصد را روی مبلغ اجاره ماهانه بگذارید.'},
                 rahn:{pct:0.25,hint:'عرف رایج رهن کامل: حدود ۰٫۲۵٪ تا ۰٫۵٪ از مبلغ رهن از هر طرف.'}};
+  document.getElementById('pct').value = defaults.buy.pct;
   var btns=document.querySelectorAll('.seg button');
   btns.forEach(function(b){
     b.addEventListener('click',function(){
