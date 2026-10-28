@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه معدل ترم و معدل کل دانشگاه آنلاین | ابزاربوک</title>
+<meta name="description" content="محاسبه آنلاین معدل ترم و معدل کل دانشگاه با نمره و تعداد واحد هر درس. معدل وزنی ۰ تا ۲۰، رایگان و سریع در ابزاربوک.">
+<meta name="keywords" content="محاسبه معدل, معدل ترم, معدل کل, محاسبه معدل دانشگاه, معدل وزنی, محاسبه معدل با واحد">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/moadel.html">
+<meta property="og:title" content="محاسبه معدل ترم و معدل کل دانشگاه آنلاین | ابزاربوک">
+<meta property="og:description" content="محاسبه آنلاین معدل ترم و معدل کل دانشگاه با نمره و تعداد واحد هر درس. معدل وزنی ۰ تا ۲۰، رایگان و سریع در ابزاربوک.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/moadel.html">
+<meta property="og:image" content="https://abzarbook.ir/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:site_name" content="ابزاربوک">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="محاسبه معدل ترم و معدل کل دانشگاه آنلاین | ابزاربوک">
+<meta name="twitter:description" content="محاسبه آنلاین معدل ترم و معدل کل دانشگاه با نمره و تعداد واحد هر درس. معدل وزنی ۰ تا ۲۰، رایگان و سریع در ابزاربوک.">
+<meta name="twitter:image" content="https://abzarbook.ir/icon-512.png">
+<link rel="preload" href="/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<style>
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--shadow:0 4px 24px -6px rgba(0,0,0,.45)}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8;min-height:100dvh}
+body{background-image:radial-gradient(ellipse 120% 80% at 50% -20%,color-mix(in srgb,var(--accent2) 8%,transparent),transparent 60%)}
+main{max-width:560px;margin:0 auto;padding:20px 16px 60px}
+a.back{display:inline-flex;align-items:center;gap:6px;color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:18px}
+a.back:hover{color:var(--accent2)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:16px}
+h1{font-size:1.35rem;font-weight:900;margin:0 0 6px}
+.sub{color:var(--mute);font-size:.9rem;margin:0 0 18px}
+.seg{display:flex;gap:4px;margin-bottom:16px;background:var(--bg);border:1px solid var(--rule);border-radius:11px;padding:4px;flex-wrap:wrap}
+.seg button{flex:1;min-width:70px;border:0;background:transparent;color:var(--mute);font:inherit;font-weight:700;font-size:.82rem;padding:10px 4px;border-radius:8px;cursor:pointer}
+.seg button[aria-selected="true"]{background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--ink)}
+label{font-weight:700;display:block;margin-bottom:5px;font-size:.88rem}
+input{width:100%;font:inherit;padding:12px;border:1px solid var(--rule);border-radius:10px;background:var(--bg);color:var(--ink);direction:ltr;text-align:center;font-weight:700;margin-bottom:14px}
+input:focus{outline:2px solid var(--accent2);outline-offset:1px}
+.go{width:100%;border:0;background:linear-gradient(145deg,var(--accent2),#1b3346);color:#fff;font:inherit;font-weight:800;padding:13px;border-radius:10px;cursor:pointer;box-shadow:0 8px 20px -8px rgba(42,77,110,.5)}
+.result{display:none;margin-top:18px;padding:18px;border-radius:14px;background:color-mix(in srgb,var(--accent) 10%,var(--card));border:1px solid var(--rule)}
+.result.on{display:block}
+.row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed var(--rule)}
+.row:last-child{border:0}
+.row b{font-size:1.15rem;color:var(--accent);direction:ltr;unicode-bidi:isolate}
+.row .amt{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.row .amt small{font-size:.72rem;color:var(--mute);font-weight:500;direction:rtl}
+.note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+h2{font-size:1.1rem;margin:20px 0 10px}
+h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;background:var(--bg)}summary{font-weight:700;cursor:pointer}
+
+.grow{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:start}.grow input{margin-bottom:8px}.x{border:1px solid var(--rule);background:var(--bg);color:var(--mute);border-radius:10px;width:42px;height:46px;font:inherit;cursor:pointer}.add{width:100%;border:1px dashed var(--rule);background:transparent;color:var(--accent2);font:inherit;font-weight:700;padding:10px;border-radius:10px;cursor:pointer;margin-bottom:14px}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "HowTo", "name": "محاسبه معدل (ترم و کل)", "description": "محاسبه آنلاین معدل ترم و معدل کل دانشگاه با نمره و تعداد واحد هر درس. معدل وزنی ۰ تا ۲۰، رایگان و سریع در ابزاربوک.", "step": [{"@type": "HowToStep", "name": "نمره و واحد را وارد کنید", "text": "برای هر درس نمره بین ۰ تا ۲۰ و تعداد واحد را بنویسید."}, {"@type": "HowToStep", "name": "در صورت نیاز معدل قبلی را وارد کنید", "text": "معدل و واحدهای گذرانده قبلی را برای محاسبه معدل کل بنویسید."}, {"@type": "HowToStep", "name": "نتیجه را ببینید", "text": "معدل ترم و معدل کل نمایش داده می‌شود."}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"معدل ترم چگونه محاسبه می‌شود؟","acceptedAnswer":{"@type":"Answer","text":"نمره هر درس را در تعداد واحدش ضرب کنید، همه را جمع کنید و بر مجموع واحدهای ترم تقسیم کنید."}},
+{"@type":"Question","name":"فرق معدل ترم و معدل کل چیست؟","acceptedAnswer":{"@type":"Answer","text":"معدل ترم فقط دروس همان ترم را حساب می‌کند. معدل کل همه واحدهای گذرانده از اول تحصیل را شامل می‌شود."}},
+{"@type":"Question","name":"آیا نمره درس‌های کم‌واحد روی معدل اثر دارد؟","acceptedAnswer":{"@type":"Answer","text":"بله، اما کمتر از درس‌های پرواحد. اثر هر نمره متناسب با تعداد واحد آن درس است."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"ابزاربوک","item":"https://abzarbook.ir/"},
+{"@type":"ListItem","position":2,"name":"محاسبه معدل (ترم و کل)","item":"https://abzarbook.ir/moadel.html"}
+]}
+</script>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← بازگشت به ابزاربوک</a>
+  <div class="card">
+    <h1>محاسبه معدل (ترم و کل)</h1>
+    <p class="sub">معدل وزنی با نمره و تعداد واحد، مقیاس ۰ تا ۲۰</p>
+    <label>دروس این ترم (نمره و تعداد واحد)</label>
+    <div id="rows"></div>
+    <button type="button" class="add" id="add">+ افزودن درس</button>
+    <label for="pavg">معدل کل ترم‌های قبل (اختیاری)</label>
+    <input id="pavg" type="text" inputmode="decimal" placeholder="مثلاً ۱۶٫۵">
+    <label for="punit">تعداد واحدهای گذرانده قبلی (اختیاری)</label>
+    <input id="punit" type="text" inputmode="numeric" placeholder="مثلاً ۶۰">
+    <button class="go" id="calc">محاسبه معدل</button>
+    <div class="result" id="res">
+      <div class="row"><span>معدل این ترم</span><div class="amt"><b id="o1">—</b><small id="w1"></small></div></div>
+      <div class="row"><span>مجموع واحدهای این ترم</span><div class="amt"><b id="o2">—</b></div></div>
+      <div class="row" id="r3" hidden><span>معدل کل</span><div class="amt"><b id="o3">—</b></div></div>
+    </div>
+    <p class="note">نمره‌ها باید بین ۰ تا ۲۰ باشند. روش محاسبه هر دانشگاه ممکن است جزئیاتی مثل واحدهای حذف‌شده یا مشروط‌شده داشته باشد.</p>
+  </div>
+
+  <div class="card">
+    <h2>معدل چگونه محاسبه می‌شود؟</h2>
+    <p>معدل دانشگاهی در ایران یک میانگین وزنی است. نمره هر درس در تعداد واحدش ضرب می‌شود، حاصل‌ها با هم جمع می‌شوند و بر مجموع واحدها تقسیم می‌شود. به همین دلیل نمره یک درس سه‌واحدی بیشتر از یک درس یک‌واحدی روی معدل اثر دارد.</p>
+    <h3>مثال</h3>
+    <p>فرض کنید چهار درس دارید: نمره ۱۸ با ۳ واحد، نمره ۱۵ با ۲ واحد، نمره ۲۰ با ۳ واحد و نمره ۱۲ با ۲ واحد. مجموع نمره × واحد برابر ۵۴ + ۳۰ + ۶۰ + ۲۴ = ۱۶۸ و مجموع واحدها ۱۰ است. معدل ترم ۱۶٫۸ می‌شود.</p>
+    <h3>معدل کل چگونه به دست می‌آید؟</h3>
+    <p>معدل کل هم همین روش را دارد، با این تفاوت که همه ترم‌ها را در نظر می‌گیرد. اگر قبلاً ۶۰ واحد با معدل ۱۶٫۵ گذرانده‌اید، معدل قبلی و واحدهای آن را وارد کنید تا معدل کل جدید نمایش داده شود.</p>
+    <h3>چطور معدل را بالا ببریم؟</h3>
+    <p>بیشترین اثر از درس‌های پرواحد می‌آید. بهبود نمره یک درس چهارواحدی از ۱۲ به ۱۶، اثر بیشتری از بهبود یک درس دوواحدی دارد. دانشگاه‌ها معمولاً شرایط مشروطی و ترم ممتاز را بر اساس معدل ترم تعیین می‌کنند، پس آیین‌نامه دانشگاه خودتان را بخوانید.</p>
+    <h2>سؤالات متداول</h2>
+    <details><summary>معدل ترم چگونه محاسبه می‌شود؟</summary><p>نمره هر درس را در تعداد واحدش ضرب کنید، همه را جمع کنید و بر مجموع واحدهای ترم تقسیم کنید.</p></details>
+    <details><summary>فرق معدل ترم و معدل کل چیست؟</summary><p>معدل ترم فقط دروس همان ترم را حساب می‌کند. معدل کل همه واحدهای گذرانده از اول تحصیل را شامل می‌شود.</p></details>
+    <details><summary>آیا نمره درس‌های کم‌واحد روی معدل اثر دارد؟</summary><p>بله، اما کمتر از درس‌های پرواحد. اثر هر نمره متناسب با تعداد واحد آن درس است.</p></details>
+  </div>
+  <p style="font-size:.8rem;margin-top:14px">سایر ابزارها: <a href="/ezafe-kari.html" style="color:var(--accent2)">اضافه‌کاری</a> · <a href="/darsad.html" style="color:var(--accent2)">درصد و تخفیف</a> · <a href="/sen.html" style="color:var(--accent2)">محاسبه سن</a></p>
+</main>
+<script src="/assets/num-fa.js"></script>
+<script>
+(function(){
+  var rows=document.getElementById('rows');
+  function addRow(){
+    var d=document.createElement('div');d.className='grow';
+    d.innerHTML='<input type="text" inputmode="decimal" placeholder="نمره (۰ تا ۲۰)" class="g"><input type="text" inputmode="numeric" placeholder="تعداد واحد" class="u"><button type="button" class="x" aria-label="حذف درس">×</button>';
+    d.querySelector('.x').onclick=function(){if(rows.children.length>1)d.remove();};
+    rows.appendChild(d);
+  }
+  for(var i=0;i<4;i++)addRow();
+  document.getElementById('add').onclick=addRow;
+  document.getElementById('calc').onclick=function(){
+    var sum=0,units=0;
+    rows.querySelectorAll('.grow').forEach(function(r){
+      var g=parseFloat(AB.toEn(r.querySelector('.g').value));
+      var u=parseFloat(AB.toEn(r.querySelector('.u').value));
+      if(isNaN(g)||isNaN(u)||u<=0||g<0||g>20)return;
+      sum+=g*u;units+=u;
+    });
+    if(!units){alert('نمره (۰ تا ۲۰) و تعداد واحد حداقل یک درس را وارد کنید');return;}
+    var avg=sum/units;
+    document.getElementById('o1').textContent=AB.fmtDec(avg,2);
+    document.getElementById('w1').textContent=avg>=17?'عالی':avg>=14?'خوب':avg>=12?'متوسط':'ضعیف';
+    document.getElementById('o2').textContent=AB.fmtDec(units,1);
+    var pa=parseFloat(AB.toEn(document.getElementById('pavg').value));
+    var pu=parseFloat(AB.toEn(document.getElementById('punit').value));
+    var r3=document.getElementById('r3');
+    if(pa>=0&&pa<=20&&pu>0){
+      document.getElementById('o3').textContent=AB.fmtDec((pa*pu+sum)/(pu+units),2);
+      r3.hidden=false;
+    }else r3.hidden=true;
+    document.getElementById('res').classList.add('on');
+  };
+})();
+</script>
+</body>
+</html>
