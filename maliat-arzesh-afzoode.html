@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه مالیات بر ارزش افزوده (VAT) آنلاین | ابزاربوک</title>
+<meta name="description" content="محاسبه آنلاین مالیات بر ارزش افزوده: اضافه کردن مالیات به قیمت و جدا کردن مالیات از مبلغ نهایی. نرخ قابل تغییر، با نمایش حروفی. رایگان.">
+<meta name="keywords" content="محاسبه مالیات بر ارزش افزوده, محاسبه ارزش افزوده, محاسبه vat, مالیات بر ارزش افزوده فاکتور, محاسبه مالیات فاکتور">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/maliat-arzesh-afzoode.html">
+<meta property="og:title" content="محاسبه مالیات بر ارزش افزوده (VAT) آنلاین | ابزاربوک">
+<meta property="og:description" content="محاسبه آنلاین مالیات بر ارزش افزوده: اضافه کردن مالیات به قیمت و جدا کردن مالیات از مبلغ نهایی. نرخ قابل تغییر، با نمایش حروفی. رایگان.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/maliat-arzesh-afzoode.html">
+<meta property="og:image" content="https://abzarbook.ir/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:site_name" content="ابزاربوک">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="محاسبه مالیات بر ارزش افزوده (VAT) آنلاین | ابزاربوک">
+<meta name="twitter:description" content="محاسبه آنلاین مالیات بر ارزش افزوده: اضافه کردن مالیات به قیمت و جدا کردن مالیات از مبلغ نهایی. نرخ قابل تغییر، با نمایش حروفی. رایگان.">
+<meta name="twitter:image" content="https://abzarbook.ir/icon-512.png">
+<link rel="preload" href="/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<style>
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--shadow:0 4px 24px -6px rgba(0,0,0,.45)}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8;min-height:100dvh}
+body{background-image:radial-gradient(ellipse 120% 80% at 50% -20%,color-mix(in srgb,var(--accent2) 8%,transparent),transparent 60%)}
+main{max-width:560px;margin:0 auto;padding:20px 16px 60px}
+a.back{display:inline-flex;align-items:center;gap:6px;color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:600;margin-bottom:18px}
+a.back:hover{color:var(--accent2)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:16px}
+h1{font-size:1.35rem;font-weight:900;margin:0 0 6px}
+.sub{color:var(--mute);font-size:.9rem;margin:0 0 18px}
+.seg{display:flex;gap:4px;margin-bottom:16px;background:var(--bg);border:1px solid var(--rule);border-radius:11px;padding:4px;flex-wrap:wrap}
+.seg button{flex:1;min-width:70px;border:0;background:transparent;color:var(--mute);font:inherit;font-weight:700;font-size:.82rem;padding:10px 4px;border-radius:8px;cursor:pointer}
+.seg button[aria-selected="true"]{background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--ink)}
+label{font-weight:700;display:block;margin-bottom:5px;font-size:.88rem}
+input{width:100%;font:inherit;padding:12px;border:1px solid var(--rule);border-radius:10px;background:var(--bg);color:var(--ink);direction:ltr;text-align:center;font-weight:700;margin-bottom:14px}
+input:focus{outline:2px solid var(--accent2);outline-offset:1px}
+.go{width:100%;border:0;background:linear-gradient(145deg,var(--accent2),#1b3346);color:#fff;font:inherit;font-weight:800;padding:13px;border-radius:10px;cursor:pointer;box-shadow:0 8px 20px -8px rgba(42,77,110,.5)}
+.result{display:none;margin-top:18px;padding:18px;border-radius:14px;background:color-mix(in srgb,var(--accent) 10%,var(--card));border:1px solid var(--rule)}
+.result.on{display:block}
+.row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed var(--rule)}
+.row:last-child{border:0}
+.row b{font-size:1.15rem;color:var(--accent);direction:ltr;unicode-bidi:isolate}
+.row .amt{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.row .amt small{font-size:.72rem;color:var(--mute);font-weight:500;direction:rtl}
+.note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+h2{font-size:1.1rem;margin:20px 0 10px}
+h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;background:var(--bg)}summary{font-weight:700;cursor:pointer}
+
+.grow{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:start}.grow input{margin-bottom:8px}.x{border:1px solid var(--rule);background:var(--bg);color:var(--mute);border-radius:10px;width:42px;height:46px;font:inherit;cursor:pointer}.add{width:100%;border:1px dashed var(--rule);background:transparent;color:var(--accent2);font:inherit;font-weight:700;padding:10px;border-radius:10px;cursor:pointer;margin-bottom:14px}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "HowTo", "name": "محاسبه مالیات بر ارزش افزوده", "description": "محاسبه آنلاین مالیات بر ارزش افزوده: اضافه کردن مالیات به قیمت و جدا کردن مالیات از مبلغ نهایی. نرخ قابل تغییر، با نمایش حروفی. رایگان.", "step": [{"@type": "HowToStep", "name": "حالت را انتخاب کنید", "text": "اضافه کردن مالیات یا جدا کردن آن از مبلغ نهایی."}, {"@type": "HowToStep", "name": "مبلغ و نرخ را وارد کنید", "text": "مبلغ به تومان و نرخ مالیات را بنویسید."}, {"@type": "HowToStep", "name": "نتیجه را ببینید", "text": "مبلغ بدون مالیات، مالیات و مبلغ نهایی نمایش داده می‌شود."}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"مالیات را چطور به قیمت اضافه کنیم؟","acceptedAnswer":{"@type":"Answer","text":"قیمت را در نرخ مالیات ضرب و بر ۱۰۰ تقسیم کنید و حاصل را به قیمت اضافه کنید. یا قیمت را در (۱ + نرخ) ضرب کنید."}},
+{"@type":"Question","name":"چطور مالیات را از مبلغ نهایی جدا کنیم؟","acceptedAnswer":{"@type":"Answer","text":"مبلغ نهایی را بر (۱ + نرخ مالیات) تقسیم کنید. نتیجه قیمت بدون مالیات است و اختلاف، مبلغ مالیات."}},
+{"@type":"Question","name":"نرخ مالیات ارزش افزوده چند درصد است؟","acceptedAnswer":{"@type":"Answer","text":"نرخ در قانون مشخص شده و ممکن است تغییر کند. به همین دلیل در این ابزار قابل ویرایش است. قبل از استفاده رسمی، نرخ جاری را بررسی کنید."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"ابزاربوک","item":"https://abzarbook.ir/"},
+{"@type":"ListItem","position":2,"name":"محاسبه مالیات بر ارزش افزوده","item":"https://abzarbook.ir/maliat-arzesh-afzoode.html"}
+]}
+</script>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← بازگشت به ابزاربوک</a>
+  <div class="card">
+    <h1>محاسبه مالیات بر ارزش افزوده</h1>
+    <p class="sub">اضافه کردن یا جدا کردن مالیات از مبلغ</p>
+    <div class="seg" role="tablist">
+      <button type="button" aria-selected="true" data-mode="add">اضافه کردن مالیات</button>
+      <button type="button" aria-selected="false" data-mode="sub">جدا کردن مالیات</button>
+    </div>
+    <label for="amount" id="lamt">مبلغ بدون مالیات (تومان)</label>
+    <input id="amount" type="text" inputmode="numeric" placeholder="مثلاً 5,000,000">
+    <label for="rate">نرخ مالیات (٪)</label>
+    <input id="rate" type="text" inputmode="decimal" value="10">
+    <button class="go" id="calc">محاسبه</button>
+    <div class="result" id="res">
+      <div class="row"><span>مبلغ بدون مالیات</span><div class="amt"><b id="o1">—</b><small id="w1"></small></div></div>
+      <div class="row"><span>مبلغ مالیات</span><div class="amt"><b id="o2">—</b><small id="w2"></small></div></div>
+      <div class="row"><span>مبلغ با مالیات</span><div class="amt"><b id="o3">—</b><small id="w3"></small></div></div>
+    </div>
+    <p class="note">نرخ پیش‌فرض ۱۰ درصد است، اما نرخ قانونی ممکن است در هر سال یا برای هر کالا و خدمت تفاوت داشته باشد. قبل از صدور فاکتور رسمی نرخ را از سازمان امور مالیاتی بررسی کنید.</p>
+  </div>
+
+  <div class="card">
+    <h2>مالیات بر ارزش افزوده چیست؟</h2>
+    <p>مالیات بر ارزش افزوده (VAT) مالیاتی است که در هر مرحله از زنجیره تولید و فروش، روی ارزش اضافه‌شده به کالا یا خدمت گرفته می‌شود و در نهایت مصرف‌کننده آن را در قیمت می‌پردازد. فروشنده آن را در فاکتور جدا از قیمت کالا درج می‌کند.</p>
+    <h3>اضافه کردن مالیات: مثال</h3>
+    <p>برای کالایی ۵٬۰۰۰٬۰۰۰ تومانی با نرخ ۱۰ درصد، مالیات ۵۰۰٬۰۰۰ تومان است و مبلغ نهایی فاکتور ۵٬۵۰۰٬۰۰۰ تومان می‌شود.</p>
+    <h3>جدا کردن مالیات: مثال</h3>
+    <p>اگر مبلغ نهایی ۵٬۵۰۰٬۰۰۰ تومان شامل ۱۰ درصد مالیات باشد، قیمت بدون مالیات برابر ۵٬۵۰۰٬۰۰۰ ÷ ۱٫۱ یعنی ۵٬۰۰۰٬۰۰۰ تومان و مالیات ۵۰۰٬۰۰۰ تومان است. اشتباه رایج این است که ۱۰ درصد از مبلغ نهایی کم شود، که نتیجه را غلط می‌کند.</p>
+    <h2>سؤالات متداول</h2>
+    <details><summary>مالیات را چطور به قیمت اضافه کنیم؟</summary><p>قیمت را در نرخ مالیات ضرب و بر ۱۰۰ تقسیم کنید و حاصل را به قیمت اضافه کنید. یا قیمت را در (۱ + نرخ) ضرب کنید.</p></details>
+    <details><summary>چطور مالیات را از مبلغ نهایی جدا کنیم؟</summary><p>مبلغ نهایی را بر (۱ + نرخ مالیات) تقسیم کنید. نتیجه قیمت بدون مالیات است و اختلاف، مبلغ مالیات.</p></details>
+    <details><summary>نرخ مالیات ارزش افزوده چند درصد است؟</summary><p>نرخ در قانون مشخص شده و ممکن است تغییر کند. به همین دلیل در این ابزار قابل ویرایش است. قبل از استفاده رسمی، نرخ جاری را بررسی کنید.</p></details>
+  </div>
+  <p style="font-size:.8rem;margin-top:14px">سایر ابزارها: <a href="/darsad.html" style="color:var(--accent2)">درصد و تخفیف</a> · <a href="/commission.html" style="color:var(--accent2)">کمیسیون املاک</a> · <a href="/hoghoogh-dastmazd.html" style="color:var(--accent2)">حقوق و مالیات</a> · <a href="/adad-be-horuf.html" style="color:var(--accent2)">عدد به حروف</a></p>
+</main>
+<script src="/assets/num-fa.js"></script>
+<script>
+(function(){
+  var mode='add';
+  AB.liveFormat(document.getElementById('amount'));
+  document.querySelectorAll('.seg button').forEach(function(b){
+    b.onclick=function(){
+      document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-selected','false')});
+      b.setAttribute('aria-selected','true');mode=b.dataset.mode;
+      document.getElementById('lamt').textContent=mode==='add'?'مبلغ بدون مالیات (تومان)':'مبلغ نهایی با مالیات (تومان)';
+      document.getElementById('res').classList.remove('on');
+    };
+  });
+  document.getElementById('calc').onclick=function(){
+    var a=parseFloat(AB.toEn(document.getElementById('amount').value))||0;
+    var r=parseFloat(AB.toEn(document.getElementById('rate').value))||0;
+    if(a<=0){alert('مبلغ را وارد کنید');return;}
+    var base,tax,total;
+    if(mode==='add'){base=a;tax=a*r/100;total=a+tax;}
+    else{total=a;base=a/(1+r/100);tax=total-base;}
+    [[base,'1'],[tax,'2'],[total,'3']].forEach(function(p){
+      document.getElementById('o'+p[1]).textContent=AB.fmtToman(p[0]);
+      document.getElementById('w'+p[1]).textContent=AB.wordsToman(Math.round(p[0]));
+    });
+    document.getElementById('res').classList.add('on');
+  };
+})();
+</script>
+</body>
+</html>
