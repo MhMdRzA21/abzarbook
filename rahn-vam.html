@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>تبدیل رهن به اجاره + محاسبه وام ازدواج ۱۴۰۵ | ابزاربوک</title>
-<meta name="keywords" content="تبدیل رهن به اجاره, محاسبه وام ازدواج, وام فرزندآوری, قسط وام, رهن اجاره آنلاین">
-<meta name="description" content="تبدیل رهن به اجاره با نرخ دلخواه و محاسبه قسط وام ازدواج و فرزندآوری ۱۴۰۵. ابزار رایگان رهن و وام در ابزاربوک.">
+<meta name="keywords" content="تبدیل رهن به اجاره, محاسبه وام ازدواج ۱۴۰۵, وام فرزندآوری, قسط وام, رهن اجاره آنلاین, تبدیل رهن کامل به اجاره, محاسبه رهن ترکیبی, نرخ تبدیل رهن به اجاره">
+<meta name="description" content="تبدیل رهن به اجاره با نرخ دلخواه، محاسبه رهن کامل و ترکیبی، و محاسبه قسط وام ازدواج و فرزندآوری ۱۴۰۵. نمایش مبالغ به عدد و حروف فارسی. ابزار رایگان و دقیق رهن و وام در ابزاربوک.">
 <meta property="og:title" content="تبدیل رهن به اجاره + محاسبه وام ازدواج ۱۴۰۵ | ابزاربوک">
-<meta property="og:description" content="تبدیل رهن به اجاره با نرخ دلخواه و محاسبه قسط وام ازدواج و فرزندآوری ۱۴۰۵. ابزار رایگان رهن و وام در ابزاربوک.">
+<meta property="og:description" content="تبدیل رهن به اجاره با نرخ دلخواه، محاسبه رهن کامل و ترکیبی، و محاسبه قسط وام ازدواج و فرزندآوری ۱۴۰۵. نمایش مبالغ به عدد و حروف فارسی. ابزار رایگان و دقیق رهن و وام در ابزاربوک.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:url" content="https://abzarbook.ir/rahn-vam.html">
@@ -285,10 +285,7 @@ const toEn=AB.toEn;
 const fmt=AB.fmt;
 const bigLine=(n,label)=>`<div class="big">${fmt(n)} تومان${label?' '+label:''}</div><small class="bigWords">${AB.wordsToman(n)}</small>`;
 const val=id=>parseFloat(toEn(document.getElementById(id).value))||0;
-["deposit","rentIn","fullDeposit","cashDeposit","mCustom","oldDeposit","oldMonthlyRent"].forEach(id=>{
-  const el=document.getElementById(id);
-  el.addEventListener("input",()=>{const n=toEn(el.value); el.value=n?Number(n).toLocaleString("en-US"):"";});
-});
+["deposit","rentIn","fullDeposit","cashDeposit","mCustom","oldDeposit","oldMonthlyRent"].forEach(id=>AB.liveFormat(document.getElementById(id)));
 
 function out(n,html,err){
   const r=document.getElementById("r"+n), e=document.getElementById("e"+n);

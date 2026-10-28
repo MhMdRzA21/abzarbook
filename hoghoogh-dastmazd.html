@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>محاسبه عیدی و سنوات ۱۴۰۵ + مالیات حقوق | ابزاربوک</title>
-<meta name="keywords" content="محاسبه عیدی ۱۴۰۵, محاسبه سنوات, عیدی کارگران, مالیات حقوق ۱۴۰۵, پاداش پایان خدمت, محاسبه حقوق و دستمزد">
-<meta name="description" content="محاسبه دقیق عیدی کارگران و کارمندان، سنوات پایان خدمت و مالیات حقوق طبق قانون کار و مصوبات ۱۴۰۵. ابزار رایگان محاسبه حقوق در ابزاربوک.">
+<meta name="keywords" content="محاسبه عیدی ۱۴۰۵, محاسبه سنوات, عیدی کارگران, مالیات حقوق ۱۴۰۵, پاداش پایان خدمت, محاسبه حقوق ماهانه, عیدی کارمندان دولت, سنوات قانون کار, محاسبه حقوق و دستمزد">
+<meta name="description" content="محاسبه دقیق عیدی کارگران و کارمندان، سنوات پایان خدمت و مالیات حقوق طبق قانون کار و مصوبات ۱۴۰۵. نمایش مبلغ به عدد و حروف فارسی. ابزار رایگان و به‌روز محاسبه حقوق در ابزاربوک.">
 <meta property="og:title" content="محاسبه عیدی و سنوات ۱۴۰۵ + مالیات حقوق | ابزاربوک">
-<meta property="og:description" content="محاسبه دقیق عیدی کارگران و کارمندان، سنوات پایان خدمت و مالیات حقوق طبق قانون کار و مصوبات ۱۴۰۵. ابزار رایگان محاسبه حقوق در ابزاربوک.">
+<meta property="og:description" content="محاسبه دقیق عیدی کارگران و کارمندان، سنوات پایان خدمت و مالیات حقوق طبق قانون کار و مصوبات ۱۴۰۵. نمایش مبلغ به عدد و حروف فارسی. ابزار رایگان و به‌روز محاسبه حقوق در ابزاربوک.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:url" content="https://abzarbook.ir/hoghoogh-dastmazd.html">
@@ -277,10 +277,7 @@ const fmt=AB.fmt;
 const bigLine=(n,suffix)=>`<div class="big">${fmt(n)} تومان${suffix?' '+suffix:''}</div><small class="bigWords">${AB.wordsToman(n)}</small>`;
 const val=id=>parseFloat(toEn(document.getElementById(id).value))||0;
 
-["base","last","gross","glast"].forEach(id=>{
-  const el=document.getElementById(id);
-  el.addEventListener("input",()=>{const n=toEn(el.value); el.value=n?Number(n).toLocaleString("en-US"):"";});
-});
+["base","last","gross","glast"].forEach(id=>AB.liveFormat(document.getElementById(id)));
 
 const labels={labor:"کارگر قانون کار / شرکتی",state:"کارمند دولت (کشوری)",military:"نیروی مسلح (لشکری)"};
 document.querySelectorAll(".typebar button").forEach(btn=>{
