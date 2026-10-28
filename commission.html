@@ -40,6 +40,8 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 .row:last-child{border:0}
 .row b{font-size:1.15rem;color:var(--accent);direction:ltr;unicode-bidi:isolate}
 .note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.row .amt{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.row .amt small{font-size:.72rem;color:var(--mute);font-weight:500;direction:rtl}
 </style>
 
 <script type="application/ld+json">
@@ -60,6 +62,12 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 {"@type":"Question","name":"کمیسیون مشاور املاک در ایران چند درصد است؟","acceptedAnswer":{"@type":"Answer","text":"برای خرید و فروش معمولاً ۰٫۵٪ از هر طرف (جمعاً ۱٪) و برای رهن و اجاره معادل ۰٫۲۵ تا ۰٫۵ ماه اجاره عرف رایج است؛ این نرخ‌ها مصوبه ثابت قانونی ندارند."}},
 {"@type":"Question","name":"آیا درصد کمیسیون قابل مذاکره است؟","acceptedAnswer":{"@type":"Answer","text":"بله، در ایران نرخ ثابت سراسری وجود ندارد و کمیسیون بین مشاور املاک و طرفین معامله توافقی است."}},
 {"@type":"Question","name":"کمیسیون را چه کسی پرداخت می‌کند؟","acceptedAnswer":{"@type":"Answer","text":"طبق عرف رایج، هر دو طرف معامله (خریدار و فروشنده، یا موجر و مستأجر) سهم خود از کمیسیون را جداگانه پرداخت می‌کنند."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"ابزاربوک","item":"https://abzarbook.ir/"},
+{"@type":"ListItem","position":2,"name":"محاسبه کمیسیون مشاور املاک","item":"https://abzarbook.ir/commission.html"}
 ]}
 </script>
 </head>
@@ -86,8 +94,8 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
     <button class="go" id="calc">محاسبه کمیسیون</button>
 
     <div class="result" id="res">
-      <div class="row"><span>کمیسیون هر طرف</span><b id="each">—</b></div>
-      <div class="row"><span>جمع کمیسیون (دو طرف)</span><b id="total">—</b></div>
+      <div class="row"><span>کمیسیون هر طرف</span><div class="amt"><b id="each">—</b><small id="eachWords"></small></div></div>
+      <div class="row"><span>جمع کمیسیون (دو طرف)</span><div class="amt"><b id="total">—</b><small id="totalWords"></small></div></div>
     </div>
 
     <p class="note">درصد کمیسیون در ایران مصوبه ثابت سراسری ندارد و معمولاً بین طرفین و مشاور توافق می‌شود. اعداد بالا بر اساس عرف رایج بازار است و صرفاً جنبه برآورد دارد.</p>
@@ -104,8 +112,10 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
   </div>
   <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/rahn-vam.html" style="color:var(--accent2)">رهن، اجاره و وام</a> · <a href="/hoghoogh-dastmazd.html" style="color:var(--accent2)">عیدی و سنوات</a> · <a href="/mahriye.html" style="color:var(--accent2)">مهریه به نرخ روز</a></p>
 </main>
+<script src="/assets/num-fa.js"></script>
 <script>
 (function(){
+  AB.liveFormat(document.getElementById('amount'));
   var mode='buy';
   var defaults={buy:{pct:0.5,hint:'عرف رایج خرید/فروش حدود ۰٫۵٪ از هر طرف (جمع ۱٪) است. قابل توافق.'},
                 rent:{pct:50,hint:'عرف رایج اجاره: حدود نصف اجاره یک ماه از هر طرف (یا جمع یک ماه). درصد را روی مبلغ اجاره ماهانه بگذارید.'},
@@ -122,9 +132,8 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
       document.getElementById('res').classList.remove('on');
     });
   });
-  function fmt(n){return Math.round(n).toLocaleString('fa-IR')+' تومان'}
   document.getElementById('calc').onclick=function(){
-    var amount=parseFloat(document.getElementById('amount').value)||0;
+    var amount=parseFloat(AB.toEn(document.getElementById('amount').value))||0;
     var pct=parseFloat(document.getElementById('pct').value)||0;
     var each=0;
     if(mode==='rent'){
@@ -133,8 +142,10 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
     }else{
       each=amount*(pct/100);
     }
-    document.getElementById('each').textContent=fmt(each);
-    document.getElementById('total').textContent=fmt(each*2);
+    document.getElementById('each').textContent=AB.fmtToman(each);
+    document.getElementById('eachWords').textContent=AB.wordsToman(each);
+    document.getElementById('total').textContent=AB.fmtToman(each*2);
+    document.getElementById('totalWords').textContent=AB.wordsToman(each*2);
     document.getElementById('res').classList.add('on');
   };
 })();

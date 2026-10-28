@@ -84,6 +84,7 @@ input:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid 
 .res{margin-top:16px;padding:16px;border:1px dashed var(--stamp);border-radius:6px;background:var(--stamp-soft);display:none}
 .res.on{display:block}
 .big{font-size:1.9rem;font-weight:800;color:var(--stamp)}
+.bigWords{display:block;font-size:.76rem;font-weight:500;color:var(--mute);margin-top:2px}
 .res p{margin:4px 0;color:var(--mute);font-size:.88rem}
 .copyBtn{margin-top:8px;border:1px solid var(--rule);background:transparent;color:var(--ink);font:inherit;font-size:.78rem;font-weight:700;padding:5px 10px;border-radius:7px;cursor:pointer}
 .err{color:var(--stamp);margin-top:10px;display:none;font-size:.9rem}
@@ -153,6 +154,12 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 }
 </script>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"ابزاربوک","item":"https://abzarbook.ir/"},
+{"@type":"ListItem","position":2,"name":"ابزار حقوق و دستمزد","item":"https://abzarbook.ir/hoghoogh-dastmazd.html"}
+]}
+</script>
 </head>
 <body>
 <main>
@@ -253,6 +260,7 @@ document.getElementById("copyLink").onclick=function(){navigator.clipboard.write
 ]}
 </script>
 
+<script src="/assets/num-fa.js"></script>
 <script>
 const CFG = {
   eydiDays: 60, sanavatDaysPerYear: 30, daysPerMonth: 30,
@@ -264,9 +272,9 @@ const CFG = {
 };
 let empType = "labor";
 
-const faDigits="۰۱۲۳۴۵۶۷۸۹";
-const toEn=s=>String(s).replace(/[۰-۹]/g,d=>faDigits.indexOf(d)).replace(/[^\d.]/g,"");
-const fmt=n=>Math.round(n).toLocaleString("fa-IR");
+const toEn=AB.toEn;
+const fmt=AB.fmt;
+const bigLine=(n,suffix)=>`<div class="big">${fmt(n)} تومان${suffix?' '+suffix:''}</div><small class="bigWords">${AB.wordsToman(n)}</small>`;
 const val=id=>parseFloat(toEn(document.getElementById(id).value))||0;
 
 ["base","last","gross","glast"].forEach(id=>{
@@ -314,12 +322,12 @@ document.getElementById("g1").onclick=()=>{
     const daily=base/CFG.daysPerMonth, ratio=(m*30+d)/360;
     const gross=daily*CFG.eydiDays*ratio;
     const taxable=Math.max(0,gross-CFG.eydiExempt), tax=taxable*CFG.eydiExcessRate, net=gross-tax;
-    out(1, `<div class="big">${fmt(net)} تومان</div>
+    out(1, `${bigLine(net)}
       <p>عیدی ناخالص: ${fmt(gross)} تومان</p>
       <p>${CFG.eydiDays} روز × نسبت مدت کار (${(ratio*100).toLocaleString("fa-IR",{maximumFractionDigits:1})}٪)</p>
       ${tax>0?`<p>مالیات مازاد بر معافیت (${fmt(CFG.eydiExempt)} تومان): ${fmt(tax)} تومان</p>`:`<p>کمتر از سقف معافیت است؛ مالیات ندارد.</p>`}`);
   } else {
-    out(1, `<div class="big">${fmt(CFG.govEydiFixed)} تومان</div>
+    out(1, `${bigLine(CFG.govEydiFixed)}
       <p>مبلغ ثابت مصوب هیئت‌وزیران برای ۱۴۰۵ — یکسان برای تمام کارکنان رسمی، پیمانی، قراردادی و نیروهای مسلح، صرف‌نظر از حقوق و سابقه.</p>`);
   }
 };
@@ -331,7 +339,7 @@ document.getElementById("g2").onclick=()=>{
     if(!(y||m||d)) return out(2,"","سابقه کار را وارد کنید.");
     const daily=last/CFG.daysPerMonth, years=y+m/12+d/360;
     const total=daily*CFG.sanavatDaysPerYear*years;
-    out(2, `<div class="big">${fmt(total)} تومان</div>
+    out(2, `${bigLine(total)}
       <p>حقوق روزانه: ${fmt(daily)} تومان</p>
       <p>سابقه: ${years.toLocaleString("fa-IR",{maximumFractionDigits:2})} سال × ${CFG.sanavatDaysPerYear} روز</p>`);
   } else {
@@ -342,7 +350,7 @@ document.getElementById("g2").onclick=()=>{
     let total=last*cappedYears;
     const capped = total>CFG.govEndServiceCap;
     if(capped) total=CFG.govEndServiceCap;
-    out(2, `<div class="big">${fmt(total)} تومان</div>
+    out(2, `${bigLine(total)}
       <p>${cappedYears.toLocaleString("fa-IR")} سال × یک ماه آخرین حقوق (حداکثر ۳۰ سال محاسبه می‌شود)</p>
       ${capped?`<p>به سقف ریالی مصوب ۱۴۰۵ (${fmt(CFG.govEndServiceCap)} تومان) محدود شد.</p>`:`<p>سقف ریالی مصوب ۱۴۰۵: ${fmt(CFG.govEndServiceCap)} تومان — رد نشده.</p>`}
       <p>فقط هنگام بازنشستگی قابل دریافت است؛ به اضافه مرخصی ذخیره‌شده که اینجا محاسبه نشده.</p>`);
@@ -359,7 +367,7 @@ document.getElementById("g3").onclick=()=>{
     if(band>0){ const t=band*rate; tax+=t; lines.push(`<p>مازاد ${fmt(lower)} تا ${upper===Infinity?"بالاتر":fmt(upper)}: ${(rate*100)}٪ = ${fmt(t)} تومان</p>`); remaining-=band; }
     lower=upper;
   }
-  out(3, `<div class="big">${fmt(gross-tax)} تومان خالص</div>
+  out(3, `${bigLine(gross-tax,'خالص')}
     <p>مالیات کل: ${fmt(tax)} تومان از حقوق ناخالص ${fmt(gross)} تومان</p>
     <p>${fmt(Math.min(gross,CFG.taxExemptMonthly))} تومان اول معاف از مالیات است.</p>
     ${lines.join("")}`);

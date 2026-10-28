@@ -38,6 +38,8 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 .row:last-child{border:0;font-weight:800}
 .row b{direction:ltr;unicode-bidi:isolate;color:var(--accent)}
 .note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.row .amt{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.row .amt small{font-size:.72rem;color:var(--mute);font-weight:500;direction:rtl}
 </style>
 
 <script type="application/ld+json">
@@ -58,6 +60,12 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 {"@type":"Question","name":"درصد اضافه‌کاری طبق قانون کار چقدر است؟","acceptedAnswer":{"@type":"Answer","text":"طبق ماده ۵۹ قانون کار، اضافه‌کاری حداقل ۴۰٪ بیشتر از مزد هر ساعت کار عادی محاسبه می‌شود."}},
 {"@type":"Question","name":"فوق‌العاده شب‌کاری چند درصد است؟","acceptedAnswer":{"@type":"Answer","text":"طبق ماده ۵۸ قانون کار، به کارگرانی که در ساعات ۲۲ تا ۶ صبح کار می‌کنند، ۳۵٪ علاوه بر مزد ساعتی عادی تعلق می‌گیرد."}},
 {"@type":"Question","name":"مزد ساعتی چگونه از حقوق ماهانه محاسبه می‌شود؟","acceptedAnswer":{"@type":"Answer","text":"حقوق ماهانه بر ۲۲۰ ساعت (ساعت کار قانونی ماهانه تقریبی) تقسیم می‌شود تا مزد یک ساعت عادی به دست آید."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"ابزاربوک","item":"https://abzarbook.ir/"},
+{"@type":"ListItem","position":2,"name":"اضافه‌کاری، شب‌کاری و جمعه‌کاری","item":"https://abzarbook.ir/ezafe-kari.html"}
 ]}
 </script>
 </head>
@@ -96,11 +104,11 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
     <button class="go" id="calc">محاسبه فوق‌العاده‌ها</button>
 
     <div class="result" id="res">
-      <div class="row"><span>مزد یک ساعت عادی</span><b id="hourly">—</b></div>
-      <div class="row"><span>فوق‌العاده اضافه‌کاری (۴۰٪)</span><b id="otPay">—</b></div>
-      <div class="row"><span>فوق‌العاده شب‌کاری (۳۵٪)</span><b id="nightPay">—</b></div>
-      <div class="row"><span>فوق‌العاده جمعه / تعطیل</span><b id="friPay">—</b></div>
-      <div class="row"><span>جمع کل قابل پرداخت</span><b id="total">—</b></div>
+      <div class="row"><span>مزد یک ساعت عادی</span><div class="amt"><b id="hourly">—</b><small id="hourlyWords"></small></div></div>
+      <div class="row"><span>فوق‌العاده اضافه‌کاری (۴۰٪)</span><div class="amt"><b id="otPay">—</b><small id="otPayWords"></small></div></div>
+      <div class="row"><span>فوق‌العاده شب‌کاری (۳۵٪)</span><div class="amt"><b id="nightPay">—</b><small id="nightPayWords"></small></div></div>
+      <div class="row"><span>فوق‌العاده جمعه / تعطیل</span><div class="amt"><b id="friPay">—</b><small id="friPayWords"></small></div></div>
+      <div class="row"><span>جمع کل قابل پرداخت</span><div class="amt"><b id="total">—</b><small id="totalWords"></small></div></div>
     </div>
 
     <p class="note">
@@ -119,11 +127,12 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
   </div>
   <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/hoghoogh-dastmazd.html" style="color:var(--accent2)">عیدی و سنوات</a> · <a href="/commission.html" style="color:var(--accent2)">کمیسیون مشاور املاک</a> · <a href="/rahn-vam.html" style="color:var(--accent2)">رهن و اجاره</a></p>
 </main>
+<script src="/assets/num-fa.js"></script>
 <script>
 (function(){
-  function fmt(n){return Math.round(n).toLocaleString('fa-IR')+' تومان'}
+  AB.liveFormat(document.getElementById('salary'));
   document.getElementById('calc').onclick=function(){
-    var salary=parseFloat(document.getElementById('salary').value)||0;
+    var salary=parseFloat(AB.toEn(document.getElementById('salary').value))||0;
     var hourly=salary/220;
     var ot=parseFloat(document.getElementById('ot').value)||0;
     var night=parseFloat(document.getElementById('night').value)||0;
@@ -138,11 +147,16 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
     // For total we include base pay for overtime hours + premiums
     var total=otPay + nightPay + friPay;
 
-    document.getElementById('hourly').textContent=fmt(hourly);
-    document.getElementById('otPay').textContent=fmt(otPay);
-    document.getElementById('nightPay').textContent=fmt(nightPay);
-    document.getElementById('friPay').textContent=fmt(friPay);
-    document.getElementById('total').textContent=fmt(total);
+    document.getElementById('hourly').textContent=AB.fmtToman(hourly);
+    document.getElementById('hourlyWords').textContent=AB.wordsToman(hourly);
+    document.getElementById('otPay').textContent=AB.fmtToman(otPay);
+    document.getElementById('otPayWords').textContent=AB.wordsToman(otPay);
+    document.getElementById('nightPay').textContent=AB.fmtToman(nightPay);
+    document.getElementById('nightPayWords').textContent=AB.wordsToman(nightPay);
+    document.getElementById('friPay').textContent=AB.fmtToman(friPay);
+    document.getElementById('friPayWords').textContent=AB.wordsToman(friPay);
+    document.getElementById('total').textContent=AB.fmtToman(total);
+    document.getElementById('totalWords').textContent=AB.wordsToman(total);
     document.getElementById('res').classList.add('on');
   };
 })();

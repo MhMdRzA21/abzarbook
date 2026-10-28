@@ -62,6 +62,12 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 {"@type":"Question","name":"آیا محاسبه مهریه به نرخ روز، مرجع رسمی و قانونی است؟","acceptedAnswer":{"@type":"Answer","text":"خیر، این ابزار صرفاً برای برآورد شخصی است و جایگزین مشاوره حقوقی یا مرجع رسمی قانون مدنی نیست."}}
 ]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"ابزاربوک","item":"https://abzarbook.ir/"},
+{"@type":"ListItem","position":2,"name":"محاسبه مهریه به نرخ روز","item":"https://abzarbook.ir/mahriye.html"}
+]}
+</script>
 </head>
 <body>
 <main>
@@ -113,8 +119,10 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
   </div>
   <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/hoghoogh-dastmazd.html" style="color:var(--accent2)">عیدی و سنوات</a> · <a href="/rahn-vam.html" style="color:var(--accent2)">رهن، اجاره و وام</a> · <a href="/commission.html" style="color:var(--accent2)">کمیسیون مشاور املاک</a></p>
 </main>
+<script src="/assets/num-fa.js"></script>
 <script>
 (function(){
+  ['coinPrice','goldPrice'].forEach(function(id){AB.liveFormat(document.getElementById(id));});
   var mode='coin';
   var btns=document.querySelectorAll('.seg button');
   btns.forEach(function(b){
@@ -127,20 +135,19 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
       document.getElementById('res').classList.remove('on');
     });
   });
-  function fmt(n){return n.toLocaleString('fa-IR')}
   document.getElementById('calc').onclick=function(){
     var val=0;
     if(mode==='coin'){
-      var c=parseFloat(document.getElementById('coins').value)||0;
-      var p=parseFloat(document.getElementById('coinPrice').value)||0;
+      var c=parseFloat(AB.toEn(document.getElementById('coins').value))||0;
+      var p=parseFloat(AB.toEn(document.getElementById('coinPrice').value))||0;
       val=c*p;
     }else{
-      var g=parseFloat(document.getElementById('grams').value)||0;
-      var gp=parseFloat(document.getElementById('goldPrice').value)||0;
+      var g=parseFloat(AB.toEn(document.getElementById('grams').value))||0;
+      var gp=parseFloat(AB.toEn(document.getElementById('goldPrice').value))||0;
       val=g*gp;
     }
-    document.getElementById('out').textContent=fmt(Math.round(val))+' تومان';
-    document.getElementById('outWords').textContent=val>=1e9?(fmt(Math.round(val/1e9*10)/10)+' میلیارد تومان'):(val>=1e6?(fmt(Math.round(val/1e6*10)/10)+' میلیون تومان'):'');
+    document.getElementById('out').textContent=AB.fmtToman(val);
+    document.getElementById('outWords').textContent=AB.wordsToman(val);
     document.getElementById('res').classList.add('on');
   };
 })();
