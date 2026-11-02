@@ -9,6 +9,9 @@
       tab.classList.add("active");
       const target = document.getElementById(tab.dataset.panel);
       target.hidden = false;
+      // A tab's target can itself contain nested .panel steps (e.g. a
+      // multi-step workflow) — those got hidden by the loop above too,
+      // so un-hide them along with their container.
       target.querySelectorAll(".panel").forEach((p) => (p.hidden = false));
     });
   });
@@ -29,93 +32,156 @@
     const minFiles = parseInt(panel.dataset.minFiles || "1", 10);
     const targetEl = panel.querySelector("select, input[name=target]");
     const rangesEl = panel.querySelector("input[name=ranges]");
+
     let files = [];
 
     dropzone.addEventListener("click", () => input.click());
     dropzone.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") input.click();
     });
+
     ["dragenter", "dragover"].forEach((evt) =>
-      dropzone.addEventListener(evt, (e) => { e.preventDefault(); dropzone.classList.add("drag"); })
+      dropzone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        dropzone.classList.add("drag");
+      })
     );
     ["dragleave", "drop"].forEach((evt) =>
-      dropzone.addEventListener(evt, (e) => { e.preventDefault(); dropzone.classList.remove("drag"); })
+      dropzone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        dropzone.classList.remove("drag");
+      })
     );
-    dropzone.addEventListener("drop", (e) => { addFiles(Array.from(e.dataTransfer.files)); });
-    input.addEventListener("change", () => { addFiles(Array.from(input.files)); input.value = ""; });
+    dropzone.addEventListener("drop", (e) => {
+      addFiles(Array.from(e.dataTransfer.files));
+    });
+    input.addEventListener("change", () => {
+      addFiles(Array.from(input.files));
+      input.value = "";
+    });
 
     function addFiles(newFiles) {
-      if (!multi) files = newFiles.slice(0, 1);
-      else files = files.concat(newFiles);
+      if (!multi) {
+        files = newFiles.slice(0, 1);
+      } else {
+        files = files.concat(newFiles);
+      }
       renderList();
     }
+
     function renderList() {
       fileListEl.innerHTML = "";
-      files.forEach((f, i) => {
+      files.forEach((f, idx) => {
         const li = document.createElement("li");
-        li.innerHTML = `<span>${escapeHtml(f.name)}</span> <button type="button" data-i="${i}" aria-label="remove">×</button>`;
-        li.querySelector("button").addEventListener("click", () => { files.splice(i, 1); renderList(); });
+        const ext = f.name.split(".").pop().toUpperCase();
+        li.innerHTML = `<span>${escapeHtml(f.name)} <span class="ext-tag">${ext}</span></span>`;
+        const rm = document.createElement("button");
+        rm.textContent = "Remove";
+        rm.addEventListener("click", () => {
+          files.splice(idx, 1);
+          renderList();
+        });
+        li.appendChild(rm);
         fileListEl.appendChild(li);
       });
-      convertBtn.disabled = files.length < minFiles;
-      statusEl.textContent = "";
+      convertBtn.disabled = files.length === 0 || files.length < minFiles;
+      statusEl.className = "status";
+      statusEl.textContent =
+        files.length > 0 && files.length < minFiles
+          ? `Add at least ${minFiles} files`
+          : "";
     }
 
     convertBtn.addEventListener("click", () => {
-      if (files.length < minFiles) return;
-      const fd = new FormData();
-      if (multi) files.forEach((f) => fd.append("files", f));
-      else fd.append("file", files[0]);
-      if (targetEl) fd.append("target", targetEl.value);
-      if (rangesEl && rangesEl.value) fd.append("ranges", rangesEl.value);
-
+      if (files.length === 0 || files.length < minFiles) return;
       convertBtn.disabled = true;
-      statusEl.textContent = "در حال تبدیل...";
-      if (progressEl) { progressEl.hidden = false; progressBarEl.style.width = "15%"; }
+      statusEl.className = "status";
+      statusEl.textContent = "Uploading...";
+      showProgress(0);
+
+      const form = new FormData();
+      if (multi) {
+        files.forEach((f) => form.append("files", f));
+      } else {
+        form.append("file", files[0]);
+      }
+      if (targetEl) form.append("target", targetEl.value);
+      if (rangesEl && rangesEl.value.trim()) form.append("ranges", rangesEl.value.trim());
+      // any extra inputs marked data-field="name" are sent as form fields
+      panel.querySelectorAll("[data-field]").forEach((el) => {
+        if (el.value.trim()) form.append(el.dataset.field, el.value.trim());
+      });
 
       const xhr = new XMLHttpRequest();
       xhr.open("POST", endpoint);
       xhr.responseType = "blob";
-      xhr.upload.onprogress = (e) => {
-        if (e.lengthComputable && progressBarEl) {
-          progressBarEl.style.width = Math.round((e.loaded / e.total) * 70) + "%";
-        }
-      };
-      xhr.onload = async () => {
-        if (progressBarEl) progressBarEl.style.width = "100%";
+
+      xhr.upload.addEventListener("progress", (e) => {
+        if (!e.lengthComputable) return;
+        const pct = Math.round((e.loaded / e.total) * 100);
+        showProgress(pct);
+        statusEl.textContent = pct < 100 ? `Uploading... ${pct}%` : "Processing...";
+      });
+
+      xhr.addEventListener("load", () => {
+        hideProgress();
         if (xhr.status >= 200 && xhr.status < 300) {
-          const name = resolveFilename(xhr, endpoint);
-          downloadBlob(xhr.response, name);
-          statusEl.textContent = "دانلود شروع شد.";
+          downloadBlob(xhr.response, resolveFilename(xhr, endpoint));
+          statusEl.className = "status ok";
+          statusEl.textContent = "Done — " + summarizeSavings(xhr) + "download started.";
+          convertBtn.disabled = files.length === 0 || files.length < minFiles;
         } else {
-          const err = await parseErrorBlob(xhr.response);
-          statusEl.textContent = err || ("خطا: " + xhr.status);
+          parseErrorBlob(xhr.response).then((message) => {
+            statusEl.className = "status error";
+            statusEl.textContent = message || `Server error (${xhr.status})`;
+            convertBtn.disabled = files.length === 0 || files.length < minFiles;
+          });
         }
-        convertBtn.disabled = files.length < minFiles;
-        setTimeout(() => { if (progressEl) progressEl.hidden = true; }, 600);
-      };
-      xhr.onerror = () => {
-        statusEl.textContent = "خطای شبکه";
-        convertBtn.disabled = files.length < minFiles;
-      };
-      xhr.send(fd);
+      });
+
+      xhr.addEventListener("error", () => {
+        hideProgress();
+        statusEl.className = "status error";
+        statusEl.textContent = "Network error, please try again.";
+        convertBtn.disabled = files.length === 0 || files.length < minFiles;
+      });
+
+      xhr.send(form);
     });
+
+    function showProgress(pct) {
+      if (!progressEl || !progressBarEl) return;
+      progressEl.hidden = false;
+      progressBarEl.style.width = pct + "%";
+    }
+
+    function hideProgress() {
+      if (!progressEl) return;
+      progressEl.hidden = true;
+      progressBarEl.style.width = "0%";
+    }
   }
 
-  const MIME_EXT = { "application/pdf": "pdf", "application/zip": "zip", "image/jpeg": "jpg", "image/png": "png" };
+  // Picks the download name from the server header, and guarantees a real
+  // extension (from the file type) even if the header is missing or odd.
+  const MIME_EXT = {
+    "application/pdf": "pdf", "application/zip": "zip", "image/jpeg": "jpg", "image/png": "png",
+    "image/webp": "webp", "image/gif": "gif", "image/avif": "avif", "image/tiff": "tiff", "image/bmp": "bmp",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "docx",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xlsx",
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation": "pptx",
+    "video/mp4": "mp4",
+  };
   const ENDPOINT_DEFAULT = {
-    "/api/convert/merge-pdf": "merged.pdf",
-    "/api/convert/split-pdf": "split.zip",
-    "/api/convert/pdf-to-image": "pages.zip",
-    "/api/convert/office": "converted.pdf",
-    "/api/compress": "compressed",
+    "/api/convert/merge-pdf": "merged.pdf", "/api/convert/image-to-pdf": "converted.pdf",
+    "/api/convert/split-pdf": "split.zip", "/api/convert/pdf-to-image": "pages.zip",
   };
   function resolveFilename(xhr, endpoint) {
     const disp = xhr.getResponseHeader("Content-Disposition") || "";
     let name = "";
     const star = disp.match(/filename\*=(?:UTF-8'')?([^;]+)/i);
-    const plain = disp.match(/filename="?([^\";]+)"?/i);
-    try { if (star) name = decodeURIComponent(star[1].trim()); } catch {}
+    const plain = disp.match(/filename="?([^";]+)"?/i);
+    try { if (star) name = decodeURIComponent(star[1].trim()); } catch { /* ignore */ }
     if (!name && plain) name = plain[1].trim();
     if (!name) name = ENDPOINT_DEFAULT[endpoint] || "converted";
     if (!/\.[A-Za-z0-9]{2,5}$/.test(name)) {
@@ -124,19 +190,48 @@
     }
     return name;
   }
+
   function downloadBlob(blob, filename) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url; a.download = filename;
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 60000);
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000); // revoking immediately can cut the download to 0 bytes
   }
+
+  function summarizeSavings(xhr) {
+    if (xhr.getResponseHeader("X-Target-Met") === "0") {
+      return "couldn't reach the size you chose — this is the smallest version we could make. ";
+    }
+    const before = Number(xhr.getResponseHeader("X-Original-Size"));
+    const after = Number(xhr.getResponseHeader("X-Compressed-Size"));
+    if (!before || !after) return "";
+    const pct = Math.max(0, Math.round((1 - after / before) * 100));
+    const fmt = (n) => (n >= 1024 * 1024 ? (n / (1024 * 1024)).toFixed(1) + " MB" : (n / 1024).toFixed(0) + " KB");
+    return pct > 0
+      ? `reduced by ${pct}% (${fmt(before)} → ${fmt(after)}) — `
+      : `already optimized, no size reduction possible — `;
+  }
+
   async function parseErrorBlob(blob) {
-    try { const data = JSON.parse(await blob.text()); return data && data.error; } catch { return null; }
+    try {
+      const text = await blob.text();
+      const data = JSON.parse(text);
+      return data && data.error;
+    } catch {
+      return null;
+    }
   }
+
   function escapeHtml(s) {
-    return s.replace(/[&<>"']/g, (c) => ({ "&": "&", "<": "<", ">": ">", '"': """, "'": "&#39;" }[c]));
+    return s.replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+    }[c]));
   }
+  // Sticky header gets a subtle shadow once the page scrolls.
   const header = document.querySelector(".site-header");
   if (header) {
     const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 4);
