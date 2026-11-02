@@ -15,13 +15,16 @@ const router = express.Router();
 const uploadDir = path.join(__dirname, "..", "uploads");
 const outDir = path.join(__dirname, "..", "converted");
 for (const d of [uploadDir, outDir]) {
-  if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });
+  try {
+    if (fs.existsSync(d) && !fs.statSync(d).isDirectory()) fs.unlinkSync(d);
+    fs.mkdirSync(d, { recursive: true });
+  } catch {}
 }
 
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, uploadDir),
   filename: (_req, file, cb) => {
-    const safe = Date.now() + "-" + Math.random().toString(36).slice(2, 8) + path.extname(file.originalname || "");
+    const safe = Date.now() + "-" + Math.random().toString(36).slice(2, 8) + path.extname(file.originalname || ".bin");
     cb(null, safe);
   },
 });
@@ -36,6 +39,7 @@ async function cleanup(files = []) {
 router.post("/image", upload.array("files", 20), async (req, res) => {
   const files = req.files || [];
   try {
+    if (!files.length) throw new Error("فایلی ارسال نشده");
     const target = (req.body.target || "jpg").toLowerCase();
     const result = await convertImageFiles(files, target, outDir);
     res.download(result.path, result.name, async () => {
@@ -51,6 +55,7 @@ router.post("/image", upload.array("files", 20), async (req, res) => {
 router.post("/image-to-pdf", upload.array("files", 20), async (req, res) => {
   const files = req.files || [];
   try {
+    if (!files.length) throw new Error("فایلی ارسال نشده");
     const out = path.join(outDir, "images-" + Date.now() + ".pdf");
     await imagesToPdf(files.map((f) => f.path), out);
     res.download(out, "images.pdf", async () => {
@@ -66,7 +71,7 @@ router.post("/image-to-pdf", upload.array("files", 20), async (req, res) => {
 router.post("/pdf-to-image", upload.single("file"), async (req, res) => {
   const file = req.file;
   try {
-    if (!file) throw new Error("No file");
+    if (!file) throw new Error("فایلی ارسال نشده");
     const target = (req.body.target || "jpg").toLowerCase();
     const result = await pdfToImages(file.path, outDir, target);
     res.download(result.path, result.name, async () => {
@@ -82,7 +87,7 @@ router.post("/pdf-to-image", upload.single("file"), async (req, res) => {
 router.post("/office", upload.single("file"), async (req, res) => {
   const file = req.file;
   try {
-    if (!file) throw new Error("No file");
+    if (!file) throw new Error("فایلی ارسال نشده");
     const target = (req.body.target || "pdf").toLowerCase();
     const result = await officeConvert(file.path, outDir, target);
     res.download(result.path, result.name, async () => {
@@ -98,6 +103,7 @@ router.post("/office", upload.single("file"), async (req, res) => {
 router.post("/merge-pdf", upload.array("files", 20), async (req, res) => {
   const files = req.files || [];
   try {
+    if (files.length < 1) throw new Error("حداقل یک فایل PDF بفرستید");
     const out = path.join(outDir, "merged-" + Date.now() + ".pdf");
     await mergePdfs(files.map((f) => f.path), out);
     res.download(out, "merged.pdf", async () => {
@@ -113,7 +119,7 @@ router.post("/merge-pdf", upload.array("files", 20), async (req, res) => {
 router.post("/split-pdf", upload.single("file"), async (req, res) => {
   const file = req.file;
   try {
-    if (!file) throw new Error("No file");
+    if (!file) throw new Error("فایلی ارسال نشده");
     const ranges = req.body.ranges || "";
     const result = await splitPdf(file.path, ranges, outDir);
     res.download(result.path, result.name, async () => {
