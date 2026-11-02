@@ -195,3 +195,48 @@ input, select, textarea {
 
 .site-banner { display: block; max-width: 980px; margin: 18px auto 0; padding: 0 16px; }
 .site-banner img { width: 100%; height: auto; border-radius: 22px; display: block; box-shadow: 0 16px 40px rgba(15, 27, 45, 0.12); }
+
+/* Hero like a clean Persian product page: copy + graphic, no dumped banner */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.hero-copy h1 { text-align: right; margin-inline: 0; max-width: 12ch; }
+.hero-copy .lede { text-align: right; margin-inline: 0; max-width: 36ch; }
+.trust-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.trust-row span {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.hero-art {
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(15, 27, 45, 0.12);
+  animation: floaty 5.5s ease-in-out infinite;
+}
+.hero-art img { display: block; width: 100%; height: auto; }
+.stamp-mark { display: none !important; }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.dropzone { animation: rise .5s ease both; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-copy h1, .hero-copy .lede { text-align: center; margin-inline: auto; }
+  .trust-row { justify-content: center; }
+  .hero-art { animation: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art, .dropzone { animation: none; }
+}
