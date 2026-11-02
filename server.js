@@ -56,7 +56,6 @@ const SECURITY = {
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
   'X-XSS-Protection': '1; mode=block',
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
-  // style-src MUST allow cdn.jsdelivr.net so Converter CSS loads
   'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://cdn.jsdelivr.net https://raw.githubusercontent.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'",
 };
 function makeETag(stat) {
@@ -79,6 +78,8 @@ function serveStatic(req, res) {
   }
   let urlPath = (req.url || '/').split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
+  // favicon fallback to site icon
+  if (urlPath === '/favicon.ico') urlPath = '/icon-192.png';
   if (urlPath === '/convert' || urlPath === '/convert/') urlPath = '/convert/index.html';
   if (urlPath === '/convert/guides' || urlPath === '/convert/guides/') urlPath = '/convert/guides/index.html';
   if (urlPath.endsWith('/') && urlPath !== '/') urlPath = urlPath + 'index.html';
