@@ -220,7 +220,53 @@ async function pdfToDocxSmart(inputPath, outDir) {
   }
 }
 
+
+async function compressToTarget(inputPath, outDir, ext, targetKb) {
+  const target = targetKb * 1024;
+  const e = ext.toLowerCase();
+  if ([".jpg", ".jpeg", ".png", ".webp"].includes(e)) {
+    const outPath = path.join(outDir, "compressed.jpg");
+    const meta = await sharp(inputPath).metadata();
+    let width = meta.width || 4000;
+    for (let round = 0; round < 8; round++) {
+      let lo = 25, hi = 92, best = null;
+      while (lo <= hi) {
+        const q = (lo + hi) >> 1;
+        const buf = await sharp(inputPath).rotate().resize({ width, withoutEnlargement: true })
+          .flatten({ background: "#ffffff" }).jpeg({ quality: q, mozjpeg: true }).toBuffer();
+        if (buf.length <= target) { best = buf; lo = q + 1; } else hi = q - 1;
+      }
+      if (best) { await fs.writeFile(outPath, best); return { outPath, met: true }; }
+      width = Math.round(width * 0.8);
+    }
+    await sharp(inputPath).rotate().resize({ width: Math.max(width, 200) })
+      .flatten({ background: "#ffffff" }).jpeg({ quality: 25, mozjpeg: true }).toFile(outPath);
+    return { outPath, met: (await fs.stat(outPath)).size <= target };
+  }
+  if (e === ".pdf") {
+    const outPath = path.join(outDir, "compressed.pdf");
+    let smallest = null;
+    for (const dpi of [200, 150, 110, 80, 60, 45]) {
+      const tmp = path.join(outDir, `try-${dpi}.pdf`);
+      await run("gs", [
+        "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.5", "-dNOPAUSE", "-dQUIET", "-dBATCH",
+        "-dDownsampleColorImages=true", `-dColorImageResolution=${dpi}`,
+        "-dDownsampleGrayImages=true", `-dGrayImageResolution=${dpi}`,
+        "-dDownsampleMonoImages=true", `-dMonoImageResolution=${Math.max(dpi, 150)}`,
+        `-sOutputFile=${tmp}`, inputPath,
+      ], { timeout: 300000 });
+      const size = (await fs.stat(tmp)).size;
+      if (!smallest || size < smallest.size) smallest = { tmp, size };
+      if (size <= target) { await fs.copyFile(tmp, outPath); return { outPath, met: true }; }
+    }
+    await fs.copyFile(smallest.tmp, outPath);
+    return { outPath, met: false };
+  }
+  throw new Error("اندازه مشخص فقط برای PDF، JPG، PNG و WEBP است.");
+}
+
 module.exports = {
+  compressToTarget,
   pdfToDocxSmart,
   convertImage,
   convertImageFiles,

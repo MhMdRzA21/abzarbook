@@ -76,7 +76,7 @@
         const ext = f.name.split(".").pop().toUpperCase();
         li.innerHTML = `<span>${escapeHtml(f.name)} <span class="ext-tag">${ext}</span></span>`;
         const rm = document.createElement("button");
-        rm.textContent = "Remove";
+        rm.textContent = "حذف";
         rm.addEventListener("click", () => {
           files.splice(idx, 1);
           renderList();
@@ -88,7 +88,7 @@
       statusEl.className = "status";
       statusEl.textContent =
         files.length > 0 && files.length < minFiles
-          ? `Add at least ${minFiles} files`
+          ? `حداقل ${minFiles} فایل اضافه کنید`
           : "";
     }
 
@@ -96,7 +96,7 @@
       if (files.length === 0 || files.length < minFiles) return;
       convertBtn.disabled = true;
       statusEl.className = "status";
-      statusEl.textContent = "Uploading...";
+      statusEl.textContent = "در حال آپلود...";
       showProgress(0);
 
       const form = new FormData();

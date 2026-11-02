@@ -238,3 +238,24 @@ input, select, textarea {
   .hero-art { max-height: 180px; }
   .hero-art img { height: 180px; }
 }
+
+/* Icons stay upright; directional ones point with the reading direction */
+.tab-icon, .page-icon svg, .dropzone svg { transform: none; }
+html[dir="rtl"] .tab { flex-direction: row; }
+html[dir="rtl"] .filelist li { flex-direction: row; }
+html[dir="rtl"] .actions { justify-content: flex-start; }
+
+/* Mobile */
+@media (max-width: 860px) {
+  .hero { padding: 20px 0 8px; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 16px; }
+  .hero-copy, .hero-copy h1, .hero-copy .lede { align-items: center; text-align: center !important; }
+  .trust-row { justify-content: center; }
+  .hero-art, .hero-art img { max-height: 160px; height: 160px; }
+  .tabs { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 6px; }
+  .tab { flex: 0 0 auto; }
+  .panel { padding: 14px !important; }
+  .dropzone { min-height: 140px; }
+  .actions { width: 100%; }
+  .btn-convert { width: 100%; }
+}
