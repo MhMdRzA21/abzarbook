@@ -1,4 +1,4 @@
-// ابزاربوک: استاتیک + API تبدیل (در صورت وجود وابستگی‌ها)
+// ابزاربوک: استاتیک + API تبدیل
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -9,9 +9,9 @@ const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
 
 let expressApp = null;
+let apiReady = false;
 try {
   const express = require('express');
-  const helmet = require('helmet');
   const rateLimit = require('express-rate-limit');
   expressApp = express();
   expressApp.set('trust proxy', 1);
@@ -19,20 +19,21 @@ try {
     const p = path.join(ROOT, d);
     if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true });
   }
-  expressApp.use(helmet({ contentSecurityPolicy: false }));
+  try { expressApp.use(require('helmet')({ contentSecurityPolicy: false })); } catch {}
   expressApp.use(express.json({ limit: '2mb' }));
   const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 60, message: { error: 'Too many requests' } });
   try {
     expressApp.use('/api/convert', limiter, require('./server/routes/convert'));
     expressApp.use('/api/compress', limiter, require('./server/routes/compress'));
-    expressApp.use('/api/pdf', limiter, require('./server/routes/pdftools'));
-    console.log('Convert API routes loaded');
+    try { expressApp.use('/api/pdf', limiter, require('./server/routes/pdftools')); } catch {}
+    apiReady = true;
+    console.log('Convert API ready');
   } catch (e) {
-    console.warn('Convert routes partial:', e.message);
-    expressApp.use('/api', (req, res) => res.status(503).json({ error: 'موتور تبدیل آماده نیست' }));
+    console.warn('Routes error:', e.message);
+    expressApp.use('/api', (req, res) => res.status(503).json({ error: 'API routes error: ' + e.message }));
   }
 } catch (e) {
-  console.warn('Express not installed — static only:', e.message);
+  console.warn('Express missing:', e.message);
 }
 
 const MIME = {
@@ -42,14 +43,12 @@ const MIME = {
   '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon', '.webp': 'image/webp', '.woff2': 'font/woff2', '.woff': 'font/woff',
 };
-
 function cacheControl(ext) {
   if (ext === '.html' || ext === '.xml' || ext === '.txt') return 'public, max-age=300, must-revalidate';
   if (['.png', '.jpg', '.jpeg', '.webp', '.ico', '.svg', '.woff2', '.woff'].includes(ext)) return 'public, max-age=31536000, immutable';
   if (['.js', '.css', '.json'].includes(ext)) return 'public, max-age=86400';
   return 'public, max-age=3600';
 }
-
 const SECURITY = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'SAMEORIGIN',
@@ -59,7 +58,6 @@ const SECURITY = {
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
   'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://cdn.jsdelivr.net https://raw.githubusercontent.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'",
 };
-
 function makeETag(stat) {
   return `"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}"`;
 }
@@ -69,29 +67,25 @@ function safeJoin(root, urlPath) {
   if (!resolved.startsWith(root)) return null;
   return resolved;
 }
-
 function serveStatic(req, res) {
   if (req.url === '/health' || req.url === '/healthz') {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', ...SECURITY });
     return res.end(JSON.stringify({
       ok: true,
       convert: fs.existsSync(path.join(ROOT, 'convert', 'index.html')),
-      api: Boolean(expressApp),
+      api: apiReady,
     }));
   }
-
   let urlPath = (req.url || '/').split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
   if (urlPath === '/convert' || urlPath === '/convert/') urlPath = '/convert/index.html';
   if (urlPath === '/convert/guides' || urlPath === '/convert/guides/') urlPath = '/convert/guides/index.html';
   if (urlPath.endsWith('/') && urlPath !== '/') urlPath = urlPath + 'index.html';
-
   const filePath = safeJoin(ROOT, urlPath);
   if (!filePath) {
     res.writeHead(400, { 'Content-Type': 'text/plain', ...SECURITY });
     return res.end('Bad request');
   }
-
   const trySend = (fp, ext) => {
     fs.stat(fp, (err, stat) => {
       if (err || !stat.isFile()) {
@@ -140,18 +134,13 @@ function serveStatic(req, res) {
       });
     });
   };
-
   const ext = path.extname(filePath).toLowerCase() || '.html';
   trySend(filePath, ext === '' ? '.html' : ext);
 }
-
 const server = http.createServer((req, res) => {
-  if (expressApp && (req.url || '').startsWith('/api/')) {
-    return expressApp(req, res);
-  }
+  if (expressApp && (req.url || '').startsWith('/api/')) return expressApp(req, res);
   return serveStatic(req, res);
 });
-
 server.listen(PORT, HOST, () => {
-  console.log(`ابزاربوک روی ${HOST}:${PORT} | api=${Boolean(expressApp)}`);
+  console.log('abzarbook up', PORT, 'api=' + apiReady);
 });
