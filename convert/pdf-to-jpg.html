@@ -2,21 +2,63 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تبدیل PDF به تصویر آنلاین رایگان | PDF به JPG | ابزاربوک</title>
+<meta name="description" content="هر صفحه PDF را به تصویر JPG یا PNG تبدیل کنید. رایگان و بدون ثبت‌نام.">
+<link rel="canonical" href="https://abzarbook.ir/convert/pdf-to-jpg.html">
+<meta property="og:title" content="تبدیل PDF به تصویر | ابزاربوک">
+<meta property="og:description" content="هر صفحه PDF را به تصویر JPG یا PNG تبدیل کنید. رایگان و بدون ثبت‌نام.">
+<meta property="og:url" content="https://abzarbook.ir/convert/pdf-to-jpg.html">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<meta name="theme-color" content="#2740E8">
 <link rel="stylesheet" href="/convert/css/style.css">
 <link rel="stylesheet" href="/convert/css/rtl.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PDF به تصویر | ابزاربوک</title>
-<meta name="description" content="تبدیل هر صفحه PDF به تصویر.">
-<link rel="canonical" href="https://abzarbook.ir/convert/pdf-to-jpg.html">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>body{font-family:Vazirmatn,Tahoma,sans-serif;background:#f8fafc;color:#0f172a;margin:0;line-height:1.7}.wrap{max-width:720px;margin:0 auto;padding:40px 18px}a{color:#1d4ed8}h1{font-size:1.6rem;margin-bottom:10px}p{color:#475569}.box{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-top:20px}</style>
 </head>
 <body>
-<div class="wrap">
-  <p><a href="/convert/">← تبدیل فایل</a> · <a href="/">ابزاربوک</a></p>
-  <h1>PDF به تصویر</h1>
-  <p>تبدیل هر صفحه PDF به تصویر.</p>
-  <div class="box"><p>موتور تبدیل به‌زودی روی این صفحه فعال می‌شود.</p><p><a href="/convert/">بازگشت به بخش تبدیل</a></p></div>
-</div>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/convert/" class="logo"><span class="mark">ابز</span> ابزاربوک</a>
+    <nav class="site-nav">
+      <a href="/">ابزاربوک</a>
+      <a href="/convert/">تبدیل فایل</a>
+      <a href="/convert/tools.html">ابزارها</a>
+      <a href="/convert/guides/">راهنماها</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+    <nav class="crumb"><a href="/">ابزاربوک</a><span>/</span><a href="/convert/">تبدیل</a><span>/</span><span>تبدیل PDF به تصویر</span></nav>
+    <h1>تبدیل PDF به تصویر</h1>
+    <p class="lede">هر صفحه از فایل PDF را به یک تصویر جدا تبدیل کنید.</p>
+    <div class="panel" data-endpoint="/api/convert/pdf-to-image" data-multi="false">
+      <p class="hint" style="margin-top:0">هر صفحه یک تصویر جدا (چندصفحه‌ای به‌صورت zip)</p>
+      <div class="dropzone" tabindex="0">
+        <div class="dropzone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V8"/><path d="m8.5 11.5 3.5-3.5 3.5 3.5"/><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/></svg></div>
+        <p>فایل PDF را اینجا رها کنید یا کلیک کنید</p>
+        <p class="hint">.pdf</p>
+        <p class="ext">.pdf</p>
+        <input type="file" hidden>
+      </div>
+      <ul class="filelist"></ul>
+      <div class="actions">
+        <button class="btn-convert" disabled>تبدیل به تصویر</button>
+        <span class="status"></span>
+      </div>
+      <div class="progress" hidden><div class="progress-bar"></div></div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 ابزاربوک</span>
+    <nav>
+      <a href="/">ابزاربوک</a>
+      <a href="/convert/">تبدیل فایل</a>
+    </nav>
+  </div>
+</footer>
+<script src="/convert/js/app.js"></script>
 </body>
 </html>
