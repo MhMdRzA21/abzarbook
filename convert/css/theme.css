@@ -196,51 +196,45 @@ input, select, textarea {
 .site-banner { display: block; max-width: 980px; margin: 18px auto 0; padding: 0 16px; }
 .site-banner img { width: 100%; height: auto; border-radius: 22px; display: block; box-shadow: 0 16px 40px rgba(15, 27, 45, 0.12); }
 
-/* Hero: one aligned column, then the graphic. No duplicated headline fight. */
+/* Hero: text on the right, graphic on the left. One headline only. */
+.hero { padding: 28px 0 12px; }
 .hero-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
   align-items: center;
-  text-align: center;
-  gap: 22px;
-  margin: 0 auto 8px;
-  max-width: 920px;
+  margin: 0 auto 12px;
+  max-width: 1080px;
+  text-align: right;
 }
-.hero-copy { width: 100%; display: flex; flex-direction: column; align-items: center; }
-.hero-copy h1,
-.hero h1 {
-  text-align: center !important;
-  margin: 0 auto 12px !important;
-  max-width: 14ch !important;
+.hero-copy { display: flex; flex-direction: column; align-items: flex-start; }
+.hero-copy h1, .hero h1 {
+  text-align: right !important;
+  margin: 0 0 12px !important;
+  max-width: 11ch !important;
 }
-.hero-copy .lede,
-.hero p.lede {
-  text-align: center !important;
-  margin: 0 auto !important;
-  max-width: 42ch !important;
+.hero-copy .lede, .hero p.lede {
+  text-align: right !important;
+  margin: 0 !important;
+  max-width: 34ch !important;
 }
-.trust-row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 0 16px;
-}
+.trust-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 14px; }
 .trust-row span {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 0.82rem;
-  color: var(--ink-soft);
-  font-weight: 600;
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 12px; font-size: 0.82rem; color: var(--ink-soft); font-weight: 600;
 }
 .hero-art {
-  margin: 4px 0 0;
-  width: 100%;
-  border-radius: 22px;
-  overflow: hidden;
+  margin: 0; border-radius: 22px; overflow: hidden;
   box-shadow: 0 16px 36px rgba(15, 27, 45, 0.10);
+  max-height: 280px;
 }
-.hero-art img { display: block; width: 100%; height: auto; }
+.hero-art img { display: block; width: 100%; height: 280px; object-fit: cover; object-position: center; }
 .stamp-mark { display: none !important; }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-copy { align-items: center; }
+  .hero-copy h1, .hero h1, .hero-copy .lede, .hero p.lede { text-align: center !important; margin-inline: auto !important; }
+  .trust-row { justify-content: center; }
+  .hero-art { max-height: 180px; }
+  .hero-art img { height: 180px; }
+}
