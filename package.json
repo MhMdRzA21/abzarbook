@@ -1,12 +1,22 @@
 {
   "name": "abzarbook",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "ابزاربوک — سریع‌ترین و دقیق‌ترین ابزارهای آنلاین فارسی برای محاسبه عیدی، سنوات، رهن به اجاره، وام و بیشتر. کاملاً client-side و privacy-first.",
+  "description": "ابزاربوک — ابزارهای محاسباتی فارسی + تبدیل و فشرده‌سازی فایل",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server-unified.js"
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "archiver": "^8.0.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "multer": "^2.3.0",
+    "pdf-lib": "^1.17.1",
+    "sharp": "^0.35.4"
   }
 }
