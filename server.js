@@ -82,6 +82,7 @@ function serveStatic(req, res) {
   if (urlPath === '/favicon.ico') urlPath = '/icon-192.png';
   if (urlPath === '/convert' || urlPath === '/convert/') urlPath = '/convert/index.html';
   if (urlPath === '/convert/guides' || urlPath === '/convert/guides/') urlPath = '/convert/guides/index.html';
+  if (urlPath === '/convert/compress' || urlPath === '/convert/compress/') urlPath = '/convert/compress/index.html';
   if (urlPath.endsWith('/') && urlPath !== '/') urlPath = urlPath + 'index.html';
   const filePath = safeJoin(ROOT, urlPath);
   if (!filePath) {
