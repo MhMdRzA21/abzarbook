@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +26,10 @@
     document.getElementById('boot').textContent = 'خطا در بارگذاری. رفرش کنید.';
     return;
   }
+
+  // Keep original LTR layout so Converter CSS works; Persianize copy only
   html = html
-    .replace(/lang="en" dir="ltr"/g, 'lang="fa" dir="rtl"')
+    .replace(/lang="en" dir="ltr"/g, 'lang="fa" dir="ltr"')
     .replace(/Converta/g, 'ابزاربوک')
     .replace(/<span class="mark">CV<\/span>/g, '<span class="mark">ابز</span>')
     .replace(/href="\/css\//g, 'href="' + CDN + '/css/')
@@ -43,6 +45,8 @@
     .replace(/href="\/convert\//g, 'href="/convert/')
     .replace(/https:\/\/YOURDOMAIN\.com/g, 'https://abzarbook.ir/convert')
     .replace(/Convert your files right here/g, 'فایل‌هات رو همین‌جا تبدیل کن')
+    .replace(/Word, Excel, PowerPoint, PDF and image formats — no software to install, no account to create\. Files are deleted from the server right after conversion\./g,
+      'ورد، اکسل، پاورپوینت، PDF و تصویر — بدون نصب نرم‌افزار و بدون ثبت‌نام. فایل‌ها بعد از تبدیل از سرور حذف می‌شوند.')
     .replace(/>Tools</g, '>ابزارها<')
     .replace(/>Guides</g, '>راهنماها<')
     .replace(/>FAQ</g, '>سوالات متداول<')
@@ -50,28 +54,39 @@
     .replace(/>Merge PDF</g, '>ادغام PDF<')
     .replace(/>Split PDF</g, '>تقسیم PDF<')
     .replace(/>Compress files</g, '>فشرده‌سازی<')
+    .replace(/>Image format</g, '>فرمت تصویر<')
+    .replace(/>Images to PDF</g, '>تصویر به PDF<')
+    .replace(/>PDF to images</g, '>PDF به تصویر<')
+    .replace(/>Word \/ Excel \/ PowerPoint ⇄ PDF</g, '>ورد / اکسل / پاورپوینت ⇄ PDF<')
     .replace(/>Convert</g, '>تبدیل<')
     .replace(/>Convert to PDF</g, '>تبدیل به PDF<')
     .replace(/>Merge PDFs</g, '>ادغام PDFها<')
     .replace(/>Compress</g, '>فشرده‌سازی<')
+    .replace(/Convert to:/g, 'تبدیل به:')
+    .replace(/Output format:/g, 'فرمت خروجی:')
     .replace(/Drop images here, or click to browse/g, 'تصاویر را اینجا رها کنید یا کلیک کنید')
     .replace(/Drop a PDF here, or click to browse/g, 'فایل PDF را اینجا رها کنید یا کلیک کنید')
     .replace(/Drop PDF files here, or click to browse/g, 'فایل‌های PDF را اینجا رها کنید یا کلیک کنید')
     .replace(/Drop a file here, or click to browse/g, 'فایل را اینجا رها کنید یا کلیک کنید')
     .replace(/Drop a Word, Excel, PowerPoint or PDF file here/g, 'فایل ورد، اکسل، پاورپوینت یا PDF را اینجا رها کنید')
+    .replace(/You can select more than one image/g, 'می‌توانید چند تصویر انتخاب کنید')
+    .replace(/Selection order = page order in the PDF/g, 'ترتیب انتخاب = ترتیب صفحات در PDF')
+    .replace(/Selection order = page order in the merged file/g, 'ترتیب انتخاب = ترتیب در فایل نهایی')
     .replace(/Popular conversions/g, 'تبدیل‌های پرکاربرد')
     .replace(/Why this site/g, 'چرا ابزاربوک؟')
     .replace(/No account needed/g, 'بدون نیاز به حساب')
-    .replace(/Automatic cleanup/g, 'حذف خودکار');
+    .replace(/Automatic cleanup/g, 'حذف خودکار')
+    .replace(/A real conversion engine/g, 'موتور تبدیل واقعی')
+    .replace(/Fast<br>Private<br>Free/g, 'سریع<br>خصوصی<br>رایگان');
 
+  // Vazirmatn without breaking flex layout
   if (html.indexOf('Vazirmatn') === -1) {
     html = html.replace('</head>',
       '<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">\n'
-      + '<style>html[dir=rtl] body{font-family:Vazirmatn,Tahoma,sans-serif;direction:rtl}'
-      + 'html[dir=rtl] .site-header .wrap,html[dir=rtl] .site-nav{flex-direction:row-reverse}'
-      + 'html[dir=rtl] .tabs{flex-direction:row-reverse;flex-wrap:wrap}'
-      + 'html[dir=rtl] .dropzone,html[dir=rtl] .panel{text-align:right}</style>\n</head>');
+      + '<style>body{font-family:Vazirmatn,Tahoma,system-ui,sans-serif}</style>\n</head>');
   }
+
+  // Home link in nav
   html = html.replace('<nav class="site-nav">', '<nav class="site-nav"><a href="/">ابزاربوک</a>');
 
   document.open();
