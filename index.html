@@ -1,1 +1,50 @@
-LOADING
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ابزاربوک | ۲۴ ابزار رایگان محاسبه حقوق، مالی و کاربردی</title>
+<meta name="description" content="ابزاربوک: مرجع رایگان محاسبه عیدی و سنوات ۱۴۰۵، حقوق و مالیات، اقساط وام، کمیسیون املاک، مهریه و ده‌ها ابزار دیگر. دقیق، بدون ثبت‌نام، با نمایش عدد به حروف.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/">
+<style>body{font-family:Tahoma,sans-serif;text-align:center;padding:40px;color:#333}</style>
+</head>
+<body>
+<p id="msg">در حال بارگذاری نسخه اصلی...</p>
+<script>
+(async function () {
+  try {
+    const res = await fetch('https://raw.githubusercontent.com/MhMdRzA21/abzarbook/eb24040f/index.html', { cache: 'no-store' });
+    if (!res.ok) throw new Error('fetch failed');
+    let html = await res.text();
+    const marker = '<div class="section-label"><h2>چرا ابزاربوک بهترین انتخاب است؟</h2>';
+    const inject = `<div class="section-label"><h2>تبدیل و فشرده‌سازی فایل</h2><div class="ln"></div></div>
+  <div class="ledger" style="margin-bottom:28px">
+    <a class="row" href="/convert/">
+      <span class="icn" style="background:linear-gradient(155deg,#2563eb,#1e3a8a)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" stroke="#fff" stroke-width="1.6" fill="none"/><path d="M14 2v6h6" stroke="#fff" stroke-width="1.6"/><path d="M9 13h6M9 17h6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </span>
+      <span class="rbody">
+        <span class="rtitle">مبدل فایل (PDF، ورد، تصویر)</span>
+        <span class="rdesc">ادغام و تقسیم PDF، تبدیل PDF به ورد و بالعکس، تصویر به PDF، فشرده‌سازی فایل — رایگان و بدون ثبت‌نام.</span>
+        <span class="chips"><span class="chip">PDF</span><span class="chip">ورد</span><span class="chip">فشرده‌سازی</span><span class="chip">تصویر</span></span><br>
+        <span class="preview">ورود به بخش تبدیل فایل ←</span>
+      </span>
+      <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+  </div>
+  ` + marker;
+    if (html.indexOf(marker) !== -1) {
+      html = html.replace(marker, inject);
+    }
+    document.open();
+    document.write(html);
+    document.close();
+  } catch (e) {
+    document.getElementById('msg').textContent = 'خطا در بارگذاری. صفحه را رفرش کنید.';
+    console.error(e);
+  }
+})();
+</script>
+</body>
+</html>
