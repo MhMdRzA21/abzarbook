@@ -7,12 +7,14 @@ const { compressFile } = require("../lib/converters");
 const router = express.Router();
 const uploadDir = path.join(__dirname, "..", "uploads");
 const outDir = path.join(__dirname, "..", "converted");
+for (const d of [uploadDir, outDir]) {
+  if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });
+}
 
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, uploadDir),
   filename: (_req, file, cb) => {
-    const safe = Date.now() + "-" + Math.random().toString(36).slice(2, 8) + path.extname(file.originalname || "");
-    cb(null, safe);
+    cb(null, Date.now() + "-" + Math.random().toString(36).slice(2, 8) + path.extname(file.originalname || ""));
   },
 });
 const upload = multer({ storage, limits: { fileSize: 500 * 1024 * 1024, files: 1 } });
