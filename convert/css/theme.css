@@ -192,3 +192,6 @@ input, select, textarea {
   .site-nav a { padding: 0 8px; font-size: 0.9rem; }
   .dropzone { min-height: 150px; }
 }
+
+.site-banner { display: block; max-width: 980px; margin: 18px auto 0; padding: 0 16px; }
+.site-banner img { width: 100%; height: auto; border-radius: 22px; display: block; box-shadow: 0 16px 40px rgba(15, 27, 45, 0.12); }
