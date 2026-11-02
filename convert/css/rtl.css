@@ -1,0 +1,192 @@
+/* ===== RTL + Responsive overrides for Convert section ===== */
+html[dir="rtl"],
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+  font-family: Vazirmatn, Tahoma, system-ui, sans-serif !important;
+}
+
+/* Header */
+html[dir="rtl"] .site-header .wrap {
+  flex-direction: row;
+}
+html[dir="rtl"] .site-nav {
+  flex-direction: row;
+}
+html[dir="rtl"] .logo {
+  flex-direction: row;
+}
+
+/* Tabs: horizontal scroll on mobile, proper RTL order */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+html[dir="rtl"] .tabs {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.tab {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  min-height: 44px;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tab-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Dropzone and panels */
+html[dir="rtl"] .dropzone,
+html[dir="rtl"] .panel,
+html[dir="rtl"] .target-row,
+html[dir="rtl"] .ranges-row,
+html[dir="rtl"] .actions,
+html[dir="rtl"] .filelist {
+  text-align: right;
+  direction: rtl;
+}
+html[dir="rtl"] .actions {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+html[dir="rtl"] .target-row,
+html[dir="rtl"] .ranges-row {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+/* File list items */
+html[dir="rtl"] .filelist li {
+  flex-direction: row;
+  text-align: right;
+}
+.ext {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+}
+
+/* Related cards */
+html[dir="rtl"] .related-grid {
+  direction: rtl;
+}
+html[dir="rtl"] .related-card {
+  text-align: right;
+}
+
+/* Footer */
+html[dir="rtl"] .site-footer .wrap {
+  flex-direction: row;
+}
+
+/* Inputs */
+html[dir="rtl"] input[type="text"],
+html[dir="rtl"] select,
+html[dir="rtl"] textarea {
+  text-align: right;
+  direction: rtl;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .wrap { padding: 0 14px; }
+  .hero { padding: 28px 0 16px; }
+  .hero h1 { font-size: 1.6rem; line-height: 1.3; }
+  .lede { font-size: 0.95rem; }
+
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 6px;
+    padding: 4px 0 8px;
+    margin: 0 -14px;
+    padding-inline: 14px;
+  }
+  .tab {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+    min-height: 42px;
+  }
+
+  .dropzone {
+    padding: 28px 16px;
+    min-height: 160px;
+  }
+  .dropzone p { font-size: 0.95rem; }
+  .dropzone .hint { font-size: 0.8rem; }
+
+  .target-row,
+  .ranges-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+  .target-row label,
+  .ranges-row label {
+    text-align: right;
+  }
+  select, input[type="text"] {
+    width: 100%;
+    min-height: 44px;
+    font-size: 1rem;
+  }
+
+  .actions {
+    flex-direction: column !important;
+    gap: 10px;
+  }
+  .btn-convert {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+  .related-card {
+    padding: 14px;
+  }
+
+  .site-header .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.9rem;
+  }
+  .site-footer .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 1.4rem; }
+  .tab { font-size: 0.8rem; padding: 8px 10px; }
+  .stamp-mark { font-size: 0.75rem; }
+}
+
+/* Touch targets */
+@media (hover: none) and (pointer: coarse) {
+  .tab, .btn-convert, .dropzone {
+    min-height: 44px;
+  }
+}
