@@ -120,7 +120,7 @@
         if (!e.lengthComputable) return;
         const pct = Math.round((e.loaded / e.total) * 100);
         showProgress(pct);
-        statusEl.textContent = pct < 100 ? `Uploading... ${pct}%` : "Processing...";
+        statusEl.textContent = pct < 100 ? `در حال آپلود... ${pct}%` : "در حال پردازش...";
       });
 
       xhr.addEventListener("load", () => {
