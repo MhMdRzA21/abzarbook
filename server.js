@@ -1,4 +1,4 @@
-// سرور استاتیک ابزاربوک + سرویس‌دهی /convert/
+// ابزاربوک: استاتیک + API تبدیل (در صورت وجود وابستگی‌ها)
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -8,21 +8,39 @@ const PORT = process.env.PORT || 16660;
 const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
 
+let expressApp = null;
+try {
+  const express = require('express');
+  const helmet = require('helmet');
+  const rateLimit = require('express-rate-limit');
+  expressApp = express();
+  expressApp.set('trust proxy', 1);
+  for (const d of ['server/uploads', 'server/converted', 'uploads', 'converted']) {
+    const p = path.join(ROOT, d);
+    if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true });
+  }
+  expressApp.use(helmet({ contentSecurityPolicy: false }));
+  expressApp.use(express.json({ limit: '2mb' }));
+  const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 60, message: { error: 'Too many requests' } });
+  try {
+    expressApp.use('/api/convert', limiter, require('./server/routes/convert'));
+    expressApp.use('/api/compress', limiter, require('./server/routes/compress'));
+    expressApp.use('/api/pdf', limiter, require('./server/routes/pdftools'));
+    console.log('Convert API routes loaded');
+  } catch (e) {
+    console.warn('Convert routes partial:', e.message);
+    expressApp.use('/api', (req, res) => res.status(503).json({ error: 'موتور تبدیل آماده نیست' }));
+  }
+} catch (e) {
+  console.warn('Express not installed — static only:', e.message);
+}
+
 const MIME = {
-  '.html': 'text/html; charset=utf-8',
-  '.css': 'text/css; charset=utf-8',
-  '.js': 'application/javascript; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.xml': 'application/xml; charset=utf-8',
-  '.txt': 'text/plain; charset=utf-8',
-  '.png': 'image/png',
-  '.jpg': 'image/jpeg',
-  '.jpeg': 'image/jpeg',
-  '.svg': 'image/svg+xml',
-  '.ico': 'image/x-icon',
-  '.webp': 'image/webp',
-  '.woff2': 'font/woff2',
-  '.woff': 'font/woff',
+  '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8',
+  '.xml': 'application/xml; charset=utf-8', '.txt': 'text/plain; charset=utf-8',
+  '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon', '.webp': 'image/webp', '.woff2': 'font/woff2', '.woff': 'font/woff',
 };
 
 function cacheControl(ext) {
@@ -45,7 +63,6 @@ const SECURITY = {
 function makeETag(stat) {
   return `"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}"`;
 }
-
 function safeJoin(root, urlPath) {
   const decoded = decodeURIComponent((urlPath || '/').split('?')[0]);
   const resolved = path.normalize(path.join(root, decoded));
@@ -53,10 +70,14 @@ function safeJoin(root, urlPath) {
   return resolved;
 }
 
-http.createServer((req, res) => {
+function serveStatic(req, res) {
   if (req.url === '/health' || req.url === '/healthz') {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', ...SECURITY });
-    return res.end(JSON.stringify({ ok: true, convert: fs.existsSync(path.join(ROOT, 'convert', 'index.html')) }));
+    return res.end(JSON.stringify({
+      ok: true,
+      convert: fs.existsSync(path.join(ROOT, 'convert', 'index.html')),
+      api: Boolean(expressApp),
+    }));
   }
 
   let urlPath = (req.url || '/').split('?')[0];
@@ -65,7 +86,7 @@ http.createServer((req, res) => {
   if (urlPath === '/convert/guides' || urlPath === '/convert/guides/') urlPath = '/convert/guides/index.html';
   if (urlPath.endsWith('/') && urlPath !== '/') urlPath = urlPath + 'index.html';
 
-  let filePath = safeJoin(ROOT, urlPath);
+  const filePath = safeJoin(ROOT, urlPath);
   if (!filePath) {
     res.writeHead(400, { 'Content-Type': 'text/plain', ...SECURITY });
     return res.end('Bad request');
@@ -122,6 +143,15 @@ http.createServer((req, res) => {
 
   const ext = path.extname(filePath).toLowerCase() || '.html';
   trySend(filePath, ext === '' ? '.html' : ext);
-}).listen(PORT, HOST, () => {
-  console.log(`ابزاربوک آماده روی ${HOST}:${PORT}`);
+}
+
+const server = http.createServer((req, res) => {
+  if (expressApp && (req.url || '').startsWith('/api/')) {
+    return expressApp(req, res);
+  }
+  return serveStatic(req, res);
+});
+
+server.listen(PORT, HOST, () => {
+  console.log(`ابزاربوک روی ${HOST}:${PORT} | api=${Boolean(expressApp)}`);
 });
