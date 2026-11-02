@@ -13,10 +13,8 @@
 <p id="boot">در حال بارگذاری مبدل فایل...</p>
 <script>
 (async function () {
-  var urls = [
-    'https://cdn.jsdelivr.net/gh/MhMdRzA21/Converter@main/public/home.html',
-    'https://raw.githubusercontent.com/MhMdRzA21/Converter/main/public/home.html'
-  ];
+  var CDN = 'https://cdn.jsdelivr.net/gh/MhMdRzA21/Converter@main/public';
+  var urls = [CDN + '/home.html', 'https://raw.githubusercontent.com/MhMdRzA21/Converter/main/public/home.html'];
   var html = null;
   for (var i = 0; i < urls.length; i++) {
     try {
@@ -28,15 +26,15 @@
     document.getElementById('boot').textContent = 'خطا در بارگذاری. رفرش کنید.';
     return;
   }
-  // Paths -> /convert/
   html = html
     .replace(/lang="en" dir="ltr"/g, 'lang="fa" dir="rtl"')
     .replace(/Converta/g, 'ابزاربوک')
     .replace(/<span class="mark">CV<\/span>/g, '<span class="mark">ابز</span>')
-    .replace(/href="\/css\//g, 'href="/convert/css/')
-    .replace(/src="\/js\//g, 'src="/convert/js/')
-    .replace(/href="\/favicon/g, 'href="/convert/favicon')
-    .replace(/href="\/fonts\//g, 'href="/convert/fonts/')
+    .replace(/href="\/css\//g, 'href="' + CDN + '/css/')
+    .replace(/src="\/js\//g, 'src="' + CDN + '/js/')
+    .replace(/href="\/favicon/g, 'href="' + CDN + '/favicon')
+    .replace(/href="\/fonts\//g, 'href="' + CDN + '/fonts/')
+    .replace(/href="\/apple-touch/g, 'href="' + CDN + '/apple-touch')
     .replace(/href="\/home\.html"/g, 'href="/convert/"')
     .replace(/href="\/tools\.html"/g, 'href="/convert/tools.html"')
     .replace(/href="\/guides\//g, 'href="/convert/guides/')
@@ -62,21 +60,19 @@
     .replace(/Drop a file here, or click to browse/g, 'فایل را اینجا رها کنید یا کلیک کنید')
     .replace(/Drop a Word, Excel, PowerPoint or PDF file here/g, 'فایل ورد، اکسل، پاورپوینت یا PDF را اینجا رها کنید')
     .replace(/Popular conversions/g, 'تبدیل‌های پرکاربرد')
-    .replace(/Why this site/g, 'چرا ابزاربوک؟');
+    .replace(/Why this site/g, 'چرا ابزاربوک؟')
+    .replace(/No account needed/g, 'بدون نیاز به حساب')
+    .replace(/Automatic cleanup/g, 'حذف خودکار');
 
-  // Inject Vazirmatn + ensure CSS from /convert/
   if (html.indexOf('Vazirmatn') === -1) {
     html = html.replace('</head>',
       '<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">\n'
       + '<style>html[dir=rtl] body{font-family:Vazirmatn,Tahoma,sans-serif;direction:rtl}'
       + 'html[dir=rtl] .site-header .wrap,html[dir=rtl] .site-nav{flex-direction:row-reverse}'
-      + 'html[dir=rtl] .tabs{flex-direction:row-reverse;flex-wrap:wrap}</style>\n</head>');
+      + 'html[dir=rtl] .tabs{flex-direction:row-reverse;flex-wrap:wrap}'
+      + 'html[dir=rtl] .dropzone,html[dir=rtl] .panel{text-align:right}</style>\n</head>');
   }
-  // Link back to abzarbook home in nav if possible
-  html = html.replace(
-    '<nav class="site-nav">',
-    '<nav class="site-nav"><a href="/">ابزاربوک</a>'
-  );
+  html = html.replace('<nav class="site-nav">', '<nav class="site-nav"><a href="/">ابزاربوک</a>');
 
   document.open();
   document.write(html);
