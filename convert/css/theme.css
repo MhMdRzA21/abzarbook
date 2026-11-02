@@ -259,3 +259,12 @@ html[dir="rtl"] .actions { justify-content: flex-start; }
   .actions { width: 100%; }
   .btn-convert { width: 100%; }
 }
+
+/* Pill hover stays. No underline under nav links. */
+.site-nav a,
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+}
+.site-nav a::after { display: none !important; content: none !important; }
