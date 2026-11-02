@@ -1,0 +1,194 @@
+/* Modern Persian theme for the converter section only.
+   Loaded after style.css and rtl.css. Does not touch the main site. */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/fonts/Vazirmatn-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #F4F6FB;
+  --paper-raised: #FFFFFF;
+  --ink: #0F1B2D;
+  --ink-soft: #5B6780;
+  --stamp: #2740E8;
+  --stamp-dark: #1C2FB8;
+  --teal: #0E8A6A;
+  --line: #E2E7F0;
+  --mark: #FFD84D;
+  --radius: 16px;
+  --font-display: "Vazirmatn", Tahoma, system-ui, sans-serif;
+  --font-ui: "Vazirmatn", Tahoma, system-ui, sans-serif;
+  --shadow: 0 10px 30px rgba(15, 27, 45, 0.06);
+}
+
+html, body {
+  font-family: "Vazirmatn", Tahoma, system-ui, sans-serif !important;
+  background:
+    radial-gradient(900px 420px at 100% -10%, rgba(39, 64, 232, 0.08), transparent 60%),
+    radial-gradient(700px 360px at 0% 0%, rgba(255, 216, 77, 0.16), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+h1, h2, h3, .logo, .btn-convert, .tab, button, input, select, textarea {
+  font-family: "Vazirmatn", Tahoma, system-ui, sans-serif !important;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.site-header .wrap { min-height: 64px; }
+.logo { gap: 10px; font-weight: 800; letter-spacing: 0; }
+.logo .mark {
+  width: 32px; height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: #1E385C;
+  color: #F6F0E0;
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.site-nav a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 999px;
+}
+.site-nav a:hover { background: #EEF1FF; color: var(--stamp); }
+
+.hero { padding: 42px 0 28px; }
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+  max-width: 18ch;
+  text-align: center;
+  margin-inline: auto;
+}
+.hero p.lede {
+  text-align: center;
+  margin-inline: auto;
+  max-width: 46ch;
+  font-size: 1.02rem;
+}
+
+.tabs {
+  border: 0;
+  gap: 8px;
+  justify-content: center;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.tab {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  top: 0;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 0.92rem;
+  box-shadow: none;
+}
+.tab.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  font-weight: 700;
+}
+.tab.active .tab-icon { stroke: #fff; opacity: 1; }
+
+.panel {
+  border: 1px solid var(--line) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--shadow) !important;
+  background: #fff !important;
+  padding: 22px !important;
+}
+.dropzone {
+  border: 1.5px dashed #9AA8C7 !important;
+  border-radius: 18px !important;
+  background: #F8FAFF !important;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: border-color .15s, background .15s, transform .15s;
+}
+.dropzone:hover, .dropzone.drag {
+  border-color: var(--stamp) !important;
+  background: #EEF2FF !important;
+}
+.dropzone-icon {
+  width: 52px; height: 52px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.btn-convert {
+  background: var(--stamp) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  min-height: 46px;
+  padding: 12px 22px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 18px rgba(39, 64, 232, 0.22);
+}
+.btn-convert:hover:not(:disabled) { background: var(--stamp-dark) !important; }
+.btn-convert:disabled { background: #C9D0E0 !important; box-shadow: none; }
+
+.related-grid, .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.related-card, .tools-grid a {
+  border-radius: 16px !important;
+  border: 1px solid var(--line) !important;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgba(15, 27, 45, 0.04);
+  min-height: 88px;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+}
+.related-card:hover, .tools-grid a:hover {
+  border-color: var(--stamp) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+input, select, textarea {
+  font-family: inherit;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  min-height: 44px;
+  padding: 8px 12px;
+  background: #fff;
+}
+.seo-prose, .faq, main { line-height: 1.9; }
+
+@media (max-width: 720px) {
+  .hero { padding: 28px 0 16px; }
+  .hero h1 { font-size: 1.7rem; max-width: 14ch; }
+  .panel { padding: 16px !important; }
+  .tabs { justify-content: flex-start; }
+  .related-grid, .tools-grid { grid-template-columns: 1fr; }
+  .site-nav { gap: 2px; }
+  .site-nav a { padding: 0 8px; font-size: 0.9rem; }
+  .dropzone { min-height: 150px; }
+}

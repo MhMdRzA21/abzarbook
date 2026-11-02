@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="robots" content="index,follow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scanned PDF vs Digital PDF: Why Conversion Fails | ابزاربوک</title>
-<meta name="description" content="How to tell a scanned PDF from a digital one in five seconds, and why the difference decides whether a conversion will actually work.">
+<title>PDF اسکن‌شده در برابر دیجیتال: چرا تبدیل خراب می‌شود | ابزاربوک</title>
+<meta name="description" content="در پنج ثانیه بفهمید PDF اسکن است یا دیجیتال، و چرا این فرق تعیین می‌کند تبدیل کار می‌کند یا نه.">
 <link rel="canonical" href="https://abzarbook.ir/guides/scanned-vs-digital-pdf.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scanned PDF vs Digital PDF: Why Conversion Fails">
-<meta property="og:description" content="How to tell a scanned PDF from a digital one, and why it decides whether PDF-to-Word will work.">
+<meta property="og:description" content="How to tell a PDF اسکن‌شده from a digital one, and why it decides whether PDF-to-Word will work.">
 <meta property="og:url" content="https://abzarbook.ir/guides/scanned-vs-digital-pdf.html">
 <meta property="og:image" content="https://abzarbook.ir/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -23,6 +23,7 @@
 <meta name="theme-color" content="#2740E8">
 <link rel="stylesheet" href="/convert/css/style.css">
 <link rel="stylesheet" href="/convert/css/rtl.css">
+<link rel="stylesheet" href="/convert/css/theme.css">
 <script src="/js/seo.js" defer></script>
 </head>
 <body>
@@ -31,39 +32,39 @@
   <div class="wrap">
     <a href="/convert/" class="logo"><span class="mark">CV</span> ابزاربوک</a>
         <nav class="site-nav">
-      <a href="/tools.html">Tools</a>
-      <a href="/convert/guides/">Guides</a>
+      <a href="/tools.html">ابزارها</a>
+      <a href="/convert/guides/">راهنماها</a>
       <a href="/pages/faq.html">FAQ</a>
-      <a href="/pages/about.html">About</a>
+      <a href="/pages/about.html">درباره</a>
     </nav>
   </div>
 </header>
 
 <main class="content-page">
   <div class="wrap">
-    <h1>Scanned PDF vs. Digital PDF: Why It Matters</h1>
-    <p class="updated">The single check that saves you a wasted conversion</p>
+    <h1>PDF اسکن‌شده در برابر دیجیتال: چرا مهم است</h1>
+    <p class="updated">یک تست که تبدیل بیهوده را جلویش می‌گیرد</p>
 
-    <p>Two PDFs can look identical on screen and still be fundamentally different files under the hood. One has real, selectable text; the other is a photograph of a page that happens to be saved in the PDF format. The difference doesn't matter if all you're doing is reading the file — but it matters enormously the moment you try to convert it, search it, or copy text out of it.</p>
+    <p>دو PDF ممکن است روی صفحه یکسان به نظر برسند ولی از اساس فرق داشته باشند. یکی متن واقعی و قابل انتخاب دارد. دیگری عکس یک صفحه است که با فرمت PDF ذخیره شده. اگر فقط می‌خوانید فرق ندارد. لحظه‌ای که می‌خواهید تبدیل، جستجو یا کپی کنید خیلی فرق دارد.</p>
 
-    <h2>The 5-second test</h2>
-    <p>Open the PDF and try to click-and-drag to highlight a word, the way you'd select text in an email. If a word or line highlights individually, you have a <strong>digital PDF</strong> — it contains actual text characters. If your cursor drags a rectangular selection box over the whole page instead, or nothing highlights at all, you have a <strong>scanned PDF</strong> — what you're looking at is an image, not text.</p>
+    <h2>تست ۵ ثانیه‌ای</h2>
+    <p>PDF را باز کنید و مثل انتخاب متن در ایمیل روی یک کلمه بکشید. اگر کلمه یا خط جدا هایلایت شد، فایل شما <strong>PDF دیجیتال</strong> است و نویسه متن واقعی دارد. اگر نشانگر یک کادر روی کل صفحه می‌کشد یا هیچ چیز هایلایت نمی‌شود، فایل شما <strong>PDF اسکن‌شده</strong> است. چیزی که می‌بینید تصویر است، نه متن.</p>
 
-    <h2>Why scanned PDFs came about</h2>
-    <p>A scanned PDF is what you get when a physical document goes through a scanner or a phone camera app: the scanner captures a picture of the page and wraps that picture in a PDF file so it can be viewed, shared, and printed like any other PDF. It's a completely reasonable thing to do — it's often the only way to digitize a signed contract, an old book, or a paper form. The catch is that, to a computer, the page is indistinguishable from a photo of a cat. There's no underlying text data at all.</p>
+    <h2>PDF اسکن‌شده از کجا می‌آید</h2>
+    <p>PDF اسکن‌شده وقتی است که سند کاغذی از اسکنر یا اپ دوربین گوشی رد می‌شود. اسکنر از صفحه عکس می‌گیرد و آن را در PDF می‌گذارد تا مثل هر PDF دیگری دیده، فرستاده و چاپ شود. کار معقولی است و اغلب تنها راه دیجیتالی کردن قرارداد امضاشده، کتاب قدیمی یا فرم کاغذی است. مشکل این است که برای کامپیوتر این صفحه با عکس یک گربه فرقی ندارد. داده متن زیرش نیست.</p>
 
-    <h2>Why this breaks naive conversion</h2>
-    <p>A tool converting PDF to Word works by reading the text data embedded in the PDF and rebuilding it as an editable document. A scanned PDF has no text data to read — so a converter either has to run OCR (optical character recognition) to guess at the words from the pixels, or it fails outright. OCR has improved a lot over the years, but it's still fundamentally a best-effort guess: it can misread similar-looking characters (a lowercase "l" as a "1", for instance), struggle with handwriting, unusual fonts, low scan quality, or skewed pages, and it has no way to recover formatting that was never encoded to begin with.</p>
-    <p>This is why the same PDF-to-Word tool can produce a near-perfect result on one file and a garbled mess on another — it's not inconsistent, it's responding to genuinely different inputs.</p>
+    <h2>چرا تبدیل ساده خراب می‌شود</h2>
+    <p>ابزار تبدیل PDF به ورد داده متن داخل PDF را می‌خواند و سند قابل ویرایش می‌سازد. PDF اسکن‌شده داده متن ندارد. مبدل یا باید OCR بزند و از پیکسل کلمه حدس بزند، یا شکست می‌خورد. OCR بهتر شده ولی هنوز حدس است: نویسه شبیه را اشتباه می‌خواند، با دست‌خط و فونت عجیب و اسکن کم‌کیفیت و صفحه کج مشکل دارد، و قالبی را که از اول ذخیره نشده برنمی‌گرداند.</p>
+    <p>برای همین همان ابزار روی یک فایل نتیجه نزدیک به کامل می‌دهد و روی دیگری آشغال. ناسازگار نیست. ورودی‌ها واقعاً فرق دارند.</p>
 
     <h2>What to do about it</h2>
     <ul>
-      <li><strong>If you created the PDF yourself</strong> — by exporting from Word, Google Docs, or a similar program — it's almost certainly a digital PDF, and conversion should work cleanly.</li>
-      <li><strong>If the PDF came from a scanner or a "scan to PDF" phone app</strong>, it's scanned. Expect any text extraction to need manual proofreading afterward, however good the OCR is.</li>
-      <li><strong>If you're not sure</strong>, run the 5-second selection test above before you convert anything — it takes less time than the conversion itself.</li>
+      <li><strong>اگر PDF را خودتان ساخته‌اید</strong> با خروجی از ورد، گوگل داکس یا برنامه مشابه، تقریباً حتماً دیجیتال است و تبدیل باید تمیز باشد.</li>
+      <li><strong>اگر PDF از اسکنر یا اپ «اسکن به PDF» گوشی آمده</strong>اسکن است. هر استخراج متنی بعدش نیاز به بازخوانی دستی دارد، هرقدر OCR خوب باشد.</li>
+      <li><strong>If you're not sure</strong>قبل از هر تبدیل، تست ۵ ثانیه‌ای بالا را بزنید. از خود تبدیل کمتر وقت می‌گیرد.</li>
     </ul>
 
-    <p>Once you know which kind of PDF you're working with, you can set the right expectations before converting. Try it with our <a href="/convert/pdf-to-word.html">PDF to Word converter</a>, or go the other direction with <a href="/convert/word-to-pdf.html">Word to PDF</a> if you're starting from an editable document and want to make sure it stays that way for the next person.</p>
+    <p>وقتی نوع PDF را دانستید، قبل از تبدیل انتظار درست بگذارید. با <a href="/convert/pdf-to-word.html">مبدل PDF به ورد</a> امتحان کنید، یا برعکس با <a href="/convert/word-to-pdf.html">Word to PDF</a> اگر از سند قابل ویرایش شروع می‌کنید و می‌خواهید برای نفر بعد همان بماند.</p>
   </div>
 </main>
 
@@ -71,12 +72,12 @@
   <div class="wrap">
     <span>© 2026 ابزاربوک</span>
         <nav>
-      <a href="/tools.html">Tools</a>
-      <a href="/convert/guides/">Guides</a>
-      <a href="/pages/about.html">About</a>
-      <a href="/pages/privacy.html">Privacy</a>
-      <a href="/pages/terms.html">Terms</a>
-      <a href="/pages/contact.html">Contact</a>
+      <a href="/tools.html">ابزارها</a>
+      <a href="/convert/guides/">راهنماها</a>
+      <a href="/pages/about.html">درباره</a>
+      <a href="/pages/privacy.html">حریم خصوصی</a>
+      <a href="/pages/terms.html">شرایط</a>
+      <a href="/pages/contact.html">تماس</a>
     </nav>
   </div>
 </footer>
