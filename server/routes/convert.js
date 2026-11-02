@@ -7,6 +7,7 @@ const {
   imagesToPdf,
   pdfToImages,
   officeConvert,
+  pdfToDocxSmart,
   mergePdfs,
   splitPdf,
 } = require("../lib/converters");
@@ -89,7 +90,9 @@ router.post("/office", upload.single("file"), async (req, res) => {
   try {
     if (!file) throw new Error("فایلی ارسال نشده");
     const target = (req.body.target || "pdf").toLowerCase();
-    const result = await officeConvert(file.path, outDir, target);
+    const result = target === "docx"
+      ? await pdfToDocxSmart(file.path, outDir)
+      : await officeConvert(file.path, outDir, target);
     res.download(result.path, result.name, async () => {
       await cleanup([file]);
       try { await fs.promises.unlink(result.path); } catch {}

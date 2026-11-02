@@ -205,7 +205,23 @@ async function convertImageFiles(files, target, outDir) {
   return { path: zipPath, name: "images.zip" };
 }
 
+
+// PDF -> DOCX via pdf2docx, with LibreOffice fallback. Keeps Persian text logical.
+async function pdfToDocxSmart(inputPath, outDir) {
+  const base = path.basename(inputPath, path.extname(inputPath));
+  const outPath = path.join(outDir, `${base}.docx`);
+  const scriptPath = path.join(__dirname, "pdf2docx_convert.py");
+  try {
+    await run("python3", [scriptPath, inputPath, outPath], { timeout: 180000 });
+    await fs.access(outPath);
+    return outPath;
+  } catch (e) {
+    return officeConvert(inputPath, outDir, "docx");
+  }
+}
+
 module.exports = {
+  pdfToDocxSmart,
   convertImage,
   convertImageFiles,
   imagesToPdf,
