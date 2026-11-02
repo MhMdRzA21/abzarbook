@@ -3,74 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تبدیل فایل آنلاین — PDF، ورد، تصویر | ابزاربوک</title>
-<meta name="description" content="تبدیل و فشرده‌سازی PDF، ورد و تصویر به صورت رایگان. ادغام، تقسیم، PDF به ورد و بالعکس. بدون ثبت‌نام و بدون واترمارک.">
+<title>تبدیل فایل آنلاین — ادغام، تقسیم، فشرده‌سازی | ابزاربوک</title>
+<meta name="description" content="تبدیل آنلاین PDF: ادغام، تقسیم، فشرده‌سازی، PDF به ورد و ورد به PDF. رایگان و بدون ثبت‌نام.">
 <link rel="canonical" href="https://abzarbook.ir/convert/">
 <meta name="robots" content="index,follow">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Vazirmatn,Tahoma,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.7}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:960px;margin:0 auto;padding:0 18px}
-header{background:#fff;border-bottom:1px solid #e2e8f0;padding:14px 0;position:sticky;top:0;z-index:20}
-header .wrap{display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;font-size:1.2rem}
-.logo span{color:#1d4ed8}
-nav{display:flex;gap:14px;font-size:.9rem;color:#475569}
-nav a:hover{color:#1d4ed8}
-.hero{padding:48px 0 28px;text-align:center}
-.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;margin-bottom:10px}
-.hero p{color:#475569;max-width:52ch;margin:0 auto 22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:10px 0 40px}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 14px;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.card:hover{border-color:#1d4ed8;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.07)}
-.card h3{font-size:.95rem;font-weight:700;margin-bottom:4px}
-.card p{font-size:.8rem;color:#64748b}
-.badge{display:inline-block;background:#dbeafe;color:#1e3a8a;font-size:.78rem;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:14px}
-footer{background:#0f172a;color:#94a3b8;padding:28px 0;font-size:.85rem;text-align:center}
-footer a{color:#cbd5e1;margin:0 8px}
-footer a:hover{color:#fff}
-.back{display:inline-block;margin-top:8px;font-size:.88rem;color:#1d4ed8;font-weight:600}
-</style>
+<style>html,body{margin:0}#boot{font-family:Tahoma,sans-serif;text-align:center;padding:40px;color:#444}</style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a class="logo" href="/"><span>ابزار</span>بوک</a>
-    <nav>
-      <a href="/">ماشین‌حساب‌ها</a>
-      <a href="/convert/">تبدیل فایل</a>
-      <a href="/convert/tools.html">همه ابزارها</a>
-    </nav>
-  </div>
-</header>
-<section class="hero">
-  <div class="wrap">
-    <div class="badge">رایگان • سریع • بدون ثبت‌نام</div>
-    <h1>تبدیل و فشرده‌سازی فایل</h1>
-    <p>PDF، ورد، تصویر — ادغام، تقسیم، تبدیل و کاهش حجم. فایل‌ها بعد از دانلود حذف می‌شوند.</p>
-    <a class="back" href="/">← بازگشت به ابزاربوک</a>
-  </div>
-</section>
-<div class="wrap">
-  <div class="grid">
-    <a class="card" href="/convert/merge-pdf.html"><h3>ادغام PDF</h3><p>چند فایل PDF را یکی کنید</p></a>
-    <a class="card" href="/convert/split-pdf.html"><h3>تقسیم PDF</h3><p>صفحات را جدا کنید</p></a>
-    <a class="card" href="/convert/pdf-to-word.html"><h3>PDF به ورد</h3><p>تبدیل به فایل قابل ویرایش</p></a>
-    <a class="card" href="/convert/word-to-pdf.html"><h3>ورد به PDF</h3><p>خروجی PDF از Word</p></a>
-    <a class="card" href="/convert/jpg-to-pdf.html"><h3>تصویر به PDF</h3><p>عکس‌ها را PDF کنید</p></a>
-    <a class="card" href="/convert/pdf-to-jpg.html"><h3>PDF به تصویر</h3><p>هر صفحه یک عکس</p></a>
-    <a class="card" href="/convert/compress-file.html"><h3>فشرده‌سازی</h3><p>کاهش حجم PDF و تصویر</p></a>
-    <a class="card" href="/convert/tools.html"><h3>همه ابزارها</h3><p>لیست کامل ابزارهای تبدیل</p></a>
-  </div>
-</div>
-<footer>
-  <div class="wrap">
-    <a href="/">ابزاربوک</a>
-    <a href="/convert/">تبدیل فایل</a>
-    <p style="margin-top:12px">© ۱۴۰۵ ابزاربوک</p>
-  </div>
-</footer>
+<p id="boot">در حال بارگذاری مبدل فایل...</p>
+<script>
+(async function () {
+  var urls = [
+    'https://cdn.jsdelivr.net/gh/MhMdRzA21/Converter@main/public/home.html',
+    'https://raw.githubusercontent.com/MhMdRzA21/Converter/main/public/home.html'
+  ];
+  var html = null;
+  for (var i = 0; i < urls.length; i++) {
+    try {
+      var res = await fetch(urls[i], { cache: 'no-store' });
+      if (res.ok) { html = await res.text(); break; }
+    } catch (e) {}
+  }
+  if (!html) {
+    document.getElementById('boot').textContent = 'خطا در بارگذاری. رفرش کنید.';
+    return;
+  }
+  // Paths -> /convert/
+  html = html
+    .replace(/lang="en" dir="ltr"/g, 'lang="fa" dir="rtl"')
+    .replace(/Converta/g, 'ابزاربوک')
+    .replace(/<span class="mark">CV<\/span>/g, '<span class="mark">ابز</span>')
+    .replace(/href="\/css\//g, 'href="/convert/css/')
+    .replace(/src="\/js\//g, 'src="/convert/js/')
+    .replace(/href="\/favicon/g, 'href="/convert/favicon')
+    .replace(/href="\/fonts\//g, 'href="/convert/fonts/')
+    .replace(/href="\/home\.html"/g, 'href="/convert/"')
+    .replace(/href="\/tools\.html"/g, 'href="/convert/tools.html"')
+    .replace(/href="\/guides\//g, 'href="/convert/guides/')
+    .replace(/href="\/pages\//g, 'href="/convert/pages/')
+    .replace(/href="\/compress\//g, 'href="/convert/compress/')
+    .replace(/href="\/convert\//g, 'href="/convert/')
+    .replace(/https:\/\/YOURDOMAIN\.com/g, 'https://abzarbook.ir/convert')
+    .replace(/Convert your files right here/g, 'فایل‌هات رو همین‌جا تبدیل کن')
+    .replace(/>Tools</g, '>ابزارها<')
+    .replace(/>Guides</g, '>راهنماها<')
+    .replace(/>FAQ</g, '>سوالات متداول<')
+    .replace(/>About</g, '>درباره ما<')
+    .replace(/>Merge PDF</g, '>ادغام PDF<')
+    .replace(/>Split PDF</g, '>تقسیم PDF<')
+    .replace(/>Compress files</g, '>فشرده‌سازی<')
+    .replace(/>Convert</g, '>تبدیل<')
+    .replace(/>Convert to PDF</g, '>تبدیل به PDF<')
+    .replace(/>Merge PDFs</g, '>ادغام PDFها<')
+    .replace(/>Compress</g, '>فشرده‌سازی<')
+    .replace(/Drop images here, or click to browse/g, 'تصاویر را اینجا رها کنید یا کلیک کنید')
+    .replace(/Drop a PDF here, or click to browse/g, 'فایل PDF را اینجا رها کنید یا کلیک کنید')
+    .replace(/Drop PDF files here, or click to browse/g, 'فایل‌های PDF را اینجا رها کنید یا کلیک کنید')
+    .replace(/Drop a file here, or click to browse/g, 'فایل را اینجا رها کنید یا کلیک کنید')
+    .replace(/Drop a Word, Excel, PowerPoint or PDF file here/g, 'فایل ورد، اکسل، پاورپوینت یا PDF را اینجا رها کنید')
+    .replace(/Popular conversions/g, 'تبدیل‌های پرکاربرد')
+    .replace(/Why this site/g, 'چرا ابزاربوک؟');
+
+  // Inject Vazirmatn + ensure CSS from /convert/
+  if (html.indexOf('Vazirmatn') === -1) {
+    html = html.replace('</head>',
+      '<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">\n'
+      + '<style>html[dir=rtl] body{font-family:Vazirmatn,Tahoma,sans-serif;direction:rtl}'
+      + 'html[dir=rtl] .site-header .wrap,html[dir=rtl] .site-nav{flex-direction:row-reverse}'
+      + 'html[dir=rtl] .tabs{flex-direction:row-reverse;flex-wrap:wrap}</style>\n</head>');
+  }
+  // Link back to abzarbook home in nav if possible
+  html = html.replace(
+    '<nav class="site-nav">',
+    '<nav class="site-nav"><a href="/">ابزاربوک</a>'
+  );
+
+  document.open();
+  document.write(html);
+  document.close();
+})();
+</script>
 </body>
 </html>
