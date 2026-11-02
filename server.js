@@ -1,4 +1,4 @@
-// سرور استاتیک فوق‌سبک و بهینه — بدون هیچ وابستگی خارجی
+// سرور استاتیک ابزاربوک + سرویس‌دهی /convert/
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -22,11 +22,12 @@ const MIME = {
   '.ico': 'image/x-icon',
   '.webp': 'image/webp',
   '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
 };
 
 function cacheControl(ext) {
   if (ext === '.html' || ext === '.xml' || ext === '.txt') return 'public, max-age=300, must-revalidate';
-  if (['.png', '.jpg', '.jpeg', '.webp', '.ico', '.svg', '.woff2'].includes(ext)) return 'public, max-age=31536000, immutable';
+  if (['.png', '.jpg', '.jpeg', '.webp', '.ico', '.svg', '.woff2', '.woff'].includes(ext)) return 'public, max-age=31536000, immutable';
   if (['.js', '.css', '.json'].includes(ext)) return 'public, max-age=86400';
   return 'public, max-age=3600';
 }
@@ -38,10 +39,9 @@ const SECURITY = {
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
   'X-XSS-Protection': '1; mode=block',
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
-  'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'",
+  'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://cdn.jsdelivr.net https://raw.githubusercontent.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'",
 };
 
-// تگ ETag ساده (mtime+size) برای کش شرطی — کاربرانی که دوباره سر می‌زنند ترافیک ۲۰۴ Not-Modified می‌گیرند نه کل فایل
 function makeETag(stat) {
   return `"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}"`;
 }
@@ -55,11 +55,16 @@ function safeJoin(root, urlPath) {
 
 http.createServer((req, res) => {
   if (req.url === '/health' || req.url === '/healthz') {
-    res.writeHead(200, { 'Content-Type': 'text/plain', ...SECURITY });
-    return res.end('ok');
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', ...SECURITY });
+    return res.end(JSON.stringify({ ok: true, convert: fs.existsSync(path.join(ROOT, 'convert', 'index.html')) }));
   }
 
-  let urlPath = req.url === '/' ? '/index.html' : req.url;
+  let urlPath = (req.url || '/').split('?')[0];
+  if (urlPath === '/') urlPath = '/index.html';
+  if (urlPath === '/convert' || urlPath === '/convert/') urlPath = '/convert/index.html';
+  if (urlPath === '/convert/guides' || urlPath === '/convert/guides/') urlPath = '/convert/guides/index.html';
+  if (urlPath.endsWith('/') && urlPath !== '/') urlPath = urlPath + 'index.html';
+
   let filePath = safeJoin(ROOT, urlPath);
   if (!filePath) {
     res.writeHead(400, { 'Content-Type': 'text/plain', ...SECURITY });
@@ -67,82 +72,50 @@ http.createServer((req, res) => {
   }
 
   const trySend = (fp, ext) => {
-    fs.stat(fp, (statErr, stat) => {
-      if (statErr || !stat.isFile()) {
-        if (ext !== '.html' && !path.extname(filePath)) {
-          return trySend(filePath + '.html', '.html');
-        }
-        return fs.readFile(path.join(ROOT, '404.html'), (e2, d2) => {
-          res.writeHead(404, { 'Content-Type': MIME['.html'], 'Cache-Control': 'no-store', ...SECURITY });
-          res.end(e2 ? '۴۰۴ — صفحه پیدا نشد' : d2);
+    fs.stat(fp, (err, stat) => {
+      if (err || !stat.isFile()) {
+        if (!path.extname(fp)) return trySend(fp + '.html', '.html');
+        const p404 = path.join(ROOT, '404.html');
+        return fs.readFile(p404, (e2, data) => {
+          res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', ...SECURITY });
+          res.end(e2 ? '404' : data);
         });
       }
-
       const etag = makeETag(stat);
-      const lastModified = stat.mtime.toUTCString();
       if (req.headers['if-none-match'] === etag) {
-        res.writeHead(304, { 'ETag': etag, 'Cache-Control': cacheControl(ext), ...SECURITY });
+        res.writeHead(304, { ETag: etag, ...SECURITY });
         return res.end();
       }
-
-      fs.readFile(fp, (err, data) => {
-        if (err) {
-          return fs.readFile(path.join(ROOT, '404.html'), (e2, d2) => {
-            res.writeHead(404, { 'Content-Type': MIME['.html'], 'Cache-Control': 'no-store', ...SECURITY });
-            res.end(e2 ? '۴۰۴ — صفحه پیدا نشد' : d2);
-          });
+      fs.readFile(fp, (err2, data) => {
+        if (err2) {
+          res.writeHead(500, { 'Content-Type': 'text/plain', ...SECURITY });
+          return res.end('Error');
         }
-
-        const type = MIME[ext] || 'application/octet-stream';
         const headers = {
-          'Content-Type': type,
+          'Content-Type': MIME[ext] || 'application/octet-stream',
           'Cache-Control': cacheControl(ext),
-          'ETag': etag,
-          'Last-Modified': lastModified,
+          ETag: etag,
           ...SECURITY,
         };
-
         const compressible = ['.html', '.css', '.js', '.json', '.xml', '.txt', '.svg'].includes(ext) && data.length > 1024;
         const accept = req.headers['accept-encoding'] || '';
-
-        // برتلی اولویت دارد (فشرده‌سازی بهتر از gzip، مهم برای کاربران موبایل با پهنای‌باند محدود)
-        if (compressible && accept.includes('br') && typeof zlib.brotliCompress === 'function') {
-          zlib.brotliCompress(data, {
-            params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 5 },
-          }, (berr, compressed) => {
-            if (berr) return sendGzipOrRaw();
-            headers['Content-Encoding'] = 'br';
-            headers['Content-Length'] = compressed.length;
-            headers['Vary'] = 'Accept-Encoding';
-            res.writeHead(200, headers);
-            res.end(compressed);
-          });
-          return;
-        }
-
-        sendGzipOrRaw();
-
-        function sendGzipOrRaw() {
-          if (compressible && accept.includes('gzip')) {
-            zlib.gzip(data, (zerr, compressed) => {
-              if (zerr) {
-                headers['Content-Length'] = data.length;
-                res.writeHead(200, headers);
-                return res.end(data);
-              }
+        if (compressible && accept.includes('gzip')) {
+          return zlib.gzip(data, (zerr, compressed) => {
+            if (!zerr) {
               headers['Content-Encoding'] = 'gzip';
               headers['Content-Length'] = compressed.length;
               headers['Vary'] = 'Accept-Encoding';
               res.writeHead(200, headers);
-              res.end(compressed);
-            });
-            return;
-          }
-
-          headers['Content-Length'] = data.length;
-          res.writeHead(200, headers);
-          res.end(data);
+              return res.end(compressed);
+            }
+            headers['Content-Length'] = data.length;
+            res.writeHead(200, headers);
+            res.end(data);
+          });
         }
+        headers['Content-Length'] = data.length;
+        res.writeHead(200, headers);
+        res.end(data);
       });
     });
   };
