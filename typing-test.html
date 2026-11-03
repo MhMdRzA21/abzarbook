@@ -40,11 +40,14 @@ button,select,textarea{font-family:inherit}
 .chip{border:1px solid var(--rule);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}
 .chip.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
-.stat{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:8px;text-align:center}
+.stat{background:#fff;border:1px solid #d9d0bc;border-radius:12px;padding:8px;text-align:center;color:#1c1914}
 .stat b{display:block;font-size:1.3rem}
-.prompt{font-size:1.25rem;line-height:2.1;min-height:7.2em;padding:14px;border:1px dashed var(--rule);border-radius:14px;background:#fff}
-.ok{color:var(--ok)} .bad{background:#f8d7dc;color:var(--bad);border-radius:4px} .cur{border-bottom:2px solid var(--accent2)}
-.live{width:100%;min-height:64px;font-size:1.15rem;padding:12px;border:1px solid var(--rule);border-radius:12px;margin-top:10px}
+.prompt{font-size:1.25rem;line-height:2.1;min-height:7.2em;padding:14px;border:1px dashed #d9d0bc;border-radius:14px;background:#fff;color:#1c1914}
+.prompt .ok{color:#1f7a4d} .prompt .bad{background:#f8d7dc;color:#a1333f;border-radius:4px} .prompt .cur{border-bottom:2px solid #2a4d6e;color:#1c1914}
+.live{width:100%;min-height:64px;font-size:1.15rem;padding:12px;border:1px solid #d9d0bc;border-radius:12px;margin-top:10px;background:#fff;color:#1c1914}
+.live::placeholder{color:#6b6350;opacity:1}
+.stat{color:#1c1914}
+.stat b{color:#1c1914}
 .guide h2{font-size:1.15rem;margin:18px 0 6px}
 .keys{display:flex;gap:6px;flex-wrap:wrap}
 .keys span{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:4px 8px;font-size:.9rem}
