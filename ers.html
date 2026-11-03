@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه سهم ارث آنلاین | قانون مدنی | ابزاربوک</title>
+<meta name="description" content="سهم همسر و فرزندان را از ماترک، طبق قاعده رایج قانون مدنی، تخمین بزن.">
+<meta name="keywords" content="سهم ارث, محاسبه ارث, ارث زن, ارث فرزند, قانون مدنی">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/ers.html">
+<meta property="og:title" content="محاسبه سهم ارث آنلاین | قانون مدنی | ابزاربوک">
+<meta property="og:description" content="سهم همسر و فرزندان را از ماترک، طبق قاعده رایج قانون مدنی، تخمین بزن.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/ers.html">
+<meta property="og:image" content="https://abzarbook.ir/icon-512.png">
+<meta property="og:site_name" content="ابزاربوک">
+
+<link rel="preload" href="/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<style>
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
+main{max-width:640px;margin:0 auto;padding:20px 16px 70px}
+a.back{color:var(--accent2);text-decoration:none;font-weight:700}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-top:14px}
+h1{font-size:1.55rem;margin:8px 0 4px;line-height:1.35}.sub{color:var(--mute);margin:0 0 14px}
+label{display:block;font-weight:700;margin:10px 0 4px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--rule);border-radius:12px;font-family:inherit;background:#fff;color:#1c1914}
+button{font-family:inherit;border:0;border-radius:999px;padding:10px 16px;background:var(--accent2);color:#fff;cursor:pointer;margin-top:12px}
+.out{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:12px;margin-top:12px;color:#1c1914}
+.note{color:var(--mute);font-size:.92rem}
+</style>
+
+</head>
+<body>
+<main>
+  <a class="back" href="/">← بازگشت به ابزاربوک</a>
+  <div class="card">
+    <h1>محاسبه سهم ارث</h1>
+    <p class="sub">تخمین ساده. طبقات دیگر، وصیت و بدهی را حساب نمی‌کند.</p>
+    <label for="estate">ارزش ماترک (تومان)</label><input id="estate" type="number" min="0" value="1000000000">
+<label for="spouse">همسر در قید حیات</label><select id="spouse"><option value="none">ندارد</option><option value="wife">همسر زن</option><option value="husband">همسر مرد</option></select>
+<label for="sons">تعداد پسر</label><input id="sons" type="number" min="0" value="1">
+<label for="daughters">تعداد دختر</label><input id="daughters" type="number" min="0" value="1">
+<button id="go">محاسبه</button>
+    <div class="out" id="out">نتیجه اینجا می‌آید.</div>
+  </div>
+</main>
+<script>
+const fa=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+const money=n=>fa(Math.round(n).toLocaleString("en-US"));
+document.getElementById("go").onclick=()=>{
+  const estate=+document.getElementById("estate").value||0;
+  const spouse=document.getElementById("spouse").value;
+  const sons=+document.getElementById("sons").value||0;
+  const daughters=+document.getElementById("daughters").value||0;
+  const hasKids=sons+daughters>0;
+  let spouseShare=0;
+  if(spouse==="wife") spouseShare=hasKids?1/8:1/4;
+  if(spouse==="husband") spouseShare=hasKids?1/4:1/2;
+  const spouseAmount=estate*spouseShare;
+  const rest=estate-spouseAmount;
+  const units=sons*2+daughters;
+  let html=`سهم همسر: ${money(spouseAmount)} تومان (${fa(Math.round(spouseShare*100))}٪)<br>`;
+  if(!units){ html+=`باقی برای طبقات بعدی: ${money(rest)} تومان`; }
+  else {
+    const unit=rest/units;
+    html+=`هر پسر: ${money(unit*2)} تومان<br>هر دختر: ${money(unit)} تومان`;
+  }
+  html+=`<p class="note">پسر دو سهم و دختر یک سهم. بدهی، مهریه، وصیت تا ثلث و طبقات دیگر اینجا نیست. برای سند، به کارشناس ارث مراجعه کن.</p>`;
+  document.getElementById("out").innerHTML=html;
+};
+</script>
+</body>
+</html>

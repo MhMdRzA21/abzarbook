@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه بیمه بیکاری آنلاین | مدت و مبلغ | ابزاربوک</title>
+<meta name="description" content="مدت و مبلغ تقریبی مقرری بیمه بیکاری را با سابقه بیمه، مزد و تعداد تحت تکفل حساب کن. رایگان و بدون ثبت‌نام.">
+<meta name="keywords" content="بیمه بیکاری, محاسبه بیمه بیکاری, مقرری بیکاری, تامین اجتماعی">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/bime-bikari.html">
+<meta property="og:title" content="محاسبه بیمه بیکاری آنلاین | مدت و مبلغ | ابزاربوک">
+<meta property="og:description" content="مدت و مبلغ تقریبی مقرری بیمه بیکاری را با سابقه بیمه، مزد و تعداد تحت تکفل حساب کن. رایگان و بدون ثبت‌نام.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/bime-bikari.html">
+<meta property="og:image" content="https://abzarbook.ir/icon-512.png">
+<meta property="og:site_name" content="ابزاربوک">
+
+<link rel="preload" href="/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<style>
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
+main{max-width:640px;margin:0 auto;padding:20px 16px 70px}
+a.back{color:var(--accent2);text-decoration:none;font-weight:700}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-top:14px}
+h1{font-size:1.55rem;margin:8px 0 4px;line-height:1.35}.sub{color:var(--mute);margin:0 0 14px}
+label{display:block;font-weight:700;margin:10px 0 4px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--rule);border-radius:12px;font-family:inherit;background:#fff;color:#1c1914}
+button{font-family:inherit;border:0;border-radius:999px;padding:10px 16px;background:var(--accent2);color:#fff;cursor:pointer;margin-top:12px}
+.out{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:12px;margin-top:12px;color:#1c1914}
+.note{color:var(--mute);font-size:.92rem}
+</style>
+
+</head>
+<body>
+<main>
+  <a class="back" href="/">← بازگشت به ابزاربوک</a>
+  <div class="card">
+    <h1>محاسبه بیمه بیکاری</h1>
+    <p class="sub">مدت و مبلغ تقریبی طبق قاعده رایج تأمین اجتماعی. عدد قطعی را شعبه می‌دهد.</p>
+    <label for="months">سابقه بیمه (ماه)</label><input id="months" type="number" min="6" value="24">
+<label for="wage">متوسط مزد روزانه ۹۰ روز آخر (تومان)</label><input id="wage" type="number" min="0" value="700000">
+<label for="deps">افراد تحت تکفل</label><input id="deps" type="number" min="0" max="4" value="0">
+<label for="married">وضعیت</label><select id="married"><option value="single">مجرد</option><option value="married">متأهل</option></select>
+<button id="go">محاسبه</button>
+    <div class="out" id="out">نتیجه اینجا می‌آید.</div>
+  </div>
+</main>
+<script>
+const fa=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+const money=n=>fa(Math.round(n).toLocaleString("en-US"));
+document.getElementById("go").onclick=()=>{
+  const months=+document.getElementById("months").value||0;
+  const wage=+document.getElementById("wage").value||0;
+  const deps=Math.min(4,+document.getElementById("deps").value||0);
+  const married=document.getElementById("married").value==="married";
+  if(months<6){document.getElementById("out").textContent="حداقل سابقه برای برقراری معمولاً ۶ ماه است.";return}
+  let duration=6;
+  if(months>=24) duration=married?12:6;
+  if(months>=36) duration=married?18:12;
+  if(months>=48) duration=married?26:18;
+  if(months>=60) duration=married?36:26;
+  if(months>=120) duration=married?50:36;
+  const daily=wage*0.55*(1+deps*0.1);
+  const monthly=daily*30;
+  document.getElementById("out").innerHTML=`مدت تقریبی: ${fa(duration)} ماه<br>مبلغ روزانه: ${money(daily)} تومان<br>مبلغ ماهانه تقریبی: ${money(monthly)} تومان<p class="note">۵۵٪ مزد، به‌علاوه ۱۰٪ برای هر تحت تکفل تا ۴ نفر. کمتر از حداقل مزد نمی‌شود و سقف دارد. این تخمین است.</p>`;
+};
+</script>
+</body>
+</html>

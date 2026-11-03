@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محاسبه درصد آزمون و نمره منفی کنکور | ابزاربوک</title>
+<meta name="description" content="درصد تستی را با نمره منفی یک‌سوم، یا بدون نمره منفی، حساب کن.">
+<meta name="keywords" content="درصد کنکور, نمره منفی, درصد آزمون, محاسبه درصد تستی">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abzarbook.ir/konkur-darsad.html">
+<meta property="og:title" content="محاسبه درصد آزمون و نمره منفی کنکور | ابزاربوک">
+<meta property="og:description" content="درصد تستی را با نمره منفی یک‌سوم، یا بدون نمره منفی، حساب کن.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/konkur-darsad.html">
+<meta property="og:image" content="https://abzarbook.ir/icon-512.png">
+<meta property="og:site_name" content="ابزاربوک">
+
+<link rel="preload" href="/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<style>
+:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
+@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
+main{max-width:640px;margin:0 auto;padding:20px 16px 70px}
+a.back{color:var(--accent2);text-decoration:none;font-weight:700}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-top:14px}
+h1{font-size:1.55rem;margin:8px 0 4px;line-height:1.35}.sub{color:var(--mute);margin:0 0 14px}
+label{display:block;font-weight:700;margin:10px 0 4px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--rule);border-radius:12px;font-family:inherit;background:#fff;color:#1c1914}
+button{font-family:inherit;border:0;border-radius:999px;padding:10px 16px;background:var(--accent2);color:#fff;cursor:pointer;margin-top:12px}
+.out{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:12px;margin-top:12px;color:#1c1914}
+.note{color:var(--mute);font-size:.92rem}
+</style>
+
+</head>
+<body>
+<main>
+  <a class="back" href="/">← بازگشت به ابزاربوک</a>
+  <div class="card">
+    <h1>درصد آزمون با نمره منفی</h1>
+    <p class="sub">فرمول رایج کنکور: (صحیح − غلط ÷ ۳) ÷ کل × ۱۰۰.</p>
+    <label for="total">تعداد کل سؤال</label><input id="total" type="number" min="1" value="25">
+<label for="correct">صحیح</label><input id="correct" type="number" min="0" value="15">
+<label for="wrong">غلط</label><input id="wrong" type="number" min="0" value="6">
+<label><input id="neg" type="checkbox" checked style="width:auto"> نمره منفی یک‌سوم</label>
+<button id="go">محاسبه</button>
+    <div class="out" id="out">نتیجه اینجا می‌آید.</div>
+  </div>
+</main>
+<script>
+const fa=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+const money=n=>fa(Math.round(n).toLocaleString("en-US"));
+document.getElementById("go").onclick=()=>{
+  const total=+document.getElementById("total").value||0;
+  const correct=+document.getElementById("correct").value||0;
+  const wrong=+document.getElementById("wrong").value||0;
+  const neg=document.getElementById("neg").checked;
+  if(total<=0 || correct+wrong>total){document.getElementById("out").textContent="عددها را چک کن.";return}
+  const score=neg?correct-wrong/3:correct;
+  const pct=score/total*100;
+  const blank=total-correct-wrong;
+  document.getElementById("out").innerHTML=`درصد: ${fa(pct.toFixed(2))}٪<br>نزده: ${fa(blank)}<p class="note">با نمره منفی، هر ۳ غلط یک صحیح را خنثی می‌کند.</p>`;
+};
+</script>
+</body>
+</html>
