@@ -90,7 +90,12 @@
           <option value="tiff">TIFF</option>
           <option value="avif">AVIF</option>
         </select>
+        <label for="q-image">کیفیت</label>
+        <input id="q-image" data-field="quality" type="number" min="40" max="95" value="80" style="width:72px">
+        <label for="w-image">حداکثر عرض</label>
+        <input id="w-image" data-field="width" type="number" min="0" placeholder="اصلی" style="width:88px">
       </div>
+      <p class="hint" id="jpg-warn">JPG زمینه شفاف را سفید می‌کند. برای لوگو PNG یا WebP را بگذار.</p>
       <div class="dropzone" tabindex="0" data-accept="image/*">
       <div class="dropzone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V8"/><path d="m8.5 11.5 3.5-3.5 3.5 3.5"/><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/></svg></div>
         <p>تصاویر را بنداز اینجا یا کلیک کن</p>

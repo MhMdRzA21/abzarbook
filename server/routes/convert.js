@@ -42,7 +42,9 @@ router.post("/image", upload.array("files", 20), async (req, res) => {
   try {
     if (!files.length) throw new Error("فایلی ارسال نشده");
     const target = (req.body.target || "jpg").toLowerCase();
-    const result = await convertImageFiles(files, target, outDir);
+    const quality = Number(req.body.quality) || 80;
+    const width = Number(req.body.width) || 0;
+    const result = await convertImageFiles(files, target, outDir, { quality, width });
     res.download(result.path, result.name, async () => {
       await cleanup(files);
       try { await fs.promises.unlink(result.path); } catch {}

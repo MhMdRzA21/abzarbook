@@ -34,11 +34,15 @@ function runNow(cmd, args, opts = {}) {
   });
 }
 
-async function convertImage(inputPath, outputPath, targetFormat) {
+async function convertImage(inputPath, outputPath, targetFormat, opts = {}) {
   const fmt = targetFormat.toLowerCase() === "jpg" ? "jpeg" : targetFormat.toLowerCase();
-  let pipeline = sharp(inputPath, { animated: fmt === "gif" });
+  const quality = Math.min(95, Math.max(40, Number(opts.quality) || 80));
+  const width = Number(opts.width) || 0;
+  let pipeline = sharp(inputPath, { animated: fmt === "gif" }).rotate();
+  if (width > 0) pipeline = pipeline.resize({ width, withoutEnlargement: true });
   if (fmt === "jpeg") pipeline = pipeline.flatten({ background: "#ffffff" });
-  await pipeline.toFormat(fmt).toFile(outputPath);
+  const formatOpts = fmt === "jpeg" || fmt === "webp" || fmt === "avif" ? { quality } : {};
+  await pipeline.toFormat(fmt, formatOpts).toFile(outputPath);
   return outputPath;
 }
 
@@ -183,11 +187,11 @@ async function compressFile(file, outDir) {
 }
 
 // High-level helpers used by routes
-async function convertImageFiles(files, target, outDir) {
+async function convertImageFiles(files, target, outDir, opts = {}) {
   const outs = [];
   for (const f of files) {
     const out = path.join(outDir, randomUUID().slice(0, 8) + "." + (target === "jpg" ? "jpg" : target));
-    await convertImage(f.path, out, target);
+    await convertImage(f.path, out, target, opts);
     outs.push(out);
   }
   if (outs.length === 1) return { path: outs[0], name: path.basename(outs[0]) };
