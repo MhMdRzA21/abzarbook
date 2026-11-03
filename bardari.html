@@ -1,75 +1,132 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<html lang="fa" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>محاسبه سن بارداری و تاریخ زایمان | ابزاربوک</title>
-<meta name="description" content="با تاریخ اولین روز آخرین قاعدگی، سن بارداری و تاریخ تقریبی زایمان را حساب کن.">
-<meta name="keywords" content="سن بارداری, تاریخ زایمان, محاسبه بارداری, هفته بارداری">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://abzarbook.ir/bardari.html">
-<meta property="og:title" content="محاسبه سن بارداری و تاریخ زایمان | ابزاربوک">
-<meta property="og:description" content="با تاریخ اولین روز آخرین قاعدگی، سن بارداری و تاریخ تقریبی زایمان را حساب کن.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fa_IR">
-<meta property="og:url" content="https://abzarbook.ir/bardari.html">
-<meta property="og:image" content="https://abzarbook.ir/icon-512.png">
-<meta property="og:site_name" content="ابزاربوک">
-
+<meta name="keywords" content="سن بارداری, تاریخ زایمان, هفته بارداری"><meta name="description" content="با تاریخ اولین روز آخرین قاعدگی، سن بارداری و تاریخ تقریبی زایمان را حساب کن.">
+<meta property="og:title" content="محاسبه سن بارداری و تاریخ زایمان | ابزاربوک"><meta property="og:description" content="با تاریخ اولین روز آخرین قاعدگی، سن بارداری و تاریخ تقریبی زایمان را حساب کن.">
+<meta property="og:type" content="website"><meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/bardari.html"><meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://abzarbook.ir/bardari.html">
+<meta property="og:image" content="https://abzarbook.ir/icon-512.png"><meta property="og:site_name" content="ابزاربوک">
+<meta name="twitter:image" content="https://abzarbook.ir/icon-512.png">
 <link rel="preload" href="/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
 <style>
-:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
-@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
-main{max-width:640px;margin:0 auto;padding:20px 16px 70px}
-a.back{color:var(--accent2);text-decoration:none;font-weight:700}
-.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-top:14px}
-h1{font-size:1.55rem;margin:8px 0 4px;line-height:1.35}.sub{color:var(--mute);margin:0 0 14px}
-label{display:block;font-weight:700;margin:10px 0 4px}
-input,select,textarea{width:100%;padding:10px;border:1px solid var(--rule);border-radius:12px;font-family:inherit;background:#fff;color:#1c1914}
-button{font-family:inherit;border:0;border-radius:999px;padding:10px 16px;background:var(--accent2);color:#fff;cursor:pointer;margin-top:12px}
-.out{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:12px;margin-top:12px;color:#1c1914}
-.note{color:var(--mute);font-size:.92rem}
+:root{
+  --bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;
+  --accent:#c47a1a;--accent2:#2a4d6e;--accent-ink:#fffaf0;--stamp:#9c2b2b;
+  --shadow:0 4px 20px -6px rgba(40,35,20,.12);
+  --shadow-lg:0 12px 40px -12px rgba(40,35,20,.18);
+  --radius:16px;--radius-sm:12px;--radius-full:999px;
+  --transition:all .22s cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;
+    --rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--accent-ink:#1f1600;--stamp:#d44;
+    --shadow:0 4px 24px -6px rgba(0,0,0,.45);--shadow-lg:0 14px 44px -12px rgba(0,0,0,.55);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;
+  --rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--accent-ink:#1f1600;--stamp:#d44;
+  --shadow:0 4px 24px -6px rgba(0,0,0,.45);--shadow-lg:0 14px 44px -12px rgba(0,0,0,.55);
+}
+:root[data-theme="dark"]{--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;}
+html{scroll-padding-top:env(safe-area-inset-top,0)}
+*{box-sizing:border-box}
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, color-mix(in srgb,var(--accent2) 8%,transparent), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, color-mix(in srgb,var(--accent) 6%,transparent), transparent 50%);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) body,
+  :root[data-theme="dark"] body{
+    background-image:
+      radial-gradient(ellipse 120% 80% at 50% -20%, rgba(106,154,187,.12), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 100% 100%, rgba(224,176,74,.07), transparent 50%);
+  }
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.95}
+main{max-width:720px;margin:0 auto;padding:18px 16px 56px}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--mute);text-decoration:none;margin-bottom:14px}
+.letterhead{display:flex;align-items:center;gap:14px;border-bottom:3px double var(--rule);padding-bottom:16px;margin-bottom:16px;flex-wrap:wrap}
+.lh-icn{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;background:linear-gradient(155deg,#2c4f6b,#1b3346)}
+.letterhead .lh-text{flex:1;min-width:0}
+.letterhead h1{font-size:1.4rem;font-weight:800;margin:0}
+.letterhead p{margin:2px 0 0;color:var(--mute);font-size:.86rem}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px;background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:4px}
+.tabs button{border:0;background:transparent;color:var(--mute);font:inherit;font-weight:700;font-size:.82rem;padding:9px 2px;border-radius:8px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--ink)}
+.tabs2{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:16px}
+.tabs2 button{border:1px solid var(--rule);background:var(--card);color:var(--mute);font:inherit;font-weight:700;font-size:.78rem;padding:7px 2px;border-radius:7px;cursor:pointer}
+.tabs2 button[aria-selected="true"]{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px;box-shadow:0 1px 2px rgba(20,16,8,.05),0 14px 30px -20px rgba(20,16,8,.45);overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+label{font-weight:700;display:block;margin:4px 0 4px;font-size:.85rem;color:var(--mute)}
+.swap-row{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end}
+.unit-field{display:flex;flex-direction:column;gap:4px}
+input,select{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink);box-shadow:inset 0 1px 2px rgba(20,16,8,.04)}
+input{direction:ltr;text-align:left;font-weight:700;font-size:1.05rem}
+input:focus-visible,select:focus-visible{outline:3px solid var(--accent2);outline-offset:1px;border-color:var(--accent2)}
+.swapBtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--bg);color:var(--accent2);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:transform .15s}
+.swapBtn:active{transform:rotate(180deg)}
+.allres{margin-top:18px;border-top:1px solid var(--rule);padding-top:14px}
+.grid-res{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (min-width:480px){.grid-res{grid-template-columns:1fr 1fr 1fr}}
+.res-tile{border:1px solid var(--rule);border-radius:10px;padding:10px 12px;background:var(--bg)}
+.res-tile b{display:block;font-size:1.05rem;direction:ltr;text-align:right;unicode-bidi:isolate;letter-spacing:.4px;font-variant-numeric:tabular-nums}
+.res-tile span{font-size:.74rem;color:var(--mute)}
+.res-tile.active{border-color:var(--accent2);background:color-mix(in srgb,var(--accent2) 10%,var(--bg))}
+h2{font-size:1.05rem;margin:28px 0 6px}
+details{border-radius:10px;border:1px solid var(--rule);padding:11px 14px;margin-bottom:8px;background:var(--card)}
+summary{cursor:pointer;font-weight:700}
+details p{margin:8px 0 0;color:var(--mute);font-size:.92rem}
+.note{font-size:.78rem;color:var(--mute);margin-top:22px;border-top:1px solid var(--rule);padding-top:10px}
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:var(--accent2)}
+[hidden]{display:none!important}
+
+/* بافت ظریف کاغذ دفترداری */
+
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
+/* نشانه گرافیکی سؤال روی هر آکاردئون */
+details{position:relative}
+details>summary{padding-right:30px;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details::before{content:"؟";position:absolute;right:0;top:9px;width:20px;height:20px;border-radius:50%;background:color-mix(in srgb, var(--accent2, var(--accent)) 18%, transparent);color:var(--accent2, var(--accent));font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;line-height:1;pointer-events:none}
+details[open]::before{background:var(--accent2, var(--accent));color:#fff}
+h1,h2,.lh-text h1{letter-spacing:.2px}
+@media (min-width:860px){
+  main{max-width:830px}
+}
 </style>
-
-</head>
-<body>
-<main>
-  <a class="back" href="/">← بازگشت به ابزاربوک</a>
-  <div class="card">
-    <h1>سن بارداری و تاریخ زایمان</h1>
-    <p class="sub">بر اساس قانون نایگل: ۲۸۰ روز بعد از اولین روز آخرین قاعدگی.</p>
-    <label for="lmp">اولین روز آخرین قاعدگی</label><input id="lmp" type="date">
-<button id="go">محاسبه</button>
-    <div class="out" id="out">نتیجه اینجا می‌آید.</div>
-  </div>
-
-  <div class="card">
-    <h2>تاریخ زایمان از کجا می‌آید؟</h2>
-<p>روش نایگل ۲۸۰ روز، یعنی ۴۰ هفته، به اولین روز آخرین قاعدگی اضافه می‌کند. سن بارداری هم فاصله امروز تا همان تاریخ است.</p>
-<p>اگر سیکل نامنظم است یا تاریخ قاعدگی دقیق نیست، سونوگرافی پزشک معتبرتر است.</p>
-    <h2>سوال‌های پرتکرار</h2>
-    <p><b>چرا با سونوگرافی فرق دارد؟</b> سونوگرافی رشد جنین را می‌بیند. این ابزار فقط تقویم است.</p>
-<p><b>هفته ۴۰ یعنی چه؟</b> تاریخ تقریبی زایمان. زایمان طبیعی می‌تواند کمی زودتر یا دیرتر باشد.</p>
-    <p>ابزارهای مرتبط: <a href="/sen.html">محاسبه سن</a> · <a href="/salamat.html">سلامت و BMI</a> · <a href="/taghvim.html">تبدیل تاریخ</a></p>
-  </div>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"تاریخ زایمان چطور حساب می‌شود؟","acceptedAnswer":{"@type":"Answer","text":"۲۸۰ روز بعد از اولین روز آخرین قاعدگی."}}]}</script>
-
-</main>
-<script>
-const fa=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
-const money=n=>fa(Math.round(n).toLocaleString("en-US"));
-document.getElementById("go").onclick=()=>{
-  const v=document.getElementById("lmp").value;
-  if(!v){document.getElementById("out").textContent="تاریخ را انتخاب کن.";return}
-  const start=new Date(v+"T00:00:00");
-  const now=new Date();
-  const days=Math.floor((now-start)/86400000);
-  const weeks=Math.floor(days/7), rem=days%7;
-  const due=new Date(start.getTime()+280*86400000);
-  document.getElementById("out").innerHTML=`سن بارداری: ${fa(weeks)} هفته و ${fa(rem)} روز<br>تاریخ تقریبی زایمان: ${due.toLocaleDateString("fa-IR")}<p class="note">سونوگرافی پزشک دقیق‌تر است. این فقط تخمین تقویمی است.</p>`;
-};
-</script>
-</body>
-</html>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4f6b"><style>
+button.go{font-family:inherit;border:0;border-radius:999px;padding:11px 18px;background:var(--accent2);color:#fff;cursor:pointer;margin-top:14px;font-weight:700}
+.prompt{font-size:1.2rem;line-height:2;min-height:6em;padding:14px;border:1px dashed var(--rule);border-radius:14px;background:var(--card);color:var(--ink)}
+.ok{color:#1f7a4d}.bad{background:#f8d7dc;color:#a1333f;border-radius:4px}.cur{border-bottom:2px solid var(--accent2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.chips button{border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 12px;font-family:inherit;cursor:pointer}
+.chips button.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+textarea{width:100%;padding:12px 14px;border:1.5px solid var(--rule);border-radius:12px;background:var(--bg);color:var(--ink);font-family:inherit}
+</style>
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ابزاربوک","item":"https://abzarbook.ir/"},{"@type":"ListItem","position":2,"name":"سن بارداری","item":"https://abzarbook.ir/bardari.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"چرا با سونوگرافی فرق دارد؟","acceptedAnswer":{"@type":"Answer","text":"سونوگرافی رشد جنین را می‌بیند. این ابزار فقط تقویم است."}},{"@type":"Question","name":"هفته ۴۰ یعنی چه؟","acceptedAnswer":{"@type":"Answer","text":"تاریخ تقریبی زایمان. زایمان طبیعی می‌تواند کمی زودتر یا دیرتر باشد."}}]}</script>
+</head><body><main>
+<a href="/" class="backlink">ابزاربوک</a>
+<div class="letterhead"><div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/></svg></div><div class="lh-text"><h1>سن بارداری</h1><p>بر اساس قانون نایگل، ۲۸۰ روز بعد از آخرین قاعدگی</p></div></div>
+<section class="card"><label for="lmp">اولین روز آخرین قاعدگی</label><input id="lmp" type="date"><button class="go" id="go">محاسبه</button><div class="allres" id="out"></div></section>
+<h2>تاریخ زایمان از کجا می‌آید؟</h2><p>روش نایگل ۲۸۰ روز به اولین روز آخرین قاعدگی اضافه می‌کند. اگر سیکل نامنظم است، سونوگرافی پزشک معتبرتر است.</p><h2>سؤالات متداول</h2><details><summary>چرا با سونوگرافی فرق دارد؟</summary><p>سونوگرافی رشد جنین را می‌بیند. این ابزار فقط تقویم است.</p></details><details><summary>هفته ۴۰ یعنی چه؟</summary><p>تاریخ تقریبی زایمان. زایمان طبیعی می‌تواند کمی زودتر یا دیرتر باشد.</p></details>
+<p class="note">این ابزار برای استفاده روزمره است. ابزاربوک اطلاعات شما را ذخیره یا ارسال نمی‌کند.</p>
+<div class="share-row"><a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a><button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button></div>
+<script>document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};</script>
+<p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/sen.html" style="color:var(--accent)">محاسبه سن</a> · <a href="/salamat.html" style="color:var(--accent)">سلامت</a> · <a href="/taghvim.html" style="color:var(--accent)">تبدیل تاریخ</a></p>
+</main><script src="/assets/num-fa.js"></script><script>const fa=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+document.getElementById("go").onclick=()=>{const v=document.getElementById("lmp").value; if(!v) return; const start=new Date(v+"T00:00:00"); const days=Math.floor((Date.now()-start)/86400000); const due=new Date(start.getTime()+280*86400000); document.getElementById("out").innerHTML=`<div class="grid-res"><div class="res-tile active"><b>${fa(Math.floor(days/7))} هفته</b><span>سن بارداری</span></div><div class="res-tile"><b>${due.toLocaleDateString("fa-IR")}</b><span>تاریخ تقریبی زایمان</span></div></div>`;};</script></body></html>

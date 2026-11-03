@@ -1,215 +1,159 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<html lang="fa" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>تست تایپ فارسی آنلاین | سرعت، دقت و تعیین سطح | ابزاربوک</title>
-<meta name="description" content="تست تایپ فارسی رایگان با نیم‌فاصله، گزارش خطا به تفکیک حرف، تمرین جدا از آزمون، و لینک نتیجه قابل اشتراک. بدون ثبت‌نام.">
-<meta name="keywords" content="تست تایپ فارسی, تست سرعت تایپ, تعیین سطح تایپ, تایپ ده انگشتی, نیم فاصله, WPM فارسی">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://abzarbook.ir/typing-test.html">
+<meta name="keywords" content="تست تایپ فارسی, سرعت تایپ, تعیین سطح تایپ, نیم فاصله">
+<meta name="description" content="تست تایپ فارسی با نیم‌فاصله، گزارش خطای هر حرف، تمرین جدا از آزمون و لینک نتیجه. رایگان و بدون ثبت‌نام.">
 <meta property="og:title" content="تست تایپ فارسی آنلاین | ابزاربوک">
-<meta property="og:description" content="سرعت و دقت تایپ فارسی را بسنج. نیم‌فاصله را می‌فهمد، خطای هر حرف را نشان می‌دهد، و لینک نتیجه می‌دهد.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fa_IR">
-<meta property="og:url" content="https://abzarbook.ir/typing-test.html">
-<meta property="og:image" content="https://abzarbook.ir/icon-512.png">
-<meta property="og:site_name" content="ابزاربوک">
+<meta property="og:description" content="سرعت و دقت تایپ فارسی را بسنج. نیم‌فاصله را می‌فهمد و لینک نتیجه می‌دهد.">
+<meta property="og:type" content="website"><meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://abzarbook.ir/typing-test.html"><meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://abzarbook.ir/typing-test.html">
+<meta property="og:image" content="https://abzarbook.ir/icon-512.png"><meta property="og:site_name" content="ابزاربوک">
 <link rel="preload" href="/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"تست تایپ فارسی ابزاربوک","url":"https://abzarbook.ir/typing-test.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"fa","offers":{"@type":"Offer","price":"0","priceCurrency":"IRR"}}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"WPM فارسی چطور حساب می‌شود؟","acceptedAnswer":{"@type":"Answer","text":"هر ۵ نویسه درست یک کلمه حساب می‌شود و بر زمان دقیقه تقسیم می‌شود."}},
-{"@type":"Question","name":"نیم‌فاصله را چطور حساب می‌کند؟","acceptedAnswer":{"@type":"Answer","text":"اگر به‌جای نیم‌فاصله فاصله بزنی، خطا ثبت می‌شود و در گزارش حروف می‌آید."}}
-]}
-</script>
 <style>
-:root{--bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--ok:#1f7a4d;--bad:#a1333f;--shadow:0 4px 20px -6px rgba(40,35,20,.12);--radius:16px}
-@media(prefers-color-scheme:dark){:root{--bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;--rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
-main{max-width:760px;margin:0 auto;padding:20px 16px 70px}
-a.back{color:var(--accent2);text-decoration:none;font-weight:700}
-.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-top:14px}
-h1{font-size:1.7rem;margin:8px 0 4px;line-height:1.35}
-.sub{color:var(--mute);margin:0 0 14px}
-.row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-button,select,textarea{font-family:inherit}
-.chip{border:1px solid var(--rule);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}
-.chip.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
-.stat{background:#fff;border:1px solid #d9d0bc;border-radius:12px;padding:8px;text-align:center;color:#1c1914}
-.stat b{display:block;font-size:1.3rem}
-.prompt{font-size:1.25rem;line-height:2.1;min-height:7.2em;padding:14px;border:1px dashed #d9d0bc;border-radius:14px;background:#fff;color:#1c1914}
-.prompt .ok{color:#1f7a4d} .prompt .bad{background:#f8d7dc;color:#a1333f;border-radius:4px} .prompt .cur{border-bottom:2px solid #2a4d6e;color:#1c1914}
-.live{width:100%;min-height:64px;font-size:1.15rem;padding:12px;border:1px solid #d9d0bc;border-radius:12px;margin-top:10px;background:#fff;color:#1c1914}
-.live::placeholder{color:#6b6350;opacity:1}
-.stat{color:#1c1914}
-.stat b{color:#1c1914}
-.guide h2{font-size:1.15rem;margin:18px 0 6px}
-.keys{display:flex;gap:6px;flex-wrap:wrap}
-.keys span{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:4px 8px;font-size:.9rem}
-.share{word-break:break-all;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px}
-@media(max-width:640px){.stats{grid-template-columns:1fr 1fr}}
-</style>
-</head>
-<body>
-<main>
-  <a class="back" href="/">← بازگشت به ابزاربوک</a>
-  <div class="card">
-    <h1>تست تایپ فارسی</h1>
-    <p class="sub">با اولین حرف شروع می‌شود. نیم‌فاصله را می‌فهمد. خطای هر حرف را جدا نشان می‌دهد.</p>
-    <div class="row" id="modes">
-      <button class="chip on" data-mode="test">آزمون</button>
-      <button class="chip" data-mode="practice">تمرین</button>
-    </div>
-    <div class="row" id="times">
-      <button class="chip on" data-sec="30">۳۰ ثانیه</button>
-      <button class="chip" data-sec="60">۱ دقیقه</button>
-      <button class="chip" data-sec="120">۲ دقیقه</button>
-      <button class="chip" data-sec="300">۵ دقیقه</button>
-    </div>
-    <div class="row">
-      <button class="chip" id="customBtn">متن خودم</button>
-      <button class="chip" id="newText">متن تازه</button>
-    </div>
-    <textarea id="custom" class="live" hidden placeholder="متن تمرین را بنویس. نیم‌فاصله را هم می‌توانی بگذاری."></textarea>
-    <div class="stats">
-      <div class="stat"><b id="wpm">۰</b>کلمه در دقیقه</div>
-      <div class="stat"><b id="acc">۱۰۰٪</b>دقت</div>
-      <div class="stat"><b id="err">۰</b>خطا</div>
-      <div class="stat"><b id="time">۳۰</b>ثانیه مانده</div>
-    </div>
-    <div class="prompt" id="prompt" aria-label="متن آزمون"></div>
-    <textarea id="input" class="live" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="اینجا تایپ کن. با اولین حرف، زمان شروع می‌شود."></textarea>
-    <div id="result" hidden></div>
-  </div>
+:root{
+  --bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;
+  --accent:#c47a1a;--accent2:#2a4d6e;--accent-ink:#fffaf0;--stamp:#9c2b2b;
+  --shadow:0 4px 20px -6px rgba(40,35,20,.12);
+  --shadow-lg:0 12px 40px -12px rgba(40,35,20,.18);
+  --radius:16px;--radius-sm:12px;--radius-full:999px;
+  --transition:all .22s cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;
+    --rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--accent-ink:#1f1600;--stamp:#d44;
+    --shadow:0 4px 24px -6px rgba(0,0,0,.45);--shadow-lg:0 14px 44px -12px rgba(0,0,0,.55);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;
+  --rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--accent-ink:#1f1600;--stamp:#d44;
+  --shadow:0 4px 24px -6px rgba(0,0,0,.45);--shadow-lg:0 14px 44px -12px rgba(0,0,0,.55);
+}
+:root[data-theme="dark"]{--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;}
+html{scroll-padding-top:env(safe-area-inset-top,0)}
+*{box-sizing:border-box}
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, color-mix(in srgb,var(--accent2) 8%,transparent), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, color-mix(in srgb,var(--accent) 6%,transparent), transparent 50%);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) body,
+  :root[data-theme="dark"] body{
+    background-image:
+      radial-gradient(ellipse 120% 80% at 50% -20%, rgba(106,154,187,.12), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 100% 100%, rgba(224,176,74,.07), transparent 50%);
+  }
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.95}
+main{max-width:720px;margin:0 auto;padding:18px 16px 56px}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--mute);text-decoration:none;margin-bottom:14px}
+.letterhead{display:flex;align-items:center;gap:14px;border-bottom:3px double var(--rule);padding-bottom:16px;margin-bottom:16px;flex-wrap:wrap}
+.lh-icn{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;background:linear-gradient(155deg,#2c4f6b,#1b3346)}
+.letterhead .lh-text{flex:1;min-width:0}
+.letterhead h1{font-size:1.4rem;font-weight:800;margin:0}
+.letterhead p{margin:2px 0 0;color:var(--mute);font-size:.86rem}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px;background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:4px}
+.tabs button{border:0;background:transparent;color:var(--mute);font:inherit;font-weight:700;font-size:.82rem;padding:9px 2px;border-radius:8px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--ink)}
+.tabs2{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:16px}
+.tabs2 button{border:1px solid var(--rule);background:var(--card);color:var(--mute);font:inherit;font-weight:700;font-size:.78rem;padding:7px 2px;border-radius:7px;cursor:pointer}
+.tabs2 button[aria-selected="true"]{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px;box-shadow:0 1px 2px rgba(20,16,8,.05),0 14px 30px -20px rgba(20,16,8,.45);overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+label{font-weight:700;display:block;margin:4px 0 4px;font-size:.85rem;color:var(--mute)}
+.swap-row{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end}
+.unit-field{display:flex;flex-direction:column;gap:4px}
+input,select{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink);box-shadow:inset 0 1px 2px rgba(20,16,8,.04)}
+input{direction:ltr;text-align:left;font-weight:700;font-size:1.05rem}
+input:focus-visible,select:focus-visible{outline:3px solid var(--accent2);outline-offset:1px;border-color:var(--accent2)}
+.swapBtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--bg);color:var(--accent2);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:transform .15s}
+.swapBtn:active{transform:rotate(180deg)}
+.allres{margin-top:18px;border-top:1px solid var(--rule);padding-top:14px}
+.grid-res{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (min-width:480px){.grid-res{grid-template-columns:1fr 1fr 1fr}}
+.res-tile{border:1px solid var(--rule);border-radius:10px;padding:10px 12px;background:var(--bg)}
+.res-tile b{display:block;font-size:1.05rem;direction:ltr;text-align:right;unicode-bidi:isolate;letter-spacing:.4px;font-variant-numeric:tabular-nums}
+.res-tile span{font-size:.74rem;color:var(--mute)}
+.res-tile.active{border-color:var(--accent2);background:color-mix(in srgb,var(--accent2) 10%,var(--bg))}
+h2{font-size:1.05rem;margin:28px 0 6px}
+details{border-radius:10px;border:1px solid var(--rule);padding:11px 14px;margin-bottom:8px;background:var(--card)}
+summary{cursor:pointer;font-weight:700}
+details p{margin:8px 0 0;color:var(--mute);font-size:.92rem}
+.note{font-size:.78rem;color:var(--mute);margin-top:22px;border-top:1px solid var(--rule);padding-top:10px}
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:var(--accent2)}
+[hidden]{display:none!important}
 
-  <div class="card guide">
-    <h2>چرا این تست با بقیه فرق دارد</h2>
-    <p>بیشتر تست‌های فارسی فقط سرعت را نشان می‌دهند. اینجا نیم‌فاصله خطا حساب می‌شود، «ی» و «ک» عربی جدا گزارش می‌شود، تمرین از آزمون جداست، و نتیجه یک لینک دارد که می‌توانی بفرستی.</p>
-    <h2>سطح‌ها</h2>
-    <p>زیر ۳۰ مبتدی، ۳۰ تا ۵۰ متوسط، ۵۰ تا ۷۰ مسلط، ۷۰ تا ۹۰ حرفه‌ای، بالای ۹۰ استاد.</p>
-    <h2>سوال‌های پرتکرار</h2>
-    <p><b>رکورد کجا می‌ماند؟</b> فقط روی همین مرورگر. چیزی به سرور نمی‌رود.</p>
-    <p><b>برای مصاحبه به درد می‌خورد؟</b> لینک نتیجه کد یکتا دارد. گواهی تصویری هم می‌توانی بگیری، ولی جایگزین آزمون رسمی نیست.</p>
-    <p><b>چطور بهتر شوم؟</b> اول دقت، بعد سرعت. روزی ۱۰ دقیقه تمرین، بدون نگاه به صفحه‌کلید.</p>
-    <p>ابزارهای مرتبط: <a href="/shomaresh-matn.html">شمارش متن</a> · <a href="/text-tools.html">ابزار متن</a> · <a href="/convert/">مبدل فایل</a></p>
-    <div id="history"></div>
-  </div>
+/* بافت ظریف کاغذ دفترداری */
+
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body,:root[data-theme="dark"] body{background-color:#162025;background-image:repeating-linear-gradient(45deg, rgba(150,190,200,.08) 0 2px, transparent 2px 9px),repeating-linear-gradient(-45deg, rgba(150,190,200,.06) 0 2px, transparent 2px 9px)}}
+/* نشانه گرافیکی سؤال روی هر آکاردئون */
+details{position:relative}
+details>summary{padding-right:30px;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details::before{content:"؟";position:absolute;right:0;top:9px;width:20px;height:20px;border-radius:50%;background:color-mix(in srgb, var(--accent2, var(--accent)) 18%, transparent);color:var(--accent2, var(--accent));font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;line-height:1;pointer-events:none}
+details[open]::before{background:var(--accent2, var(--accent));color:#fff}
+h1,h2,.lh-text h1{letter-spacing:.2px}
+@media (min-width:860px){
+  main{max-width:830px}
+}
+</style>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4f6b">
+<style>
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.chips button{border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 12px;font-family:inherit;cursor:pointer}
+.chips button.on{background:var(--accent2);color:#fff}
+.prompt{font-size:1.2rem;line-height:2.1;min-height:6em;padding:14px;border:1px dashed var(--rule);border-radius:14px;background:var(--card);color:var(--ink)}
+.ok{color:#1f7a4d}.bad{background:#f8d7dc;color:#a1333f;border-radius:4px}.cur{border-bottom:2px solid var(--accent2)}
+textarea.live{width:100%;min-height:72px;margin-top:10px}
+</style>
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
+</head><body><main>
+<a href="/" class="backlink">ابزاربوک</a>
+<div class="letterhead"><div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/></svg></div><div class="lh-text"><h1>تست تایپ فارسی</h1><p>با اولین حرف شروع می‌شود. نیم‌فاصله را می‌فهمد.</p></div></div>
+<section class="card">
+<div class="chips" id="modes"><button class="on" data-mode="test">آزمون</button><button data-mode="practice">تمرین</button></div>
+<div class="chips" id="times"><button class="on" data-sec="30">۳۰ ثانیه</button><button data-sec="60">۱ دقیقه</button><button data-sec="120">۲ دقیقه</button><button data-sec="300">۵ دقیقه</button></div>
+<div class="chips"><button id="customBtn">متن خودم</button><button id="newText">متن تازه</button></div>
+<textarea id="custom" hidden placeholder="متن تمرین"></textarea>
+<div class="grid-res"><div class="res-tile"><b id="wpm">۰</b><span>کلمه در دقیقه</span></div><div class="res-tile"><b id="acc">۱۰۰٪</b><span>دقت</span></div><div class="res-tile"><b id="err">۰</b><span>خطا</span></div><div class="res-tile"><b id="time">۳۰</b><span>ثانیه مانده</span></div></div>
+<div class="prompt" id="prompt"></div>
+<textarea id="input" class="live" placeholder="اینجا تایپ کن. با اولین حرف زمان شروع می‌شود."></textarea>
+<div id="result"></div>
+</section>
+<h2>تست تایپ خوب چه چیزی را نشان می‌دهد؟</h2>
+<p>سرعت تنها کافی نیست. دقت، نیم‌فاصله و خطای پرتکرار هر حرف مهم‌ترند. تمرین از آزمون جداست و نتیجه یک لینک دارد.</p>
+<h2>سؤالات متداول</h2>
+<details><summary>رکورد کجا می‌ماند؟</summary><p>فقط روی همین مرورگر. به سرور نمی‌رود.</p></details>
+<details><summary>گواهی رسمی است؟</summary><p>نه. برای تمرین و اشتراک نتیجه است، نه آزمون استخدامی.</p></details>
+<p class="note">این ابزار برای تمرین است. ابزاربوک اطلاعات شما را ذخیره یا ارسال نمی‌کند.</p>
+<div class="share-row"><a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a><button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button></div>
+<script>document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};</script>
+<p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/shomaresh-matn.html" style="color:var(--accent)">شمارش متن</a> · <a href="/text-tools.html" style="color:var(--accent)">ابزار متن</a> · <a href="/convert/" style="color:var(--accent)">مبدل فایل</a></p>
 </main>
 <script>
-const passages = [
-  "تایپ خوب یعنی سرعت به‌علاوه دقت. اگر عجله کنی و برگردی پاک کنی، زمان را از دست می‌دهی.",
-  "نیم‌فاصله در کلمه‌هایی مثل می‌روم، کتاب‌ها و واژه‌نامه فرق جمله درست را با جمله شلخته نشان می‌دهد.",
-  "برای رزومه، قرارداد و نامه اداری، یک متن تمیز از یک متن سریع ولی پرخطا بهتر است.",
-  "دست چپ روی الف تا ت می‌نشیند و دست راست از ن به بعد. چشم باید روی صفحه باشد، نه روی کلیدها."
-];
+const passages=["تایپ خوب یعنی سرعت به‌علاوه دقت. اگر عجله کنی و برگردی پاک کنی، زمان را از دست می‌دهی.","نیم‌فاصله در کلمه‌هایی مثل می‌روم و کتاب‌ها فرق جمله درست را نشان می‌دهد."];
 const $=id=>document.getElementById(id);
-let mode="test", seconds=30, text="", started=0, timer=null, done=false, mistakes={};
-function fa(n){return String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d])}
-function norm(ch){return ch.replace(/ي/g,"ی").replace(/ك/g,"ک")}
-function pick(){ text = $("custom").value.trim() || passages[Math.floor(Math.random()*passages.length)]; render(); }
-function render(){
-  const v=$("input").value;
-  $("prompt").innerHTML=[...text].map((ch,i)=>{
-    if(i<v.length){
-      const got=v[i], ok=norm(got)===norm(ch);
-      if(!ok) mistakes[ch]=(mistakes[ch]||0)+0; // counted on input
-      return `<span class="${ok?"ok":"bad"}">${ch==="\u200c"?"‌":ch}</span>`;
-    }
-    if(i===v.length) return `<span class="cur">${ch==="\u200c"?"‌":ch}</span>`;
-    return ch==="\u200c"?"‌":ch;
-  }).join("");
-}
-function level(w){return w<30?"مبتدی":w<50?"متوسط":w<70?"مسلط":w<90?"حرفه‌ای":"استاد"}
-function finish(){
-  done=true; clearInterval(timer); $("input").disabled=true;
-  const v=$("input").value;
-  let correct=0; mistakes={};
-  [...v].forEach((ch,i)=>{
-    const exp=text[i]||"";
-    if(norm(ch)===norm(exp)) correct++;
-    else mistakes[exp]=(mistakes[exp]||0)+1;
-  });
-  const elapsed=Math.max(1,(Date.now()-started)/1000);
-  const wpm=Math.round((correct/5)/(elapsed/60));
-  const acc=v.length?Math.round(correct/v.length*100):0;
-  const code=Math.random().toString(36).slice(2,8).toUpperCase();
-  const link=`${location.origin}${location.pathname}#r=${code}&w=${wpm}&a=${acc}&l=${encodeURIComponent(level(wpm))}`;
-  const keys=Object.entries(mistakes).sort((a,b)=>b[1]-a[1]).slice(0,6)
-    .map(([k,n])=>`<span>${k==="\u200c"?"نیم‌فاصله":k} × ${fa(n)}</span>`).join("") || "<span>بدون خطای پرتکرار</span>";
-  $("result").hidden=false;
-  $("result").innerHTML=`<h2>نتیجه: ${level(wpm)}</h2><p>${fa(wpm)} کلمه در دقیقه، دقت ${fa(acc)}٪، کد ${code}</p><div class="keys">${keys}</div><p class="share">${link}</p><div class="row"><button class="chip" id="copy">کپی لینک</button><button class="chip" id="cert">دانلود گواهی</button><button class="chip" id="again">دوباره</button></div>`;
-  $("copy").onclick=()=>navigator.clipboard.writeText(link);
-  $("cert").onclick=()=>certificate(wpm,acc,level(wpm),code);
-  $("again").onclick=reset;
-  const hist=JSON.parse(localStorage.getItem("abz-type")||"[]");
-  hist.unshift({wpm,acc,at:Date.now(),mode});
-  localStorage.setItem("abz-type", JSON.stringify(hist.slice(0,12)));
-  showHistory();
-}
-function certificate(wpm,acc,lv,code){
-  const c=document.createElement("canvas"); c.width=1200; c.height=700;
-  const x=c.getContext("2d");
-  x.fillStyle="#f4f0e6"; x.fillRect(0,0,1200,700);
-  x.strokeStyle="#2a4d6e"; x.lineWidth=8; x.strokeRect(30,30,1140,640);
-  x.fillStyle="#1c1914"; x.font="700 54px Vazirmatn, Tahoma"; x.textAlign="center";
-  x.fillText("گواهی تست تایپ ابزاربوک",600,180);
-  x.font="36px Vazirmatn, Tahoma";
-  x.fillText(`${lv}  ·  ${wpm} WPM  ·  دقت ${acc}٪`,600,280);
-  x.fillText("کد تأیید "+code,600,360);
-  x.font="24px Vazirmatn, Tahoma"; x.fillStyle="#6b6350";
-  x.fillText("این گواهی جایگزین آزمون رسمی نیست.",600,470);
-  const a=document.createElement("a"); a.href=c.toDataURL("image/png"); a.download=`abzarbook-typing-${code}.png`; a.click();
-}
-function tick(){
-  const left=Math.max(0, seconds-Math.floor((Date.now()-started)/1000));
-  $("time").textContent=fa(left);
-  const v=$("input").value, elapsed=Math.max(1,(Date.now()-started)/1000);
-  let correct=0; [...v].forEach((ch,i)=>{ if(text[i] && norm(ch)===norm(text[i])) correct++; });
-  $("wpm").textContent=fa(Math.round((correct/5)/(elapsed/60))||0);
-  $("acc").textContent=fa(v.length?Math.round(correct/v.length*100):100)+"٪";
-  $("err").textContent=fa(v.length-correct);
-  if(mode==="test" && left<=0) finish();
-  if(v.length>=text.length) finish();
-}
-function reset(){
-  done=false; started=0; mistakes={}; clearInterval(timer);
-  $("input").disabled=false; $("input").value=""; $("result").hidden=true;
-  $("wpm").textContent="۰"; $("acc").textContent="۱۰۰٪"; $("err").textContent="۰"; $("time").textContent=fa(seconds);
-  pick(); $("input").focus();
-}
-$("input").addEventListener("input",()=>{
-  if(done) return;
-  if(!started){ started=Date.now(); timer=setInterval(tick,200); }
-  render();
-  const v=$("input").value;
-  [...v].forEach((ch,i)=>{ if(text[i] && norm(ch)!==norm(text[i])) mistakes[text[i]]=(mistakes[text[i]]||0)+1; });
-});
-document.querySelectorAll("#modes .chip").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll("#modes .chip").forEach(x=>x.classList.remove("on"));
-  b.classList.add("on"); mode=b.dataset.mode; reset();
-});
-document.querySelectorAll("#times .chip").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll("#times .chip").forEach(x=>x.classList.remove("on"));
-  b.classList.add("on"); seconds=+b.dataset.sec; reset();
-});
-$("customBtn").onclick=()=>{ $("custom").hidden=!$("custom").hidden; };
-$("newText").onclick=reset;
-function showHistory(){
-  const hist=JSON.parse(localStorage.getItem("abz-type")||"[]");
-  $("history").innerHTML = hist.length ? "<h2>نتیجه‌های اخیر همین مرورگر</h2><div class='keys'>"+hist.map(h=>`<span>${fa(h.wpm)} · ${fa(h.acc)}٪</span>`).join("")+"</div>" : "";
-}
-function showShared(){
-  const q=new URLSearchParams(location.hash.slice(1));
-  if(!q.get("r")) return;
-  $("result").hidden=false;
-  $("result").innerHTML=`<h2>نتیجه اشتراک‌شده</h2><p>سطح ${decodeURIComponent(q.get("l")||"")}، ${fa(q.get("w"))} کلمه در دقیقه، دقت ${fa(q.get("a"))}٪، کد ${q.get("r")}</p>`;
-}
-pick(); showHistory(); showShared();
-</script>
-</body>
-</html>
+const fa=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+const norm=ch=>ch.replace(/ي/g,"ی").replace(/ك/g,"ک");
+let mode="test", seconds=30, text="", started=0, timer=null, done=false;
+function pick(){text=$("custom").value.trim()||passages[Math.floor(Math.random()*passages.length)]; render();}
+function render(){const v=$("input").value; $("prompt").innerHTML=[...text].map((ch,i)=>i<v.length?`<span class="${norm(v[i])===norm(ch)?"ok":"bad"}">${ch==="\u200c"?"‌":ch}</span>`:i===v.length?`<span class="cur">${ch==="\u200c"?"‌":ch}</span>`:(ch==="\u200c"?"‌":ch)).join("");}
+function finish(){done=true; clearInterval(timer); $("input").disabled=true; const v=$("input").value; let correct=0; [...v].forEach((ch,i)=>{if(norm(ch)===norm(text[i]||"")) correct++;}); const elapsed=Math.max(1,(Date.now()-started)/1000); const wpm=Math.round((correct/5)/(elapsed/60)); const acc=v.length?Math.round(correct/v.length*100):0; const code=Math.random().toString(36).slice(2,8).toUpperCase(); const link=location.origin+location.pathname+"#r="+code+"&w="+wpm+"&a="+acc; $("result").innerHTML=`<div class="res-tile active" style="margin-top:12px"><b>${fa(wpm)} WPM</b><span>دقت ${fa(acc)}٪ · کد ${code}</span></div><p class="note">${link}</p>`;}
+function tick(){const left=Math.max(0,seconds-Math.floor((Date.now()-started)/1000)); $("time").textContent=fa(left); const v=$("input").value, elapsed=Math.max(1,(Date.now()-started)/1000); let correct=0; [...v].forEach((ch,i)=>{if(text[i]&&norm(ch)===norm(text[i])) correct++;}); $("wpm").textContent=fa(Math.round((correct/5)/(elapsed/60))||0); $("acc").textContent=fa(v.length?Math.round(correct/v.length*100):100)+"٪"; $("err").textContent=fa(v.length-correct); if(mode==="test"&&left<=0) finish(); if(v.length>=text.length) finish();}
+function reset(){done=false; started=0; clearInterval(timer); $("input").disabled=false; $("input").value=""; $("result").innerHTML=""; $("wpm").textContent="۰"; $("time").textContent=fa(seconds); pick(); $("input").focus();}
+$("input").addEventListener("input",()=>{if(done) return; if(!started){started=Date.now(); timer=setInterval(tick,200);} render();});
+document.querySelectorAll("#modes button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#modes button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); mode=b.dataset.mode; reset();});
+document.querySelectorAll("#times button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#times button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); seconds=+b.dataset.sec; reset();});
+$("customBtn").onclick=()=>$("custom").hidden=!$("custom").hidden; $("newText").onclick=reset; pick();
+</script></body></html>
