@@ -1,7 +1,7 @@
 (function(){
   if(document.getElementById("siteMenu")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=2";
+  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=3";
   document.head.appendChild(link);
   const root=document.createElement("div");
   root.id="siteMenu";
