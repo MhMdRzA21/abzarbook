@@ -1,7 +1,7 @@
 (function(){
   if(document.getElementById("siteMenu")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=3";
+  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=4";
   document.head.appendChild(link);
   const root=document.createElement("div");
   root.id="siteMenu";
@@ -13,9 +13,12 @@
     <aside class="menu-drawer" id="menuDrawer">
       <div class="menu-top"><button class="menu-close" id="menuClose" aria-label="بستن">×</button><strong>منو</strong></div>
       <a href="/">صفحه اصلی</a>
-      <a href="/#tools">ابزارها</a>
+      <a href="/#tools">ابزارهای محاسبه</a>
       <a href="/convert/">مبدل فایل</a>
-      <a href="/about.html">درباره ابزارها</a>
+      <a href="/convert/tools.html">ابزارهای تبدیل</a>
+      <a href="/convert/guides/">راهنماها</a>
+      <a href="/convert/pages/faq.html">سوالات</a>
+      <a href="/about.html">درباره</a>
       <a href="https://t.me/abzarbook" target="_blank" rel="noopener">تماس با ما</a>
       <button class="block" id="themeToggle" type="button">حالت روشن</button>
       <button class="block" id="installBtn" type="button">نصب وب‌اپلیکیشن</button>
