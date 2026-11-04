@@ -440,7 +440,11 @@ details>div,details>p{padding:12px 16px;background:var(--card);border:1px solid 
 
 /* Responsive */
 @media (max-width:860px){
-  .why{grid-template-columns:1fr;gap:12px}
+  .why{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .why-item{padding:12px 8px}
+  .why-item svg{width:22px;height:22px;margin-bottom:6px}
+  .why-item b{font-size:.78rem;line-height:1.35}
+  .why-item span{font-size:.68rem;line-height:1.45}
 }
 @media (min-width:860px){
   main{max-width:1060px}
