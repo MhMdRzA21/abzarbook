@@ -504,13 +504,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 <style>
 .site-banner{
   position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;
-  max-width:1100px;margin:10px auto 20px;padding:30px 34px;
-  border-radius:24px;overflow:hidden;text-decoration:none;isolation:isolate;
-  background:linear-gradient(135deg,#fff8ea 0%,#f3e6c6 55%,#ecd9ae 100%);
-  box-shadow:0 18px 44px -16px rgba(28,25,20,.28),0 0 0 1px rgba(28,25,20,.07);
-  transition:box-shadow .25s ease,transform .25s ease;
+  max-width:100%;margin:18px auto 8px;padding:22px 24px;
+  border-radius:var(--radius,16px);overflow:hidden;text-decoration:none;isolation:isolate;
+  background:var(--card,#fffdf8);
+  border:1px solid var(--rule,#e2d8c0);
+  box-shadow:none;
 }
-.site-banner:hover{transform:translateY(-2px);box-shadow:0 22px 50px -16px rgba(28,25,20,.34),0 0 0 1px rgba(28,25,20,.08)}
+.site-banner:hover{border-color:var(--accent2)}
 .banner-glow{
   position:absolute;inset:-30%;z-index:0;pointer-events:none;
   background:radial-gradient(38% 50% at 82% 18%,color-mix(in srgb,var(--stamp) 18%,transparent),transparent 70%),
@@ -555,6 +555,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 @media (prefers-reduced-motion:reduce){
   .banner-glow,.banner-chip,.banner-seal,.banner-chevron{animation:none;opacity:1}
 }
+=======
+.site-banner{display:block;margin:22px auto 0;max-width:100%}
+.site-banner img{width:100%;height:auto;display:block;border-radius:var(--radius,16px);border:1px solid var(--rule,#e2d8c0);box-shadow:none}
+>>>>>>> e1dadf5 (یکپارچه کردن بنرها با بدنه سایت)
 </style>
 </head>
 <body>
@@ -588,6 +592,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{
         <span>داده ذخیره یا ارسال نمی‌شود</span>
       </div>
     </div>
+    <a class="site-banner" href="#tools" aria-label="ابزاربوک">
+      <img src="/img/banner-abzarbook.png" alt="ابزاربوک — ابزار آنلاین فارسی، محاسبه حقوق، وام و درصد" width="1200" height="280">
+    </a>
   </section>
 
   <a class="site-banner" href="#tools" aria-label="ابزاربوک — ابزار آنلاین فارسی، محاسبه حقوق، وام و درصد">
