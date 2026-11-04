@@ -34,6 +34,19 @@
   const close=()=>{drawer.classList.remove("open");scrim.classList.remove("open");document.body.style.overflow=""};
   const opener=document.getElementById("cvMenuOpen");
   if(opener) opener.onclick=open;
+  const tabs=document.querySelector(".tabs");
+  if(tabs){
+    const active=tabs.querySelector(".tab.active")||tabs.querySelector(".tab");
+    if(active){
+      const fit=()=>{
+        const br=tabs.getBoundingClientRect();
+        const ar=active.getBoundingClientRect();
+        if(ar.left<br.left) tabs.scrollBy({left:ar.left-br.left});
+        else if(ar.right>br.right) tabs.scrollBy({left:ar.right-br.right});
+      };
+      requestAnimationFrame(fit);
+    }
+  }
   document.getElementById("cvClose").onclick=close;
   scrim.onclick=close;
   root.querySelectorAll("a").forEach(a=>a.addEventListener("click", close));

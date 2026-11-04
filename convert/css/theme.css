@@ -348,8 +348,8 @@ html[dir="rtl"] .actions { justify-content: flex-start; }
   .hero-copy, .hero-copy h1, .hero-copy .lede { align-items: center; text-align: center !important; }
   .trust-row { justify-content: center; }
   .hero-scene { max-height: 160px; height: 160px; overflow: hidden; }
-  .tabs { flex-wrap: wrap; overflow: visible; justify-content: flex-start; padding-bottom: 6px; }
-  .tab { flex: 0 1 auto; }
+  .tabs { flex-wrap: nowrap !important; overflow-x: auto !important; }
+  .tab { flex: 0 0 auto !important; }
   .panel { padding: 14px !important; }
   .dropzone { min-height: 140px; }
   .actions { width: 100%; }
@@ -377,3 +377,37 @@ h1:has(.page-icon){
 .dropzone p { margin: 4px 0; }
 .hint { color: var(--ink-soft); }
 .tabs { scrollbar-width: thin; }
+
+/* نوار افقی تب‌ها — موبایل و دسکتاپ، بدون زیرهم افتادن */
+.tabs {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 10px !important;
+  margin-bottom: 8px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.tab {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  scroll-snap-align: start;
+}
+.related-grid, .tools-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+.related-card, .tools-grid a {
+  min-height: 0 !important;
+  padding: 12px !important;
+}
+.related-card span { font-size: 0.78rem; line-height: 1.45; }
+@media (min-width: 980px) {
+  .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
