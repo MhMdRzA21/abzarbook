@@ -1,34 +1,65 @@
-/* مبدل فقط — دکمه داخل هدر موجود، نه روی متن */
-.site-header{z-index:90 !important}
+/* مبدل — پنل تمام‌قد روی هدر، بدون بریدگی */
+.site-header{z-index:40;padding-top:0 !important;padding-bottom:0 !important}
+.site-header .wrap{
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  min-height:60px !important;
+}
 .cv-menu-btn{
   width:44px;height:44px;border-radius:12px;flex:none;cursor:pointer;
+  margin-inline-start:auto;
   border:1px solid var(--line,#e2e7f0);background:#fff;color:#0f1b2d;
   display:flex;align-items:center;justify-content:center;
 }
 html[data-theme="dark"] .cv-menu-btn{background:#1a2230;color:#f4f7fb;border-color:#2e3a4e}
-.cv-scrim{position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(8,12,24,.45);z-index:70;opacity:0;pointer-events:none;transition:opacity .2s}
+.cv-scrim{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(8,12,24,.46);
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
 .cv-scrim.open{opacity:1;pointer-events:auto}
 .cv-drawer{
-  position:fixed;top:64px;bottom:0;left:0;z-index:75;
-  width:min(320px,92vw);background:#0f1b2d;color:#f4f7fb;
-  transform:translateX(-110%);transition:transform .22s ease;
-  padding:18px 16px 28px;overflow:auto;
+  position:fixed;top:0;bottom:0;left:0;z-index:210;
+  width:min(300px,86vw);
+  background:#0f1b2d;color:#f4f7fb;
+  transform:translateX(-105%);transition:transform .22s ease;
+  padding:18px 22px 28px;overflow-x:hidden;overflow-y:auto;
   display:flex;flex-direction:column;gap:2px;
-  box-shadow:8px 0 28px rgba(0,0,0,.2);
+  box-shadow:12px 0 36px rgba(0,0,0,.28);
+  border-radius:0 22px 22px 0;
   direction:rtl;text-align:right;box-sizing:border-box;
 }
 .cv-drawer.open{transform:none}
-.cv-kicker{font-size:.75rem;font-weight:800;color:#ffd84d;margin:0 8px 8px}
-.cv-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.cv-close{width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:1.3rem;cursor:pointer}
+.cv-top{
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:48px;margin:0 0 4px;gap:8px;
+}
+.cv-top strong{font-size:1.12rem;font-weight:800;line-height:1;white-space:nowrap}
+.cv-close{
+  width:40px;height:40px;flex:none;border-radius:12px;
+  border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;
+  font-size:1.35rem;line-height:1;cursor:pointer;
+}
+.cv-kicker{
+  align-self:flex-start;
+  margin:0 0 12px;padding:4px 10px;border-radius:999px;
+  background:rgba(255,216,77,.14);color:#ffd84d;
+  font-size:.75rem;font-weight:800;line-height:1.6;
+}
 .cv-drawer a{
-  display:flex;align-items:center;min-height:48px;width:100%;box-sizing:border-box;
-  padding:0 8px;color:#f4f7fb;text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,.1);font-size:1rem;line-height:1.4;
+  display:flex;align-items:center;min-height:48px;width:100%;
+  box-sizing:border-box;padding:0 4px;color:#f4f7fb;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  font-size:1rem;line-height:1.4;
 }
-.cv-drawer a:hover{color:#9eb0ff}
+.cv-drawer a:hover{color:#c9d4ff}
 .cv-drawer .block{
-  margin-top:10px;border:1px solid rgba(255,255,255,.2);border-radius:14px;
-  padding:12px;background:transparent;color:#fff;font:inherit;font-size:1rem;cursor:pointer;
+  width:100%;box-sizing:border-box;flex:none;
+  margin:18px 0 0;border:1px solid rgba(255,255,255,.22);border-radius:14px;
+  padding:12px;background:transparent;color:#fff;
+  font:inherit;font-size:1rem;line-height:1.4;cursor:pointer;
 }
-@media (max-width:480px){.cv-drawer{width:100vw}}
+.cv-drawer .block:focus-visible, .cv-drawer a:focus-visible, .cv-menu-btn:focus-visible, .cv-close:focus-visible{
+  outline:2px solid #ffd84d; outline-offset:2px;
+}

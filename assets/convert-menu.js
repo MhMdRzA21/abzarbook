@@ -2,7 +2,7 @@
   if(location.pathname.indexOf("/convert")!==0) return;
   if(document.getElementById("convertMenu")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/convert-menu.css?v=8";
+  link.rel="stylesheet"; link.href="/assets/convert-menu.css?v=10";
   document.head.appendChild(link);
   const wrap=document.querySelector(".site-header .wrap")||document.querySelector(".site-header");
   if(wrap){
@@ -18,7 +18,7 @@
   root.innerHTML=`
     <div class="cv-scrim" id="cvScrim"></div>
     <aside class="cv-drawer" id="cvDrawer">
-      <div class="cv-top"><button class="cv-close" id="cvClose" aria-label="بستن">×</button><strong>مبدل</strong></div>
+      <div class="cv-top"><strong>مبدل</strong><button class="cv-close" id="cvClose" aria-label="بستن">×</button></div>
       <p class="cv-kicker">فقط تبدیل فایل</p>
       <a href="/convert/">خانه مبدل</a>
       <a href="/convert/tools.html">ابزارهای تبدیل</a>

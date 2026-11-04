@@ -152,7 +152,7 @@ h1, h2, h3, .logo, .btn-convert, .tab, button, input, select, textarea {
   box-shadow: 0 8px 18px rgba(39, 64, 232, 0.22);
 }
 .btn-convert:hover:not(:disabled) { background: var(--stamp-dark) !important; }
-.btn-convert:disabled { background: #C9D0E0 !important; box-shadow: none; }
+.btn-convert:disabled { background: #E4E8F1 !important; color: #243044 !important; box-shadow: none; }
 
 .related-grid, .tools-grid {
   display: grid;
@@ -347,14 +347,22 @@ html[dir="rtl"] .actions { justify-content: flex-start; }
   .hero-grid { grid-template-columns: 1fr !important; gap: 16px; }
   .hero-copy, .hero-copy h1, .hero-copy .lede { align-items: center; text-align: center !important; }
   .trust-row { justify-content: center; }
-  .hero-scene { max-height: 160px; height: 160px; }
-  .tabs { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 6px; }
-  .tab { flex: 0 0 auto; }
+  .hero-scene { max-height: 160px; height: 160px; overflow: hidden; }
+  .tabs { flex-wrap: wrap; overflow: visible; justify-content: flex-start; padding-bottom: 6px; }
+  .tab { flex: 0 1 auto; }
   .panel { padding: 14px !important; }
   .dropzone { min-height: 140px; }
   .actions { width: 100%; }
   .btn-convert { width: 100%; }
 }
+
+h1:has(.page-icon){
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+.page-icon { flex: none; }
+.btn-convert { unicode-bidi: isolate; }
 
 /* Pill hover stays. No underline under nav links. */
 .site-nav a,
@@ -368,5 +376,4 @@ html[dir="rtl"] .actions { justify-content: flex-start; }
 .dropzone { border-radius: 18px; }
 .dropzone p { margin: 4px 0; }
 .hint { color: var(--ink-soft); }
-.tabs { scrollbar-width: none; }
-.tabs::-webkit-scrollbar { display: none; }
+.tabs { scrollbar-width: thin; }
