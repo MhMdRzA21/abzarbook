@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/convert/css/style.css">
 <link rel="stylesheet" href="/convert/css/rtl.css">
-<link rel="stylesheet" href="/convert/css/theme.css?v=13">
+<link rel="stylesheet" href="/convert/css/theme.css?v=14">
 <script src="/convert/js/seo.js" defer></script>
 <script type="application/ld+json">
 {
@@ -40,6 +40,12 @@
 </script>
 </head>
 <body>
+<script>
+if(!sessionStorage.getItem("cv-banner")){
+  document.documentElement.classList.add("cv-enter");
+  sessionStorage.setItem("cv-banner","1");
+}
+</script>
 
 <header class="site-header">
   <div class="wrap">
@@ -49,30 +55,22 @@
 
 
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="trust-row">
-        <span>رایگان</span>
-        <span>خصوصی</span>
-        <span>بدون ثبت‌نام</span>
+  <div class="wrap">
+    <div class="cv-banner">
+      <span class="hb s1" aria-hidden="true"></span>
+      <span class="hb s2" aria-hidden="true"></span>
+      <span class="hb s3" aria-hidden="true"></span>
+      <span class="hb s4" aria-hidden="true"></span>
+      <div class="hero-copy">
+        <div class="trust-row">
+          <span>رایگان</span>
+          <span>خصوصی</span>
+          <span>بدون ثبت‌نام</span>
+        </div>
+        <h1>ادغام، فشرده‌سازی و تبدیل فایل</h1>
+        <p class="lede">ورد، اکسل، پاورپوینت، PDF و تصویر. فایل بعد از تبدیل پاک می‌شه.</p>
       </div>
-      <h1>ادغام، فشرده‌سازی و تبدیل فایل</h1>
-      <p class="lede">ورد، اکسل، پاورپوینت، PDF و تصویر. فایل بعد از تبدیل پاک می‌شه.</p>
     </div>
-    <figure class="hero-scene" aria-hidden="true">
-      <span class="scene-glow"></span>
-      <span class="scene-chip" style="top:14%; left:10%; animation-delay:.1s,.1s;"><span class="scene-chip-dot" style="background:#2563eb"></span>DOCX</span>
-      <span class="scene-chip" style="top:46%; left:4%; animation-delay:.3s,.5s;"><span class="scene-chip-dot" style="background:#e8762c"></span>JPG</span>
-      <span class="scene-chip" style="bottom:14%; left:12%; animation-delay:.5s,.9s;"><span class="scene-chip-dot" style="background:#0e8a6a"></span>XLSX</span>
-      <span class="scene-arrow">
-        <svg viewBox="0 0 64 20" fill="none"><path d="M0 10h54M44 2l10 8-10 8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <span class="scene-output">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2740E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
-        <b>PDF</b>
-        <span>آماده دانلود</span>
-      </span>
-    </figure>
   </div>
   <div class="wrap">
 
