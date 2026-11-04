@@ -517,6 +517,28 @@ html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="da
 html[data-theme="dark"] .btn-convert{background:linear-gradient(145deg,#e0b04a,#c47a1a) !important;color:#1f1600 !important}
 html[data-theme="dark"] .tab.active{background:#e0b04a !important;color:#1f1600 !important}
 html[data-theme="dark"] .crumb a,.site-footer a{color:#e0b04a !important}
+
+/* پایین صفحه فایل، عین صفحه‌های محاسبه */
+.site-footer{display:none !important}
+.abzar-close{max-width:760px;margin:28px auto 40px;padding:0 16px}
+.abzar-close h2{font-size:1.15rem;font-weight:800;margin:22px 0 10px;color:#1c1914}
+.abzar-close details{position:relative;margin:0 0 10px;background:#fffdf8;border:1px solid #e2d8c0;border-radius:16px;padding:0}
+.abzar-close summary{list-style:none;cursor:pointer;font-weight:800;padding:14px 44px 14px 14px;color:#1c1914}
+.abzar-close summary::-webkit-details-marker{display:none}
+.abzar-close details::before{content:"؟";position:absolute;right:12px;top:14px;width:22px;height:22px;border-radius:50%;background:#f3e6cf;color:#a8681c;font-weight:800;font-size:.75rem;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.abzar-close details[open]::before{background:#c47a1a;color:#fffaf0}
+.abzar-close details p{margin:0;padding:0 16px 14px 14px;color:#6b6456;font-size:.92rem;line-height:1.8}
+.abzar-close .note{font-size:.82rem;color:#6b6456;line-height:1.9;margin:18px 0 0;padding-top:14px;border-top:1px solid #e2d8c0}
+.abzar-close .share-row{display:flex;gap:8px;margin:14px 0 0}
+.abzar-close .share-btn{flex:1;text-align:center;border:1px solid #e2d8c0;border-radius:14px;padding:12px 8px;background:#fffdf8;color:#1c1914;font:inherit;font-size:.82rem;font-weight:800;text-decoration:none;cursor:pointer}
+.abzar-close .more-tools{font-size:.84rem;margin:16px 0 0;line-height:1.9;color:#6b6456}
+.abzar-close .more-tools a{color:#a8681c;font-weight:800;text-decoration:none}
+.target-row{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px 10px !important;align-items:end !important}
+.target-row label{font-size:.82rem}
+.target-row select,.target-row input{width:100% !important;height:44px !important;max-height:44px !important;box-sizing:border-box}
+html[data-theme="dark"] .abzar-close h2,html[data-theme="dark"] .abzar-close summary{color:#f2ebd8}
+html[data-theme="dark"] .abzar-close details,html[data-theme="dark"] .abzar-close .share-btn{background:#1a1710;border-color:#3a3320}
+
 .wrap{max-width:760px}
 .panel{border-radius:16px;border:1px solid var(--line);background:var(--paper-raised)}
 .btn-convert{border-radius:999px !important;min-height:44px}
