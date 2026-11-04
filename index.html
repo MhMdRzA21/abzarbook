@@ -212,7 +212,7 @@ main{max-width:920px;margin:0 auto;padding:0 18px 80px}
   animation:heroIn .8s cubic-bezier(.34,1.45,.64,1) both;
 }
 @keyframes heroIn{
-  0%{opacity:0;transform:scale(.4) translateY(-24px) rotate(-12deg)}
+  0%{opacity:1;transform:scale(.4) translateY(-24px) rotate(-12deg)}
   70%{opacity:1}
   100%{opacity:1;transform:scale(1) translateY(0) rotate(0)}
 }
@@ -296,7 +296,7 @@ a.row{
 a.row::before{
   content:"";position:absolute;inset:0;
   background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 4%,transparent),transparent 60%);
-  opacity:0;transition:opacity .25s;
+  opacity:1;transition:opacity .25s;
 }
 a.row:hover{
   transform:translateY(-3px);
@@ -511,12 +511,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   box-shadow:none;
 }
 .site-banner:hover{border-color:var(--accent2)}
-.banner-glow{
-  position:absolute;inset:-30%;z-index:0;pointer-events:none;
-  background:radial-gradient(38% 50% at 82% 18%,color-mix(in srgb,var(--stamp) 18%,transparent),transparent 70%),
-             radial-gradient(34% 46% at 12% 88%,color-mix(in srgb,var(--accent2) 16%,transparent),transparent 70%);
-  filter:blur(6px);animation:bannerDrift 11s ease-in-out infinite alternate;
-}
+.banner-glow{display:none}
 @keyframes bannerDrift{from{transform:translate(0,0) rotate(0)}to{transform:translate(-3%,3%) rotate(3deg)}}
 .banner-copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:7px;min-width:0}
 .banner-copy strong{font-size:clamp(1.05rem,2.3vw,1.4rem);color:var(--ink);font-weight:900;line-height:1.5}
@@ -524,7 +519,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 .banner-chevron{
   display:inline-flex;align-items:center;gap:6px;margin-top:4px;
   color:var(--stamp);font-weight:800;font-size:.82rem;
-  animation:chevronNudge 1.8s ease-in-out infinite;
+  
 }
 @keyframes chevronNudge{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
 .banner-stage{
@@ -535,17 +530,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   background:var(--card);border:1px solid var(--rule);border-radius:999px;
   padding:6px 13px;font-size:.74rem;font-weight:800;color:var(--ink);
   box-shadow:0 8px 18px -8px rgba(28,25,20,.35);
-  opacity:0;animation:chipIn .6s ease-out both,chipFloat 4.2s ease-in-out infinite;
+  opacity:1;
 }
 .banner-chip--a{top:0;right:2px;animation-delay:.1s,.1s}
 .banner-chip--b{top:50px;right:60px;animation-delay:.3s,.5s}
 .banner-chip--c{top:98px;right:16px;animation-delay:.5s,.9s}
-@keyframes chipIn{from{opacity:0;transform:translateY(8px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes chipIn{from{opacity:1;transform:translateY(8px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 .banner-seal{
   position:absolute;left:0;top:78px;width:54px;height:54px;color:var(--stamp);
   display:flex;align-items:center;justify-content:center;
-  animation:sealPulse 2.6s ease-in-out infinite;
+  
 }
 @keyframes sealPulse{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.07);opacity:1}}
 @media (max-width:640px){
@@ -556,8 +551,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   .banner-glow,.banner-chip,.banner-seal,.banner-chevron{animation:none;opacity:1}
 }
 =======
-.site-banner{display:block;margin:22px auto 0;max-width:100%}
-.site-banner img{width:100%;height:auto;display:block;border-radius:var(--radius,16px);border:1px solid var(--rule,#e2d8c0);box-shadow:none}
 >>>>>>> e1dadf5 (یکپارچه کردن بنرها با بدنه سایت)
 </style>
 </head>
@@ -592,9 +585,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{
         <span>داده ذخیره یا ارسال نمی‌شود</span>
       </div>
     </div>
-    <a class="site-banner" href="#tools" aria-label="ابزاربوک">
-      <img src="/img/banner-abzarbook.png" alt="ابزاربوک — ابزار آنلاین فارسی، محاسبه حقوق، وام و درصد" width="1200" height="280">
-    </a>
   </section>
 
   <a class="site-banner" href="#tools" aria-label="ابزاربوک — ابزار آنلاین فارسی، محاسبه حقوق، وام و درصد">

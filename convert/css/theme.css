@@ -234,17 +234,13 @@ input, select, textarea {
 
 /* ===== animated hero scene (replaces static banner images) ===== */
 .hero-scene {
-  position: relative; border-radius: 22px; overflow: hidden; isolation: isolate;
-  min-height: 240px; max-height: 280px; height: 260px;
-  box-shadow: 0 16px 36px rgba(15, 27, 45, 0.16);
-  background: radial-gradient(120% 140% at 18% 10%, #223257 0%, #141f38 55%, #0b1424 100%);
+  position: relative; border-radius: 16px; overflow: hidden; isolation: isolate;
+  min-height: 220px; max-height: 260px; height: 240px;
+  box-shadow: none;
+  border: 1px solid var(--line, #e6e1d6);
+  background: var(--bg, #f6f4ef);
 }
-.scene-glow {
-  position: absolute; inset: -25%; z-index: 0; pointer-events: none;
-  background: radial-gradient(38% 46% at 75% 25%, rgba(39,64,232,.45), transparent 70%),
-              radial-gradient(34% 40% at 22% 80%, rgba(14,138,106,.32), transparent 70%);
-  filter: blur(14px); animation: sceneDrift 9s ease-in-out infinite alternate;
-}
+.scene-glow { display: none; }
 @keyframes sceneDrift { from { transform: translate(0,0) scale(1); } to { transform: translate(3%,-4%) scale(1.08); } }
 .scene-chip {
   position: absolute; z-index: 1; display: inline-flex; align-items: center; gap: 6px;
@@ -258,7 +254,7 @@ input, select, textarea {
 @keyframes chipFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .scene-arrow {
   position: absolute; z-index: 1; top: 50%; left: 44%; transform: translateY(-50%);
-  width: 64px; height: 20px; color: rgba(255,255,255,.55);
+  width: 64px; height: 20px; color: var(--ink-soft, #5c6570);
 }
 .scene-arrow svg { display: block; width: 100%; height: 100%; }
 .scene-arrow { animation: arrowPulse 2s ease-in-out infinite; }
@@ -284,7 +280,7 @@ input, select, textarea {
 .scene-shrink b { font-size: 1rem; font-weight: 900; color: var(--teal); }
 .scene-shrink span { font-size: .7rem; font-weight: 700; color: var(--ink-soft); }
 .scene-chevron {
-  position: absolute; z-index: 1; width: 16px; height: 16px; color: rgba(255,255,255,.65);
+  position: absolute; z-index: 1; width: 16px; height: 16px; color: var(--ink-soft, #5c6570);
   animation: chevronSpin 2.2s ease-in-out infinite;
 }
 .scene-chevron--nw { top: 16%; left: 16%; animation-delay: 0s; }
