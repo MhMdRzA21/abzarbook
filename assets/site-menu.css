@@ -1,34 +1,53 @@
-.menu-btn{
-  position:fixed;top:12px;left:12px;z-index:80;
-  width:46px;height:46px;border-radius:12px;
-  border:1px solid #2e291c;background:#1c2433;color:#fff;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;
+/* ابزاربوک فقط — نوار چسبان، دکمه داخل نوار تا روی متن نیاید */
+#abzarBar{
+  position:sticky;top:0;z-index:90;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 14px;margin:0;box-sizing:border-box;overflow:hidden;
+  background:rgba(246,241,230,.96);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid #e2d8c0;
+  color:#1c1914;
 }
-.menu-scrim{position:fixed;inset:0;background:rgba(8,10,16,.5);z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
+html[data-theme="dark"] #abzarBar{
+  background:rgba(18,16,12,.94);border-color:#2e291c;color:#f2ebd8;
+}
+.ab-brand{
+  font-weight:900;font-size:1.05rem;line-height:1;color:inherit;text-decoration:none;
+  letter-spacing:-.3px;white-space:nowrap;
+}
+.menu-btn{
+  position:static;width:44px;height:44px;border-radius:12px;
+  border:1px solid #2e291c;background:#1c2433;color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;
+}
+html[data-theme="dark"] .menu-btn{border-color:#f2ebd8}
+.menu-scrim{position:fixed;top:60px;left:0;right:0;bottom:0;background:rgba(8,10,16,.45);z-index:80;opacity:0;pointer-events:none;transition:opacity .2s}
 .menu-scrim.open{opacity:1;pointer-events:auto}
 .menu-drawer{
-  position:fixed;top:0;bottom:0;left:0;z-index:100;
-  width:min(300px,88vw);background:#1c2433;color:#f7f3ea;
+  position:fixed;top:60px;bottom:0;left:0;z-index:85;
+  width:min(320px,88vw);background:#1c1914;color:#f7f3ea;
   transform:translateX(-110%);transition:transform .22s ease;
-  padding:16px 16px 28px;overflow:auto;
-  display:flex;flex-direction:column;gap:4px;
+  padding:18px 16px 28px;overflow:auto;
+  display:flex;flex-direction:column;gap:2px;
+  box-shadow:8px 0 28px rgba(0,0,0,.18);
+  direction:rtl;text-align:right;box-sizing:border-box;
 }
 .menu-drawer.open{transform:none}
-.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.menu-top strong{font-size:1.1rem}
+.menu-kicker{font-size:.75rem;font-weight:800;color:#e0b04a;margin:0 8px 8px}
+.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.menu-top strong{font-size:1.05rem}
 .menu-close{width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:1.3rem;cursor:pointer}
-.menu-drawer a,.menu-drawer button.item{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 8px;color:#f7f3ea;text-decoration:none;
-  background:none;border:0;border-bottom:1px solid rgba(255,255,255,.1);
-  font:inherit;font-size:1rem;cursor:pointer;width:100%;text-align:right;
+.menu-drawer a{
+  display:flex;align-items:center;min-height:48px;
+  padding:0 8px;color:#f7f3ea;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  font:inherit;font-size:1rem;
 }
+.menu-drawer a:hover{color:#e0b04a}
 .menu-drawer .block{
-  margin-top:12px;border:1px solid rgba(255,255,255,.2);border-radius:14px;
-  padding:12px;background:transparent;color:#fff;font:inherit;font-size:1rem;
-  cursor:pointer;
+  margin-top:10px;border:1px solid rgba(255,255,255,.2);border-radius:14px;
+  padding:12px;background:transparent;color:#fff;font:inherit;font-size:1rem;cursor:pointer;
 }
 @media (max-width:480px){
-  .menu-btn{top:10px;left:10px;width:44px;height:44px}
-  .menu-drawer{width:100vw;padding-top:18px}
+  .menu-drawer{width:100vw}
 }

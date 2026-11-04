@@ -1,37 +1,30 @@
 (function(){
-  if(document.getElementById("siteMenu")) return;
+  if(location.pathname.indexOf("/convert")===0) return;
+  if(document.getElementById("abzarBar")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=6";
+  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=8";
   document.head.appendChild(link);
-  const onConvert=location.pathname.indexOf("/convert")===0;
-  const tools=[
-    ["/", "صفحه اصلی"],
-    ["/#tools", "ابزارهای محاسبه"],
-    ["/about.html", "درباره ابزارها"]
-  ];
-  const convert=[
-    ["/convert/", "مبدل فایل"],
-    ["/convert/tools.html", "ابزارهای تبدیل"],
-    ["/convert/guides/", "راهنماها"],
-    ["/convert/pages/faq.html", "سوالات"],
-    ["/convert/pages/about.html", "درباره مبدل"]
-  ];
-  const groups=onConvert?[convert, tools]:[tools, convert];
-  const items=groups.map(group=>group.map(([href, label])=>`<a href="${href}">${label}</a>`).join("")).join("");
-  const root=document.createElement("div");
-  root.id="siteMenu";
-  root.innerHTML=`
-    <button class="menu-btn" id="menuOpen" aria-label="منو">
+  const bar=document.createElement("header");
+  bar.id="abzarBar";
+  bar.innerHTML=`<a class="ab-brand" href="/">ابزاربوک</a>
+    <button class="menu-btn" id="menuOpen" aria-label="منوی ابزاربوک">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-    </button>
+    </button>`;
+  const root=document.createElement("div");
+  root.id="abzarMenu";
+  root.innerHTML=`
     <div class="menu-scrim" id="menuScrim"></div>
     <aside class="menu-drawer" id="menuDrawer">
-      <div class="menu-top"><button class="menu-close" id="menuClose" aria-label="بستن">×</button><strong>منو</strong></div>
-      ${items}
+      <div class="menu-top"><button class="menu-close" id="menuClose" aria-label="بستن">×</button><strong>ابزاربوک</strong></div>
+      <p class="menu-kicker">فقط ابزارهای محاسبه</p>
+      <a href="/">صفحه اصلی</a>
+      <a href="/#tools">ابزارها</a>
+      <a href="/about.html">درباره</a>
       <a href="https://t.me/abzarbook" target="_blank" rel="noopener">تماس با ما</a>
       <button class="block" id="themeToggle" type="button">حالت روشن</button>
       <button class="block" id="installBtn" type="button">نصب وب‌اپلیکیشن</button>
     </aside>`;
+  document.body.prepend(bar);
   document.body.appendChild(root);
   const drawer=document.getElementById("menuDrawer");
   const scrim=document.getElementById("menuScrim");
