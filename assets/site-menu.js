@@ -2,11 +2,11 @@
   if(location.pathname.indexOf("/convert")===0) return;
   if(document.getElementById("abzarBar")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=9";
+  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=10";
   document.head.appendChild(link);
   const bar=document.createElement("header");
   bar.id="abzarBar";
-  bar.innerHTML=`<a class="ab-brand" href="/">ابزاربوک</a>
+  bar.innerHTML=`<a class="ab-brand" href="/"><img src="/icon-192.png" alt="" width="28" height="28">ابزاربوک</a>
     <button class="menu-btn" id="menuOpen" aria-label="منوی ابزاربوک">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     </button>`;
@@ -16,7 +16,6 @@
     <div class="menu-scrim" id="menuScrim"></div>
     <aside class="menu-drawer" id="menuDrawer">
       <div class="menu-top"><strong>ابزاربوک</strong><button class="menu-close" id="menuClose" aria-label="بستن">×</button></div>
-      <p class="menu-kicker">فقط ابزارهای محاسبه</p>
       <a href="/">صفحه اصلی</a>
       <a href="/#tools">ابزارها</a>
       <a href="/about.html">درباره</a>

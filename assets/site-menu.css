@@ -12,9 +12,11 @@ html[data-theme="dark"] #abzarBar{
   background:rgba(18,16,12,.94);border-color:#2e291c;color:#f2ebd8;
 }
 .ab-brand{
+  display:inline-flex;align-items:center;gap:8px;
   font-weight:900;font-size:1.05rem;line-height:1;color:inherit;text-decoration:none;
   letter-spacing:-.3px;white-space:nowrap;
 }
+.ab-brand img{width:28px;height:28px;border-radius:8px;display:block}
 .menu-btn{
   position:static;width:44px;height:44px;border-radius:12px;
   border:1px solid #2e291c;background:#1c2433;color:#fff;
