@@ -475,3 +475,46 @@ html[data-theme="dark"] .cv-banner{
   .cv-banner .hb{animation:none !important}
   .cv-banner::after{display:none}
 }
+
+/* ظاهر یکدست با صفحه‌های محاسبه ابزاربوک */
+.hero{padding:8px 0 12px !important}
+.content-page{padding-top:12px !important}
+.wrap{max-width:640px !important}
+.hero h1,.content-page h1{
+  font-size:1.45rem !important;font-weight:900 !important;line-height:1.35 !important;
+  letter-spacing:0 !important;max-width:none !important;text-align:right !important;margin:0 0 8px !important;
+}
+.hero p.lede,.lede{text-align:right !important;color:var(--ink-soft) !important;font-size:.95rem !important;margin:0 0 16px !important;max-width:none !important}
+.crumb{font-size:.9rem;font-weight:600;margin-bottom:14px}
+.crumb a{color:#6b6350 !important;text-decoration:none}
+.panel,.related-card,.tools-grid a{
+  background:var(--paper-raised) !important;border:1px solid var(--line) !important;
+  border-radius:16px !important;box-shadow:0 4px 20px -6px rgba(40,35,20,.12) !important;
+}
+.dropzone{
+  border:1.5px dashed #e2d8c0 !important;background:#f4f0e6 !important;border-radius:12px !important;color:var(--ink);
+}
+.dropzone:hover,.dropzone.drag{border-color:#2a4d6e !important;background:#fffdf8 !important;transform:none !important}
+.btn-convert{
+  background:linear-gradient(145deg,#2a4d6e,#1b3346) !important;color:#fff !important;
+  border:0 !important;border-radius:10px !important;font-weight:800 !important;
+  box-shadow:0 8px 20px -8px rgba(42,77,110,.5) !important;width:100%;
+}
+.btn-convert:hover:not(:disabled){filter:brightness(1.06);transform:none !important;background:linear-gradient(145deg,#2a4d6e,#1b3346) !important}
+.btn-convert:disabled{background:#e2d8c0 !important;color:#6b6350 !important;box-shadow:none !important}
+input,select,textarea{
+  border:1px solid #e2d8c0 !important;border-radius:10px !important;background:#f4f0e6 !important;color:var(--ink) !important;
+}
+.tab{border-radius:999px !important;border:1px solid #e2d8c0 !important;background:#fffdf8 !important;color:var(--ink) !important}
+.tab.active{background:#2a4d6e !important;color:#fff !important;border-color:transparent !important}
+.page-icon{background:linear-gradient(145deg,#2a4d6e,#c47a1a) !important;color:#fff !important;border:0 !important}
+h2{font-size:1.1rem !important;font-weight:800}
+.site-footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:.82rem;margin-top:28px}
+.site-footer a{color:#2a4d6e}
+.trust-grid>div{background:var(--paper-raised);border:1px solid var(--line);border-radius:16px;padding:12px}
+html[data-theme="dark"] .dropzone{background:#1a1710 !important;border-color:#3a3320 !important}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#12100c !important;color:#f2ebd8 !important;border-color:#3a3320 !important}
+html[data-theme="dark"] .btn-convert{background:linear-gradient(145deg,#e0b04a,#c47a1a) !important;color:#1f1600 !important}
+html[data-theme="dark"] .tab.active{background:#e0b04a !important;color:#1f1600 !important}
+html[data-theme="dark"] .crumb a,.site-footer a{color:#e0b04a !important}
+
