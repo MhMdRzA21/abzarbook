@@ -411,3 +411,29 @@ h1:has(.page-icon){
 @media (min-width: 980px) {
   .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 }
+
+/* چرا این سایت: سه ستون حتی در موبایل */
+.trust-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+@media (max-width: 680px) {
+  .trust { padding: 28px 0; }
+  .trust-grid { gap: 8px !important; }
+  .trust-icon { width: 34px; height: 34px; margin-bottom: 6px; }
+  .trust-grid h3 { font-size: .8rem; line-height: 1.35; }
+  .trust-grid p {
+    font-size: .72rem;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* بنر هیرو در تم تیره: متن روی کارت سفید می‌ماند */
+.scene-chip { color: #0F1B2D !important; background: #fff !important; }
+.scene-output, .scene-shrink { background: #fff !important; }
+.scene-output b, .scene-shrink b { color: #1C2FB8 !important; }
+.scene-output span, .scene-shrink span { color: #3d4a63 !important; }

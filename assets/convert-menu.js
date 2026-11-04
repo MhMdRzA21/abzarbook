@@ -56,6 +56,10 @@
     localStorage.setItem("ab-theme",mode);
     themeBtn.textContent=mode==="dark"?"حالت روشن":"حالت تاریک";
   };
-  apply(localStorage.getItem("ab-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
-  themeBtn.onclick=()=>apply(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
+  apply(localStorage.getItem("ab-theme-chosen")==="1"?(localStorage.getItem("ab-theme")||"light"):"light");
+  themeBtn.onclick=()=>{
+    const next=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    localStorage.setItem("ab-theme-chosen","1");
+    apply(next);
+  };
 })();

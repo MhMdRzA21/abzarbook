@@ -64,3 +64,17 @@ html[data-theme="dark"] .menu-btn{border-color:#f2ebd8}
 button:focus-visible, a:focus-visible, .menu-btn:focus-visible{
   outline:2px solid #e0b04a; outline-offset:2px;
 }
+/* پیش‌فرض روشن است؛ تم سیستم صفحه را تیره نمی‌کند */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="dark"]) {
+    --bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;
+    --rule:#e2d8c0;--accent:#c47a1a;--accent2:#2a4d6e;--accent-ink:#fffaf0;
+    --stamp:#9c2b2b;
+    --shadow:0 4px 20px -6px rgba(40,35,20,.12);
+    --shadow-lg:0 12px 40px -12px rgba(40,35,20,.18);
+  }
+  html:not([data-theme="dark"]) body {
+    background-color:#f4f0e6 !important;
+    color:#1c1914 !important;
+  }
+}

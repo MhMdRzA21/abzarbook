@@ -2,7 +2,7 @@
   if(location.pathname.indexOf("/convert")===0) return;
   if(document.getElementById("abzarBar")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=10";
+  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=11";
   document.head.appendChild(link);
   const bar=document.createElement("header");
   bar.id="abzarBar";
@@ -39,8 +39,12 @@
     localStorage.setItem("ab-theme",mode);
     themeBtn.textContent=mode==="dark"?"حالت روشن":"حالت تاریک";
   };
-  apply(localStorage.getItem("ab-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
-  themeBtn.onclick=()=>apply(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
+  apply(localStorage.getItem("ab-theme-chosen")==="1"?(localStorage.getItem("ab-theme")||"light"):"light");
+  themeBtn.onclick=()=>{
+    const next=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    localStorage.setItem("ab-theme-chosen","1");
+    apply(next);
+  };
   let deferred;
   window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e});
   document.getElementById("installBtn").onclick=async()=>{
