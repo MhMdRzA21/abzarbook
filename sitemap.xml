@@ -8,10 +8,16 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://abzarbook.ir/convert/</loc>
+    <loc>https://abzarbook.ir/convert/image-format.html</loc>
     <lastmod>2026-11-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://abzarbook.ir/convert/excel-ppt-to-pdf.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://abzarbook.ir/convert/compress-file.html</loc>
