@@ -517,4 +517,8 @@ html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="da
 html[data-theme="dark"] .btn-convert{background:linear-gradient(145deg,#e0b04a,#c47a1a) !important;color:#1f1600 !important}
 html[data-theme="dark"] .tab.active{background:#e0b04a !important;color:#1f1600 !important}
 html[data-theme="dark"] .crumb a,.site-footer a{color:#e0b04a !important}
+.wrap{max-width:760px}
+.panel{border-radius:16px;border:1px solid var(--line);background:var(--paper-raised)}
+.btn-convert{border-radius:999px !important;min-height:44px}
+
 

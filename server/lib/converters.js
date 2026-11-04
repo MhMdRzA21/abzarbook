@@ -5,7 +5,7 @@ const sharp = require("sharp");
 const { PDFDocument } = require("pdf-lib");
 const { randomUUID } = require("crypto");
 
-const HEAVY = new Set(["soffice", "ffmpeg", "python3", "gs"]);
+const HEAVY = new Set(["soffice", "ffmpeg", "python3", "gs", "qpdf"]);
 const MAX_HEAVY = Number(process.env.MAX_HEAVY_JOBS || 2);
 let active = 0;
 const waiting = [];
@@ -165,9 +165,74 @@ async function compressPdfFile(inputPath, outputPath) {
   return outputPath;
 }
 
-async function compressImageFile(inputPath, outputPath) {
-  await sharp(inputPath).jpeg({ quality: 80, mozjpeg: true }).toFile(outputPath);
-  return outputPath;
+async function neverGrow(originalPath, candidatePath) {
+  const [orig, candidate] = await Promise.all([fs.stat(originalPath), fs.stat(candidatePath)]);
+  if (candidate.size >= orig.size) await fs.copyFile(originalPath, candidatePath);
+  return candidatePath;
+}
+
+const IMAGE_COMPRESS_EXTS = new Set([".jpg", ".jpeg", ".png", ".gif", ".tiff", ".tif", ".webp"]);
+
+async function compressImageFile(inputPath, outputPath, ext = path.extname(outputPath)) {
+  const e = (ext || "").toLowerCase();
+  if (e === ".jpg" || e === ".jpeg") {
+    await fs.copyFile(inputPath, outputPath);
+    try { await run("jpegoptim", ["--strip-all", "--quiet", outputPath]); }
+    catch { await sharp(inputPath).jpeg({ quality: 80, mozjpeg: true }).toFile(outputPath); }
+  } else if (e === ".png") {
+    await sharp(inputPath).png({ compressionLevel: 9, effort: 10, palette: false }).toFile(outputPath);
+  } else if (e === ".gif") {
+    await sharp(inputPath, { animated: true }).gif().toFile(outputPath);
+  } else if (e === ".tiff" || e === ".tif") {
+    await sharp(inputPath, { pages: -1 }).tiff({ compression: "lzw" }).toFile(outputPath);
+  } else if (e === ".webp") {
+    await sharp(inputPath).webp({ quality: 80 }).toFile(outputPath);
+  } else {
+    throw new Error("فشرده‌سازی این فرمت تصویر پشتیبانی نمی‌شود.");
+  }
+  return neverGrow(inputPath, outputPath);
+}
+
+async function compressOfficeDocFile(inputPath, outDir, ext) {
+  const workDir = path.join(outDir, "extract-" + randomUUID().slice(0, 6));
+  await fs.mkdir(workDir, { recursive: true });
+  try {
+    await run("unzip", ["-q", "-o", path.resolve(inputPath), "-d", workDir]);
+  } catch (e) {
+    if (/password|central-directory|zipfile/i.test(e.message)) {
+      throw new Error("این فایل آفیس رمز دارد یا معتبر نیست. اول رمز را بردارید.");
+    }
+    throw e;
+  }
+  for (const rel of ["word/media", "xl/media", "ppt/media"]) {
+    const dir = path.join(workDir, rel);
+    let entries;
+    try { entries = await fs.readdir(dir); } catch { continue; }
+    for (const name of entries) {
+      const mediaExt = path.extname(name).toLowerCase();
+      if (!IMAGE_COMPRESS_EXTS.has(mediaExt) || mediaExt === ".gif") continue;
+      const filePath = path.join(dir, name);
+      const tmpOut = filePath + ".tmp";
+      try {
+        await compressImageFile(filePath, tmpOut, mediaExt);
+        const [before, after] = await Promise.all([fs.stat(filePath), fs.stat(tmpOut)]);
+        if (after.size < before.size) await fs.rename(tmpOut, filePath);
+        else await fs.unlink(tmpOut).catch(() => {});
+      } catch { await fs.unlink(tmpOut).catch(() => {}); }
+    }
+  }
+  const outPath = path.join(outDir, `compressed.${ext}`);
+  await run("zip", ["-q", "-r", "-X", "-9", outPath, "."], { cwd: workDir });
+  return neverGrow(path.resolve(inputPath), outPath);
+}
+
+async function compressVideoFile(inputPath, outputPath) {
+  await run("ffmpeg", [
+    "-y", "-hide_banner", "-loglevel", "error", "-i", inputPath,
+    "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+    "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", outputPath,
+  ], { timeout: 30 * 60 * 1000, maxBuffer: 20 * 1024 * 1024 });
+  return neverGrow(inputPath, outputPath);
 }
 
 async function compressFile(file, outDir) {
@@ -175,15 +240,30 @@ async function compressFile(file, outDir) {
   const id = randomUUID().slice(0, 8);
   if (ext === ".pdf") {
     const out = path.join(outDir, `compressed-${id}.pdf`);
-    await compressPdfFile(file.path, out);
+    try {
+      await run("qpdf", ["--compress-streams=y", "--object-streams=generate", "--recompress-flate", "--compression-level=9", file.path, out]);
+      await neverGrow(file.path, out);
+    } catch {
+      await compressPdfFile(file.path, out);
+    }
     return { path: out, name: "compressed.pdf" };
   }
-  if ([".jpg", ".jpeg", ".png", ".webp"].includes(ext)) {
-    const out = path.join(outDir, `compressed-${id}.jpg`);
-    await compressImageFile(file.path, out);
-    return { path: out, name: "compressed.jpg" };
+  if (IMAGE_COMPRESS_EXTS.has(ext)) {
+    const outExt = ext === ".jpeg" ? ".jpg" : ext;
+    const out = path.join(outDir, `compressed-${id}${outExt}`);
+    await compressImageFile(file.path, out, ext);
+    return { path: out, name: "compressed" + outExt };
   }
-  throw new Error("Unsupported type for compress");
+  if ([".docx", ".xlsx", ".pptx"].includes(ext)) {
+    const out = await compressOfficeDocFile(file.path, outDir, ext.slice(1));
+    return { path: out, name: "compressed" + ext };
+  }
+  if ([".mp4", ".mov", ".mkv", ".avi", ".webm", ".m4v"].includes(ext)) {
+    const out = path.join(outDir, `compressed-${id}.mp4`);
+    await compressVideoFile(file.path, out);
+    return { path: out, name: "compressed.mp4" };
+  }
+  throw new Error("این نوع فایل برای فشرده‌سازی پشتیبانی نمی‌شود. JPG، PNG، GIF، TIFF، PDF، DOCX، XLSX، PPTX و ویدیو.");
 }
 
 // High-level helpers used by routes

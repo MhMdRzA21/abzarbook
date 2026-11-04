@@ -23,7 +23,12 @@ router.post("/", upload.single("file"), async (req, res) => {
   const file = req.file;
   try {
     if (!file) throw new Error("No file");
+    const orig = await fs.promises.stat(file.path);
     const result = await compressFile(file, outDir);
+    const neu = await fs.promises.stat(result.path);
+    res.set("X-Original-Size", String(orig.size));
+    res.set("X-Compressed-Size", String(neu.size));
+    res.set("Access-Control-Expose-Headers", "X-Original-Size, X-Compressed-Size, Content-Disposition");
     res.download(result.path, result.name, async () => {
       try { await fs.promises.unlink(file.path); } catch {}
       try { await fs.promises.unlink(result.path); } catch {}
