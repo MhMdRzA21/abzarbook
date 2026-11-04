@@ -292,6 +292,36 @@ input, select, textarea {
 .scene-chevron--sw { bottom: 16%; left: 16%; animation-delay: 1s; }
 .scene-chevron--se { bottom: 16%; right: 16%; animation-delay: 1.5s; }
 @keyframes chevronSpin { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+
+html[data-theme="dark"]{
+  --paper:#10151f;
+  --paper-raised:#1a2230;
+  --ink:#f4f7fb;
+  --ink-soft:#c5cedf;
+  --line:#2e3a4e;
+  --white:#1a2230;
+}
+html[data-theme="dark"] body{
+  background:var(--paper) !important;
+  color:var(--ink);
+}
+html[data-theme="dark"] .site-header{background:rgba(16,21,31,.94) !important}
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .tab,
+html[data-theme="dark"] .related-card,
+html[data-theme="dark"] .tools-grid a,
+html[data-theme="dark"] .trust-row span,
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea{
+  background:#1a2230 !important;
+  color:var(--ink) !important;
+  border-color:var(--line) !important;
+}
+html[data-theme="dark"] .dropzone{background:#141b28 !important;color:var(--ink)}
+html[data-theme="dark"] .tab.active{background:var(--stamp) !important;color:#fff !important}
+html[data-theme="dark"] .site-footer{background:transparent;color:var(--ink-soft)}
+
 @media (max-width: 860px) {
   .hero-scene { height: 180px; max-height: 180px; }
   .scene-output, .scene-shrink { padding: 10px 16px; border-radius: 12px; }

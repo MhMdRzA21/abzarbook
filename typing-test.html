@@ -156,5 +156,5 @@ $("input").addEventListener("input",()=>{if(done) return; if(!started){started=D
 document.querySelectorAll("#modes button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#modes button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); mode=b.dataset.mode; reset();});
 document.querySelectorAll("#times button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#times button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); seconds=+b.dataset.sec; reset();});
 $("customBtn").onclick=()=>$("custom").hidden=!$("custom").hidden; $("newText").onclick=reset; pick();
-</script><script src="/assets/site-menu.js"></script>
+</script><script src="/assets/site-menu.js?v=6"></script>
 </body></html>

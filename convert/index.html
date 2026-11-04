@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/convert/css/style.css">
 <link rel="stylesheet" href="/convert/css/rtl.css">
-<link rel="stylesheet" href="/convert/css/theme.css?v=9">
+<link rel="stylesheet" href="/convert/css/theme.css?v=10">
 <script src="/convert/js/seo.js" defer></script>
 <script type="application/ld+json">
 {
@@ -295,9 +295,9 @@
       <a href="/convert/tools.html">ابزارها</a>
       <a href="/convert/guides/">راهنماها</a>
       <a href="/convert/pages/about.html">درباره</a>
-      <a href="/">حریم خصوصی</a>
-      <a href="/">شرایط</a>
-      <a href="/">تماس</a>
+      <a href="/convert/pages/privacy.html">حریم خصوصی</a>
+      <a href="/convert/pages/terms.html">شرایط</a>
+      <a href="/convert/pages/contact.html">تماس</a>
     </nav>
   </div>
 </footer>
@@ -306,25 +306,6 @@
 <script src="/convert/js/tool-icons.js"></script>
 
 
-<div id="siteMenu">
-  <button id="menuOpen" aria-label="منو" style="position:fixed;top:12px;left:12px;z-index:80;width:46px;height:46px;border-radius:12px;border:1px solid #2e291c;background:#1c2433;color:#fff">☰</button>
-  <div id="menuScrim" style="position:fixed;inset:0;background:rgba(8,10,16,.5);z-index:90;display:none"></div>
-  <aside id="menuDrawer" style="position:fixed;top:0;bottom:0;left:0;z-index:100;width:min(300px,100vw);background:#1c2433;color:#f7f3ea;display:none;flex-direction:column;padding:16px;overflow:auto">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><button id="menuClose" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:1.3rem">×</button><strong>منو</strong></div>
-    <a href="/" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">صفحه اصلی</a>
-    <a href="/convert/tools.html" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">ابزارها</a>
-    <a href="/convert/guides/" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">راهنماها</a>
-    <a href="/about.html" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">درباره</a>
-    <a href="https://t.me/abzarbook" target="_blank" rel="noopener" style="color:#f7f3ea;text-decoration:none;padding:14px 4px">تماس با ما</a>
-  </aside>
-</div>
-<script>
-(function(){
-  var d=document.getElementById("menuDrawer"), s=document.getElementById("menuScrim");
-  document.getElementById("menuOpen").onclick=function(){d.style.display="flex";s.style.display="block"};
-  document.getElementById("menuClose").onclick=function(){d.style.display="none";s.style.display="none"};
-  s.onclick=function(){d.style.display="none";s.style.display="none"};
-})();
-</script>
+<script src="/assets/site-menu.js?v=6"></script>
 </body>
 </html>

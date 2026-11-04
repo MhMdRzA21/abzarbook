@@ -502,62 +502,35 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 </script>
 
 <style>
-
-.banner-copy strong,.banner-copy span,.banner-chip{color:#1c1914 !important}
-.banner-chevron{color:#7a1f1f !important}
-
 .site-banner{
-  position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;
-  max-width:1100px;margin:10px auto 20px;padding:30px 34px;
-  border-radius:24px;overflow:hidden;text-decoration:none;isolation:isolate;
-  background:linear-gradient(135deg,#fff8ea 0%,#f3e6c6 55%,#ecd9ae 100%);
-  box-shadow:0 18px 44px -16px rgba(28,25,20,.28),0 0 0 1px rgba(28,25,20,.07);
-  transition:box-shadow .25s ease,transform .25s ease;
+  position:relative;display:flex;align-items:center;justify-content:space-between;gap:22px;
+  margin:8px auto 18px;padding:28px 32px;min-height:176px;
+  border-radius:28px;overflow:hidden;text-decoration:none;
+  background:#1f385c;color:#fff;
+  box-shadow:0 16px 40px rgba(15,27,45,.18);
 }
-.site-banner:hover{transform:translateY(-2px);box-shadow:0 22px 50px -16px rgba(28,25,20,.34),0 0 0 1px rgba(28,25,20,.08)}
-.banner-glow{
-  position:absolute;inset:-30%;z-index:0;pointer-events:none;
-  background:radial-gradient(38% 50% at 82% 18%,color-mix(in srgb,var(--stamp) 18%,transparent),transparent 70%),
-             radial-gradient(34% 46% at 12% 88%,color-mix(in srgb,var(--accent2) 16%,transparent),transparent 70%);
-  filter:blur(6px);animation:bannerDrift 11s ease-in-out infinite alternate;
+.cb-copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:6px;min-width:0;max-width:36rem}
+.cb-kicker{color:#ffd84d;font-weight:800;font-size:1rem;line-height:1.4}
+.cb-copy strong{color:#fff;font-weight:900;font-size:clamp(2.1rem,5.4vw,3.15rem);line-height:1.12;letter-spacing:-.4px}
+.cb-sub{color:#f6f0e0;font-size:1.02rem;line-height:1.75;font-weight:650}
+.cb-art{position:relative;flex:none;width:210px;height:140px}
+.cb-art .sq{position:absolute;border-radius:8px}
+.sq-a{width:22px;height:22px;background:#8d8d74;top:8px;left:18px;transform:rotate(12deg);opacity:.9}
+.sq-b{width:16px;height:16px;background:#596258;top:4px;right:36px;transform:rotate(-8deg)}
+.sq-c{width:18px;height:18px;background:#9a9a85;bottom:18px;left:8px;transform:rotate(18deg);opacity:.85}
+.sq-d{width:14px;height:14px;background:#596258;top:36px;right:8px;opacity:.7}
+.mark4{
+  position:absolute;left:28px;top:42px;width:86px;height:86px;
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
 }
-@keyframes bannerDrift{from{transform:translate(0,0) rotate(0)}to{transform:translate(-3%,3%) rotate(3deg)}}
-.banner-copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:7px;min-width:0}
-.banner-copy strong{font-size:clamp(1.05rem,2.3vw,1.4rem);color:#1c1914;font-weight:900;line-height:1.5}
-.banner-copy span{color:#2c2416;font-size:.92rem;line-height:1.7}
-.banner-chevron{
-  display:inline-flex;align-items:center;gap:6px;margin-top:4px;
-  color:var(--stamp);font-weight:800;font-size:.82rem;
-  animation:chevronNudge 1.8s ease-in-out infinite;
-}
-@keyframes chevronNudge{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
-.banner-stage{
-  position:relative;z-index:1;flex:none;width:210px;height:140px;
-}
-.banner-chip{
-  position:absolute;display:inline-flex;align-items:center;gap:5px;
-  background:var(--card);border:1px solid var(--rule);border-radius:999px;
-  padding:6px 13px;font-size:.74rem;font-weight:800;color:#1c1914;
-  box-shadow:0 8px 18px -8px rgba(28,25,20,.35);
-  opacity:0;animation:chipIn .6s ease-out both,chipFloat 4.2s ease-in-out infinite;
-}
-.banner-chip--a{top:0;right:2px;animation-delay:.1s,.1s}
-.banner-chip--b{top:50px;right:60px;animation-delay:.3s,.5s}
-.banner-chip--c{top:98px;right:16px;animation-delay:.5s,.9s}
-@keyframes chipIn{from{opacity:0;transform:translateY(8px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.banner-seal{
-  position:absolute;left:0;top:78px;width:54px;height:54px;color:var(--stamp);
-  display:flex;align-items:center;justify-content:center;
-  animation:sealPulse 2.6s ease-in-out infinite;
-}
-@keyframes sealPulse{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.07);opacity:1}}
+.mark4 i{display:block;border-radius:12px;background:#f6f0e0}
+.mark4 i:nth-child(2),.mark4 i:nth-child(3){background:#ffd84d}
 @media (max-width:640px){
-  .site-banner{padding:24px 22px}
-  .banner-stage{display:none}
-}
-@media (prefers-reduced-motion:reduce){
-  .banner-glow,.banner-chip,.banner-seal,.banner-chevron{animation:none;opacity:1}
+  .site-banner{padding:22px 18px;min-height:0;gap:12px}
+  .cb-art{width:92px;height:92px}
+  .cb-art .sq{display:none}
+  .mark4{left:0;top:8px;width:72px;height:72px;gap:8px}
+  .cb-sub{font-size:.92rem}
 }
 </style>
 </head>
@@ -595,21 +568,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   </section>
 
   <a class="site-banner" href="#tools" aria-label="ابزاربوک — ابزار آنلاین فارسی، محاسبه حقوق، وام و درصد">
-    <span class="banner-glow" aria-hidden="true"></span>
-    <span class="banner-copy">
-      <strong>ابزار مالی و محاسباتی، رایگان و آنی</strong>
-      <span>عیدی، حقوق و مالیات، وام، مهریه و بیش از ۳۰ ابزار دیگر</span>
-      <span class="banner-chevron" aria-hidden="true">مشاهده ابزارها
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
+    <span class="cb-copy">
+      <span class="cb-kicker">ابزار آنلاین فارسی</span>
+      <strong>ابزاربوک</strong>
+      <span class="cb-sub">محاسبه حقوق، وام، درصد و ابزارهای روزمره. ساده، رایگان، بدون ثبت‌نام.</span>
     </span>
-    <span class="banner-stage" aria-hidden="true">
-      <span class="banner-chip banner-chip--a">عیدی</span>
-      <span class="banner-chip banner-chip--b">٪ مالیات</span>
-      <span class="banner-chip banner-chip--c">وام</span>
-      <span class="banner-seal">
-        <svg viewBox="0 0 48 48" width="54" height="54" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3.5 3"/><path d="M15 25l6 6 12-13" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
+    <span class="cb-art" aria-hidden="true">
+      <span class="sq sq-a"></span>
+      <span class="sq sq-b"></span>
+      <span class="sq sq-c"></span>
+      <span class="sq sq-d"></span>
+      <span class="mark4"><i></i><i></i><i></i><i></i></span>
     </span>
   </a>
 
@@ -628,7 +597,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 
   
 
-  <div class="section-label"><h2>ابزارها</h2><div class="ln"></div></div>
+  <div class="section-label" id="tools"><h2>ابزارها</h2><div class="ln"></div></div>
 
   <div class="ledger">
     <a class="row" href="/hoghoogh-dastmazd.html">
@@ -1079,36 +1048,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 
 
 
-<div id="siteMenu">
-  <button id="menuOpen" aria-label="منو" style="position:fixed;top:12px;left:12px;z-index:80;width:46px;height:46px;border-radius:12px;border:1px solid #2e291c;background:#1c2433;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-  </button>
-  <div id="menuScrim" style="position:fixed;inset:0;background:rgba(8,10,16,.5);z-index:90;display:none"></div>
-  <aside id="menuDrawer" style="position:fixed;top:0;bottom:0;left:0;z-index:100;width:min(300px,100vw);background:#1c2433;color:#f7f3ea;display:none;flex-direction:column;padding:16px;overflow:auto">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><button id="menuClose" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:1.3rem">×</button><strong>منو</strong></div>
-    <a href="/" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">صفحه اصلی</a>
-    <a href="/#tools" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">ابزارها</a>
-    <a href="/convert/" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">مبدل فایل</a>
-    <a href="/about.html" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">درباره ابزارها</a>
-    <a href="https://t.me/abzarbook" target="_blank" rel="noopener" style="color:#f7f3ea;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.1)">تماس با ما</a>
-    <button id="themeToggle" type="button" style="margin-top:14px;border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:12px;background:transparent;color:#fff;font:inherit">حالت روشن</button>
-  </aside>
-</div>
-<script>
-(function(){
-  var drawer=document.getElementById("menuDrawer");
-  var scrim=document.getElementById("menuScrim");
-  function open(){drawer.style.display="flex";scrim.style.display="block"}
-  function close(){drawer.style.display="none";scrim.style.display="none"}
-  document.getElementById("menuOpen").onclick=open;
-  document.getElementById("menuClose").onclick=close;
-  scrim.onclick=close;
-  var btn=document.getElementById("themeToggle");
-  function apply(mode){document.documentElement.setAttribute("data-theme",mode);localStorage.setItem("ab-theme",mode);btn.textContent=mode==="dark"?"حالت روشن":"حالت تاریک"}
-  apply(localStorage.getItem("ab-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
-  btn.onclick=function(){apply(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark")};
-})();
-</script>
-
+<script src="/assets/site-menu.js?v=6"></script>
 </body>
 </html>

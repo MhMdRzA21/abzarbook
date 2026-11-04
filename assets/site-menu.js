@@ -1,8 +1,23 @@
 (function(){
   if(document.getElementById("siteMenu")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=5";
+  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=6";
   document.head.appendChild(link);
+  const onConvert=location.pathname.indexOf("/convert")===0;
+  const tools=[
+    ["/", "صفحه اصلی"],
+    ["/#tools", "ابزارهای محاسبه"],
+    ["/about.html", "درباره ابزارها"]
+  ];
+  const convert=[
+    ["/convert/", "مبدل فایل"],
+    ["/convert/tools.html", "ابزارهای تبدیل"],
+    ["/convert/guides/", "راهنماها"],
+    ["/convert/pages/faq.html", "سوالات"],
+    ["/convert/pages/about.html", "درباره مبدل"]
+  ];
+  const groups=onConvert?[convert, tools]:[tools, convert];
+  const items=groups.map(group=>group.map(([href, label])=>`<a href="${href}">${label}</a>`).join("")).join("");
   const root=document.createElement("div");
   root.id="siteMenu";
   root.innerHTML=`
@@ -12,13 +27,7 @@
     <div class="menu-scrim" id="menuScrim"></div>
     <aside class="menu-drawer" id="menuDrawer">
       <div class="menu-top"><button class="menu-close" id="menuClose" aria-label="بستن">×</button><strong>منو</strong></div>
-      <a href="/">صفحه اصلی</a>
-      <a href="/#tools">ابزارهای محاسبه</a>
-      <a href="/convert/">مبدل فایل</a>
-      <a href="/convert/tools.html">ابزارهای تبدیل</a>
-      <a href="/convert/guides/">راهنماها</a>
-      <a href="/convert/pages/faq.html">سوالات</a>
-      <a href="/about.html">درباره</a>
+      ${items}
       <a href="https://t.me/abzarbook" target="_blank" rel="noopener">تماس با ما</a>
       <button class="block" id="themeToggle" type="button">حالت روشن</button>
       <button class="block" id="installBtn" type="button">نصب وب‌اپلیکیشن</button>
@@ -31,6 +40,7 @@
   document.getElementById("menuOpen").onclick=open;
   document.getElementById("menuClose").onclick=close;
   scrim.onclick=close;
+  root.querySelectorAll("a").forEach(a=>a.addEventListener("click", close));
   const themeBtn=document.getElementById("themeToggle");
   const apply=mode=>{
     document.documentElement.setAttribute("data-theme",mode);
