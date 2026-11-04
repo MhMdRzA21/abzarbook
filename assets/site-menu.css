@@ -7,9 +7,9 @@
 .menu-scrim{position:fixed;inset:0;background:rgba(8,10,16,.5);z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
 .menu-scrim.open{opacity:1;pointer-events:auto}
 .menu-drawer{
-  position:fixed;top:0;bottom:0;right:0;z-index:100;
+  position:fixed;top:0;bottom:0;left:0;z-index:100;
   width:min(300px,88vw);background:#1c2433;color:#f7f3ea;
-  transform:translateX(110%);transition:transform .22s ease;
+  transform:translateX(-110%);transition:transform .22s ease;
   padding:16px 16px 28px;overflow:auto;
   display:flex;flex-direction:column;gap:4px;
 }
