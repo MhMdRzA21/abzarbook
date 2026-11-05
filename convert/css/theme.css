@@ -276,6 +276,8 @@ input, select, textarea {
 @keyframes shrinkPulse { 0%, 100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(.93); } }
 .scene-shrink b { font-size: 1rem; font-weight: 900; color: var(--teal); }
 .scene-shrink span { font-size: .7rem; font-weight: 700; color: var(--ink-soft); }
+.scene-shrink { width: max-content; max-width: 86%; white-space: nowrap; }
+.scene-shrink span { white-space: nowrap; }
 .scene-chevron {
   position: absolute; z-index: 1; width: 16px; height: 16px; color: rgba(255,255,255,.65);
   animation: chevronSpin 2.2s ease-in-out infinite;
