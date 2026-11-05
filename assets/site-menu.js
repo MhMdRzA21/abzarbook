@@ -1,7 +1,7 @@
 (function(){
   if(document.getElementById("abzarBar")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=13";
+  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=14";
   document.head.appendChild(link);
   const bar=document.createElement("header");
   bar.id="abzarBar";
