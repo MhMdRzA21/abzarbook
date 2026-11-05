@@ -25,7 +25,6 @@
       <a href="/convert/guides/">راهنما</a>
       <a href="/about.html">درباره</a>
       <a href="https://t.me/abzarbook" target="_blank" rel="noopener">تماس با ما</a>
-      <button class="block" id="themeToggle" type="button">حالت روشن</button>
       <button class="block" id="installBtn" type="button">نصب وب‌اپلیکیشن</button>
     </aside>`;
   document.body.prepend(bar);
@@ -38,11 +37,9 @@
   document.getElementById("menuClose").onclick=close;
   scrim.onclick=close;
   root.querySelectorAll("a").forEach(a=>a.addEventListener("click", close));
-  const themeBtn=document.getElementById("themeToggle");
   const apply=mode=>{
     document.documentElement.setAttribute("data-theme",mode);
     localStorage.setItem("ab-theme",mode);
-    themeBtn.textContent=mode==="dark"?"حالت روشن":"حالت تاریک";
   };
   apply(localStorage.getItem("ab-theme-chosen")==="1"?(localStorage.getItem("ab-theme")||"light"):"light");
   const toggleTheme=()=>{
@@ -50,7 +47,6 @@
     localStorage.setItem("ab-theme-chosen","1");
     apply(next);
   };
-  themeBtn.onclick=toggleTheme;
   document.getElementById("themeQuick").onclick=toggleTheme;
   let deferred;
   window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e});
