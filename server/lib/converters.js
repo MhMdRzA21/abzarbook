@@ -197,6 +197,14 @@ async function compressOfficeDocFile(inputPath, outDir, ext) {
   const workDir = path.join(outDir, "extract-" + randomUUID().slice(0, 6));
   await fs.mkdir(workDir, { recursive: true });
   try {
+    return await compressOfficeInDir(inputPath, outDir, ext, workDir);
+  } finally {
+    await fs.rm(workDir, { recursive: true, force: true }).catch(() => {});
+  }
+}
+
+async function compressOfficeInDir(inputPath, outDir, ext, workDir) {
+  try {
     await run("unzip", ["-q", "-o", path.resolve(inputPath), "-d", workDir]);
   } catch (e) {
     if (/password|central-directory|zipfile/i.test(e.message)) {

@@ -26,6 +26,15 @@ try {
     expressApp.use('/api/convert', limiter, require('./server/routes/convert'));
     expressApp.use('/api/compress', limiter, require('./server/routes/compress'));
     try { expressApp.use('/api/pdf', limiter, require('./server/routes/pdftools')); } catch {}
+    // JSON errors only: never leak stack traces to clients (front end reads data.error).
+    expressApp.use('/api', (err, req, res, _next) => {
+      console.error('API error:', err && (err.stack || err.message || err));
+      const code = String((err && err.code) || '');
+      if (code === 'LIMIT_FILE_SIZE') return res.status(413).json({ error: 'حجم فایل از حد مجاز بیشتر است.' });
+      if (code.startsWith('LIMIT_')) return res.status(400).json({ error: 'تعداد یا فیلد فایل‌ها درست نیست.' });
+      const status = err && err.status >= 400 && err.status < 500 ? err.status : 500;
+      res.status(status).json({ error: status === 500 ? 'خطای داخلی سرور؛ دوباره تلاش کنید.' : 'درخواست نامعتبر است.' });
+    });
     apiReady = true;
     console.log('Convert API ready');
   } catch (e) {
@@ -77,6 +86,11 @@ function serveStatic(req, res) {
     }));
   }
   let urlPath = (req.url || '/').split('?')[0];
+  // The converter hub was merged into the home page's file section: permanent redirect for search engines.
+  if (urlPath === '/convert' || urlPath === '/convert/' || urlPath === '/convert/index.html') {
+    res.writeHead(301, { Location: '/#files', 'Cache-Control': 'public, max-age=86400', ...SECURITY });
+    return res.end();
+  }
   if (urlPath === '/') urlPath = '/index.html';
   // favicon fallback to site icon
   if (urlPath === '/favicon.ico') urlPath = '/icon-192.png';
