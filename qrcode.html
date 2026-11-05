@@ -43,7 +43,7 @@
   --rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--accent-ink:#1f1600;--stamp:#d44;
   --shadow:0 4px 24px -6px rgba(0,0,0,.45);--shadow-lg:0 14px 44px -12px rgba(0,0,0,.55);
 }
-:root[data-theme="dark"]{--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#5c87a8;--stamp:#c23c3c;--ok:#5ba57f;}
+:root[data-theme="dark"]{--bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;--accent:#d9a648;--accent-ink:#241803;--accent2:#7fa6c4;--stamp:#c23c3c;--ok:#5ba57f;}
 html{scroll-padding-top:env(safe-area-inset-top,0)}
 *{box-sizing:border-box}
 body{
@@ -83,6 +83,7 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px soli
 .qr-wrap{text-align:center;margin-top:16px;padding:18px;background:#fff;border-radius:14px;border:1px solid var(--rule)}
 .qr-wrap svg{max-width:100%;height:auto;display:block;margin:0 auto}
 .qr-empty{color:var(--mute);font-size:.85rem;padding:30px 10px}
+html[data-theme="dark"] .qr-wrap:has(.qr-empty){background:var(--card)}
 .dl-row{display:flex;gap:8px;margin-top:14px}
 .dl-btn{flex:1;text-align:center;border:0;background:linear-gradient(155deg,var(--accent2),color-mix(in srgb,var(--accent2) 65%,#000));color:#fff;font:inherit;font-weight:800;padding:12px;border-radius:9px;cursor:pointer;box-shadow:0 8px 18px -8px color-mix(in srgb,var(--accent2) 65%,transparent)}
 .dl-btn.alt{background:linear-gradient(155deg,var(--accent),color-mix(in srgb,var(--accent) 65%,#000))}
@@ -115,6 +116,7 @@ details[open]::before{background:var(--accent2);color:#fff}
 {"@type":"ListItem","position":2,"name":"ساخت کد QR رایگان","item":"https://abzarbook.ir/qrcode.html"}
 ]}
 </script>
+<style>html[data-theme="dark"] .go,html[data-theme="dark"] .on,html[data-theme="dark"] .tabs2 button[aria-selected="true"],html[data-theme="dark"] [data-m][aria-selected="true"],html[data-theme="dark"] .dl-btn{background:#3a6a93 !important;border-color:#3a6a93 !important;color:#fff !important}</style>
 </head>
 <body>
 <main>

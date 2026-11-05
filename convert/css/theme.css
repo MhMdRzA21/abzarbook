@@ -538,3 +538,26 @@ html[data-theme="dark"] .abzar-close details,html[data-theme="dark"] .abzar-clos
 /* خوانایی در تم تیره: دکمه‌های اشتراک و لینک‌های متنی */
 html[data-theme="dark"] .abzar-close .share-btn{color:#f2ebd8 !important}
 html[data-theme="dark"] main a:not(.btn-convert):not(.tc-title){color:#e0b04a}
+
+/* ---- اصلاح کنتراست تم تیره (نسخه دوم) ---- */
+html[data-theme="dark"] .content-page p,
+html[data-theme="dark"] .content-page li,
+html[data-theme="dark"] .content-page strong,
+html[data-theme="dark"] .content-page td,
+html[data-theme="dark"] .seo-prose p,
+html[data-theme="dark"] .seo-prose li { color: #e6dcc4 !important; }
+html[data-theme="dark"] .abzar-close details p,
+html[data-theme="dark"] .abzar-close .note,
+html[data-theme="dark"] .abzar-close .more-tools { color: #b5a784 !important; }
+html[data-theme="dark"] .go,
+html[data-theme="dark"] .on,
+html[data-theme="dark"] .tabs2 button[aria-selected="true"],
+html[data-theme="dark"] .dl-btn {
+  background: #3a6a93 !important; border-color: #3a6a93 !important; color: #fff !important;
+}
+html[data-theme="dark"] .badge-new { color: #1f1600 !important; }
+html[data-theme="dark"] .gs-chip.on { background: #d9a648 !important; border-color: #d9a648 !important; color: #1f1600 !important; }
+html[data-theme="dark"] .qr-wrap:has(.qr-empty) { background: var(--card, #1d1a12) !important; }
+html[data-theme="dark"] .abzar-close .more-tools a{color:#e0b04a}
+html[data-theme="dark"] .abzar-close details::before{background:#3a3320 !important;color:#e0b04a !important}
+html[data-theme="dark"] .cta-row .cta-primary{background:#3a6a93 !important;color:#fff !important}
