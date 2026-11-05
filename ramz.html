@@ -202,12 +202,7 @@ document.getElementById("copyLink").onclick=function(){navigator.clipboard.write
 </script>
 <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/qrcode.html" style="color:var(--accent)">ساخت کد QR</a> · <a href="/sen.html" style="color:var(--accent)">محاسبه سن</a> · <a href="/etebarsanji.html" style="color:var(--accent)">اعتبارسنجی شبا و کد ملی</a></p>
 </main>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"آیا رمزها ذخیره یا ارسال می‌شوند؟","acceptedAnswer":{"@type":"Answer","text":"خیر، تمام عملیات در مرورگر انجام می‌شود و هیچ رمزی به سروری ارسال نمی‌گردد."}},
-{"@type":"Question","name":"رمز تصادفی این ابزار چقدر امن است؟","acceptedAnswer":{"@type":"Answer","text":"با Web Crypto API ساخته می‌شود که یک منبع تصادفی رمزنگارانه امن است."}}
-]}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "آیا رمزهایی که می‌سازم یا بررسی می‌کنم جایی ذخیره می‌شوند؟", "acceptedAnswer": {"@type": "Answer", "text": "خیر، هیچ رمزی در این صفحه ذخیره، لاگ یا به هیچ سروری ارسال نمی‌شود؛ تولید و بررسی رمز کاملاً با کد جاوااسکریپت داخل مرورگر شما انجام می‌شود (حتی بدون اینترنت هم کار می‌کند)."}}, {"@type": "Question", "name": "رمز تصادفی این ابزار چقدر امن است؟", "acceptedAnswer": {"@type": "Answer", "text": "رمزها با تابع رمزنگاری امن مرورگر (Web Crypto API) ساخته می‌شوند، نه با توابع تصادفی معمولی، بنابراین برای استفاده واقعی مناسب هستند."}}, {"@type": "Question", "name": "تخمین «زمان کرک» دقیقاً چیست؟", "acceptedAnswer": {"@type": "Answer", "text": "یک برآورد تقریبی از زمان لازم برای حدس زدن رمز با روش brute-force (امتحان کردن همه حالت‌های ممکن) توسط سخت‌افزار امروزی است؛ حمله‌های واقعی می‌توانند با الگوها و لیست رمزهای رایج سریع‌تر عمل کنند."}}]}</script>
 
 <script>
 var SETS={

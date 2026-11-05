@@ -220,12 +220,7 @@ document.getElementById("copyLink").onclick=function(){navigator.clipboard.write
 </script>
 <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/vahed.html" style="color:var(--accent)">مبدل واحد</a> · <a href="/size-chart.html" style="color:var(--accent)">مبدل سایز پوشاک</a> · <a href="/etebarsanji.html" style="color:var(--accent)">اعتبارسنجی شبا و کد ملی</a> · <a href="/sen.html" style="color:var(--accent)">محاسبه سن</a></p>
 </main>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"BMI چیست؟","acceptedAnswer":{"@type":"Answer","text":"شاخص توده بدنی، نسبت وزن به مجذور قد است و معیار غربالگری ساده‌ای برای وضعیت وزن محسوب می‌شود."}},
-{"@type":"Question","name":"کالری روزانه مورد نیاز چطور محاسبه می‌شود؟","acceptedAnswer":{"@type":"Answer","text":"با فرمول Mifflin-St Jeor نرخ متابولیسم پایه محاسبه و در ضریب سطح فعالیت بدنی ضرب می‌شود."}}
-]}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "BMI دقیقاً چه چیزی را نشان می‌دهد؟", "acceptedAnswer": {"@type": "Answer", "text": "شاخص توده بدنی نسبت وزن به قد را نشان می‌دهد و یک شاخص غربالگری ساده است، نه تشخیص پزشکی. برای ورزشکاران با توده عضلانی بالا یا افراد مسن ممکن است دقیق نباشد."}}, {"@type": "Question", "name": "TDEE چیست و چطور محاسبه می‌شود؟", "acceptedAnswer": {"@type": "Answer", "text": "TDEE یعنی مجموع کالری مصرفی روزانه بدن. ابتدا با فرمول Mifflin-St Jeor نرخ متابولیسم پایه (BMR) محاسبه می‌شود، سپس در ضریب سطح فعالیت ضرب می‌شود."}}, {"@type": "Question", "name": "میزان آب پیشنهادی چقدر قابل اتکاست؟", "acceptedAnswer": {"@type": "Answer", "text": "این تخمین بر اساس قاعده رایج ۳۰ تا ۳۵ میلی‌لیتر آب به‌ازای هر کیلوگرم وزن بدن است و یک راهنمای کلی است، نه توصیه پزشکی شخصی‌سازی‌شده."}}]}</script>
 
 <script>
 function show(n){ [1,2,3].forEach(i=>{document.getElementById("p"+i).hidden=i!==n; document.getElementById("t"+i).setAttribute("aria-selected", i===n);}); }

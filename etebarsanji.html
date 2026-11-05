@@ -185,12 +185,7 @@ document.getElementById("copyLink").onclick=function(){navigator.clipboard.write
 </script>
 <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/vahed.html" style="color:var(--accent)">مبدل واحد</a> · <a href="/salamat.html" style="color:var(--accent)">محاسبه‌گر سلامت</a> · <a href="/size-chart.html" style="color:var(--accent)">مبدل سایز پوشاک</a> · <a href="/taghvim.html" style="color:var(--accent)">تبدیل تاریخ</a> · <a href="/qrcode.html" style="color:var(--accent)">ساخت کد QR</a></p>
 </main>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"آیا این ابزار شماره شبا پیدا می‌کند؟","acceptedAnswer":{"@type":"Answer","text":"خیر، فقط صحت ساختاری شماره‌ای که وارد می‌کنید را بررسی و نام بانک را از روی کد آن تشخیص می‌دهد."}},
-{"@type":"Question","name":"اعتبارسنجی کد ملی چیست؟","acceptedAnswer":{"@type":"Answer","text":"بررسی صحت ریاضی رقم کنترلی کد ملی بر اساس الگوریتم رسمی، نه تأیید هویت واقعی."}}
-]}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "این ابزار شماره شبای کسی را «پیدا» می‌کند؟", "acceptedAnswer": {"@type": "Answer", "text": "خیر، این ابزار فقط ساختار و رقم کنترلی شماره‌ای را که خودتان وارد می‌کنید بررسی می‌کند و نام بانک را از روی کد سه‌رقمی تشخیص می‌دهد. هیچ اطلاعاتی درباره صاحب حساب یا موجودی نشان نمی‌دهد و چیزی هم ذخیره یا ارسال نمی‌شود."}}, {"@type": "Question", "name": "اعتبارسنجی کد ملی یعنی چه؟", "acceptedAnswer": {"@type": "Answer", "text": "کد ملی ایران یک رقم کنترلی (آخرین رقم) دارد که با فرمول مشخصی از ۹ رقم اول محاسبه می‌شود. این ابزار فقط صحت ساختاری عدد را می‌سنجد، نه اینکه آیا این کد ملی واقعاً برای شخصی صادر شده یا نه."}}, {"@type": "Question", "name": "چرا بعضی شبا‌ها «بانک شناسایی نشد» نشان می‌دهند؟", "acceptedAnswer": {"@type": "Answer", "text": "چون کد سه‌رقمی بانک در جدول داخلی ابزار موجود نیست — ممکن است بانک یا مؤسسه کمتر رایجی باشد. در این حالت فقط نتیجه معتبر/نامعتبر بودن شبا نمایش داده می‌شود."}}]}</script>
 
 <script>
 function show(n){ [1,2].forEach(i=>{document.getElementById("p"+i).hidden=i!==n; document.getElementById("t"+i).setAttribute("aria-selected", i===n);}); }
