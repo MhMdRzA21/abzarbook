@@ -78,3 +78,16 @@ button:focus-visible, a:focus-visible, .menu-btn:focus-visible{
     color:#1c1914 !important;
   }
 }
+
+/* دکمه تم کنار همبرگر، در نوار بالا */
+.bar-actions{display:flex;align-items:center;gap:8px;flex:none}
+.theme-quick{
+  width:44px;height:44px;border-radius:12px;padding:0;cursor:pointer;flex:none;
+  border:1px solid #d5c9ad;background:#fffdf8;color:#1c1914;
+  display:flex;align-items:center;justify-content:center;
+}
+.theme-quick:hover{border-color:#c47a1a}
+.theme-quick .ico-moon{display:none}
+html[data-theme="dark"] .theme-quick{background:#1a1710;color:#f2ebd8;border-color:#3a3320}
+html[data-theme="dark"] .theme-quick .ico-sun{display:none}
+html[data-theme="dark"] .theme-quick .ico-moon{display:block}

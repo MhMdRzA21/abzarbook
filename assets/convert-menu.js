@@ -1,7 +1,7 @@
 (function(){
   if(document.getElementById("abzarBar")) return;
   const s=document.createElement("script");
-  s.src="/assets/site-menu.js?v=12";
+  s.src="/assets/site-menu.js?v=13";
   document.body.appendChild(s);
 
   function closer(){
