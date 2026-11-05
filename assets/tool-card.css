@@ -1,0 +1,72 @@
+/* ابزاربوک: کارت ابزار یکدست برای همه صفحه‌ها (خانه، ابزارها، راهنماها، تبدیل‌ها).
+   یک ساختار: .tool-list > a.tool-card > .tc-icon + .tc-body(.tc-title, .tc-desc, .tc-tags, .tc-example) + .tc-arrow
+   رنگ‌ها از متغیرهای تم هر صفحه می‌آیند (خانه: --card/--rule، تبدیل‌ها: --paper-raised/--line). */
+
+.tool-list{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 28px}
+@media (min-width:680px){
+  .tool-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+}
+
+.tool-card{
+  --tc-bg:var(--card,var(--paper-raised,#fff));
+  --tc-line:var(--rule,var(--line,#e2dccf));
+  --tc-ink:var(--ink,#1d1b18);
+  --tc-mute:var(--mute,var(--ink-soft,#6b655c));
+  --tc-accent:var(--accent,var(--stamp,#c47a1a));
+  --tc-accent2:var(--accent2,var(--teal,#2a6f63));
+  position:relative;display:flex;align-items:flex-start;gap:14px;
+  min-width:0;height:100%;box-sizing:border-box;
+  padding:16px;border:1px solid var(--tc-line);border-radius:14px;
+  background:var(--tc-bg);color:var(--tc-ink);text-decoration:none;
+  box-shadow:0 1px 2px rgba(0,0,0,.04);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.tool-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 26px -16px rgba(0,0,0,.3);
+  border-color:color-mix(in srgb,var(--tc-accent2) 40%,var(--tc-line));
+}
+.tool-card:active{transform:translateY(-1px)}
+.tool-card:focus-visible{outline:2px solid var(--tc-accent2);outline-offset:3px}
+
+.tc-icon{
+  width:48px;height:48px;flex:none;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;box-shadow:0 6px 16px -8px rgba(0,0,0,.35);
+  transition:transform .25s cubic-bezier(.34,1.4,.64,1);
+}
+.tc-icon svg{width:24px;height:24px}
+.tool-card:hover .tc-icon{transform:scale(1.05) rotate(-3deg)}
+
+.tc-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.tc-title{display:block;font-weight:800;font-size:1.02rem;line-height:1.4;color:var(--tc-ink)}
+.tc-desc{display:block;font-size:.86rem;line-height:1.7;color:var(--tc-mute)}
+.tc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tc-tag{
+  font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:999px;
+  background:color-mix(in srgb,var(--tc-accent2) 10%,transparent);
+  color:var(--tc-accent2);
+}
+.tc-example{
+  align-self:flex-start;margin-top:4px;
+  font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:8px;
+  color:var(--tc-accent);background:color-mix(in srgb,var(--tc-accent) 9%,transparent);
+}
+.tc-arrow{
+  flex:none;align-self:center;color:var(--tc-mute);opacity:.6;
+  transition:transform .2s ease,opacity .2s ease,color .2s ease;
+}
+.tool-card:hover .tc-arrow{transform:translateX(-3px);opacity:1;color:var(--tc-accent2)}
+
+/* موبایل: یک ستون، توضیح کوتاه، بدون برچسب‌ها تا کارت‌ها یکدست و خوانا بمانند */
+@media (max-width:679px){
+  .tool-card{padding:14px;gap:12px}
+  .tc-icon{width:42px;height:42px;border-radius:12px}
+  .tc-icon svg{width:22px;height:22px}
+  .tc-desc{
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .tc-tags,.tc-example,.tc-arrow{display:none}
+}
+
+.tool-hidden{display:none !important}
