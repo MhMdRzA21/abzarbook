@@ -91,6 +91,11 @@ function serveStatic(req, res) {
     res.writeHead(301, { Location: '/#files', 'Cache-Control': 'public, max-age=86400', ...SECURITY });
     return res.end();
   }
+  // Duplicate about page merged into the canonical /about.html.
+  if (urlPath === '/convert/pages/about.html') {
+    res.writeHead(301, { Location: '/about.html', 'Cache-Control': 'public, max-age=86400', ...SECURITY });
+    return res.end();
+  }
   if (urlPath === '/') urlPath = '/index.html';
   // favicon fallback to site icon
   if (urlPath === '/favicon.ico') urlPath = '/icon-192.png';
