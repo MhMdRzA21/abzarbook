@@ -124,7 +124,11 @@ textarea{width:100%;padding:12px 14px;border:1.5px solid var(--rule);border-radi
 <a href="/" class="backlink">ابزاربوک</a>
 <div class="letterhead"><div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/></svg></div><div class="lh-text"><h1>شمارش متن</h1><p>کلمه، نویسه و زمان مطالعه</p></div></div>
 <section class="card"><label for="text">متن</label><textarea id="text" rows="7" placeholder="متن را اینجا بگذار"></textarea><button class="go" id="go">بشمار</button><div class="allres" id="out"></div></section>
-<h2>به چه درد می‌خورد؟</h2><p>برای کپشن، مقاله و محدودیت کاراکتر. زمان مطالعه با حدود ۱۸۰ کلمه در دقیقه حساب می‌شود. نیم‌فاصله کلمه را نصف نمی‌کند.</p><h2>سؤالات متداول</h2><details><summary>کلمه چطور جدا می‌شود؟</summary><p>با فاصله. نیم‌فاصله داخل کلمه می‌ماند.</p></details><details><summary>برای سئو کافی است؟</summary><p>تعداد کلمه فقط یک سیگنال است.</p></details>
+<h2>به چه درد می‌خورد؟</h2><p>برای کپشن، مقاله و محدودیت کاراکتر. زمان مطالعه با حدود ۱۸۰ کلمه در دقیقه حساب می‌شود. نیم‌فاصله کلمه را نصف نمی‌کند.</p><section class="example-block" aria-labelledby="ex-h">
+<h2 id="ex-h">مثال محاسبه</h2>
+<p>متنی با ۱۸۰ کلمه، حدود یک دقیقه زمان مطالعه دارد. این عدد برای برنامه‌ریزی مطالعه یا زمان‌بندی ارائه کاربرد دارد.</p>
+</section>
+<h2>سؤالات متداول</h2><details><summary>کلمه چطور جدا می‌شود؟</summary><p>با فاصله. نیم‌فاصله داخل کلمه می‌ماند.</p></details><details><summary>برای سئو کافی است؟</summary><p>تعداد کلمه فقط یک سیگنال است.</p></details>
 <p class="note">این ابزار برای استفاده روزمره است. ابزاربوک اطلاعات شما را ذخیره یا ارسال نمی‌کند.</p>
 <div class="share-row"><a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a><button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button></div>
 <script>document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};</script>
