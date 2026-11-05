@@ -1,7 +1,7 @@
 (function(){
   if(document.getElementById("abzarBar")) return;
   const link=document.createElement("link");
-  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=12";
+  link.rel="stylesheet"; link.href="/assets/site-menu.css?v=13";
   document.head.appendChild(link);
   const bar=document.createElement("header");
   bar.id="abzarBar";
@@ -20,9 +20,9 @@
     <aside class="menu-drawer" id="menuDrawer">
       <div class="menu-top"><strong>ابزاربوک</strong><button class="menu-close" id="menuClose" aria-label="بستن">×</button></div>
       <a href="/">صفحه اصلی</a>
-      <a href="/#tools">محاسبه و کاربردی</a>
+      <a href="/#tools">ابزار محاسبه و کاربردی</a>
       <a href="/#files">ابزار فایل</a>
-      <a href="/convert/guides/">راهنمای فایل</a>
+      <a href="/convert/guides/">راهنما</a>
       <a href="/about.html">درباره</a>
       <a href="https://t.me/abzarbook" target="_blank" rel="noopener">تماس با ما</a>
       <button class="block" id="themeToggle" type="button">حالت روشن</button>

@@ -135,5 +135,5 @@ textarea{width:100%;padding:12px 14px;border:1.5px solid var(--rule);border-radi
 <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/text-tools.html" style="color:var(--accent)">ابزار متن</a> · <a href="/typing-test.html" style="color:var(--accent)">تست تایپ</a></p>
 </main><script src="/assets/num-fa.js"></script><script>const fa=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
 function count(){const text=document.getElementById("text").value||""; const words=(text.trim().match(/[^\s]+/g)||[]).length; document.getElementById("out").innerHTML=`<div class="grid-res"><div class="res-tile active"><b>${fa(words)}</b><span>کلمه</span></div><div class="res-tile"><b>${fa(text.length)}</b><span>نویسه</span></div><div class="res-tile"><b>${fa(Math.max(1,Math.ceil(words/180)))}</b><span>دقیقه مطالعه</span></div></div>`;}
-document.getElementById("go").onclick=count; document.getElementById("text").addEventListener("input", count);</script><script src="/assets/site-menu.js?v=13"></script>
+document.getElementById("go").onclick=count; document.getElementById("text").addEventListener("input", count);</script><script src="/assets/site-menu.js?v=14"></script>
 </body></html>

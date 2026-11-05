@@ -534,3 +534,7 @@ html[data-theme="dark"] .abzar-close details,html[data-theme="dark"] .abzar-clos
 .btn-convert{border-radius:999px !important;min-height:44px}
 
 
+
+/* خوانایی در تم تیره: دکمه‌های اشتراک و لینک‌های متنی */
+html[data-theme="dark"] .abzar-close .share-btn{color:#f2ebd8 !important}
+html[data-theme="dark"] main a:not(.btn-convert):not(.tc-title){color:#e0b04a}
