@@ -1,18 +1,10 @@
 // ابزاربوک — کش آفلاین: بعد از اولین بازدید، همه ابزارها بدون اینترنت کار می‌کنند.
-const VERSION = 'abzarbook-v3';
+const VERSION = 'abzarbook-v2';
 const PRECACHE = [
   '/',
   '/index.html',
   '/hoghoogh-dastmazd.html',
-  '/eydi-1405.html',
-  '/sanavat-payan-kar.html',
-  '/maliat-hoghoogh-1405.html',
-  '/hoghoogh-khales-1405.html',
   '/rahn-vam.html',
-  '/tabdil-rahn-ejare.html',
-  '/ghest-vam-ezdevaj-1405.html',
-  '/saghf-ejare-1405.html',
-  '/llms.txt',
   '/text-tools.html',
   '/vahed.html',
   '/salamat.html',
