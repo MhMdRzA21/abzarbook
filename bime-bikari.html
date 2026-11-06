@@ -146,7 +146,11 @@ button.go{font-family:inherit;border:0;border-radius:999px;padding:11px 18px;bac
 <a href="/" class="backlink">ابزاربوک</a>
 <div class="letterhead">
   <div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3z" stroke="currentColor" stroke-width="1.6"/></svg></div>
-  <div class="lh-text"><h1>بیمه بیکاری</h1><p>مدت و مبلغ تقریبی طبق قاعده رایج تأمین اجتماعی</p></div>
+  <div class="lh-text"><h1>بیمه بیکاری</h1><p>مدت و مبلغ تقریبی طبق قاعده رایج تأمین اجتماعی</p><p style="font-size:.74rem;margin-top:3px">به‌روزرسانی: ۱۵ آبان ۱۴۰۵</p></div>
+</div>
+<div style="background:var(--card);border:1px solid var(--rule);border-right:4px solid var(--accent2);border-radius:12px;padding:12px 14px;margin:0 0 14px">
+<p style="margin:0 0 6px">مقرری روزانه در این ابزار = متوسط مزد روزانه × ۵۵٪ × (۱ + ۱۰٪ × تعداد افراد تحت تکفل، حداکثر ۴ نفر).</p>
+<p style="margin:0;font-size:.8rem;color:var(--mute)">منبع: همان درصدهایی که کد این صفحه استفاده می‌کند. TODO: شماره ماده قانون بیمه بیکاری در مخزن نیست.</p>
 </div>
 <section class="card">
 <label for="months">سابقه بیمه (ماه)</label><input id="months" inputmode="numeric" value="24">
@@ -159,7 +163,7 @@ button.go{font-family:inherit;border:0;border-radius:999px;padding:11px 18px;bac
 <h2>بیمه بیکاری چطور حساب می‌شود؟</h2><p>مقرری معمولاً ۵۵٪ متوسط مزد روزانه ۹۰ روز آخر است. برای هر فرد تحت تکفل ۱۰٪ اضافه می‌شود، حداکثر ۴ نفر. مدت پرداخت به سابقه و تأهل بستگی دارد.</p><p>عدد این صفحه تخمین است. رأی قطعی را شعبه با لیست بیمه و دلیل بیکاری می‌دهد.</p>
 <section class="example-block" aria-labelledby="ex-h">
 <h2 id="ex-h">مثال محاسبه</h2>
-<p>اگر سابقه پرداخت بیمه‌ات 24 ماه و میانگین مزدت 700 هزار تومان باشد، مدت پرداخت بیمه بیکاری حدود 12 ماه برآورد می‌شود.</p>
+<p>ورودی پیش‌فرض صفحه: سابقه 24 ماه، مزد روزانه 700,000 تومان (نه ماهانه)، افراد تحت تکفل 0، وضعیت مجرد. مدت: چون سابقه به ۲۴ ماه رسیده و شخص مجرد است، کد ۶ ماه می‌دهد نه ۱۲. مقرری روزانه = 700,000 × 0.55 = 385,000 تومان. مقرری ماهانه تقریبی = 385,000 × 30 = 11,550,000 تومان. اگر وضعیت را متأهل بگذارید، همان سابقه ۲۴ ماه در این کد ۱۲ ماه مدت می‌دهد.</p>
 </section>
 <h2>سؤالات متداول</h2>
 <details><summary>مجرد و متأهل فرق دارد؟</summary><p>با سابقه برابر، متأهل معمولاً مدت بیشتری می‌گیرد.</p></details><details><summary>حداقل سابقه چقدر است؟</summary><p>اغلب ۶ ماه بیمه در آخرین کارگاه، با شرایط قانون بیمه بیکاری.</p></details>
