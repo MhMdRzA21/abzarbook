@@ -4,8 +4,8 @@
 <script>try{if(localStorage.getItem("ab-theme-chosen")==="1"&&localStorage.getItem("ab-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>محاسبه مهریه به نرخ روز | سکه و طلا | ابزاربوک</title>
-<meta name="description" content="محاسبه مهریه به نرخ روز بر اساس تعداد سکه یا گرم طلا، با نمایش عدد و حروف فارسی. تبدیل مهریه قدیم به ارزش روز، رایگان و دقیق.">
+<title>محاسبه مهریه به نرخ روز | سکه، طلا و وجه رایج | ابزاربوک</title>
+<meta name="description" content="مهریه سکه یا طلا را با قیمت روزی که خودتان وارد می‌کنید حساب کنید. برای وجه رایج، شاخص سال عقد و سال مطالبه را از جدول بانک مرکزی وارد کنید؛ شاخص در سایت ذخیره نشده است.">
 <meta name="keywords" content="محاسبه مهریه به نرخ روز, مهریه سکه, تبدیل مهریه, نرخ روز مهریه, محاسبه مهریه طلا, ارزش روز سکه بهار آزادی, مهریه به تومان">
 <meta property="og:title" content="محاسبه مهریه به نرخ روز | سکه و طلا | ابزاربوک">
 <meta property="og:description" content="محاسبه مهریه به نرخ روز بر اساس تعداد سکه تمام بهار آزادی یا گرم طلای ۱۸ عیار. تبدیل مهریه قدیم به ارزش روز با نمایش عدد و حروف فارسی. رایگان و دقیق در ابزاربوک.">
@@ -56,7 +56,8 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "محاسبه مهریه به نرخ روز",
-  "description": "راهنمای تبدیل تعداد سکه یا گرم طلای مهریه به ارزش ریالی روز",
+  "dateModified": "2026-11-06",
+  "description": "راهنمای تبدیل تعداد سکه یا گرم طلای مهریه به ارزش ریالی روز، یا به‌روزرسانی وجه رایج با شاخصی که کاربر وارد می‌کند",
   "step": [
     {"@type": "HowToStep", "name": "نوع مهریه را انتخاب کنید", "text": "سکه یا طلا (گرم) را انتخاب کنید."},
     {"@type": "HowToStep", "name": "تعداد یا مقدار را وارد کنید", "text": "تعداد سکه تمام بهار آزادی یا گرم طلای ۱۸ عیار را وارد کنید."},
@@ -77,11 +78,13 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
   <a class="back" href="/">← بازگشت به ابزاربوک</a>
   <div class="card">
     <h1>محاسبه مهریه به نرخ روز</h1>
-    <p class="sub">تبدیل تعداد سکه یا گرم طلا به ارزش ریالی روز</p>
+    <p class="sub">سکه، طلا، یا وجه رایج با شاخصی که خودتان وارد می‌کنید</p>
+    <p class="sub">به‌روزرسانی: ۱۵ آبان ۱۴۰۵</p>
 
     <div class="seg" role="tablist">
       <button type="button" aria-selected="true" data-mode="coin">سکه</button>
       <button type="button" aria-selected="false" data-mode="gold">طلا (گرم)</button>
+      <button type="button" aria-selected="false" data-mode="cash">وجه رایج</button>
     </div>
 
     <div id="coinBox">
@@ -90,6 +93,16 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
       <label for="coinPrice">قیمت روز هر سکه (تومان)</label>
       <input id="coinPrice" type="text" inputmode="numeric" placeholder="مثلاً 45,000,000">
       <p class="hint">قیمت سکه را از منابع معتبر روز وارد کنید.</p>
+    </div>
+
+    <div id="cashBox" style="display:none">
+      <label for="cashAmount">مبلغ مهریه در زمان عقد (تومان)</label>
+      <input id="cashAmount" type="text" inputmode="numeric" placeholder="مثلاً 10,000,000">
+      <label for="indexThen">شاخص سال عقد</label>
+      <input id="indexThen" type="text" inputmode="decimal" placeholder="از جدول بانک مرکزی">
+      <label for="indexNow">شاخص سال مطالبه</label>
+      <input id="indexNow" type="text" inputmode="decimal" placeholder="از جدول بانک مرکزی">
+      <p class="hint">فرمول: مبلغ × (شاخص مطالبه ÷ شاخص عقد). جدول شاخص بانک مرکزی در این سایت نیست. TODO: شاخص سالانه را از جدول رسمی بانک مرکزی وارد کنید؛ عدد پیش‌فرض ذخیره نشده است.</p>
     </div>
 
     <div id="goldBox" style="display:none">
@@ -117,19 +130,21 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
   <p>این ابزار با گرفتن تعداد سکه یا گرم طلا و قیمت روز آن (که باید از یک منبع معتبر بازار مثل اتحادیه طلا و جواهر وارد کنید)، ارزش تقریبی ریالی مهریه را به‌صورت آنی محاسبه می‌کند.</p>
   <section class="example-block" aria-labelledby="ex-h">
 <h2 id="ex-h">مثال محاسبه</h2>
-<p>اگر مهریه شما 110 سکه باشد، ارزش روز آن بر اساس قیمت روز سکه به تومان محاسبه می‌شود. این مبلغ تقریبی است و قیمت لحظه‌ای بازار را نشان می‌دهد.</p>
+<p>سکه: 110 سکه × قیمت روز 45,000,000 تومان (نمونه ورودی، نه نرخ بازار) = 4,950,000,000 تومان.</p>
+<p>وجه رایج: مبلغ 10,000,000 تومان، شاخص عقد 100 و شاخص مطالبه 250. این دو شاخص فرضی‌اند، نه عدد بانک مرکزی. ارزش = 10,000,000 × (250 ÷ 100) = 25,000,000 تومان.</p>
 </section>
 <h2>سؤالات متداول</h2>
   <details><summary>مهریه به نرخ روز چگونه محاسبه می‌شود؟</summary><p>تعداد سکه یا گرم طلای مهریه در قیمت روز همان واحد ضرب می‌شود تا ارزش تقریبی ریالی مهریه به نرخ روز به دست آید.</p></details>
   <details><summary>آیا این ابزار قیمت روز سکه و طلا را خودش نشان می‌دهد؟</summary><p>خیر، برای دقت و اعتبار، قیمت روز باید از یک منبع معتبر بازار وارد شود؛ ابزار فقط محاسبه را انجام می‌دهد.</p></details>
   <details><summary>آیا محاسبه مهریه به نرخ روز، مرجع رسمی و قانونی است؟</summary><p>خیر، این ابزار صرفاً برای برآورد شخصی است و جایگزین مشاوره حقوقی یا مرجع رسمی قانون مدنی نیست.</p></details>
+  <details><summary>وجه رایج چطور به نرخ روز می‌رسد؟</summary><p>مبلغ زمان عقد ضرب در شاخص سال مطالبه تقسیم بر شاخص سال عقد. هر دو شاخص را باید از جدول بانک مرکزی وارد کنید. سایت شاخص آماده ندارد.</p></details>
   </div>
-  <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/hoghoogh-dastmazd.html" style="color:var(--accent2)">عیدی و سنوات</a> · <a href="/rahn-vam.html" style="color:var(--accent2)">رهن، اجاره و وام</a> · <a href="/commission.html" style="color:var(--accent2)">کمیسیون مشاور املاک</a></p>
+  <p style="font-size:.8rem;margin-top:14px">ابزارهای مرتبط: <a href="/ers.html" style="color:var(--accent2)">سهم ارث</a> · <a href="/bardari.html" style="color:var(--accent2)">سن بارداری</a> · <a href="/tavarom.html" style="color:var(--accent2)">تورم و ارزش پول</a></p>
 </main>
 <script src="/assets/num-fa.js"></script>
 <script>
 (function(){
-  ['coinPrice','goldPrice'].forEach(function(id){AB.liveFormat(document.getElementById(id));});
+  ['coinPrice','goldPrice','cashAmount'].forEach(function(id){AB.liveFormat(document.getElementById(id));});
   var mode='coin';
   var btns=document.querySelectorAll('.seg button');
   btns.forEach(function(b){
@@ -139,6 +154,7 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
       mode=b.getAttribute('data-mode');
       document.getElementById('coinBox').style.display=mode==='coin'?'block':'none';
       document.getElementById('goldBox').style.display=mode==='gold'?'block':'none';
+      document.getElementById('cashBox').style.display=mode==='cash'?'block':'none';
       document.getElementById('res').classList.remove('on');
     });
   });
@@ -148,10 +164,16 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
       var c=parseFloat(AB.toEn(document.getElementById('coins').value))||0;
       var p=parseFloat(AB.toEn(document.getElementById('coinPrice').value))||0;
       val=c*p;
-    }else{
+    }else if(mode==='gold'){
       var g=parseFloat(AB.toEn(document.getElementById('grams').value))||0;
       var gp=parseFloat(AB.toEn(document.getElementById('goldPrice').value))||0;
       val=g*gp;
+    }else{
+      var amount=parseFloat(AB.toEn(document.getElementById('cashAmount').value))||0;
+      var then=parseFloat(AB.toEn(document.getElementById('indexThen').value))||0;
+      var now=parseFloat(AB.toEn(document.getElementById('indexNow').value))||0;
+      if(!then){document.getElementById('res').classList.remove('on');return;}
+      val=amount*(now/then);
     }
     document.getElementById('out').textContent=AB.fmtToman(val);
     document.getElementById('outWords').textContent=AB.wordsToman(val);
