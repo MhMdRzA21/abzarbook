@@ -1,0 +1,62 @@
+# ابزاربوک
+# https://abzarbook.ir/
+# فهرست ابزارها برای مدل‌های زبانی. رقم رسمی تازه‌ای اینجا نیست.
+
+## حقوق و کار
+- https://abzarbook.ir/hoghoogh-dastmazd.html : هاب عیدی، سنوات، مالیات حقوق و پیوند به صفحه‌های جدا
+- https://abzarbook.ir/eydi-1405.html : عیدی ۱۴۰۵ کارگر با ۶۰ روز مزد و نسبت کارکرد؛ عیدی دولتی مبلغ ثابت ثبت‌شده در ابزار
+- https://abzarbook.ir/sanavat-payan-kar.html : سنوات پایان کار، ۳۰ روز آخرین حقوق به‌ازای هر سال
+- https://abzarbook.ir/maliat-hoghoogh-1405.html : جدول و محاسبه مالیات حقوق با پلکان ذخیره‌شده در سایت
+- https://abzarbook.ir/hoghoogh-khales-1405.html : حقوق خالص از اقلام واردشده، بیمه با نرخ کاربر، و همان جدول مالیات
+- https://abzarbook.ir/ezafe-kari.html : اضافه‌کاری، شب‌کاری و جمعه‌کاری
+- https://abzarbook.ir/saat-kar.html : محاسبه ساعت کار و شیفت
+- https://abzarbook.ir/bime-bikari.html : برآورد مدت و مبلغ بیمه بیکاری
+
+## مسکن و پول
+- https://abzarbook.ir/rahn-vam.html : هاب رهن و اجاره، وام ازدواج و سقف اجاره
+- https://abzarbook.ir/tabdil-rahn-ejare.html : تبدیل رهن به اجاره با نرخ دلخواه و مقایسه دو آگهی
+- https://abzarbook.ir/ghest-vam-ezdevaj-1405.html : قسط وام ازدواج و فرزندآوری با فرمول پخش کارمزد همین سایت
+- https://abzarbook.ir/saghf-ejare-1405.html : افزایش رهن و اجاره با درصد انتخابی
+- https://abzarbook.ir/commission.html : کمیسیون مشاور املاک
+- https://abzarbook.ir/ghest-vam.html : اقساط وام
+- https://abzarbook.ir/ghest-khodro.html : اقساط خودرو
+- https://abzarbook.ir/sud-seporde.html : سود سپرده
+- https://abzarbook.ir/tavarom.html : تورم و قدرت خرید
+- https://abzarbook.ir/maliat-arzesh-afzoode.html : مالیات بر ارزش افزوده
+- https://abzarbook.ir/rial-toman.html : تبدیل ریال و تومان
+- https://abzarbook.ir/darsad.html : درصد و تخفیف
+
+## خانواده و قانون
+- https://abzarbook.ir/mahriye.html : مهریه سکه، طلا، یا وجه رایج با شاخصی که کاربر وارد می‌کند
+- https://abzarbook.ir/ers.html : سهم ارث
+- https://abzarbook.ir/bardari.html : سن بارداری
+
+## فایل و تصویر
+- https://abzarbook.ir/convert/tools.html : فهرست ابزارهای PDF و تصویر
+- https://abzarbook.ir/convert/compress-file.html : کاهش حجم فایل
+- https://abzarbook.ir/convert/compress/ : کاهش حجم به اندازه مشخص
+- https://abzarbook.ir/convert/pdf-to-word.html : PDF به ورد؛ متن فارسی قابل انتخاب معمولاً بهتر از اسکن تبدیل می‌شود و راست‌به‌چپ کامل تضمین نشده
+- https://abzarbook.ir/convert/word-to-pdf.html : ورد به PDF
+- https://abzarbook.ir/convert/merge-pdf.html : ادغام PDF
+- https://abzarbook.ir/convert/split-pdf.html : تقسیم PDF
+- https://abzarbook.ir/convert/jpg-to-pdf.html : تصویر به PDF
+- https://abzarbook.ir/convert/pdf-to-jpg.html : PDF به تصویر
+- https://abzarbook.ir/convert/image-format.html : تبدیل فرمت تصویر
+- https://abzarbook.ir/convert/excel-ppt-to-pdf.html : اکسل و پاورپوینت به PDF
+- https://abzarbook.ir/convert/guides/ : راهنماها
+
+## سایر
+- https://abzarbook.ir/taghvim.html : تبدیل تاریخ شمسی و میلادی و قمری
+- https://abzarbook.ir/sen.html : محاسبه سن
+- https://abzarbook.ir/adad-be-horuf.html : عدد به حروف
+- https://abzarbook.ir/shomaresh-matn.html : شمارش متن
+- https://abzarbook.ir/text-tools.html : ابزار متن فارسی
+- https://abzarbook.ir/typing-test.html : تست تایپ فارسی
+- https://abzarbook.ir/vahed.html : تبدیل واحد
+- https://abzarbook.ir/qrcode.html : ساخت کد QR
+- https://abzarbook.ir/ramz.html : رمزساز
+- https://abzarbook.ir/etebarsanji.html : بررسی ساختار شبا و کد ملی
+- https://abzarbook.ir/moadel.html : معدل
+- https://abzarbook.ir/konkur-darsad.html : درصد آزمون
+- https://abzarbook.ir/salamat.html : شاخص توده بدنی و کالری
+- https://abzarbook.ir/size-chart.html : سایز پوشاک و کفش
