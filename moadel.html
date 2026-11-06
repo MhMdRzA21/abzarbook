@@ -76,9 +76,9 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
     <div id="rows"></div>
     <button type="button" class="add" id="add">+ افزودن درس</button>
     <label for="pavg">معدل کل ترم‌های قبل (اختیاری)</label>
-    <input id="pavg" type="text" inputmode="decimal" placeholder="مثلاً ۱۶٫۵">
+    <input id="pavg" type="text" inputmode="decimal" placeholder="مثلاً 16.5">
     <label for="punit">تعداد واحدهای گذرانده قبلی (اختیاری)</label>
-    <input id="punit" type="text" inputmode="numeric" placeholder="مثلاً ۶۰">
+    <input id="punit" type="text" inputmode="numeric" placeholder="مثلاً 60">
     <button class="go" id="calc">محاسبه معدل</button>
     <div class="result" id="res">
       <div class="row"><span>معدل این ترم</span><div class="amt"><b id="o1">—</b><small id="w1"></small></div></div>
@@ -99,7 +99,7 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
     <p>بیشترین اثر از درس‌های پرواحد می‌آید. بهبود نمره یک درس چهارواحدی از ۱۲ به ۱۶، اثر بیشتری از بهبود یک درس دوواحدی دارد. دانشگاه‌ها معمولاً شرایط مشروطی و ترم ممتاز را بر اساس معدل ترم تعیین می‌کنند، پس آیین‌نامه دانشگاه خودتان را بخوانید.</p>
     <section class="example-block" aria-labelledby="ex-h">
 <h2 id="ex-h">مثال محاسبه</h2>
-<p>اگر ۴ درس با نمره‌های مختلف داشته باشید، معدل وزنی شما بر اساس واحد هر درس محاسبه می‌شود. در این مثال معدل حدود ۱۶٫۸ به دست می‌آید.</p>
+<p>اگر 4 درس با نمره‌های مختلف داشته باشید، معدل وزنی شما بر اساس واحد هر درس محاسبه می‌شود. در این مثال معدل حدود 16.8 به دست می‌آید.</p>
 </section>
 <h2>سؤالات متداول</h2>
     <details><summary>معدل ترم چگونه محاسبه می‌شود؟</summary><p>نمره هر درس را در تعداد واحدش ضرب کنید، همه را جمع کنید و بر مجموع واحدهای ترم تقسیم کنید.</p></details>
@@ -114,7 +114,7 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
   var rows=document.getElementById('rows');
   function addRow(){
     var d=document.createElement('div');d.className='grow';
-    d.innerHTML='<input type="text" inputmode="decimal" placeholder="نمره (۰ تا ۲۰)" class="g"><input type="text" inputmode="numeric" placeholder="تعداد واحد" class="u"><button type="button" class="x" aria-label="حذف درس">×</button>';
+    d.innerHTML='<input type="text" inputmode="decimal" placeholder="نمره (0 تا 20)" class="g"><input type="text" inputmode="numeric" placeholder="تعداد واحد" class="u"><button type="button" class="x" aria-label="حذف درس">×</button>';
     d.querySelector('.x').onclick=function(){if(rows.children.length>1)d.remove();};
     rows.appendChild(d);
   }

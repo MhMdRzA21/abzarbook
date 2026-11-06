@@ -202,7 +202,7 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 <p>این محاسبه‌گر بر اساس قد، وزن، سن و جنسیت شما، BMI و میزان کالری مورد نیاز روزانه (بر اساس فرمول‌های استاندارد علمی) را تخمین می‌زند. توجه کنید این اعداد صرفاً برآورد عمومی هستند و جایگزین معاینه یا مشاوره با پزشک و متخصص تغذیه نیستند، به‌خصوص برای افرادی با شرایط خاص پزشکی.</p>
 <section class="example-block" aria-labelledby="ex-h">
 <h2 id="ex-h">مثال محاسبه</h2>
-<p>قد ۱۷۵ سانتی‌متر و وزن ۷۰ کیلوگرم، شاخص توده بدنی (BMI) حدود ۲۲٫۹ می‌دهد. این عدد فقط یک راهنمای کلی است و جایگزین مشاوره پزشکی نیست.</p>
+<p>قد 175 سانتی‌متر و وزن 70 کیلوگرم، شاخص توده بدنی (BMI) حدود 22.9 می‌دهد. این عدد فقط یک راهنمای کلی است و جایگزین مشاوره پزشکی نیست.</p>
 </section>
 <h2>سؤالات متداول</h2>
 <details><summary>BMI دقیقاً چه چیزی را نشان می‌دهد؟</summary><p>شاخص توده بدنی نسبت وزن به قد را نشان می‌دهد و یک شاخص غربالگری ساده است، نه تشخیص پزشکی. برای ورزشکاران با توده عضلانی بالا یا افراد مسن ممکن است دقیق نباشد.</p></details>
@@ -230,7 +230,7 @@ document.getElementById("t3").onclick=()=>show(3);
 
 const faDigits="۰۱۲۳۴۵۶۷۸۹";
 const toEn=s=>String(s).replace(/[۰-۹]/g,d=>faDigits.indexOf(d)).replace(/[^\d.]/g,"");
-const fmtN=(n,d=1)=>n.toLocaleString("fa-IR",{maximumFractionDigits:d});
+const fmtN=(n,d=1)=>n.toLocaleString("en-US",{maximumFractionDigits:d});
 const val=id=>parseFloat(toEn(document.getElementById(id).value))||0;
 
 function out(n,html,err){
@@ -282,7 +282,7 @@ document.getElementById("g3").onclick=()=>{
   const liters = ml/1000;
   const glasses = Math.round(ml/250);
   out(3, `<div class="big">${fmtN(liters,1)} لیتر</div>
-    <p>معادل تقریباً ${glasses.toLocaleString("fa-IR")} لیوان ۲۵۰ میلی‌لیتری در روز</p>
+    <p>معادل تقریباً ${glasses.toLocaleString("en-US")} لیوان ۲۵۰ میلی‌لیتری در روز</p>
     <p>این مقدار شامل آب موجود در غذا و سایر نوشیدنی‌ها هم می‌شود.</p>`);
 };
 </script>

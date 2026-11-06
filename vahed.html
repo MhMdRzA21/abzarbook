@@ -167,7 +167,7 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 
   <div style="margin-top:14px">
     <label for="val">مقدار</label>
-    <input id="val" inputmode="decimal" placeholder="مثلاً ۱">
+    <input id="val" inputmode="decimal" placeholder="مثلاً 1">
   </div>
 
   <div class="allres" id="allres">
@@ -180,7 +180,7 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 <p>این ابزار طول، وزن، حجم، دما، سطح و چند دسته پرکاربرد دیگر را به‌صورت آنی و دقیق بین یکاهای رایج ایرانی (متر، کیلوگرم، مثقال) و بین‌المللی (فوت، پوند، اونس) تبدیل می‌کند، بدون نیاز به حفظ کردن ضرایب تبدیل یا جست‌وجوی جدول.</p>
 <section class="example-block" aria-labelledby="ex-h">
 <h2 id="ex-h">مثال محاسبه</h2>
-<p>یک مایل برابر ۱٫۶۰۹ کیلومتر یا حدود ۱٬۶۰۹ متر است. این مبدل برای تبدیل سریع واحدهای طول، وزن و حجم کاربرد دارد.</p>
+<p>یک مایل برابر 1.609 کیلومتر یا حدود 1,609 متر است. این مبدل برای تبدیل سریع واحدهای طول، وزن و حجم کاربرد دارد.</p>
 </section>
 <h2>سؤالات متداول</h2>
 <details><summary>آیا تبدیل واحدها دقیق است؟</summary><p>بله، همه ضرایب تبدیل بر اساس استانداردهای بین‌المللی SI هستند و در خود مرورگر شما محاسبه می‌شوند — بدون نیاز به اتصال به سرور.</p></details>
@@ -207,7 +207,7 @@ const fmt=n=>{
   if(!isFinite(n)) return "—";
   const abs=Math.abs(n);
   let digits = abs>=1000?2: abs>=1?4: abs>=0.001?6:8;
-  let s = n.toLocaleString("fa-IR",{maximumFractionDigits:digits});
+  let s = n.toLocaleString("en-US",{maximumFractionDigits:digits});
   return s;
 };
 

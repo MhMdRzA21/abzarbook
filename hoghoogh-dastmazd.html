@@ -195,8 +195,8 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
     <input id="base" inputmode="numeric" placeholder="مثلاً 20,000,000">
     <div class="row-f"><span class="num">۲</span><label>مدت کار در سال <span class="hint">برای سال کامل ۱۲ ماه</span></label></div>
     <div class="grid3">
-      <div><input id="em" inputmode="numeric" placeholder="مثلاً ۱۲"><span class="fcap">ماه</span></div>
-      <div><input id="ed" inputmode="numeric" placeholder="مثلاً ۰"><span class="fcap">روز</span></div>
+      <div><input id="em" inputmode="numeric" placeholder="مثلاً 12"><span class="fcap">ماه</span></div>
+      <div><input id="ed" inputmode="numeric" placeholder="مثلاً 0"><span class="fcap">روز</span></div>
       <div></div>
     </div>
   </div>
@@ -216,16 +216,16 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
     <input id="last" inputmode="numeric" placeholder="مثلاً 25,000,000">
     <div class="row-f"><span class="num">۲</span><label>سابقه کار</label></div>
     <div class="grid3">
-      <div><input id="sy" inputmode="numeric" placeholder="مثلاً ۱"><span class="fcap">سال</span></div>
-      <div><input id="sm" inputmode="numeric" placeholder="مثلاً ۰"><span class="fcap">ماه</span></div>
-      <div><input id="sd" inputmode="numeric" placeholder="مثلاً ۰"><span class="fcap">روز</span></div>
+      <div><input id="sy" inputmode="numeric" placeholder="مثلاً 1"><span class="fcap">سال</span></div>
+      <div><input id="sm" inputmode="numeric" placeholder="مثلاً 0"><span class="fcap">ماه</span></div>
+      <div><input id="sd" inputmode="numeric" placeholder="مثلاً 0"><span class="fcap">روز</span></div>
     </div>
   </div>
   <div id="san-gov" hidden>
     <div class="row-f"><span class="num">۱</span><label for="glast">آخرین حقوق و مزایای مستمر</label></div>
     <input id="glast" inputmode="numeric" placeholder="مثلاً 40,000,000">
     <div class="row-f"><span class="num">۲</span><label for="gyears">سنوات خدمت <span class="hint">(حداکثر ۳۰ سال محاسبه می‌شود)</span></label></div>
-    <input id="gyears" inputmode="numeric" placeholder="مثلاً ۲۰">
+    <input id="gyears" inputmode="numeric" placeholder="مثلاً 20">
   </div>
   <button class="go" id="g2">محاسبه</button>
   <div class="err" id="e2"></div>
@@ -243,7 +243,7 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 </section>
 <section class="example-block" aria-labelledby="ex-h">
 <h2 id="ex-h">مثال محاسبه</h2>
-<p>اگر حقوق ماهانه‌ات ۲۰ میلیون تومان باشد و سابقه‌ات را وارد کنی، ابزار مبلغ عیدی و سایر مزایا را برآورد می‌کند. حدود ۴۰ میلیون تومان نتیجه‌ای است که در این ورودی دیده می‌شود.</p>
+<p>اگر حقوق ماهانه‌ات 20 میلیون تومان باشد و سابقه‌ات را وارد کنی، ابزار مبلغ عیدی و سایر مزایا را برآورد می‌کند. حدود 40 میلیون تومان نتیجه‌ای است که در این ورودی دیده می‌شود.</p>
 </section>
 <h2>سؤالات متداول</h2>
 <details><summary>فرق عیدی کارگر و کارمند دولت چیست؟</summary><p>عیدی کارگرِ مشمول قانون کار (و نیروی شرکتی/پیمانکاری که زیرمجموعه شرکت است) بر اساس ۶۰ روز حقوق پایه و به‌نسبت مدت کار محاسبه می‌شود. عیدی کارمند دولت و نیروی مسلح طبق مصوبه هیئت‌وزیران، مبلغی ثابت و یکسان برای همه است، نه فرمول روزی.</p></details>
@@ -325,7 +325,7 @@ document.getElementById("g1").onclick=()=>{
     const taxable=Math.max(0,gross-CFG.eydiExempt), tax=taxable*CFG.eydiExcessRate, net=gross-tax;
     out(1, `${bigLine(net)}
       <p>عیدی ناخالص: ${fmt(gross)} تومان</p>
-      <p>${CFG.eydiDays} روز × نسبت مدت کار (${(ratio*100).toLocaleString("fa-IR",{maximumFractionDigits:1})}٪)</p>
+      <p>${CFG.eydiDays} روز × نسبت مدت کار (${(ratio*100).toLocaleString("en-US",{maximumFractionDigits:1})}٪)</p>
       ${tax>0?`<p>مالیات مازاد بر معافیت (${fmt(CFG.eydiExempt)} تومان): ${fmt(tax)} تومان</p>`:`<p>کمتر از سقف معافیت است؛ مالیات ندارد.</p>`}`);
   } else {
     out(1, `${bigLine(CFG.govEydiFixed)}
@@ -342,7 +342,7 @@ document.getElementById("g2").onclick=()=>{
     const total=daily*CFG.sanavatDaysPerYear*years;
     out(2, `${bigLine(total)}
       <p>حقوق روزانه: ${fmt(daily)} تومان</p>
-      <p>سابقه: ${years.toLocaleString("fa-IR",{maximumFractionDigits:2})} سال × ${CFG.sanavatDaysPerYear} روز</p>`);
+      <p>سابقه: ${years.toLocaleString("en-US",{maximumFractionDigits:2})} سال × ${CFG.sanavatDaysPerYear} روز</p>`);
   } else {
     const last=val("glast"), y=val("gyears");
     if(!last) return out(2,"","آخرین حقوق و مزایای مستمر را وارد کنید.");
@@ -352,7 +352,7 @@ document.getElementById("g2").onclick=()=>{
     const capped = total>CFG.govEndServiceCap;
     if(capped) total=CFG.govEndServiceCap;
     out(2, `${bigLine(total)}
-      <p>${cappedYears.toLocaleString("fa-IR")} سال × یک ماه آخرین حقوق (حداکثر ۳۰ سال محاسبه می‌شود)</p>
+      <p>${cappedYears.toLocaleString("en-US")} سال × یک ماه آخرین حقوق (حداکثر ۳۰ سال محاسبه می‌شود)</p>
       ${capped?`<p>به سقف ریالی ثبت‌شده در ابزار (${fmt(CFG.govEndServiceCap)} تومان) محدود شد؛ با آخرین مصوبه تطبیق دهید.</p>`:`<p>سقف ریالی ثبت‌شده در ابزار: ${fmt(CFG.govEndServiceCap)} تومان — رد نشده؛ با آخرین مصوبه تطبیق دهید.</p>`}
       <p>فقط هنگام بازنشستگی قابل دریافت است؛ به اضافه مرخصی ذخیره‌شده که اینجا محاسبه نشده.</p>`);
   }

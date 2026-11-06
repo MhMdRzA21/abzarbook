@@ -149,9 +149,9 @@ button.go{font-family:inherit;border:0;border-radius:999px;padding:11px 18px;bac
   <div class="lh-text"><h1>بیمه بیکاری</h1><p>مدت و مبلغ تقریبی طبق قاعده رایج تأمین اجتماعی</p></div>
 </div>
 <section class="card">
-<label for="months">سابقه بیمه (ماه)</label><input id="months" inputmode="numeric" value="۲۴">
-<label for="wage">متوسط مزد روزانه ۹۰ روز آخر (تومان)</label><input id="wage" inputmode="numeric" value="۷۰۰۰۰۰">
-<label for="deps">افراد تحت تکفل</label><input id="deps" inputmode="numeric" value="۰">
+<label for="months">سابقه بیمه (ماه)</label><input id="months" inputmode="numeric" value="24">
+<label for="wage">متوسط مزد روزانه ۹۰ روز آخر (تومان)</label><input id="wage" inputmode="numeric" value="700,000">
+<label for="deps">افراد تحت تکفل</label><input id="deps" inputmode="numeric" value="0">
 <label for="married">وضعیت</label><select id="married"><option value="single">مجرد</option><option value="married">متأهل</option></select>
 <button class="go" id="go">محاسبه</button>
   <div class="allres" id="out"></div>
@@ -159,7 +159,7 @@ button.go{font-family:inherit;border:0;border-radius:999px;padding:11px 18px;bac
 <h2>بیمه بیکاری چطور حساب می‌شود؟</h2><p>مقرری معمولاً ۵۵٪ متوسط مزد روزانه ۹۰ روز آخر است. برای هر فرد تحت تکفل ۱۰٪ اضافه می‌شود، حداکثر ۴ نفر. مدت پرداخت به سابقه و تأهل بستگی دارد.</p><p>عدد این صفحه تخمین است. رأی قطعی را شعبه با لیست بیمه و دلیل بیکاری می‌دهد.</p>
 <section class="example-block" aria-labelledby="ex-h">
 <h2 id="ex-h">مثال محاسبه</h2>
-<p>اگر سابقه پرداخت بیمه‌ات ۲۴ ماه و میانگین مزدت ۷۰۰ هزار تومان باشد، مدت پرداخت بیمه بیکاری حدود ۱۲ ماه برآورد می‌شود.</p>
+<p>اگر سابقه پرداخت بیمه‌ات 24 ماه و میانگین مزدت 700 هزار تومان باشد، مدت پرداخت بیمه بیکاری حدود 12 ماه برآورد می‌شود.</p>
 </section>
 <h2>سؤالات متداول</h2>
 <details><summary>مجرد و متأهل فرق دارد؟</summary><p>با سابقه برابر، متأهل معمولاً مدت بیشتری می‌گیرد.</p></details><details><summary>حداقل سابقه چقدر است؟</summary><p>اغلب ۶ ماه بیمه در آخرین کارگاه، با شرایط قانون بیمه بیکاری.</p></details>
@@ -174,11 +174,11 @@ document.getElementById("copyLink").onclick=function(){navigator.clipboard.write
 </script>
 <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/hoghoogh-dastmazd.html" style="color:var(--accent)">عیدی و سنوات</a> · <a href="/ezafe-kari.html" style="color:var(--accent)">اضافه‌کاری</a> · <a href="/saat-kar.html" style="color:var(--accent)">ساعت کار</a></p>
 </main>
-<script src="/assets/num-fa.js"></script>
+<script src="/assets/num-fa.js"></script><script>AB.liveFormat(document.getElementById("wage"));</script>
 <script>
 const fa=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
 const money=n=>fa(Math.round(n).toLocaleString("en-US"));
-const num=id=>+String(document.getElementById(id).value).replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d))||0;
+const num=id=>+String(document.getElementById(id).value).replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[^\d.-]/g,"")||0;
 document.getElementById("go").onclick=()=>{
   const months=num("months"), wage=num("wage"), deps=Math.min(4,num("deps"));
   const married=document.getElementById("married").value==="married";
