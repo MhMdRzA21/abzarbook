@@ -463,6 +463,41 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 </script>
 
 <link rel="stylesheet" href="/assets/tool-card.css?v=2">
+<style>
+/* Sub-page links stay inside these two cards so they are not extra grid cells. */
+.tool-card.has-subs{
+  flex-direction:column;
+  align-items:stretch;
+  height:auto;
+  min-height:148px;
+  justify-content:flex-start;
+}
+.tool-card.has-subs .tc-main{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+  width:100%;
+  color:inherit;
+  text-decoration:none;
+}
+.tc-sublinks{
+  margin:8px 0 0;
+  padding-top:8px;
+  border-top:1px solid var(--rule,#e2dccf);
+  font-size:.74rem;
+  line-height:1.65;
+  color:var(--mute,#6b655c);
+  width:100%;
+}
+.tc-sublinks a{color:var(--accent2,#2a4d6e);font-weight:700;text-decoration:none}
+.tc-sublinks a:hover{text-decoration:underline}
+@media (max-width:679px){
+  .tool-card.has-subs{min-height:0;height:auto}
+  .tool-card.has-subs .tc-main{flex-direction:column;align-items:flex-start;gap:8px}
+  .tc-sublinks{display:block;font-size:.68rem;margin-top:6px;padding-top:6px}
+}
+</style>
 <style>.faq-home{max-width:1060px;margin:28px auto 8px;padding:0 4px}.faq-home h2{font-size:1.1rem;font-weight:800;margin:0 0 12px}.faq-home details{margin-bottom:0}.faq-home summary{padding:12px 42px 12px 14px;cursor:pointer;font-weight:700;color:var(--ink)}.faq-home p{margin:10px 0 2px;color:var(--mute);line-height:1.8;font-size:.92rem}</style>
 </head>
 <body>
@@ -501,7 +536,8 @@ if(!sessionStorage.getItem("ab-banner")){
   <div class="section-label" id="tools"><h2>محاسبه و کاربردی</h2><div class="ln"></div></div>
 
   <div class="tool-list">
-    <a class="tool-card" href="/hoghoogh-dastmazd.html">
+    <div class="tool-card has-subs">
+      <a class="tc-main" href="/hoghoogh-dastmazd.html">
       <span class="tc-icon" style="background:linear-gradient(155deg,#a1333f,#7a1f1f)">
         <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><path d="M5 3h14v18l-3.5-2.2L12 21l-3.5-2.2L5 21V3z" fill="currentColor" opacity=".92"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#7a1f1f" stroke-width="1.5" stroke-linecap="round"/></svg>
       </span>
@@ -513,10 +549,12 @@ if(!sessionStorage.getItem("ab-banner")){
       <span class="tc-arrow">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
-    </a>
-    <p style="font-size:.82rem;margin:-4px 8px 16px">صفحه‌های جدا: <a href="/eydi-1405.html" style="color:var(--accent2);font-weight:700">عیدی ۱۴۰۵</a> · <a href="/sanavat-payan-kar.html" style="color:var(--accent2);font-weight:700">سنوات</a> · <a href="/maliat-hoghoogh-1405.html" style="color:var(--accent2);font-weight:700">مالیات حقوق</a> · <a href="/hoghoogh-khales-1405.html" style="color:var(--accent2);font-weight:700">حقوق خالص</a></p>
+      </a>
+      <p class="tc-sublinks">صفحه‌های جدا: <a href="/eydi-1405.html">عیدی ۱۴۰۵</a> · <a href="/sanavat-payan-kar.html">سنوات</a> · <a href="/maliat-hoghoogh-1405.html">مالیات حقوق</a> · <a href="/hoghoogh-khales-1405.html">حقوق خالص</a></p>
+    </div>
 
-    <a class="tool-card" href="/rahn-vam.html">
+    <div class="tool-card has-subs">
+      <a class="tc-main" href="/rahn-vam.html">
       <span class="tc-icon" style="background:linear-gradient(155deg,#c17e3f,#8a5a24)">
         <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v10h13V10" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M10 20v-6h4v6" stroke="currentColor" stroke-width="1.6"/></svg>
       </span>
@@ -528,8 +566,9 @@ if(!sessionStorage.getItem("ab-banner")){
       <span class="tc-arrow">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
-    </a>
-    <p style="font-size:.82rem;margin:-4px 8px 16px">صفحه‌های جدا: <a href="/tabdil-rahn-ejare.html" style="color:var(--accent2);font-weight:700">تبدیل رهن به اجاره</a> · <a href="/ghest-vam-ezdevaj-1405.html" style="color:var(--accent2);font-weight:700">قسط وام ازدواج</a> · <a href="/saghf-ejare-1405.html" style="color:var(--accent2);font-weight:700">سقف افزایش اجاره</a></p>
+      </a>
+      <p class="tc-sublinks">صفحه‌های جدا: <a href="/tabdil-rahn-ejare.html">تبدیل رهن به اجاره</a> · <a href="/ghest-vam-ezdevaj-1405.html">قسط وام ازدواج</a> · <a href="/saghf-ejare-1405.html">سقف افزایش اجاره</a></p>
+    </div>
 
     <a class="tool-card" href="/bime-bikari.html">
       <span class="tc-icon" style="background:linear-gradient(155deg,#3a7a5a,#245438)"><svg width="33" height="33" viewBox="0 0 24 24" fill="none"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3z" stroke="currentColor" stroke-width="1.6"/></svg></span>
@@ -906,7 +945,7 @@ if(!sessionStorage.getItem("ab-banner")){
 (function(){
   var input = document.getElementById('toolSearch');
   if(!input) return;
-  var rows = Array.from(document.querySelectorAll('a.tool-card'));
+  var rows = Array.from(document.querySelectorAll('.tool-list > .tool-card'));
   var noRes = document.createElement('div');
   noRes.className = 'no-results';
   noRes.textContent = 'ابزاری با این عبارت پیدا نشد. کلمات دیگری امتحان کنید.';
