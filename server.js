@@ -86,6 +86,16 @@ function serveStatic(req, res) {
     }));
   }
   let urlPath = (req.url || '/').split('?')[0];
+  const REDIRECTS = {
+    '/convert/guides/how-to-reduce-pdf-size-for-email': '/convert/guides/pdf-too-large-to-email.html',
+    '/convert/guides/how-to-reduce-pdf-size-for-email.html': '/convert/guides/pdf-too-large-to-email.html',
+    '/convert/guides/compress-pdf-without-losing-quality': '/convert/guides/how-to-compress-a-pdf.html',
+    '/convert/guides/compress-pdf-without-losing-quality.html': '/convert/guides/how-to-compress-a-pdf.html',
+  };
+  if (REDIRECTS[urlPath]) {
+    res.writeHead(301, { Location: REDIRECTS[urlPath], 'Cache-Control': 'public, max-age=86400', ...SECURITY });
+    return res.end();
+  }
   // The converter hub was merged into the home page's file section: permanent redirect for search engines.
   if (urlPath === '/convert' || urlPath === '/convert/' || urlPath === '/convert/index.html') {
     res.writeHead(301, { Location: '/#files', 'Cache-Control': 'public, max-age=86400', ...SECURITY });

@@ -1,0 +1,59 @@
+/* پوسته مشترک صفحه‌های محاسبه‌گر تازه‌تقسیم‌شده. همان متغیرهای صفحات فعلی. */
+:root{
+  --bg:#f4f0e6;--card:#fffdf8;--ink:#1c1914;--mute:#6b6350;--rule:#e2d8c0;
+  --accent:#c47a1a;--accent2:#2a4d6e;--accent-ink:#fffaf0;--stamp:#9c2b2b;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12100c;--card:#1a1710;--ink:#f2ebd8;--mute:#a89a78;
+    --rule:#2e291c;--accent:#e0b04a;--accent2:#6a9abb;--accent-ink:#1f1600;--stamp:#d44;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15130e;--card:#1d1a12;--ink:#f1ead7;--mute:#ab9b77;--rule:#3a3320;
+  --accent:#d9a648;--accent-ink:#241803;--accent2:#7fa6c4;--stamp:#c23c3c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.95}
+main{max-width:760px;margin:0 auto;padding:18px 16px 60px}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--mute);text-decoration:none;margin-bottom:14px}
+.letterhead{display:flex;align-items:center;gap:14px;border-bottom:3px double var(--rule);padding-bottom:16px;margin-bottom:16px;flex-wrap:wrap}
+.letterhead h1{font-size:1.35rem;font-weight:800;margin:0}
+.letterhead p{margin:2px 0 0;color:var(--mute);font-size:.86rem}
+.answer{background:var(--card);border:1px solid var(--rule);border-right:4px solid var(--accent2);border-radius:12px;padding:12px 14px;margin:0 0 14px}
+.answer p{margin:0 0 6px}
+.answer p:last-child{margin:0}
+.formula{font-weight:700}
+.source{font-size:.8rem;color:var(--mute)}
+.hub-links{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.hub-links a{background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700}
+.hub-links a[aria-current="page"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.typebar,.tabs,.subtabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.typebar button,.tabs button,.subtabs button{flex:1;min-width:120px;border:1px solid var(--rule);background:var(--card);color:var(--mute);font:inherit;font-weight:700;font-size:.82rem;padding:9px 8px;border-radius:8px;cursor:pointer}
+.typebar button[aria-pressed="true"],.tabs button[aria-selected="true"],.subtabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px;margin-bottom:14px;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--accent),var(--stamp))}
+label{font-weight:700;display:block;margin:12px 0 4px}
+.hint{font-weight:400;color:var(--mute);font-size:.82rem}
+input,select{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--rule);border-radius:7px;background:var(--bg);color:var(--ink);direction:ltr;text-align:right}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fcap{display:block;text-align:center;font-size:.72rem;color:var(--mute);margin-top:3px}
+.go{margin-top:16px;width:100%;border:0;background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:800;padding:12px;border-radius:7px;cursor:pointer}
+.res{margin-top:14px;padding:14px;border:1px solid var(--rule);border-right:4px solid var(--stamp);border-radius:12px;display:none}
+.res.on{display:block}
+.big{font-size:1.6rem;font-weight:800;color:var(--stamp)}
+.bigWords{display:block;font-size:.76rem;color:var(--mute);margin-top:2px}
+.res p{margin:4px 0;color:var(--mute);font-size:.88rem}
+.err{color:var(--stamp);margin-top:8px;display:none}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:8px 0 14px}
+th,td{border:1px solid var(--rule);padding:6px 8px;text-align:right}
+th{background:var(--card)}
+h2{font-size:1.05rem;margin:22px 0 6px}
+details{border:1px solid var(--rule);border-radius:10px;padding:11px 14px;margin-bottom:8px;background:var(--card)}
+summary{cursor:pointer;font-weight:700}
+details p{margin:8px 0 0;color:var(--mute);font-size:.92rem}
+.note,.related{font-size:.8rem;color:var(--mute);margin-top:16px}
+.related a,.note a,p a{color:var(--accent2)}
+[hidden]{display:none!important}
+@media (min-width:860px){main{max-width:860px}}
