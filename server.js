@@ -106,6 +106,11 @@ function serveStatic(req, res) {
     res.writeHead(301, { Location: '/about.html', 'Cache-Control': 'public, max-age=86400', ...SECURITY });
     return res.end();
   }
+  // Duplicate of the home page: permanent redirect to the canonical URL.
+  if (urlPath === '/index.html') {
+    res.writeHead(301, { Location: '/', 'Cache-Control': 'public, max-age=86400', ...SECURITY });
+    return res.end();
+  }
   if (urlPath === '/') urlPath = '/index.html';
   // favicon fallback to site icon
   if (urlPath === '/favicon.ico') urlPath = '/icon-192.png';
