@@ -80,7 +80,8 @@ label{font-weight:700;display:block;margin:4px 0 4px;font-size:.85rem;color:var(
 .swap-row{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end}
 .unit-field{display:flex;flex-direction:column;gap:4px}
 input,select{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--rule);border-radius:9px;background:var(--bg);color:var(--ink);box-shadow:inset 0 1px 2px rgba(20,16,8,.04)}
-input{direction:ltr;text-align:left;font-weight:700;font-size:1.05rem}
+input{direction:ltr;text-align:left;font-weight:700;font-size:1.05rem;box-sizing:border-box;min-width:0;max-width:100%}
+input[type=date]{-webkit-appearance:none;appearance:none;width:100%}
 input:focus-visible,select:focus-visible{outline:3px solid var(--accent2);outline-offset:1px;border-color:var(--accent2)}
 .swapBtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--bg);color:var(--accent2);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:transform .15s}
 .swapBtn:active{transform:rotate(180deg)}
@@ -144,9 +145,9 @@ button.go{font-family:inherit;border:0;border-radius:999px;padding:11px 18px;bac
 <body>
 <main>
 <a href="/" class="backlink">ابزاربوک</a>
+<nav class="crumb" aria-label="Breadcrumb" style="font-size:.9rem;margin:0 0 8px"><a href="/">ابزاربوک</a><span>/</span><span>بیمه بیکاری</span></nav>
 <div class="letterhead">
   <div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3z" stroke="currentColor" stroke-width="1.6"/></svg></div>
-<nav class="crumb" aria-label="Breadcrumb" style="font-size:.9rem;margin:0 0 8px"><a href="/">ابزاربوک</a><span>/</span><span>بیمه بیکاری</span></nav>
   <div class="lh-text"><h1>بیمه بیکاری</h1><p>مدت و مبلغ تقریبی طبق قاعده رایج تأمین اجتماعی</p><p style="font-size:.74rem;margin-top:3px">به‌روزرسانی: ۱۵ آبان ۱۴۰۵</p></div>
 </div>
 <div style="background:var(--card);border:1px solid var(--rule);border-right:4px solid var(--accent2);border-radius:12px;padding:12px 14px;margin:0 0 14px">
