@@ -64,6 +64,7 @@
 }
 .tc-example{display:none}
 .tc-arrow{
+  display:none;
   position:absolute;inset-inline-end:16px;top:50%;margin-top:-15px;width:30px;height:30px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   color:var(--tc-mute);border:1px solid var(--tc-line);background:transparent;
