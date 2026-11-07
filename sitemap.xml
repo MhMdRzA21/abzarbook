@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
+    <url>
     <loc>https://abzarbook.ir/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>daily</changefreq>
@@ -356,7 +356,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://abzarbook.ir/eydi-1405.html</loc>
+    <loc>https://abzarbook.ir/hoghoogh-dastmazd.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -374,25 +374,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://abzarbook.ir/ghest-vam-ezdevaj-1405.html</loc>
+    <loc>https://abzarbook.ir/rahn-vam.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abzarbook.ir/ghest-vam.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://abzarbook.ir/hoghoogh-dastmazd.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://abzarbook.ir/hoghoogh-khales-1405.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -416,12 +404,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://abzarbook.ir/maliat-hoghoogh-1405.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://abzarbook.ir/moadel.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -429,12 +411,6 @@
   </url>
   <url>
     <loc>https://abzarbook.ir/qrcode.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://abzarbook.ir/rahn-vam.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -458,19 +434,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://abzarbook.ir/saghf-ejare-1405.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://abzarbook.ir/salamat.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://abzarbook.ir/sanavat-payan-kar.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -495,12 +459,6 @@
   </url>
   <url>
     <loc>https://abzarbook.ir/sud-seporde.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://abzarbook.ir/tabdil-rahn-ejare.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
