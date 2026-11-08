@@ -49,9 +49,13 @@ router.post("/target", upload.single("file"), async (req, res) => {
     const ext = path.extname(file.originalname || "").toLowerCase();
     const dir = path.join(outDir, "target-" + Date.now());
     fs.mkdirSync(dir, { recursive: true });
-    const { outPath } = await compressToTarget(file.path, dir, ext, targetKb);
-    res.download(outPath, "compressed" + path.extname(outPath), async () => {
+    const { outPath, met } = await compressToTarget(file.path, dir, ext, targetKb);
+    res.set("X-Target-Met", met ? "1" : "0");
+    res.set("Access-Control-Expose-Headers", "X-Target-Met, Content-Disposition");
+    res.download(outPath, "compressed" + path.extname(outPath), () => {
+      // Remove both the uploaded original and the processed copy once the download ends.
       try { fs.unlinkSync(file.path); } catch {}
+      try { fs.rmSync(dir, { recursive: true, force: true }); } catch {}
     });
   } catch (e) {
     try { if (file) fs.unlinkSync(file.path); } catch {}
