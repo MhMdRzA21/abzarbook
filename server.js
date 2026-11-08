@@ -87,6 +87,22 @@ function serveStatic(req, res) {
   }
   let urlPath = (req.url || '/').split('?')[0];
   const REDIRECTS = {
+    '/convert/compress/pdf-to-100kb': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-100kb.html': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-10mb': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-10mb.html': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-1mb': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-1mb.html': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-200kb': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-200kb.html': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-25mb': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-25mb.html': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-2mb': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-2mb.html': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-500kb': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-500kb.html': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-5mb': '/convert/compress-file.html',
+    '/convert/compress/pdf-to-5mb.html': '/convert/compress-file.html',
     '/convert/guides/how-to-reduce-pdf-size-for-email': '/convert/guides/pdf-too-large-to-email.html',
     '/convert/guides/how-to-reduce-pdf-size-for-email.html': '/convert/guides/pdf-too-large-to-email.html',
     '/convert/guides/compress-pdf-without-losing-quality': '/convert/guides/how-to-compress-a-pdf.html',
