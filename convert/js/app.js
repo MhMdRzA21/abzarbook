@@ -128,12 +128,12 @@
         if (xhr.status >= 200 && xhr.status < 300) {
           downloadBlob(xhr.response, resolveFilename(xhr, endpoint));
           statusEl.className = "status ok";
-          statusEl.textContent = "Done — " + summarizeSavings(xhr) + "download started.";
+          statusEl.textContent = "انجام شد — " + summarizeSavings(xhr) + "دانلود شروع شد.";
           convertBtn.disabled = files.length === 0 || files.length < minFiles;
         } else {
           parseErrorBlob(xhr.response).then((message) => {
             statusEl.className = "status error";
-            statusEl.textContent = message || `Server error (${xhr.status})`;
+            statusEl.textContent = message || `خطای سرور (کد ${xhr.status})`;
             convertBtn.disabled = files.length === 0 || files.length < minFiles;
           });
         }
@@ -142,7 +142,7 @@
       xhr.addEventListener("error", () => {
         hideProgress();
         statusEl.className = "status error";
-        statusEl.textContent = "Network error, please try again.";
+        statusEl.textContent = "خطای شبکه؛ لطفاً دوباره تلاش کنید.";
         convertBtn.disabled = files.length === 0 || files.length < minFiles;
       });
 
@@ -204,7 +204,7 @@
 
   function summarizeSavings(xhr) {
     if (xhr.getResponseHeader("X-Target-Met") === "0") {
-      return "couldn't reach the size you chose — this is the smallest version we could make. ";
+      return "به حجم انتخابی نرسید؛ این کوچک‌ترین نسخه‌ای است که ساختیم. ";
     }
     const before = Number(xhr.getResponseHeader("X-Original-Size"));
     const after = Number(xhr.getResponseHeader("X-Compressed-Size"));
@@ -212,8 +212,8 @@
     const pct = Math.max(0, Math.round((1 - after / before) * 100));
     const fmt = (n) => (n >= 1024 * 1024 ? (n / (1024 * 1024)).toFixed(1) + " MB" : (n / 1024).toFixed(0) + " KB");
     return pct > 0
-      ? `reduced by ${pct}% (${fmt(before)} → ${fmt(after)}) — `
-      : `already optimized, no size reduction possible — `;
+      ? `حجم ${pct}٪ کم شد (${fmt(before)} → ${fmt(after)}) — `
+      : `حجم از قبل بهینه بود و کاهشی ممکن نشد — `;
   }
 
   async function parseErrorBlob(blob) {

@@ -49,9 +49,13 @@ router.post("/target", upload.single("file"), async (req, res) => {
     const ext = path.extname(file.originalname || "").toLowerCase();
     const dir = path.join(outDir, "target-" + Date.now());
     fs.mkdirSync(dir, { recursive: true });
+    const origSize = (await fs.promises.stat(file.path)).size;
     const { outPath, met } = await compressToTarget(file.path, dir, ext, targetKb);
+    const outSize = (await fs.promises.stat(outPath)).size;
     res.set("X-Target-Met", met ? "1" : "0");
-    res.set("Access-Control-Expose-Headers", "X-Target-Met, Content-Disposition");
+    res.set("X-Original-Size", String(origSize));
+    res.set("X-Compressed-Size", String(outSize));
+    res.set("Access-Control-Expose-Headers", "X-Target-Met, X-Original-Size, X-Compressed-Size, Content-Disposition");
     res.download(outPath, "compressed" + path.extname(outPath), () => {
       // Remove both the uploaded original and the processed copy once the download ends.
       try { fs.unlinkSync(file.path); } catch {}
