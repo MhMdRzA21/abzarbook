@@ -519,15 +519,18 @@ html[data-theme="dark"] .crumb a,.site-footer a{color:#e0b04a !important}
 .abzar-close details[open]::before{background:#c47a1a;color:#fffaf0}
 .abzar-close details p{margin:0;padding:0 16px 14px 14px;color:#6b6456;font-size:.92rem;line-height:1.8}
 .abzar-close .note{font-size:.82rem;color:#6b6456;line-height:1.9;margin:18px 0 0;padding-top:14px;border-top:1px solid #e2d8c0}
-.abzar-close .share-row{display:flex;gap:8px;margin:14px 0 0}
-.abzar-close .share-btn{flex:1;text-align:center;border:1px solid #e2d8c0;border-radius:14px;padding:12px 8px;background:#fffdf8;color:#1c1914;font:inherit;font-size:.82rem;font-weight:800;text-decoration:none;cursor:pointer}
+/* دکمه‌های اشتراک: همان مشخصات صفحه‌های محاسباتی */
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule,#e2d8c0);border-radius:11px;padding:11px;text-decoration:none;color:#1c1914;font-size:.82rem;font-weight:700;background:#fffdf8;cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:#2a4d6e}
 .abzar-close .more-tools{font-size:.84rem;margin:16px 0 0;line-height:1.9;color:#6b6456}
 .abzar-close .more-tools a{color:#a8681c;font-weight:800;text-decoration:none}
 .target-row{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px 10px !important;align-items:end !important}
 .target-row label{font-size:.82rem}
 .target-row select,.target-row input{width:100% !important;height:44px !important;max-height:44px !important;box-sizing:border-box}
 html[data-theme="dark"] .abzar-close h2,html[data-theme="dark"] .abzar-close summary{color:#f2ebd8}
-html[data-theme="dark"] .abzar-close details,html[data-theme="dark"] .abzar-close .share-btn{background:#1a1710;border-color:#3a3320}
+html[data-theme="dark"] .abzar-close details{background:#1a1710;border-color:#3a3320}
+html[data-theme="dark"] .share-btn{background:#1a1710;border-color:#2e291c;color:#f2ebd8}
 
 .wrap{max-width:760px}
 .panel{border-radius:16px;border:1px solid var(--line);background:var(--paper-raised)}
@@ -536,7 +539,7 @@ html[data-theme="dark"] .abzar-close details,html[data-theme="dark"] .abzar-clos
 
 
 /* خوانایی در تم تیره: دکمه‌های اشتراک و لینک‌های متنی */
-html[data-theme="dark"] .abzar-close .share-btn{color:#f2ebd8 !important}
+
 html[data-theme="dark"] main a:not(.btn-convert):not(.tc-title){color:#e0b04a}
 
 /* ---- اصلاح کنتراست تم تیره (نسخه دوم) ---- */

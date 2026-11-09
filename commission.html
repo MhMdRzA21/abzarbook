@@ -51,6 +51,9 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 .note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
 .row .amt{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
 .row .amt small{font-size:.72rem;color:var(--mute);font-weight:500;direction:rtl}
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:var(--accent2)}
 </style>
 
 <script type="application/ld+json">
@@ -73,6 +76,7 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 {"@type":"ListItem","position":2,"name":"محاسبه کمیسیون مشاور املاک","item":"https://abzarbook.ir/commission.html"}
 ]}
 </script>
+<link rel="stylesheet" href="/assets/tool-card.css?v=5">
 </head>
 <body>
 <main>
@@ -119,6 +123,57 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
   <details><summary>کمیسیون را چه کسی پرداخت می‌کند؟</summary><p>طبق عرف رایج، هر دو طرف معامله (خریدار و فروشنده، یا موجر و مستأجر) سهم خود از کمیسیون را جداگانه پرداخت می‌کنند.</p></details>
   </div>
   <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/rahn-vam.html" style="color:var(--accent2)">رهن، اجاره و وام</a> · <a href="/hoghoogh-dastmazd.html" style="color:var(--accent2)">عیدی و سنوات</a> · <a href="/mahriye.html" style="color:var(--accent2)">مهریه به نرخ روز</a></p>
+<h2 style="margin-top:44px">ابزارهای مرتبط</h2>
+<div class="tool-list">
+<a class="tool-card" href="/ghest-vam.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#2a4d6e,#1b3346)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18M8 14h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">محاسبه اقساط وام</span>
+        <span class="tc-desc">قسط ماهانه، سود کل و جدول بازپرداخت را از مبلغ وام، نرخ سود و مدت حساب کنید. برای مقایسه وام بانکی و قرض‌الحسنه مناسب است.</span>
+        <span class="tc-tags"><span class="tc-tag">قسط</span><span class="tc-tag">جدول</span><span class="tc-tag">سود</span></span>
+      </span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/ghest-khodro.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#c47a1a,#a05e0f)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 15v-3l2-5h12l2 5v3M4 15h16M7 18h.01M17 18h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">محاسبه اقساط خودرو</span>
+        <span class="tc-desc">قسط ماهانه خرید خودرو را با قیمت، پیش‌پرداخت، نرخ سود و تعداد ماه ببینید. جمع پرداختی و کل سود هم به عدد و حروف می‌آید.</span>
+        <span class="tc-tags"><span class="tc-tag">خودرو</span><span class="tc-tag">قسط</span><span class="tc-tag">پیش‌پرداخت</span></span>
+      </span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/sud-seporde.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#2e7d4f,#1b5e3a)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M8 8c0-2 1.8-3.5 4-3.5s4 1.5 4 3.5-1.8 3-4 3.5-4 1.5-4 3.5 1.8 3.5 4 3.5 4-1.5 4-3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">سود سپرده بانکی</span>
+        <span class="tc-desc">سود ساده و مرکب سپرده کوتاه‌مدت و بلندمدت را با نرخ و مدت دلخواه حساب کنید. سود ماهانه، سود کل و مبلغ نهایی جدا نشان داده می‌شود.</span>
+        <span class="tc-tags"><span class="tc-tag">سود</span><span class="tc-tag">سپرده</span><span class="tc-tag">مرکب</span></span>
+      </span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/rahn-vam.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#c17e3f,#8a5a24)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v10h13V10" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M10 20v-6h4v6" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">رهن، اجاره و وام</span>
+        <span class="tc-desc">رهن را با نرخ محلی به اجاره ماهانه تبدیل کنید و قسط وام ازدواج و فرزندآوری ۱۴۰۵ را ببینید. مبلغ قسط، جمع پرداخت و سود به عدد و حروف می‌آید.</span>
+        <span class="tc-tags"><span class="tc-tag">رهن⇄اجاره</span><span class="tc-tag">وام ازدواج</span><span class="tc-tag">فرزندآوری</span></span>
+      </span>
+      <span class="tc-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      </a>
+</div>
+<div class="share-row"><a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a><button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button></div>
+<script>document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};</script>
 </main>
 <script src="/assets/num-fa.js"></script>
 <script>

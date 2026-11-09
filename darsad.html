@@ -52,6 +52,9 @@ input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 .note{font-size:.78rem;color:var(--mute);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
 h2{font-size:1.1rem;margin:20px 0 10px}
 h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;background:var(--bg)}summary{font-weight:700;cursor:pointer}
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:var(--accent2)}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"محاسبه درصد و تخفیف","description":"محاسبه درصد یک عدد از عدد دیگر، تخفیف خرید و افزایش قیمت","step":[{"@type":"HowToStep","name":"نوع محاسبه را انتخاب کنید","text":"درصد از عدد، تخفیف یا افزایش را انتخاب کنید."},{"@type":"HowToStep","name":"اعداد را وارد کنید","text":"مقادیر را در فیلدها بنویسید."},{"@type":"HowToStep","name":"نتیجه را ببینید","text":"نتیجه عددی و حروفی نمایش داده می‌شود."}]}
@@ -63,6 +66,7 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
 {"@type":"ListItem","position":2,"name":"محاسبه درصد و تخفیف","item":"https://abzarbook.ir/darsad.html"}
 ]}
 </script>
+<link rel="stylesheet" href="/assets/tool-card.css?v=5">
 </head>
 <body>
 <main>
@@ -129,6 +133,53 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
     <p>دو تخفیف ۱۰ و ۲۰ درصدی پشت‌سرهم برابر ۳۰ درصد نیست. اول ۱۰ درصد کم می‌شود و ۲۰ درصد روی قیمت جدید اعمال می‌شود، پس مجموع ۲۸ درصد است.</p>
   </div>
   <p style="font-size:.8rem;margin-top:14px">سایر ابزارها: <a href="/maliat-arzesh-afzoode.html" style="color:var(--accent2)">مالیات ارزش افزوده</a> · <a href="/rial-toman.html" style="color:var(--accent2)">ریال و تومان</a> · <a href="/ghest-vam.html" style="color:var(--accent2)">اقساط وام</a> · <a href="/adad-be-horuf.html" style="color:var(--accent2)">عدد به حروف</a></p>
+<h2 style="margin-top:44px">ابزارهای مرتبط</h2>
+<div class="tool-list">
+<a class="tool-card" href="/sen.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#3a7a5a,#245438)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">محاسبه سن دقیق</span>
+        <span class="tc-desc">سن را از تاریخ تولد شمسی یا میلادی به سال، ماه و روز حساب کنید و فاصله تا تولد بعدی را ببینید. مناسب فرم اداری و محاسبه دقیق سن است.</span>
+        <span class="tc-tags"><span class="tc-tag">سن دقیق</span><span class="tc-tag">تولد بعدی</span><span class="tc-tag">روزشمار</span></span>
+      </span>
+      <span class="tc-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+<a class="tool-card" href="/bardari.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#a15a7a,#6e3450)"><svg width="33" height="33" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <span class="tc-body"><span class="tc-title">سن بارداری</span><span class="tc-desc">هفته بارداری، سه‌ماهه و تاریخ تقریبی زایمان را از اولین روز آخرین قاعدگی حساب کنید. برای پیگیری بارداری است و جای سونوگرافی را نمی‌گیرد.</span><span class="tc-tags"><span class="tc-tag">هفته</span><span class="tc-tag">زایمان</span></span><br></span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/taghvim.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#3d6c8a,#2c4f6b)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4.5" width="17" height="16" rx="2.4" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 3v3M16.5 3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="8" cy="13.2" r="1.15" fill="currentColor"/><circle cx="12" cy="13.2" r="1.15" fill="currentColor"/><circle cx="8" cy="16.8" r="1.15" fill="currentColor"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">تبدیل تاریخ</span>
+        <span class="tc-desc">تاریخ شمسی، میلادی و قمری را به هم تبدیل کنید و روز هفته را ببینید. برای قرارداد، سفر و تبدیل تاریخ تولد کافی است.</span>
+        <span class="tc-tags"><span class="tc-tag">شمسی</span><span class="tc-tag">میلادی</span><span class="tc-tag">قمری</span></span>
+      </span>
+      <span class="tc-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+<a class="tool-card" href="/moadel.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#2a4d6e,#1b3346)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 19V9M12 19V5M19 19v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">محاسبه معدل (ترم و کل)</span>
+        <span class="tc-desc">معدل وزنی ترم و معدل کل را با نمره و تعداد واحد هر درس حساب کنید. مقیاس ۰ تا ۲۰ است و برای کارنامه دانشگاهی به کار می‌آید.</span>
+        <span class="tc-tags"><span class="tc-tag">معدل</span><span class="tc-tag">ترم</span><span class="tc-tag">واحد</span></span>
+      </span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+</div>
+<div class="share-row"><a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a><button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button></div>
+<script>document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};</script>
 </main>
 <script src="/assets/num-fa.js"></script>
 <script>

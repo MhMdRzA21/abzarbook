@@ -54,6 +54,9 @@ h2{font-size:1.1rem;margin:20px 0 10px}
 h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;background:var(--bg)}summary{font-weight:700;cursor:pointer}
 
 .grow{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:start}.grow input{margin-bottom:8px}.x{border:1px solid var(--rule);background:var(--bg);color:var(--mute);border-radius:10px;width:42px;height:46px;font:inherit;cursor:pointer}.add{width:100%;border:1px dashed var(--rule);background:transparent;color:var(--accent2);font:inherit;font-weight:700;padding:10px;border-radius:10px;cursor:pointer;margin-bottom:14px}
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:var(--accent2)}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "HowTo", "name": "محاسبه معدل (ترم و کل)", "description": "محاسبه آنلاین معدل ترم و معدل کل دانشگاه با نمره و تعداد واحد هر درس. معدل وزنی ۰ تا ۲۰، رایگان و سریع در ابزاربوک.", "step": [{"@type": "HowToStep", "name": "نمره و واحد را وارد کنید", "text": "برای هر درس نمره بین ۰ تا ۲۰ و تعداد واحد را بنویسید."}, {"@type": "HowToStep", "name": "در صورت نیاز معدل قبلی را وارد کنید", "text": "معدل و واحدهای گذرانده قبلی را برای محاسبه معدل کل بنویسید."}, {"@type": "HowToStep", "name": "نتیجه را ببینید", "text": "معدل ترم و معدل کل نمایش داده می‌شود."}]}
@@ -65,6 +68,7 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
 {"@type":"ListItem","position":2,"name":"محاسبه معدل (ترم و کل)","item":"https://abzarbook.ir/moadel.html"}
 ]}
 </script>
+<link rel="stylesheet" href="/assets/tool-card.css?v=5">
 </head>
 <body>
 <main>
@@ -108,6 +112,47 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
     <details><summary>آیا نمره درس‌های کم‌واحد روی معدل اثر دارد؟</summary><p>بله، اما کمتر از درس‌های پرواحد. اثر هر نمره متناسب با تعداد واحد آن درس است.</p></details>
   </div>
   <p style="font-size:.8rem;margin-top:14px">سایر ابزارها: <a href="/ezafe-kari.html" style="color:var(--accent2)">اضافه‌کاری</a> · <a href="/darsad.html" style="color:var(--accent2)">درصد و تخفیف</a> · <a href="/sen.html" style="color:var(--accent2)">محاسبه سن</a></p>
+<h2 style="margin-top:44px">ابزارهای مرتبط</h2>
+<div class="tool-list">
+<a class="tool-card" href="/sen.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#3a7a5a,#245438)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">محاسبه سن دقیق</span>
+        <span class="tc-desc">سن را از تاریخ تولد شمسی یا میلادی به سال، ماه و روز حساب کنید و فاصله تا تولد بعدی را ببینید. مناسب فرم اداری و محاسبه دقیق سن است.</span>
+        <span class="tc-tags"><span class="tc-tag">سن دقیق</span><span class="tc-tag">تولد بعدی</span><span class="tc-tag">روزشمار</span></span>
+      </span>
+      <span class="tc-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+<a class="tool-card" href="/bardari.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#a15a7a,#6e3450)"><svg width="33" height="33" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <span class="tc-body"><span class="tc-title">سن بارداری</span><span class="tc-desc">هفته بارداری، سه‌ماهه و تاریخ تقریبی زایمان را از اولین روز آخرین قاعدگی حساب کنید. برای پیگیری بارداری است و جای سونوگرافی را نمی‌گیرد.</span><span class="tc-tags"><span class="tc-tag">هفته</span><span class="tc-tag">زایمان</span></span><br></span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/taghvim.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#3d6c8a,#2c4f6b)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4.5" width="17" height="16" rx="2.4" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 3v3M16.5 3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="8" cy="13.2" r="1.15" fill="currentColor"/><circle cx="12" cy="13.2" r="1.15" fill="currentColor"/><circle cx="8" cy="16.8" r="1.15" fill="currentColor"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">تبدیل تاریخ</span>
+        <span class="tc-desc">تاریخ شمسی، میلادی و قمری را به هم تبدیل کنید و روز هفته را ببینید. برای قرارداد، سفر و تبدیل تاریخ تولد کافی است.</span>
+        <span class="tc-tags"><span class="tc-tag">شمسی</span><span class="tc-tag">میلادی</span><span class="tc-tag">قمری</span></span>
+      </span>
+      <span class="tc-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+<a class="tool-card" href="/konkur-darsad.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#2a4d6e,#1c3348)"><svg width="33" height="33" viewBox="0 0 24 24" fill="none"><path d="M5 19V5M5 19h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m8 14 3-4 2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="tc-body"><span class="tc-title">درصد آزمون</span><span class="tc-desc">درصد آزمون تستی را با نمره منفی یک‌سوم کنکور، یا بدون نمره منفی، از تعداد پاسخ درست و غلط حساب کنید. مناسب کنکور، آزمون استخدامی و تست کلاسی است.</span><span class="tc-tags"><span class="tc-tag">کنکور</span><span class="tc-tag">نمره منفی</span></span><br></span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </a>
+</div>
+<div class="share-row"><a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a><button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button></div>
+<script>document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};</script>
 </main>
 <script src="/assets/num-fa.js"></script>
 <script>

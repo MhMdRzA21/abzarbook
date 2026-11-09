@@ -47,6 +47,9 @@ input:focus,textarea:focus{outline:2px solid var(--accent2);outline-offset:1px}
 h2{font-size:1.1rem;margin:20px 0 10px}
 h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;background:var(--bg)}summary{font-weight:700;cursor:pointer}
 .copy{margin-top:10px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);padding:8px 14px;border-radius:8px;cursor:pointer;font:inherit;font-weight:600}
+.share-row{display:flex;gap:8px;margin:18px 0 0}
+.share-btn{flex:1;text-align:center;border:1px solid var(--rule);border-radius:11px;padding:11px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700;background:var(--card);cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 1px 2px rgba(20,16,8,.04)}
+.share-btn:hover{border-color:var(--accent2)}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"تبدیل عدد به حروف فارسی","description":"عدد را به حروف فارسی تبدیل کنید","step":[{"@type":"HowToStep","name":"عدد را وارد کنید"},{"@type":"HowToStep","name":"نتیجه حروفی را کپی کنید"}]}
@@ -58,6 +61,7 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
 {"@type":"ListItem","position":2,"name":"عدد به حروف","item":"https://abzarbook.ir/adad-be-horuf.html"}
 ]}
 </script>
+<link rel="stylesheet" href="/assets/tool-card.css?v=5">
 </head>
 <body>
 <main>
@@ -101,6 +105,55 @@ h3{font-size:.98rem;margin:16px 0 6px}details{margin:8px 0;border:1px solid var(
     <p>بعد از نوشتن مبلغ حروفی، واحد پول را حتماً بنویسید: ریال یا تومان. اشتباه در واحد، مبلغ را ده برابر می‌کند. برای تبدیل مطمئن بین این دو از ابزار «ریال و تومان» استفاده کنید. عدد را بدون فاصله و اعشار اضافه وارد کنید تا نتیجه دقیق باشد.</p>
   </div>
   <p style="font-size:.8rem;margin-top:14px">سایر ابزارها: <a href="/rial-toman.html" style="color:var(--accent2)">ریال و تومان</a> · <a href="/darsad.html" style="color:var(--accent2)">درصد</a> · <a href="/text-tools.html" style="color:var(--accent2)">ابزار متن</a></p>
+<h2 style="margin-top:44px">ابزارهای مرتبط</h2>
+<div class="tool-list">
+<a class="tool-card" href="/shomaresh-matn.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#3d6c8a,#2c4f6b)"><svg width="33" height="33" viewBox="0 0 24 24" fill="none"><path d="M5 6h14M5 12h14M5 18h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <span class="tc-body"><span class="tc-title">شمارش متن</span><span class="tc-desc">تعداد کلمه، نویسه، جمله و زمان تقریبی مطالعه را برای متن فارسی بسنجید. برای مقاله، کپشن و محدودیت کاراکتر شبکه‌های اجتماعی به کار می‌آید.</span><span class="tc-tags"><span class="tc-tag">کلمه</span><span class="tc-tag">کپشن</span></span><br></span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/text-tools.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#3d6c8a,#2c4f6b)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M6.5 10h.01M9.5 10h.01M12.5 10h.01M15.5 10h.01M17.5 10h.01M7 14h10" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">ابزار متن فارسی</span>
+        <span class="tc-desc">کیبورد اشتباه فارسی و انگلیسی را به هم تبدیل کنید، نیم‌فاصله را درست کنید و عدد را به حروف بنویسید. متن در مرورگر می‌ماند و به سرور فرستاده نمی‌شود.</span>
+        <span class="tc-tags"><span class="tc-tag">کیبورد</span><span class="tc-tag">نیم‌فاصله</span><span class="tc-tag">عدد به حروف</span></span>
+      </span>
+      <span class="tc-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+<a class="tool-card" href="/typing-test.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#2a4d6e,#1c3348)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 10h.01M10 10h.01M13 10h.01M16 10h.01M8 13h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">تست تایپ فارسی</span>
+        <span class="tc-desc">سرعت و دقت تایپ فارسی را با درک نیم‌فاصله بسنجید، خطای هر حرف را ببینید و لینک نتیجه را نگه دارید. تمرین و آزمون جداست و ثبت‌نام نمی‌خواهد.</span>
+        <span class="tc-tags"><span class="tc-tag">نیم‌فاصله</span><span class="tc-tag">تعیین سطح</span><span class="tc-tag">لینک نتیجه</span></span>
+      </span>
+      <span class="tc-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+<a class="tool-card" href="/ramz.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#7a1f1f,#4d1212)">
+        <svg width="33" height="33" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="15" r="1.3" fill="currentColor"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">رمزساز و بررسی قدرت رمز</span>
+        <span class="tc-desc">رمز تصادفی با طول و ترکیب دلخواه بسازید و قدرت رمز فعلی را بسنجید. رمز روی سرور ذخیره نمی‌شود و فقط در همین صفحه ساخته می‌شود.</span>
+        <span class="tc-tags"><span class="tc-tag">رمز تصادفی</span><span class="tc-tag">قدرت رمز</span><span class="tc-tag">بدون ذخیره</span></span>
+      </span>
+      <span class="tc-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+</div>
+<div class="share-row"><a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a><button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button></div>
+<script>document.getElementById("tgShare").href="https://t.me/share/url?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title);document.getElementById("copyLink").onclick=function(){navigator.clipboard.writeText(location.href).then(()=>{this.textContent="✓ کپی شد";setTimeout(()=>this.textContent="🔗 کپی لینک صفحه",1500)}).catch(()=>{})};</script>
 </main>
 <script src="/assets/num-fa.js"></script>
 <script>

@@ -162,6 +162,7 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 ]}
 </script>
 <style>html[data-theme="dark"] .go,html[data-theme="dark"] .on,html[data-theme="dark"] .tabs2 button[aria-selected="true"],html[data-theme="dark"] [data-m][aria-selected="true"],html[data-theme="dark"] .dl-btn{background:#3a6a93 !important;border-color:#3a6a93 !important;color:#fff !important}</style>
+<link rel="stylesheet" href="/assets/tool-card.css?v=5">
 </head>
 <body>
 <main>
@@ -177,11 +178,6 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 <p style="margin:0 0 6px">با نرخ ۳٪، رهن ۵۰۰٬۰۰۰٬۰۰۰ تومان برابر ۱۵٬۰۰۰٬۰۰۰ تومان اجاره ماهانه است. قسط وام ۳۰۰ میلیون با فرمول پخش کارمزد همین ابزار ۳٬۰۰۴٬۱۶۷ تومان می‌شود.</p>
 <p style="margin:0;font-weight:700">اجاره ماهانه برابر است با مبلغ رهن ضربدر نرخ. قسط وام، کارمزد را روی کل مدت پخش می‌کند و بعد بر تعداد اقساط تقسیم می‌شود.</p>
 </div>
-<nav style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px" aria-label="ابزارهای مرتبط مسکن">
-<a href="/commission.html" style="background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700">کمیسیون املاک</a>
-<a href="/ghest-vam.html" style="background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700">اقساط وام</a>
-<a href="/sud-seporde.html" style="background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:700">سود سپرده</a>
-</nav>
 <div class="tabs" role="tablist">
   <button role="tab" id="t1" aria-selected="true">رهن ⇄ اجاره</button>
   <button role="tab" id="t2" aria-selected="false">وام ازدواج / فرزندآوری</button>
@@ -281,6 +277,53 @@ h1,h2,.lh-text h1{letter-spacing:.2px}
 <details><summary>مالک چقدر می‌تواند اجاره را افزایش دهد؟</summary><p>سقف افزایش اجاره‌بها هر سال توسط شورای مسکن هر استان تعیین می‌شود و عدد واحدی برای کل کشور وجود ندارد. سقف سال جاری را پیش از تمدید قرارداد از شورای مسکن استان خود یا از مشاور املاک بپرسید. در این ابزار نرخ افزایش را خودتان تنظیم می‌کنید.</p></details>
 
 <p class="note">این ابزار صرفاً برای برآورد شخصی است، نه مرجع رسمی یا مشاوره مالی/حقوقی. مبالغ و نرخ‌ها طبق دستورالعمل تسهیلات قرض‌الحسنه ازدواج و فرزندآوری ۱۴۰۵ و نرخ‌های عرفی بازار تنظیم شده؛ پیش از ثبت‌نام یا تصمیم مهم، با بانک عامل یا منبع رسمی تطبیق دهید. ابزاربوک وابسته به هیچ بانک، نهاد دولتی یا مشاور املاکی نیست، اطلاعات شما را ذخیره یا ارسال نمی‌کند و مسئولیتی در قبال تصمیمات متکی بر این اعداد نمی‌پذیرد.</p>
+<h2 style="margin-top:44px">ابزارهای مرتبط</h2>
+<div class="tool-list">
+<a class="tool-card" href="/ghest-vam.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#2a4d6e,#1b3346)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18M8 14h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">محاسبه اقساط وام</span>
+        <span class="tc-desc">قسط ماهانه، سود کل و جدول بازپرداخت را از مبلغ وام، نرخ سود و مدت حساب کنید. برای مقایسه وام بانکی و قرض‌الحسنه مناسب است.</span>
+        <span class="tc-tags"><span class="tc-tag">قسط</span><span class="tc-tag">جدول</span><span class="tc-tag">سود</span></span>
+      </span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/ghest-khodro.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#c47a1a,#a05e0f)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 15v-3l2-5h12l2 5v3M4 15h16M7 18h.01M17 18h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">محاسبه اقساط خودرو</span>
+        <span class="tc-desc">قسط ماهانه خرید خودرو را با قیمت، پیش‌پرداخت، نرخ سود و تعداد ماه ببینید. جمع پرداختی و کل سود هم به عدد و حروف می‌آید.</span>
+        <span class="tc-tags"><span class="tc-tag">خودرو</span><span class="tc-tag">قسط</span><span class="tc-tag">پیش‌پرداخت</span></span>
+      </span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/sud-seporde.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#2e7d4f,#1b5e3a)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M8 8c0-2 1.8-3.5 4-3.5s4 1.5 4 3.5-1.8 3-4 3.5-4 1.5-4 3.5 1.8 3.5 4 3.5 4-1.5 4-3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">سود سپرده بانکی</span>
+        <span class="tc-desc">سود ساده و مرکب سپرده کوتاه‌مدت و بلندمدت را با نرخ و مدت دلخواه حساب کنید. سود ماهانه، سود کل و مبلغ نهایی جدا نشان داده می‌شود.</span>
+        <span class="tc-tags"><span class="tc-tag">سود</span><span class="tc-tag">سپرده</span><span class="tc-tag">مرکب</span></span>
+      </span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+<a class="tool-card" href="/tavarom.html">
+      <span class="tc-icon" style="background:linear-gradient(155deg,#b33a3a,#8a2222)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 18l5-8 4 5 5-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </span>
+      <span class="tc-body">
+        <span class="tc-title">تورم و ارزش پول</span>
+        <span class="tc-desc">ببینید یک مبلغ در سال‌های قبل چقدر قدرت خرید داشته و با نرخ تورم به ارزش امروز یا آینده می‌رسد. نرخ را خودتان وارد می‌کنید.</span>
+        <span class="tc-tags"><span class="tc-tag">تورم</span><span class="tc-tag">قدرت خرید</span></span>
+      </span>
+      <span class="tc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+</div>
 <div class="share-row">
   <a id="tgShare" class="share-btn" target="_blank" rel="noopener">📤 اشتراک در تلگرام</a>
   <button id="copyLink" class="share-btn">🔗 کپی لینک صفحه</button>
