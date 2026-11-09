@@ -108,6 +108,29 @@ function serveStatic(req, res) {
     '/convert/guides/compress-pdf-without-losing-quality': '/convert/guides/how-to-compress-a-pdf.html',
     '/convert/guides/compress-pdf-without-losing-quality.html': '/convert/guides/how-to-compress-a-pdf.html',
   };
+  // Old or mistyped URLs that Search Console reported as 404.
+  const ZWNJ = "\u200c";
+  const EXTRA_REDIRECTS = {
+    "/home.html": "/",
+    "/tools.html": "/convert/tools.html",
+    "/guides": "/convert/guides/",
+    "/guides/": "/convert/guides/",
+    ["/فشرده" + ZWNJ + "سازی"]: "/convert/compress-file.html",
+    ["/فشرده" + ZWNJ + "سازی/"]: "/convert/compress-file.html",
+    ["/convert/guides/how-to-فشرده" + ZWNJ + "سازی-a-pdf"]: "/convert/guides/how-to-compress-a-pdf.html",
+    ["/convert/guides/how-to-فشرده" + ZWNJ + "سازی-a-pdf.html"]: "/convert/guides/how-to-compress-a-pdf.html",
+  };
+  let decodedPath = urlPath;
+  try { decodedPath = decodeURIComponent(urlPath); } catch {}
+  if (EXTRA_REDIRECTS[decodedPath]) {
+    res.writeHead(301, { Location: EXTRA_REDIRECTS[decodedPath], 'Cache-Control': 'public, max-age=86400', ...SECURITY });
+    return res.end();
+  }
+  // Guide pages were once linked without the /convert prefix.
+  if (decodedPath.startsWith("/guides/")) {
+    res.writeHead(301, { Location: "/convert/" + decodedPath.slice(1), 'Cache-Control': 'public, max-age=86400', ...SECURITY });
+    return res.end();
+  }
   if (REDIRECTS[urlPath]) {
     res.writeHead(301, { Location: REDIRECTS[urlPath], 'Cache-Control': 'public, max-age=86400', ...SECURITY });
     return res.end();
