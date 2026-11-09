@@ -128,7 +128,7 @@ details[open]::before{background:var(--accent2);color:#fff}
 <body>
 <main>
 <a href="/" class="backlink">ابزاربوک</a>
-<nav class="crumb" aria-label="Breadcrumb" style="font-size:.9rem;margin:0 0 8px"><a href="/">ابزاربوک</a><span>/</span><span>رمزساز و بررسی قدرت رمز</span></nav>
+<nav class="crumb" aria-label="مسیر" style="font-size:.9rem;margin:0 0 8px"><a href="/">ابزاربوک</a><span>/</span><span>رمزساز و بررسی قدرت رمز</span></nav>
 <div class="letterhead">
   <div class="lh-icn"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="15" r="1.3" fill="currentColor"/></svg></div>
   <div class="lh-text"><h1>رمزساز و بررسی قدرت رمز</h1><p>ساخت رمز عبور تصادفی امن، یا سنجش قدرت رمز فعلی شما</p></div>
@@ -177,7 +177,7 @@ details[open]::before{background:var(--accent2);color:#fff}
     </div>
     <div class="meter"><div class="meter-fill" id="chkMeterFill"></div></div>
     <div class="meter-label"><span id="chkMeterLabel">—</span><span id="chkEntropy" style="color:var(--mute);font-weight:400"></span></div>
-    <div class="crack-tile" id="crackTile" hidden>تخمین زمان کرک با حمله brute-force آفلاین: <b id="crackTime"></b></div>
+    <div class="crack-tile" id="crackTile" hidden>تخمین زمان کرک با حمله‌ی امتحان همه‌ی حالت‌ها: <b id="crackTime"></b></div>
     <div class="tips" id="tips"></div>
   </div>
 </div>
@@ -192,7 +192,7 @@ details[open]::before{background:var(--accent2);color:#fff}
 <h2>سؤالات متداول</h2>
 <details><summary>آیا رمزهایی که می‌سازم یا بررسی می‌کنم جایی ذخیره می‌شوند؟</summary><p>خیر، هیچ رمزی در این صفحه ذخیره، لاگ یا به هیچ سروری ارسال نمی‌شود؛ تولید و بررسی رمز کاملاً با کد جاوااسکریپت داخل مرورگر شما انجام می‌شود (حتی بدون اینترنت هم کار می‌کند).</p></details>
 <details><summary>رمز تصادفی این ابزار چقدر امن است؟</summary><p>رمزها با تابع رمزنگاری امن مرورگر (Web Crypto API) ساخته می‌شوند، نه با توابع تصادفی معمولی، بنابراین برای استفاده واقعی مناسب هستند.</p></details>
-<details><summary>تخمین «زمان کرک» دقیقاً چیست؟</summary><p>یک برآورد تقریبی از زمان لازم برای حدس زدن رمز با روش brute-force (امتحان کردن همه حالت‌های ممکن) توسط سخت‌افزار امروزی است؛ حمله‌های واقعی می‌توانند با الگوها و لیست رمزهای رایج سریع‌تر عمل کنند.</p></details>
+<details><summary>تخمین «زمان کرک» دقیقاً چیست؟</summary><p>یک برآورد تقریبی از زمان لازم برای حدس زدن رمز با روش امتحان کردن همه حالت‌های ممکن توسط سخت‌افزار امروزی است؛ حمله‌های واقعی می‌توانند با الگوها و لیست رمزهای رایج سریع‌تر عمل کنند.</p></details>
 
 <p class="note">این ابزار صرفاً یک تخمین آماری از قدرت رمز ارائه می‌دهد و تضمین امنیت کامل نیست. برای حساب‌های مهم، از رمز یکتا برای هر سرویس و در صورت امکان از احراز هویت دو مرحله‌ای استفاده کنید.</p>
 <h2 style="margin-top:44px">ابزارهای مرتبط</h2>
@@ -250,7 +250,7 @@ document.getElementById("copyLink").onclick=function(){navigator.clipboard.write
 </script>
 <p style="font-size:.8rem;margin-top:14px">سایر ابزارهای ابزاربوک: <a href="/qrcode.html" style="color:var(--accent)">ساخت کد QR</a> · <a href="/sen.html" style="color:var(--accent)">محاسبه سن</a> · <a href="/etebarsanji.html" style="color:var(--accent)">اعتبارسنجی شبا و کد ملی</a></p>
 </main>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "آیا رمزهایی که می‌سازم یا بررسی می‌کنم جایی ذخیره می‌شوند؟", "acceptedAnswer": {"@type": "Answer", "text": "خیر، هیچ رمزی در این صفحه ذخیره، لاگ یا به هیچ سروری ارسال نمی‌شود؛ تولید و بررسی رمز کاملاً با کد جاوااسکریپت داخل مرورگر شما انجام می‌شود (حتی بدون اینترنت هم کار می‌کند)."}}, {"@type": "Question", "name": "رمز تصادفی این ابزار چقدر امن است؟", "acceptedAnswer": {"@type": "Answer", "text": "رمزها با تابع رمزنگاری امن مرورگر (Web Crypto API) ساخته می‌شوند، نه با توابع تصادفی معمولی، بنابراین برای استفاده واقعی مناسب هستند."}}, {"@type": "Question", "name": "تخمین «زمان کرک» دقیقاً چیست؟", "acceptedAnswer": {"@type": "Answer", "text": "یک برآورد تقریبی از زمان لازم برای حدس زدن رمز با روش brute-force (امتحان کردن همه حالت‌های ممکن) توسط سخت‌افزار امروزی است؛ حمله‌های واقعی می‌توانند با الگوها و لیست رمزهای رایج سریع‌تر عمل کنند."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "آیا رمزهایی که می‌سازم یا بررسی می‌کنم جایی ذخیره می‌شوند؟", "acceptedAnswer": {"@type": "Answer", "text": "خیر، هیچ رمزی در این صفحه ذخیره، لاگ یا به هیچ سروری ارسال نمی‌شود؛ تولید و بررسی رمز کاملاً با کد جاوااسکریپت داخل مرورگر شما انجام می‌شود (حتی بدون اینترنت هم کار می‌کند)."}}, {"@type": "Question", "name": "رمز تصادفی این ابزار چقدر امن است؟", "acceptedAnswer": {"@type": "Answer", "text": "رمزها با تابع رمزنگاری امن مرورگر (Web Crypto API) ساخته می‌شوند، نه با توابع تصادفی معمولی، بنابراین برای استفاده واقعی مناسب هستند."}}, {"@type": "Question", "name": "تخمین «زمان کرک» دقیقاً چیست؟", "acceptedAnswer": {"@type": "Answer", "text": "یک برآورد تقریبی از زمان لازم برای حدس زدن رمز با روش امتحان کردن همه حالت‌های ممکن توسط سخت‌افزار امروزی است؛ حمله‌های واقعی می‌توانند با الگوها و لیست رمزهای رایج سریع‌تر عمل کنند."}}]}</script>
 
 <script>
 var SETS={
