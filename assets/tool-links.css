@@ -1,0 +1,14 @@
+/* بلوک مشترک پایین ابزارها: راهنما + ابزارهای مرتبط. روی همه‌ی صفحه‌های ابزار یکسان است. */
+.rt-block{margin:44px 0 0}
+.rt-h{font-size:1.15rem;margin:0 0 14px}
+.rt-guide{margin:0 0 14px;font-size:.92rem}
+.rt-guide a{color:var(--accent2,#2a4d6e);font-weight:700}
+.rt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.rt-grid{grid-template-columns:1fr}}
+.rt-card{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid #e2d8c0;border-radius:14px;background:#fffdf8;color:inherit;text-decoration:none;min-width:0}
+.rt-icon{flex:0 0 40px;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff}
+.rt-body{display:flex;flex-direction:column;gap:4px;min-width:0}
+.rt-title{font-weight:800;font-size:.95rem;line-height:1.5}
+.rt-desc{font-size:.82rem;line-height:1.7;color:#6b6356}
+html[data-theme="dark"] .rt-card{background:#1a1710;border-color:#2e291c}
+html[data-theme="dark"] .rt-desc{color:#c9bfa8}
